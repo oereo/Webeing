@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainPage',
     'Account',
+
+    # for usermodel
+    'phonenumber_field',
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'Webeing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Webeing/templates')],
+        'DIRS': [Path(BASE_DIR, 'Webeing/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

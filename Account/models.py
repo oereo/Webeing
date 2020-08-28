@@ -1,3 +1,4 @@
+from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 
 # Create your models here.
@@ -36,6 +37,7 @@ class User(AbstractBaseUser):
         unique=True,
     )
     date_of_birth = models.DateField()
+    phoneNumber = models.PhoneNumberField(_("phoneNumber"))
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
