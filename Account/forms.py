@@ -11,10 +11,10 @@ class UserCreationForm(forms.ModelForm):
     password2 = forms.CharField(
         label='Password confirmation', widget=forms.PasswordInput)
     #phone_number = PhoneNumberField(_("Phone (Please state your country code eg. +44)"))
-
+    nickname = forms.CharField(label = 'nickname')
     class Meta:
         model = User
-        fields = ('email', 'date_of_birth')
+        fields = ('email', 'nickname', 'date_of_birth')
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -36,7 +36,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'date_of_birth',
+        fields = ('email', 'password', 'date_of_birth','nickname',
                   'is_active', 'is_admin')
 
     def clean_password(self):

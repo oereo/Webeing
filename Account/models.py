@@ -7,13 +7,14 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, date_of_birth, password=None):
+    def create_user(self, email, nickname, date_of_birth, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
             date_of_birth=date_of_birth,
+            nickname = nickname
             #phoneNumber = phoneNumber,
         )
 
@@ -21,11 +22,12 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, date_of_birth, password):
+    def create_superuser(self, email, nickname, date_of_birth, password):
         user = self.create_user(
             email,
             password=password,
             date_of_birth=date_of_birth,
+            nickname = nickname,
             #phoneNumber = phoneNumber,
 
         )
@@ -40,6 +42,13 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
+
+    nickname = models.CharField(
+        max_length=20,
+        null=False,
+        unique=True
+    )
+
     date_of_birth = models.DateField()
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
@@ -48,7 +57,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth']
+    REQUIRED_FIELDS = ['date_of_birth', 'nickname']
 
     def __str__(self):
         return self.email
