@@ -3,34 +3,45 @@
 {% block content %}
 
 <div id="signup">
-  <form action="." method="post">
-  <b-form @submit.stop.prevent>
-    <label for="feedback-user">User ID</label>
-    <b-input v-model="userId" :state="validation_id" id="feedback-user"></b-input>
-    <b-form-invalid-feedback :state="validation_id">
-      Your user ID must be 5-12 characters long.
-    </b-form-invalid-feedback>
-    <b-form-valid-feedback :state="validation_id">
-      Looks Good.
-    </b-form-valid-feedback>
-  </b-form>
-  <b-form @submit.stop.prevent>
-    <label for="feedback-password">Password</label>
-    <b-input v-model="userPassword" :state="validation_password" id="feedback-password"></b-input>
-    <b-form-invalid-feedback :state="validation_password">
-      비밀번호를 혼합해서 설정해주세요!
-    </b-form-invalid-feedback>
-    <b-form-valid-feedback :state="validation_password">
-      맞는 비밀번호입니다.
-    </b-form-valid-feedback>
-  </b-form>
-  <b-form @submit.stop.prevent>
-      <label for="Nickname">Nickname</label>
-      <b-input v-model="userNickname"  id="feedback-password"></b-input>
-      <label for="Phonenumber">Phone-number</label>
-      <b-input v-model="userPhonenumber"  id="feedback-password"></b-input>
-    </b-form>
+  <form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <!-- {% for field in form %}
+    <div class="form-group">
+      <label for="id_{{ field.html_name}}">{{ field.label }}</label>
+      {{ field }}
+    </div>
+    {% endfor %} -->
+    <div class="form-actions">
+      <button class="btn btn-primary btn-large" type="submit">가입하기</button>
+    </div>
   </form>
+    <b-form @submit.stop.prevent>
+      <label for="feedback-user">User ID</label>
+      <b-input v-model="userId" :state="validation_id" id="feedback-user"></b-input>
+      <b-form-invalid-feedback :state="validation_id">
+        Your user ID must be 5-12 characters long.
+      </b-form-invalid-feedback>
+      <b-form-valid-feedback :state="validation_id">
+        Looks Good.
+      </b-form-valid-feedback>
+    </b-form>
+    <b-form @submit.stop.prevent>
+      <label for="feedback-password">Password</label>
+      <b-input v-model="userPassword" :state="validation_password" id="feedback-password"></b-input>
+      <b-form-invalid-feedback :state="validation_password">
+        비밀번호를 혼합해서 설정해주세요!
+      </b-form-invalid-feedback>
+      <b-form-valid-feedback :state="validation_password">
+        맞는 비밀번호입니다.
+      </b-form-valid-feedback>
+    </b-form>
+    <b-form @submit.stop.prevent>
+      <label for="Nickname">Nickname</label>
+      <b-input v-model="userNickname" id="feedback-password"></b-input>
+      <label for="Phonenumber">Phone-number</label>
+      <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
+    </b-form>
 </div>
 
 

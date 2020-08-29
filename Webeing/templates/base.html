@@ -81,19 +81,6 @@
             }
         })
         window.app = new Vue({
-            el: '#app',
-            data: {
-                name: '',
-
-            },
-            computed: {
-                showAlert() {
-                    return this.name.length > 4 ? true : false
-                }
-            }
-
-        })
-        window.app = new Vue({
             el: '#nav',
             data: {
                 grid: {
@@ -140,7 +127,7 @@
             },
             computed: {
                 validation_id() {
-                    return this.userId.length > 4 && this.userId.length < 13
+                    return this.userId.length > 4 && this.userId.length < 30
                 },
                 validation_password() {
                     return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/.test(this.userPassword)
@@ -150,7 +137,6 @@
         })
 
     </script>
-    <!-- Required scripts -->
 </body>
 
 </html>

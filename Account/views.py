@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from django.contrib.auth import models, views
 from .forms import UserCreationForm
 from django.views.generic import CreateView
+from .models import User
+
 
 class UserRegistrationView(CreateView):
     model = User                            # 자동생성 폼에서 사용할 모델
@@ -24,11 +27,12 @@ def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            new_user = User.objects.create_user(**form.cleaned_data)
-            #login(request, new_user)
-            return redirect('home.html')
+            form.save()
+            new_user = models.User.objects.create_user(**form.cleaned_data)
+            auth.login(request, new_user)
+            return redirect('home')
         else:
-            return redirect('home.html')
+            return redirect('signup')
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
