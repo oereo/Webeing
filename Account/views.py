@@ -27,9 +27,11 @@ def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            new_user = models.User.objects.create_user(**form.cleaned_data)
-            auth.login(request, new_user)
+            user = form.save(commit=False)
+            #user.email = UserCreationForm.cleaned_data['email']
+            # user.
+            user.save()
+            #auth.login(request, user)
             return redirect('home')
         else:
             return redirect('signup')
