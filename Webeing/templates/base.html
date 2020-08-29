@@ -41,8 +41,6 @@
 
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-item href="{% url 'signup' %}">회원가입</b-nav-item>
-                    <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
                     <!-- <b-nav-item-dropdown text="Lang" right>
                         <b-dropdown-item href="#">EN</b-dropdown-item>
                         <b-dropdown-item href="#">ES</b-dropdown-item>
@@ -58,7 +56,11 @@
                         <b-dropdown-item href="#">Profile</b-dropdown-item>
                         <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
+                    {% else %}
+                    <b-nav-item href="{% url 'signup' %}">회원가입</b-nav-item>
+                    <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
                 </b-navbar-nav>
+
                 {% endif %}
             </b-collapse>
         </b-navbar>
