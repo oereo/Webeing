@@ -11,6 +11,7 @@
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
 
+    <link type="text/css" rel="stylesheet" href="{% static 'css/template.css' %}">
     <!-- Load Vue followed by BootstrapVue, and BootstrapVueIcons -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -21,8 +22,9 @@
 
 </head>
 
-<body>
-    <div id="nav">
+<body v-bind:style="margin : 100px">
+    <!-- <div id = "template" v-bind:style = "grid"> -->
+    <div id="nav" v-bind:style="grid">
         <b-navbar toggleable="lg" type="light" variant="light">
             <b-navbar-brand href="{% url 'home' %}">Webeing</b-navbar-brand>
 
@@ -61,14 +63,26 @@
             </b-collapse>
         </b-navbar>
     </div>
-    {% block content %}
-    {% endblock %}
-
+    <div style = "margin : 0 100px 0 100px">
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </div>
     <script>
+        
+        var vm = new Vue({
+            el: "#template",
+            data: {
+                grid: {
+                    margin: '0 100px 0 100px',
+                }
+            }
+        })
         window.app = new Vue({
             el: '#app',
             data: {
-                name: 'df'
+                name: '',
+
             },
             computed: {
                 showAlert() {
@@ -80,7 +94,9 @@
         window.app = new Vue({
             el: '#nav',
             data: {
-                name: 'df'
+                grid: {
+                    margin: '0 100px 0 100px',
+                }
             },
 
         })
@@ -92,32 +108,47 @@
 
         })
         window.app = new Vue({
+            el: '#sidebar',
+            data: {
+                name: ''
+            },
+
+        })
+        window.app = new Vue({
+            el: '#login',
+            data: {
+                name: ''
+            },
+
+        })
+        window.app = new Vue({
             //export default {
             el: '#signup',
+            data: {
+                grid: {
+                    margin: '0 100px 0 100px',
+                },
+            },
             data() {
                 return {
+
                     userId: '',
                     userPassword: ''
                 }
             },
             computed: {
-                validation() {
+                validation_id() {
                     return this.userId.length > 4 && this.userId.length < 13
                 },
                 validation_password() {
                     return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/.test(this.userPassword)
-
                 }
 
-
-            }
-        
-
+            },
         })
 
     </script>
     <!-- Required scripts -->
-
 </body>
 
 </html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div id = "login">
+    <div class="mt-2">ID</div>
+    <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+    
+    <div class="mt-2">PASSWORD</div>
+    <b-form-input v-model="password" placeholder="Enter your password"></b-form-input>
+</div>
+{% endblock %}
