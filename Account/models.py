@@ -7,14 +7,15 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, nickname, date_of_birth, password=None):
+    def create_user(self, email, phone_number, nickname, date_of_birth, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
             date_of_birth=date_of_birth,
-            nickname = nickname
+            nickname = nickname,
+            phone_number = phone_number,
             #phoneNumber = phoneNumber,
         )
 
@@ -22,12 +23,13 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, nickname, date_of_birth, password):
+    def create_superuser(self, email, phone_number, nickname, date_of_birth, password):
         user = self.create_user(
             email,
             password=password,
             date_of_birth=date_of_birth,
             nickname = nickname,
+            phone_number = phone_number,
             #phoneNumber = phoneNumber,
 
         )
@@ -48,7 +50,7 @@ class User(AbstractBaseUser):
         null=False,
         unique=True
     )
-
+    phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
@@ -57,7 +59,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth', 'nickname']
+    REQUIRED_FIELDS = ['date_of_birth', 'nickname', 'phone_number']
 
     def __str__(self):
         return self.email

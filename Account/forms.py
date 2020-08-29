@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 #from phonenumber_field.modelfields import PhoneNumberField
-from django.utils.translation import ugettext as _
+#from django.utils.translation import ugettext as _
 
 from .models import User
 
@@ -12,6 +12,7 @@ class UserCreationForm(forms.ModelForm):
         label='Password confirmation', widget=forms.PasswordInput)
     #phone_number = PhoneNumberField(_("Phone (Please state your country code eg. +44)"))
     nickname = forms.CharField(label = 'nickname')
+    phone_number = forms.CharField(label = 'phone_number')
     class Meta:
         model = User
         fields = ('email', 'nickname', 'date_of_birth')
