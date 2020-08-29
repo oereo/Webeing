@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'Account',
 
     # for usermodel
-    'phonenumber_field',
+    #'phonenumber_field',
 
 ]
 
