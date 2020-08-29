@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="signup">
+  <b-form @submit.stop.prevent>
+    <label for="feedback-user">User ID</label>
+    <b-input v-model="userId" :state="validation" id="feedback-user"></b-input>
+    <b-form-invalid-feedback :state="validation">
+      Your user ID must be 5-12 characters long.
+    </b-form-invalid-feedback>
+    <b-form-valid-feedback :state="validation">
+      Looks Good.
+    </b-form-valid-feedback>
+    <label for="feedback-user">Password</label>
+    <b-input v-model="userPassword" :state="validation_password" id="feedback-user"></b-input>
+    <!-- <b-form-invalid-feedback :state="validation_password">
+      비밀번호를 혼합해서 설정해주세요!
+    </b-form-invalid-feedback> -->
+    
+  </b-form>
+</div>
+
+{% endblock %}
