@@ -7,7 +7,7 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone_number, nickname, date_of_birth, password=None):
+    def create_user(self, email, phone_number, nickname ,date_of_birth, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -30,6 +30,7 @@ class UserManager(BaseUserManager):
             date_of_birth=date_of_birth,
             nickname = nickname,
             phone_number = phone_number,
+            
             #phoneNumber = phoneNumber,
 
         )
@@ -52,6 +53,7 @@ class User(AbstractBaseUser):
     )
     phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
+    business_number = models.CharField(max_length = 30, null = False, unique = True)
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -73,3 +75,5 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+#class normalUser
