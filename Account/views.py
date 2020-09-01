@@ -39,6 +39,7 @@ def signup(request):
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
 
+
 def logout(request):
     if request.method == 'GET':
         auth.logout(request)
