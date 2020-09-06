@@ -1,43 +1,46 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div id = "sidebar">
-        <b-button v-b-toggle.sidebar-no-header>Toggle Sidebar</b-button>
-        <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
-          <template v-slot:default="{ hide }">
-            <div class="p-3">
-              <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
-              <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-              </p>
-              <nav class="mb-3">
-                <b-nav vertical>
-                  <b-nav-item active @click="hide">Active</b-nav-item>
-                  <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
-                  <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
-                </b-nav>
-              </nav>
-              <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
-            </div>
-          </template>
-        </b-sidebar>
-      </div>
-<div id = "Home_card">
-        <b-card
-          title="Card Title"
-          img-src="https://picsum.photos/600/300/?image=25"
-          img-alt="Image"
-          img-top
-          tag="article"
-          style="max-width: 15rem;"
-          class="mb-2"
-        >
-          <b-card-text>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </b-card-text>
-      
-          <b-button href="" variant="primary">Go somewhere</b-button>
-        </b-card>
-      </div>
+
+
+<div class="col-3">
+  <div id="Home_card" style="max-height: 15rem;">
+    <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+      style="max-width: 15rem;" class="mb-2">
+      <b-card-text>
+        노랑통닭에서 할인하는 치킨들을 먹고싶다면!
+      </b-card-text>
+
+      <b-button href="" variant="success">주문하러 가기</b-button>
+    </b-card>
+  </div>
+</div>
+<div class="col-3" style="max-height: 15rem;">
+  <div id="Home_card1">
+    <b-card title="리얼후라이" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+      style="max-width: 15rem; " class="mb-2">
+      <b-card-text>
+        리얼후라이에서 할인하는 치킨들을 먹고싶다면!
+      </b-card-text>
+
+      <b-button href="" variant="success">주문하러 가기</b-button>
+    </b-card>
+  </div>
+</div>
+<div class="col-3">
+  <div id="Home_card2">
+    <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+      style="max-width: 15rem;" class="mb-2">
+      <b-card-text>
+        노랑통닭에서 할인하는 치킨들을 먹고싶다면!
+      </b-card-text>
+
+      <b-button href="" variant="success">주문하러 가기</b-button>
+    </b-card>
+  </div>
+</div>
+
+
+
+
 {% endblock %}

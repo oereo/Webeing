@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Webeing</title>
 
-    <link type="text/css" rel="stylesheet" href="http s://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
 
-    <link type="text/css" rel="stylesheet" href="{% static 'css/template.css' %}">
+    <!-- <link type="text/css" rel="stylesheet" href="{% static 'css/template.css' %}"> -->
     <!-- Load Vue followed by BootstrapVue, and BootstrapVueIcons -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -41,26 +41,21 @@
 
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
-                    <!-- <b-nav-item-dropdown text="Lang" right>
-                        <b-dropdown-item href="#">EN</b-dropdown-item>
-                        <b-dropdown-item href="#">ES</b-dropdown-item>
-                        <b-dropdown-item href="#">RU</b-dropdown-item>
-                        <b-dropdown-item href="#">FA</b-dropdown-item>
-                    </b-nav-item-dropdown> -->
+                    
                     {% if user.is_authenticated %}
                     <b-nav-item-dropdown right>
                         <!-- Using 'button-content' slot -->
                         <template v-slot:button-content>
-                            <em>User</em>
+                           
                             {{ user.email }}
                         </template>
-                            {% if user.is_seller == True %}
-                                <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
-                            {% else %}
-                                <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
-                            {% endif %}
+                        {% if user.is_seller == True %}
+                        <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
+                        {% else %}
+                        <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
+                        {% endif %}
 
-                            <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
+                        <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
                     {% else %}
                     <b-nav-item href="{% url 'signup' %}">회원가입_유저</b-nav-item>
@@ -72,14 +67,31 @@
             </b-collapse>
         </b-navbar>
     </div>
-    <div style = "margin : 0 100px 0 100px">
+    <div style="margin : 0 100px 0 100px">
         <hr>
+        <div class="row">
+                <div class="col-3">
+                  <div id="sidebar">
+                    <div>
+                      <b-nav pills>
+                      <b-nav vertical class="w-30">
+                        <b-nav-item><b-button href="{% url 'home' %}" style = "width : 220px;" variant="outline-success">치킨</b-button></b-nav-item>
+                        <b-nav-item><b-button href="{% url 'japan' %}" style = "width : 220px;"variant="outline-success">일식</b-button></b-nav-item>
+                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">중식</b-button></b-nav-item>
+                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">한식</b-button></b-nav-item>
+                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">초밥</b-button></b-nav-item>
+                      </b-nav>
+                      </b-nav>
+                    </div>
+              
+                  </div>
+                </div>
         {% block content %}
         {% endblock %}
+        </div>
     </div>
     <script>
-        
-        var vm = new Vue({
+        new Vue({
             el: "#template",
             data: {
                 grid: {
@@ -87,7 +99,7 @@
                 }
             }
         })
-        window.app = new Vue({
+        new Vue({
             el: '#nav',
             data: {
                 grid: {
@@ -96,28 +108,43 @@
             },
 
         })
-        window.app = new Vue({
+        new Vue({
             el: '#Home_card',
             data: {
                 name: 'df'
             },
 
         })
-        window.app = new Vue({
+        new Vue({
+            el: '#Home_card1',
+            data: {
+                name: 'df'
+            },
+
+        })
+        new Vue({
+            el: '#Home_card2',
+            data: {
+                name: 'df'
+            },
+
+        })
+        new Vue({
+            el: '#Home_card3',
+            data: {
+                name: 'df'
+            },
+
+        })
+        new Vue({
             el: '#sidebar',
             data: {
                 name: ''
             },
 
         })
-        window.app = new Vue({
-            el: '#login',
-            data: {
-                name: ''
-            },
-
-        })
-        window.app = new Vue({
+        
+        new Vue({
             //export default {
             el: '#signup',
             data: {

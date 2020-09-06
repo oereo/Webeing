@@ -3,89 +3,91 @@
 {% block content %}
 
 <form action="{% url 'signup' %}" method="POST">
-    {% csrf_token %}
-    <!-- {{form.as_p}} -->
-    <h3 class="mb-3"><strong>회원가입</strong></h3>
-    <div class="mb-3">
-      <label for="username">UserID</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">ID</span>
-        </div>
-        <input type="text" class="form-control" id="username" placeholder="you@example.com" required name="username"> <button id = "checkid"  style="display:inline; border-radius: 5px;background-color : orange;color:white">중복확인</button><br>
-        <div class="invalid-feedback" style="width: 100%;">
-          Your userID is required.
-        </div>
+  {% csrf_token %}
+  <!-- {{form.as_p}} -->
+  <h3 class="mb-3"><strong>회원가입</strong></h3>
+  <div class="mb-3">
+    <label for="username">UserID</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">ID</span>
+      </div>
+      <input type="text" class="form-control" id="username" placeholder="you@example.com" required name="username">
+      <button id="checkid"
+        style="display:inline; border-radius: 5px;background-color : orange;color:white">중복확인</button><br>
+      <div class="invalid-feedback" style="width: 100%;">
+        Your userID is required.
       </div>
     </div>
+  </div>
 
-    <div class="mb-3">
-      <label for="phonenumber">전화번호 <span class="text-muted">(필수)</span></label>
-      <input type="phonenumber" class="form-control" id="phonenumber" placeholder="010-2222-2222"required name="phonenumber">
-      <div class="invalid-feedback">
-        <!-- Please enter a valid email address for shipping updates. -->
-      </div>
+  <div class="mb-3">
+    <label for="phonenumber">전화번호 <span class="text-muted">(필수)</span></label>
+    <input type="phonenumber" class="form-control" id="phonenumber" placeholder="010-2222-2222" required
+      name="phonenumber">
+    <div class="invalid-feedback">
+      <!-- Please enter a valid email address for shipping updates. -->
     </div>
-    <div class="mb-3">
-      <label for="dateofbirth">생일 <span class="text-muted">(필수)</span></label>
-      <input type="dateofbirth" class="form-control" id="dateofbirth" placeholder="1996-04-06"required name="dateofbirth">
-      <div class="invalid-feedback">
-        <!-- Please enter a valid email address for shipping updates. -->
-      </div>
+  </div>
+  <div class="mb-3">
+    <label for="dateofbirth">생일 <span class="text-muted">(필수)</span></label>
+    <input type="dateofbirth" class="form-control" id="dateofbirth" placeholder="1996-04-06" required
+      name="dateofbirth">
+    <div class="invalid-feedback">
+      <!-- Please enter a valid email address for shipping updates. -->
     </div>
-    <div class="mb-3">
-      <label for="nickname">Nickname <span class="text-muted">(필수)</span></label>
-      <input type="nickname" class="form-control" id="nickname" placeholder="개구리"required name="nickname">
-      <div class="invalid-feedback">
-        <!-- Please enter a valid email address for shipping updates. -->
-      </div>
+  </div>
+  <div class="mb-3">
+    <label for="nickname">Nickname <span class="text-muted">(필수)</span></label>
+    <input type="nickname" class="form-control" id="nickname" placeholder="개구리" required name="nickname">
+    <div class="invalid-feedback">
+      <!-- Please enter a valid email address for shipping updates. -->
     </div>
-    <div class="mb-3">
-      <label for="address">비밀번호</label>
-      <input type="password" class="form-control" id="address" placeholder="password" required name="password">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
+  </div>
+  <div class="mb-3">
+    <label for="address">비밀번호</label>
+    <input type="password" class="form-control" id="address" placeholder="password" required name="password">
+    <div class="invalid-feedback">
+      Please enter your shipping address.
     </div>
-    <div class="mb-3">
-      <label for="address">비밀번호 확인</label>
-      <input type="password" class="form-control" id="address" placeholder="password" required name="password_confirm">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
+  </div>
+  <div class="mb-3">
+    <label for="address">비밀번호 확인</label>
+    <input type="password" class="form-control" id="address" placeholder="password" required name="password_confirm">
+    <div class="invalid-feedback">
+      Please enter your shipping address.
     </div>
+  </div>
 
-      <button class="btn btn-primary btn-large" type="submit">가입하기</button>
-  </form>
-<div id="signup">
- 
-    <b-form @submit.stop.prevent>
-      <label for="feedback-user">User ID</label>
-      <b-input v-model="userId" :state="validation_id" id="feedback-user"></b-input>
-      <b-form-invalid-feedback :state="validation_id">
-        Your user ID must be 5-12 characters long.
-      </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="validation_id">
-        Looks Good.
-      </b-form-valid-feedback>
-    </b-form>
-    <b-form @submit.stop.prevent>
-      <label for="feedback-password">Password</label>
-      <b-input v-model="userPassword" :state="validation_password" id="feedback-password"></b-input>
-      <b-form-invalid-feedback :state="validation_password">
-        비밀번호를 혼합해서 설정해주세요!
-      </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="validation_password">
-        맞는 비밀번호입니다.
-      </b-form-valid-feedback>
-    </b-form>
-    <b-form @submit.stop.prevent>
-      <label for="Nickname">Nickname</label>
-      <b-input v-model="userNickname" id="feedback-password"></b-input>
-      <label for="Phonenumber">Phone-number</label>
-      <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
-    </b-form>
-</div>
+  <button class="btn btn-primary btn-large" type="submit">가입하기</button>
+</form>
 
-
+<!-- <div id="signup">
+  <b-form @submit.stop.prevent>
+    <label for="feedback-user">User ID</label>
+    <b-input v-model="userId" :state="validation_id" id="feedback-user"></b-input>
+    <b-form-invalid-feedback :state="validation_id">
+      Your user ID must be 5-12 characters long.
+    </b-form-invalid-feedback>
+    <b-form-valid-feedback :state="validation_id">
+      Looks Good.
+    </b-form-valid-feedback>
+  </b-form>
+  <b-form @submit.stop.prevent>
+    <label for="feedback-password">Password</label>
+    <b-input v-model="userPassword" :state="validation_password" id="feedback-password"></b-input>
+    <b-form-invalid-feedback :state="validation_password">
+      비밀번호를 혼합해서 설정해주세요!
+    </b-form-invalid-feedback>
+    <b-form-valid-feedback :state="validation_password">
+      맞는 비밀번호입니다.
+    </b-form-valid-feedback>
+  </b-form>
+  <b-form @submit.stop.prevent>
+    <label for="Nickname">Nickname</label>
+    <b-input v-model="userNickname" id="feedback-password"></b-input>
+    <label for="Phonenumber">Phone-number</label>
+    <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
+  </b-form>
+</div> -->
 {% endblock %}
