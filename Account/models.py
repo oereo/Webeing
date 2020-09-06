@@ -23,7 +23,26 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, phone_number, nickname, date_of_birth, password):
+    def create_seller(self, email, business_number, seller_address, seller_name, phone_number, nickname ,date_of_birth, password=None):
+        if not email:
+            raise ValueError('Users must have an email address')
+
+        user = self.model(
+            email=self.normalize_email(email),
+            date_of_birth=date_of_birth,
+            nickname = nickname,
+            phone_number = phone_number,
+            seller_address = seller_address,
+            business_number = business_number,
+            seller_name = seller_name,
+                #phoneNumber = phoneNumber,
+        )
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, business_number, phone_number, nickname, date_of_birth, password):
         user = self.create_user(
             email,
             password=password,
@@ -53,7 +72,10 @@ class User(AbstractBaseUser):
     )
     phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
-    #business_number = models.CharField(max_length = 30, null = False, unique = True)
+    business_number = models.CharField(max_length = 30, null = True, unique = True)
+    seller_address = models.CharField(max_length = 30, null = True, unique = True)
+    seller_name = models.CharField(max_length = 30, null = True, unique = True)
+
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
