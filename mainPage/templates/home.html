@@ -2,44 +2,80 @@
 {% load static %}
 {% block content %}
 
+<div class="row">
+  <div class="col-3">
+    <div id="sidebar">
+      <div>
+        <b-nav pills>
+          <b-nav vertical class="w-30">
+            <b-nav-item>
+              <b-button href="{% url 'home' %}" style="width : 220px;" variant="outline-success">치킨</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button href="{% url 'japan' %}" style="width : 220px;" variant="outline-success">일식</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">중식</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">한식</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">초밥</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">초밥</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">초밥</b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button style="width : 220px;" variant="outline-success">초밥</b-button>
+            </b-nav-item>
 
-<div class="col-3">
-  <div id="Home_card" style="max-height: 15rem;">
-    <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
-      style="max-width: 15rem;" class="mb-2">
-      <b-card-text>
-        노랑통닭에서 할인하는 치킨들을 먹고싶다면!
-      </b-card-text>
+          </b-nav>
+        </b-nav>
+      </div>
 
-      <b-button href="" variant="success">주문하러 가기</b-button>
-    </b-card>
+    </div>
+  </div>
+  <div class="col-3">
+    <div id="Home_card" style="max-height: 15rem;">
+      <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+        style="max-width: 15rem;" class="mb-2">
+        <b-card-text>
+          노랑통닭에서 할인하는 치킨들을 먹고싶다면!
+        </b-card-text>
+
+        <b-button href="" variant="success">주문하러 가기</b-button>
+      </b-card>
+    </div>
+  </div>
+  <div class="col-3" style="max-height: 15rem;">
+    <div id="Home_card1">
+      <b-card title="리얼후라이" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+        style="max-width: 15rem; " class="mb-2">
+        <b-card-text>
+          리얼후라이에서 할인하는 치킨들을 먹고싶다면!
+        </b-card-text>
+
+        <b-button href="" variant="success">주문하러 가기</b-button>
+      </b-card>
+    </div>
+  </div>
+  <div class="col-3">
+    <div id="Home_card2">
+      <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
+        style="max-width: 15rem;" class="mb-2">
+        <b-card-text>
+          노랑통닭에서 할인하는 치킨들을 먹고싶다면!
+        </b-card-text>
+
+        <b-button href="" variant="success">주문하러 가기</b-button>
+      </b-card>
+    </div>
   </div>
 </div>
-<div class="col-3" style="max-height: 15rem;">
-  <div id="Home_card1">
-    <b-card title="리얼후라이" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
-      style="max-width: 15rem; " class="mb-2">
-      <b-card-text>
-        리얼후라이에서 할인하는 치킨들을 먹고싶다면!
-      </b-card-text>
-
-      <b-button href="" variant="success">주문하러 가기</b-button>
-    </b-card>
-  </div>
-</div>
-<div class="col-3">
-  <div id="Home_card2">
-    <b-card title="노랑통닭" img-src="../static/img/노랑통닭.png" img-alt="Image" img-top tag="article"
-      style="max-width: 15rem;" class="mb-2">
-      <b-card-text>
-        노랑통닭에서 할인하는 치킨들을 먹고싶다면!
-      </b-card-text>
-
-      <b-button href="" variant="success">주문하러 가기</b-button>
-    </b-card>
-  </div>
-</div>
-
 
 
 

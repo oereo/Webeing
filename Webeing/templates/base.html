@@ -26,8 +26,8 @@
     <!-- <div id = "template" v-bind:style = "grid"> -->
     <div id="nav" v-bind:style="grid">
         <b-navbar toggleable="lg" type="light" variant="light">
-            <b-navbar-brand href="{% url 'home' %}">Webeing</b-navbar-brand>
-
+            <b-img src = "../static/img/logo.png"></b-img>
+            <b-navbar-brand img-alt="Image" href="{% url 'home' %}">Webeing</b-navbar-brand>
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav>
@@ -58,8 +58,9 @@
                         <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
                     {% else %}
-                    <b-nav-item href="{% url 'signup' %}">회원가입_유저</b-nav-item>
-                    <b-nav-item href="{% url 'signup_seller' %}">회원가입_점주</b-nav-item>
+                    <b-nav-item href="{% url 'signup' %}">SINGUP</b-nav-item>
+                    <!-- <b-nav-item href="{% url 'signup_customer' %}">회원가입_유저</b-nav-item>
+                    <b-nav-item href="{% url 'signup_seller' %}">회원가입_점주</b-nav-item> -->
                     <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
                 </b-navbar-nav>
 
@@ -69,23 +70,7 @@
     </div>
     <div style="margin : 0 100px 0 100px">
         <hr>
-        <div class="row">
-                <div class="col-3">
-                  <div id="sidebar">
-                    <div>
-                      <b-nav pills>
-                      <b-nav vertical class="w-30">
-                        <b-nav-item><b-button href="{% url 'home' %}" style = "width : 220px;" variant="outline-success">치킨</b-button></b-nav-item>
-                        <b-nav-item><b-button href="{% url 'japan' %}" style = "width : 220px;"variant="outline-success">일식</b-button></b-nav-item>
-                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">중식</b-button></b-nav-item>
-                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">한식</b-button></b-nav-item>
-                        <b-nav-item><b-button style = "width : 220px;"variant="outline-success">초밥</b-button></b-nav-item>
-                      </b-nav>
-                      </b-nav>
-                    </div>
-              
-                  </div>
-                </div>
+        
         {% block content %}
         {% endblock %}
         </div>
@@ -138,6 +123,13 @@
         })
         new Vue({
             el: '#sidebar',
+            data: {
+                name: ''
+            },
+
+        })
+        new Vue({
+            el: '#signup_2image',
             data: {
                 name: ''
             },

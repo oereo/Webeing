@@ -23,7 +23,7 @@ def login_user(request):
             return render(request, 'login.html')
     return render(request, 'login.html')
 
-def signup(request):
+def signup_customer(request):
     if request.method == "POST":
         if request.POST['password'] == request.POST['password_confirm']:
             user = User.objects.create_user(
@@ -77,3 +77,6 @@ def customerPage(request):
 
 def sellerPage(request):
     return render(request, 'sellerPage.html')
+
+def signup(request):
+    return render(request, 'signup.html')

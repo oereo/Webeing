@@ -4,6 +4,6 @@ from mainPage import views
 
 urlpatterns = [
     path('', views.home, name ="home"),
-    path('japan', views.japan, name ="japan"),
+    path('japan/', views.japan, name ="japan"),
 
 ]
