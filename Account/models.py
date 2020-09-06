@@ -53,7 +53,7 @@ class User(AbstractBaseUser):
     )
     phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
-    business_number = models.CharField(max_length = 30, null = False, unique = True)
+    #business_number = models.CharField(max_length = 30, null = False, unique = True)
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

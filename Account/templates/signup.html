@@ -4,13 +4,96 @@
 
 <form action="{% url 'signup' %}" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <!-- {% for field in form %}
-    <div class="form-group">
-      <label for="id_{{ field.html_name}}">{{ field.label }}</label>
-      {{ field }}
+    <!-- {{form.as_p}} -->
+    <h3 class="mb-3"><strong>회원가입</strong></h3>
+    <div class="mb-3">
+      <label for="username">UserID</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">ID</span>
+        </div>
+        <input type="text" class="form-control" id="username" placeholder="you@example.com" required name="username"> <button id = "checkid"  style="display:inline; border-radius: 5px;background-color : orange;color:white">중복확인</button><br>
+        <div class="invalid-feedback" style="width: 100%;">
+          Your userID is required.
+        </div>
+      </div>
     </div>
-    {% endfor %} -->
+
+    <div class="mb-3">
+      <label for="phonenumber">전화번호 <span class="text-muted">(필수)</span></label>
+      <input type="phonenumber" class="form-control" id="phonenumber" placeholder="010-2222-2222"required name="phonenumber">
+      <div class="invalid-feedback">
+        <!-- Please enter a valid email address for shipping updates. -->
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="dateofbirth">생일 <span class="text-muted">(필수)</span></label>
+      <input type="dateofbirth" class="form-control" id="dateofbirth" placeholder="1996-04-06"required name="dateofbirth">
+      <div class="invalid-feedback">
+        <!-- Please enter a valid email address for shipping updates. -->
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="nickname">Nickname <span class="text-muted">(필수)</span></label>
+      <input type="nickname" class="form-control" id="nickname" placeholder="개구리"required name="nickname">
+      <div class="invalid-feedback">
+        <!-- Please enter a valid email address for shipping updates. -->
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="address">비밀번호</label>
+      <input type="password" class="form-control" id="address" placeholder="password" required name="password">
+      <div class="invalid-feedback">
+        Please enter your shipping address.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="address">비밀번호 확인</label>
+      <input type="password" class="form-control" id="address" placeholder="password" required name="password_confirm">
+      <div class="invalid-feedback">
+        Please enter your shipping address.
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-5 mb-3">
+        <label for="country">Job</label>
+        <select class="custom-select d-block w-100" id="job" required name="job">
+          <option value="">Choose...</o
+          ption>
+          <option>대학생</option>
+          <option>회사원</option>
+          <option>의사</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid country.
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="state">지역</label>
+        <select class="custom-select d-block w-100" id="location" required name="location">
+          <option value="">Choose...</option>
+          <option>부산</option>
+          <option>경기도</option>
+          <option>서울</option>
+        </select>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="choose_people">추천인</label>
+        <input type="text" class="form-control" id="choose_people" placeholder="ex) 김정훈" required name="choose_people">
+        <div class="invalid-feedback">
+          Please enter your shipping choose_people.
+        </div>
+      </div>
+
+      <hr>
+    </div> -->
+
+
+
       <button class="btn btn-primary btn-large" type="submit">가입하기</button>
   </form>
 <div id="signup">
