@@ -18,7 +18,7 @@ class UserManager(BaseUserManager):
             phone_number = phone_number,
             #phoneNumber = phoneNumber,
         )
-
+        user.is_seller = False
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -35,9 +35,10 @@ class UserManager(BaseUserManager):
             seller_address = seller_address,
             business_number = business_number,
             seller_name = seller_name,
+            # is_seller = is_seller,
                 #phoneNumber = phoneNumber,
         )
-
+        user.is_seller = True
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -49,10 +50,10 @@ class UserManager(BaseUserManager):
             date_of_birth=date_of_birth,
             nickname = nickname,
             phone_number = phone_number,
-            
             #phoneNumber = phoneNumber,
 
         )
+        user.is_seller = False
         user.is_admin = True
         user.save(using=self._db)
         return user
@@ -79,6 +80,7 @@ class User(AbstractBaseUser):
     #phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    is_seller = models.BooleanField(null = True, default = True)
 
     objects = UserManager()
 

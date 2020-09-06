@@ -33,26 +33,36 @@ def signup(request):
                 email = request.POST['username'],
                 nickname = request.POST['nickname'],
                 date_of_birth = request.POST['dateofbirth'],
-
             )
-            # user.is_active = False
-            # user.save()        
+            auth.login(request, user)
 
-        # form = UserCreationForm(request.POST)
-        # if form.is_valid():
-            #new_user = models.User.objects.create_user(**form.cleaned_data)
-            #user = form.save(commit=False)
-            #user.email = UserCreationForm.cleaned_data['email']
-            # user.
-            #user.save()
-            #login(request, new_user)
-            #auth.login(request, user)
         return redirect('home')
         
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'signupcustomer.html', {'form': form})
 
+def signup_seller(request):
+    if request.method == "POST":
+        if request.POST['password'] == request.POST['password_confirm']:
+            user = User.objects.create_seller(
+                # request.POST['email'],
+                phone_number = request.POST['phonenumber'],
+                password = request.POST['password'],
+                email = request.POST['username'],
+                nickname = request.POST['nickname'],
+                date_of_birth = request.POST['dateofbirth'],
+                seller_address = request.POST['seller_address'],
+                business_number = request.POST['business_number'],
+                seller_name = request.POST['seller_name'],
+            )
+            auth.login(request, user)
+
+        return redirect('home')
+        
+    else:
+        form = UserCreationForm()
+    return render(request, 'signupseller.html', {'form': form})
 
 def logout(request):
     if request.method == 'GET':
@@ -60,3 +70,10 @@ def logout(request):
         print('log out success')
         return redirect('/')
     return render(request,'home.html')
+
+
+def customerPage(request):
+    return render(request, 'customerPage.html')
+
+def sellerPage(request):
+    return render(request, 'sellerPage.html')

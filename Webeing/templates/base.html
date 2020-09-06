@@ -52,12 +52,19 @@
                         <!-- Using 'button-content' slot -->
                         <template v-slot:button-content>
                             <em>User</em>
+                            {{ user.email }}
                         </template>
-                        <b-dropdown-item href="#">Profile</b-dropdown-item>
-                        <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
+                            {% if user.is_seller == True %}
+                                <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
+                            {% else %}
+                                <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
+                            {% endif %}
+
+                            <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
                     {% else %}
-                    <b-nav-item href="{% url 'signup' %}">회원가입</b-nav-item>
+                    <b-nav-item href="{% url 'signup' %}">회원가입_유저</b-nav-item>
+                    <b-nav-item href="{% url 'signup_seller' %}">회원가입_점주</b-nav-item>
                     <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
                 </b-navbar-nav>
 
