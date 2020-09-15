@@ -41,6 +41,13 @@ INSTALLED_APPS = [
     'mainPage',
     'Account',
 
+    #for shopping
+    'cart',
+    'coupon',
+    'order',
+    'products',
+    'shop',
+
     # for usermodel
     #'phonenumber_field',
 
