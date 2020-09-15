@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'cart',
     'coupon',
     'order',
-    'products',
     'shop',
 
     # for usermodel
@@ -137,11 +136,18 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
-
-#STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 
+
+# for Custom_user
 AUTH_USER_MODEL = 'Account.User'
+
+
+CART_ID = 'cart_in_session'
+
+
+# IAMPORT
+IAMPORT_KEY = '9109082069216004'
+IAMPORT_SECRET = 'sl59SRbOZeN0544HZmQEsS8Ntj6thkoKFuTyl5nlkampfq7fNYTfR13kl9ODtcn9GhI2n5nHgK7waeLX'
