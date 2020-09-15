@@ -42,7 +42,7 @@
 						},
 
 					// Delay.
-						delay: 2000
+						delay: 4000
 
 				};
 
@@ -159,7 +159,7 @@
 								$submit.disabled = false;
 
 							// Show message.
-								$message._show('success', 'Thank you!');
+								$message._show('success', 'Start!!!');
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);
