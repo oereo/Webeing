@@ -43,12 +43,21 @@
                 <b-navbar-nav class="ml-auto">
                     
                     {% if user.is_authenticated %}
+                    <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
+                        {% if cart|length > 0 %}
+                            ${{ cart.get_total_price }} with {{cart|length}} items
+                        {% else %}
+                            : Empty
+                        {% endif %}
+                    </a>
                     <b-nav-item-dropdown right>
                         <!-- Using 'button-content' slot -->
                         <template v-slot:button-content>
                            
                             {{ user.email }}
+                            
                         </template>
+                        
                         {% if user.is_seller == True %}
                         <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
                         {% else %}
@@ -163,6 +172,7 @@
         })
 
     </script>
+    <script src 
 </body>
 
 </html>
