@@ -28,6 +28,18 @@ class Restaurant(models.Model):
     meta_description = models.TextField(blank=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
+    available_display = models.BooleanField('Display', default=True)
+    available_order = models.BooleanField('Order', default=True)
+    
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
+        index_together = [['id','slug']]
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='restaurant')
     name = models.CharField(max_length=200, db_index=True)
