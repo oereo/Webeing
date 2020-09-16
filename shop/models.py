@@ -19,9 +19,17 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_in_category', args=[self.slug])
 
+class Restaurant(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
+    name = models.CharField(max_length=200, db_index=True)
+
+    image = models.ImageField(upload_to='products/%Y/%m/%d',blank=True)
+    description = models.TextField(blank=True)
+    meta_description = models.TextField(blank=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='restaurant')
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
