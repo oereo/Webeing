@@ -19,14 +19,14 @@
               {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
             </div>
             <div class="row">
-            {% for product in products %}
+            {% for restaurant in restaurants %}
 
                 <div class="col-4">
                     <div class="card">
-                      <img class="card-img-top" src="{{product.image.url}}" alt="Product Image">
+                      <img class="card-img-top" src="{{restaurant.image.url}}" alt="restaurant Image">
                       <div class="card-body">
-                        <h5 class="card-title">{{product.name}}</h5>
-                        <p class="card-text">{{product.description}} <br><span class="badge badge-secondary">${{product.price}}</span></p>
+                        <h5 class="card-title">{{restaurant.name}}</h5>
+                        <p class="card-text">{{restaurant.description}} <br><span class="badge badge-secondary">$</span></p>
                         <a href="{{product.get_absolute_url}}" class="btn btn-primary">View Detail</a>
                       </div>
                     </div>
