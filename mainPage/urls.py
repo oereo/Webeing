@@ -4,6 +4,6 @@ from mainPage import views
 
 urlpatterns = [
     path('main/', views.home, name ="home"),
-    path('landing/', views.landingPage, name="langdingPage"),
+    path('', views.landingPage, name="langdingPage"),
 
 ]

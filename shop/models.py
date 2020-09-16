@@ -42,7 +42,7 @@ class Restaurant(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('shop:product_in_restaurant', args=[self.id, self.slug])
+        return reverse('shop:product_in_restaurant', args=[self.slug])
 
 class Product(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='restaurant')

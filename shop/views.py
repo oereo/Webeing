@@ -26,7 +26,7 @@ def product_in_restaurant(request, restaurant_slug=None):
 
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
-        products = products.filter(restaurant=current_restaurant)
+        products = products.filter(Restaurant=current_restaurant)
 
     return render(request, 'shop/product_list.html',
                   {'current_restaurant': current_restaurant, 'restaurants': restaurants, 'products': products})

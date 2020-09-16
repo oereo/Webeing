@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}Restaurant Page{% endblock %}
 {% block content %}
-
+<div class="row">
+        <div class="col-2">
+            <div class="list-group">
+                <a href="/" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
+                {% for c in restaurants %}
+                    <a href="{{c.get_absolute_url}}" class="list-group-item {% if current_restaurant.slug == c.slug %}active{% endif %}">{{c.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="alert alert-info" role="alert">
+                {% if current_restaurant %}{{current_restaurant.name}}{% else %}All Products{% endif %}
+              </div>
 <div class="col">
         <!-- <div class="alert alert-info" role="alert">
           {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
