@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Restaurant Page{% endblock %}
+{% block content %}
+
+<div class="col">
+        <!-- <div class="alert alert-info" role="alert">
+          {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
+        </div> -->
+        <div class="row">
+        {% for product in products %}
+
+            <div class="col-4">
+                <div class="card">
+                  <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{product.description}} <br><span class="badge badge-secondary">${{product.price}}</span></p>
+                    <a href="{{product.get_absolute_url}}" class="btn btn-primary">View Detail</a>
+                  </div>
+                </div>
+            </div>
+
+        {% endfor %}
+{% endblock %}

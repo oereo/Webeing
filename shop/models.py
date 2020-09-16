@@ -17,7 +17,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_in_category', args=[self.slug])
+        return reverse('shop:restaurant_in_category', args=[self.slug])
 
 class Restaurant(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
@@ -34,11 +34,15 @@ class Restaurant(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-created']
-        index_together = [['id','slug']]
+        ordering = ['name']
+        verbose_name = 'restaurant'
+        verbose_name_plural = 'restaurants'
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('shop:product_in_restaurant', args=[self.id, self.slug])
 
 class Product(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='restaurant')

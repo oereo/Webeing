@@ -15,6 +15,23 @@ def restaurant_in_category(request, category_slug=None):
     return render(request, 'shop/list.html',
                   {'current_category': current_category, 'categories': categories, 'restaurants': restaurants})
 
+
+from cart.forms import AddProductForm
+
+def product_in_restaurant(request, restaurant_slug=None):
+    current_restaurant = None
+    restaurants = Restaurant.objects.all()
+    products = Product.objects.filter(available_display=True)
+
+
+    if restaurant_slug:
+        current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
+        products = products.filter(restaurant=current_restaurant)
+
+    return render(request, 'shop/product_list.html',
+                  {'current_restaurant': current_restaurant, 'restaurants': restaurants, 'products': products})
+
+
 from cart.forms import AddProductForm
 def product_detail(request, id, product_slug=None):
     product = get_object_or_404(Product, id=id, slug=product_slug)
