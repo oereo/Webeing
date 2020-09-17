@@ -25,7 +25,6 @@ def product_in_restaurant(request, restaurant_slug=None):
     restaurants = Restaurant.objects.all()
     products = Product.objects.filter(available_display=True)
 
-
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
         products = products.filter(restaurant=current_restaurant)
