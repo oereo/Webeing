@@ -3,6 +3,12 @@ from .models import *
 from cart.cart import Cart
 from .forms import *
 
+# def shop_success(request):
+#     cart = Cart()
+#     buyinglist = buyingList()
+#     user = request.user
+#     buyinglist.name
+
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
@@ -45,6 +51,7 @@ class OrderCreateAjaxView(View):
             order = form.save(commit=False)
             if cart.coupon:
                 order.coupon = cart.coupon
+               
                 order.discount = cart.coupon.amount
             order = form.save()
             for item in cart:
