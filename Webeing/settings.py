@@ -26,7 +26,7 @@ SECRET_KEY = '@g4xkdpz%phq1#4&+ntb=r@p^0f)zyfc&#m1u6depeiuza)b8o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] 
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainPage',
+    # 'mainPage',
     'Account',
 
     #for shopping

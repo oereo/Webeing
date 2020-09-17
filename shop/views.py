@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from .models import Restaurant, Category, Product
 
-from .models import *
+def landingPage(request):
+    return render(request, 'shop/landingPage.html')
 
 def restaurant_in_category(request, category_slug=None):
     current_category = None

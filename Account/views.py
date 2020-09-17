@@ -18,7 +18,8 @@ def login_user(request):
         user = auth.authenticate(request, email = email, password = password)
         if user is not None:
             auth.login(request, user)
-            return redirect('home')
+            return render(request,'shop/list.html')
+
         else:
             return render(request, 'login.html')
     return render(request, 'login.html')
@@ -68,8 +69,8 @@ def logout(request):
     if request.method == 'GET':
         auth.logout(request)
         print('log out success')
-        return redirect('/')
-    return render(request,'home.html')
+        return render(request,'shop/list.html')
+    return render(request,'shop/list.html')
 
 
 def customerPage(request):
