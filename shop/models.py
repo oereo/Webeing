@@ -1,5 +1,5 @@
 from django.db import models
-
+from Account.models import User
 from django.urls import reverse
 
 class Category(models.Model):
@@ -19,11 +19,12 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('shop:restaurant_in_category', args=[self.slug])
 
+
 class Restaurant(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='restaurants')
     name = models.CharField(max_length=200, db_index=True)
 
-    image = models.ImageField(upload_to='products/%Y/%m/%d',blank=True)
+    image = models.ImageField(upload_to='restaurants/%Y/%m/%d',blank=True)
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
@@ -44,8 +45,9 @@ class Restaurant(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_in_restaurant', args=[self.slug])
 
+
 class Product(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='restaurant')
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='products')
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
@@ -73,3 +75,13 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+
+
+class buyingList(models.Model):
+    buylist = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='buylists')
+    name = models.CharField(max_length=200, db_index=True)
+    price = models.DecimalField(max_digits=10,decimal_places=2)
+    stock = models.PositiveIntegerField()
+    
+    def __str__(self):
+        return self.name

@@ -21,3 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price','stock','available_display','available_order']
 
 admin.site.register(Product, ProductAdmin)
+
+class BuyinglistAdmin(admin.ModelAdmin):
+    list_display = ['name', 'price', 'stock']
+admin.site.register(buyingList, BuyinglistAdmin)
