@@ -2,10 +2,9 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from shop.models import buyingList
 from coupon.models import Coupon
+from Account.models import User
 class Order(models.Model):
-    
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='user', null=True, blank=True)
     email = models.EmailField()
     address = models.CharField(max_length=250)
     postal_code = models.CharField(max_length=20)

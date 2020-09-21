@@ -5,5 +5,5 @@ from shop.models import buyingList
 
 class OrderCreateForm(forms.ModelForm):
     class Meta:
-        model = buyingList
-        fields = ['name', 'price', 'stock']
+        model = Order
+        fields = ['email']
