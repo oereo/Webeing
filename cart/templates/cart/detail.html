@@ -61,10 +61,10 @@ Shopping cart
         </tbody>
     </table>
     <p>
-        Add Coupon:
+        기존 Point
     </p>
     <form action='{% url "coupon:add" %}' method="post">
-        {{ add_coupon }}
+        <!-- {{ add_coupon }} -->
         <input type="submit" value="Add">
         {% csrf_token %}
     </form>
