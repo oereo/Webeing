@@ -1,6 +1,6 @@
 $(function () {
     var IMP = window.IMP;
-    IMP.init('imp11166264');
+    IMP.init('iamport');
     $('.order-form').on('submit', function (e) {
         var amount = parseFloat($('.order-form input[name="amount"]').val().replace(',', ''));
         var type = $('.order-form input[name="type"]:checked').val();
@@ -17,11 +17,15 @@ $(function () {
         // 결제 정보가 만들어졌으면 iamport로 실제 결제 시도
         if (merchant_id !== '') {
             IMP.request_pay({
+                pg : 'kakao',
+                pay_method : 'card',
                 merchant_uid: merchant_id,
-                name: 'E-Shop product',
-                buyer_name:$('input[name="first_name"]').val()+" "+$('input[name="last_name"]').val(),
+                name: 'iamport',
+                // buyer_name:$('input[name="first_name"]').val()+" "+$('input[name="last_name"]').val(),
                 buyer_email:$('input[name="email"]').val(),
-                amount: amount
+                buyer_addr : '서울특별시 강남구 삼성동',
+                amount: amount,
+                m_redirect_url : 'http://127.0.0.1:8000/order/create/'
             }, function (rsp) {
                 if (rsp.success) {
                     var msg = '결제가 완료되었습니다.';

@@ -46,6 +46,7 @@ class OrderCreateAjaxView(View):
         if not request.user.is_authenticated:
             return JsonResponse({"authenticated":False}, status=403)
 
+        user = request.user
         cart = Cart(request)
         form = OrderCreateForm(request.POST)
 
