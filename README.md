@@ -27,3 +27,19 @@ $ ./manage.py makemigrations
 $ ./manage.py migrate
 $ ./manage.py runserver
 ```
+
+## Commit rule
+```console
+git commit -m "text"
+```
+
+|제목|내용|설명|
+|:---:|:---|
+|[ADD]|코드나 테스트, 예제, 문서 등의 추가가 있을 때 사용|
+|[fix]|올바르지 않은 로직을 고친 경우에 사용|
+|[REMOVE]|코드의 삭제가 있을 때 사용|
+|[UPDATE]|개정이나 버전 업데이트가 있을 때 사용|
+|[CORRECT]|주로 문법의 오류나 타입의 변경, 이름 변경 등에 사용|
+
+
+
