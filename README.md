@@ -23,6 +23,7 @@ $ source myvenv/scripts/activate  mac) source myvenv/bin/activate
 $ cd Webeing
 $ pip install -r requirements.txt
 
+-----------------------------
 $ ./manage.py makemigrations
 $ ./manage.py migrate
 $ ./manage.py runserver
