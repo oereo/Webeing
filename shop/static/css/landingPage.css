@@ -1,0 +1,143 @@
+.container {
+    display: inline-grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 10fr repeat(4, 7fr) 5fr ;
+
+    row-gap: 0rem 20rem 20rem 20rem 20rem 10rem;
+
+    grid-template-areas:
+        "header"
+        "main"
+        "service1"
+        "service2"
+        "service3"
+        "service4"
+        "footer"
+
+}
+
+.header {
+    grid-area: header; 
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index : 2;
+}
+
+/* Icon */
+.icon {
+    z-index: 2;
+    text-decoration: none;
+    border-bottom: none;
+    position: relative; }
+    .icon:before {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      text-transform: none !important;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 400; }
+    .icon > .label {
+      display: none; }
+    .icon:before {
+      line-height: inherit; }
+    .icon.solid:before {
+      font-weight: 900; }
+    .icon.brands:before {
+      font-family: 'Font Awesome 5 Brands'; }
+
+/* Icons */
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0; }
+    ul.icons li {
+      display: inline-block;
+      padding: 0 1em 0 0; }
+      ul.icons li:last-child {
+        padding-right: 0; }
+      ul.icons li .icon:before {
+        font-size: 1.25em; }
+      ul.icons li a {
+        color: inherit; }
+
+.main {
+    grid-area: main; 
+    z-index : 1; 
+}
+.service1 {
+    grid-area: service1; 
+    background-color: #F1FAE9;
+}
+.service2 {
+    grid-area: service2; 
+    background-color: #F1FAE9;
+}
+.service3 {
+    grid-area: service3; 
+    background-color: #F1FAE9;
+}
+.service4 {
+    grid-area: service4; 
+    background-color: #F1FAE9;
+}
+.footer {
+    grid-area: footer; 
+    background-color: #CED4DA;
+}
+.checkimg {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+
+
+.insidecontainer1 {
+    display: inline-grid;
+
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 3fr 1fr;
+
+    column-gap: 0rem 5rem 5rem 0rem;
+    row-gap: 0rem 3rem 0rem;
+
+    grid-template-areas:
+        ". . . . ."
+        ". cardword cardword cardword ."
+        ". card1 card2 card3 ."
+        ". . . . ."
+
+}
+
+.insdiecontainer1:nth-child(2) {
+    grid-column: 2 / 5;
+}
+
+.cardword {grid-area: cardword; }
+.card1 {grid-area: card1; }
+.card2 {grid-area: card2; }
+.card3 {grid-area: card3; }
+
+
+.insidecontainer2 {
+    display: inline-grid;
+
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr 3fr 1fr;
+    grid-template-rows: 1fr 7fr 1fr;
+
+    grid-template-areas:
+        ". . . . . . ."
+        ". card11 . card12 . card13 ."
+        ". . . . . . ."
+
+}
+
+.card11 {grid-area: card11; }
+.card12 {grid-area: card12; }
+.card13 {grid-area: card13; }
