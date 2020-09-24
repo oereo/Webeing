@@ -46,7 +46,8 @@
 
         <style type="text/css">
             #color1 {color: #00be68}
-            #color2 {color: #F1FAE9; margin: 10px;}
+            #color2 {color: #F1FAE9;}
+            #color3 {color: #FFFFFF;}
             #fontsize1 {font-size: 200%;}
             #fontsize2 {font-size: 500%;}
             #fontbold1 {font-weight: bold; }
@@ -62,11 +63,16 @@
 
            <div style = "margin-left: 10%; margin-top: 20%;  font-weight: bold; position: absolute; z-index: 2;"> 
              <ul id = "fontsize2">
-               <p><span id ="color1">초록 식문화</span>의 출발<p>
-               <p>음식에 <span id ="color1">환경</span>의 가치를 더하다</p>
+               <p><span id ="color1">초록 식문화</span><span id = "color3">의 출발</span><p>
+               <p><span id = "color3">음식에 </span><span id ="color1">환경</span><span id = "color3">의 가치를 더하다</span></p>
              </ul>
            </div>
 
+           <div>
+                <a href = "/main">
+                <img src = "{% static '/img/homebutton.png' %}" style = "margin-left: 80%; margin-top: 50%; width: 200px; height: 200px; position: absolute; z-index: 2; ">
+                </a>
+            </div>
 
            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="position: relative; z-index: 1; ">
              
