@@ -2,6 +2,9 @@
 
 Webeing is a platform to provide food and other stuff which is closed with the expired day with the low prices So We can save the Earth, too.
 
+## Contributor
+- Likelion in Chungang University
+
 ## Branch structure
 
 ### Main branch
@@ -40,3 +43,22 @@ git commit -m "text"
 |[REMOVE]|코드의 삭제가 있을 때 사용|
 |[UPDATE]|개정이나 버전 업데이트가 있을 때 사용|
 |[CORRECT]|주로 문법의 오류나 타입의 변경, 이름 변경 등에 사용|
+
+## Convention
+#### 1. test.py 작성
+- 기능에 대한 validation을 할 수 있는 test code를 작성
+- 기능에 대한 문제가 날만한 test code를 작성
+
+#### 2. method
+- CRUD 순서로 함수 작성
+
+#### 3. import
+- module을 import 해야될 때는 무조건 알파벳 순서로 정리
+
+#### 4. python
+- class 간의 간격은 무조건 2줄
+- def (method나 function)의 경우에 간격은 무조건 1줄
+
+#### 5. comments
+- 로직, class, function에 대한 설명의 주석 작성
+- 사용이 안되는 코드의 주석은 무조건 삭제하고 pull request
