@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
-#from django.contrib.auth.models import User
-from django.contrib.auth import models, views, login
 from .forms import UserCreationForm
 from django.views.generic import CreateView
 from .models import User
@@ -19,8 +17,8 @@ def login_user(request):
         user = auth.authenticate(request, email=email, password=password)
         if user is not None:
             auth.login(request, user)
-            return render(request,'shop/list.html')
-
+            # return render(request, 'shop/list.html')
+            return redirect('/main/')
         else:
             return render(request, 'login.html')
     return render(request, 'login.html')
@@ -73,8 +71,8 @@ def logout(request):
     if request.method == 'GET':
         auth.logout(request)
         print('log out success')
-        return render(request,'shop/list.html')
-    return render(request,'shop/list.html')
+        return redirect('/main/')
+    return render(request, 'shop/list.html')
 
 
 def customer_page(request):
@@ -91,3 +89,7 @@ def signup(request):
 
 def tos(request):
     return render(request, 'TOS.html')
+
+
+def tos_user(request):
+    return render(request, 'TOS_user.html')
