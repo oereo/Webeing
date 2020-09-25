@@ -9,13 +9,14 @@ from .models import User
 
 class UserRegistrationView(CreateView):
     model = User                            # 자동생성 폼에서 사용할 모델
-    fields = ('email', 'phone_number', 'nickname','password')  # 자동생성 폼에서 사용할 필드
+    fields = ('email', 'phone_number', 'nickname', 'password')  # 자동생성 폼에서 사용할 필드
+
 
 def login_user(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(request, email = email, password = password)
+        user = auth.authenticate(request, email=email, password=password)
         if user is not None:
             auth.login(request, user)
             return render(request,'shop/list.html')
@@ -23,6 +24,7 @@ def login_user(request):
         else:
             return render(request, 'login.html')
     return render(request, 'login.html')
+
 
 def signup_customer(request):
     if request.method == "POST":
@@ -42,6 +44,7 @@ def signup_customer(request):
     else:
         form = UserCreationForm()
     return render(request, 'signupcustomer.html', {'form': form})
+
 
 def signup_seller(request):
     if request.method == "POST":
@@ -65,6 +68,7 @@ def signup_seller(request):
         form = UserCreationForm()
     return render(request, 'signupseller.html', {'form': form})
 
+
 def logout(request):
     if request.method == 'GET':
         auth.logout(request)
@@ -73,11 +77,17 @@ def logout(request):
     return render(request,'shop/list.html')
 
 
-def customerPage(request):
+def customer_page(request):
     return render(request, 'customerPage.html')
 
-def sellerPage(request):
+
+def seller_page(request):
     return render(request, 'sellerPage.html')
+
 
 def signup(request):
     return render(request, 'signup.html')
+
+
+def tos(request):
+    return render(request, 'TOS.html')
