@@ -56,8 +56,8 @@ git commit -m "text"
 - module을 import 해야될 때는 무조건 알파벳 순서로 정리
 
 #### 4. python
-- class 간의 간격은 무조건 2줄
-- def (method나 function)의 경우에 간격은 무조건 1줄
+- class, function 간의 간격은 무조건 2줄
+- def (method)의 경우에 간격은 무조건 1줄
 
 #### 5. comments
 - 로직, class, function에 대한 설명의 주석 작성

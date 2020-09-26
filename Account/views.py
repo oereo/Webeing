@@ -76,8 +76,11 @@ def logout(request):
 def customerPage(request):
     return render(request, 'customerPage.html')
 
-def sellerPage(request):
+def sellerPage(request): # 사장님 페이지 
+    user = request.user
+
     return render(request, 'sellerPage.html')
 
 def signup(request):
     return render(request, 'signup.html')
+
