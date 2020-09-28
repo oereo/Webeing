@@ -62,3 +62,7 @@ git commit -m "text"
 #### 5. comments
 - 로직, class, function에 대한 설명의 주석 작성
 - 사용이 안되는 코드의 주석은 무조건 삭제하고 pull request
+
+## Merge Rule
+- merge는 확실하게 된 pull request만 할 것
+- 에러나 convention이 잘 지켜지지 않았을 경우 코드리뷰를 하거나 보고 수정을 할 것 
