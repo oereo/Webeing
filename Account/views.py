@@ -78,21 +78,16 @@ def logout(request):
 def customer_page(request):
     return render(request, 'customerPage.html')
 
-<<<<<<< HEAD
 
 def seller_page(request):
-=======
-def sellerPage(request): # 사장님 페이지 
     user = request.user
 
->>>>>>> 7a1c773563db1425851f4a90f5e1e1455d9cd04a
     return render(request, 'sellerPage.html')
 
 
 def signup(request):
     return render(request, 'signup.html')
 
-<<<<<<< HEAD
 
 def tos(request):
     return render(request, 'TOS.html')
@@ -100,5 +95,4 @@ def tos(request):
 
 def tos_user(request):
     return render(request, 'TOS_user.html')
-=======
->>>>>>> 7a1c773563db1425851f4a90f5e1e1455d9cd04a
+
