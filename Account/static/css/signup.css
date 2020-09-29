@@ -1,0 +1,61 @@
+.container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 5fr 1fr;
+
+    gap: 1rem 1rem ;
+
+    grid-template-areas:
+        "signup signup"
+        "customer seller"
+        "login login"
+}
+
+
+.signup {
+    grid-area: signup; 
+    text-align: center;    
+}
+.customer {
+    grid-area: customer; 
+    text-align: center;
+}
+.seller {
+    grid-area: seller; 
+    text-align: center;
+}
+.login {
+    grid-area: login; 
+    text-align: center;
+}
+
+
+.container:nth-child(1) {
+    grid-row: 1 / 3;
+}
+
+.container:nth-child(3) {
+    grid-row: 1 / 3;
+}
+
+.incontainer {
+    display : inline-grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 2fr;
+
+    grid-template-areas:
+        "topcard"
+        "bottomcard"
+}
+
+.topcard {
+    grid-area: topcard;
+    float: center;
+}
+
+.bottomcard {
+    grid-area: bottomcard;
+    text-align: center;
+}

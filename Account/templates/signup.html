@@ -2,37 +2,79 @@
 {% load static %}
 {% block content %}
 
-<div id="signup_2image">
-    <b-container fluid class="p-5  " style = "float : center;">
-        <!-- <b-row> -->
-            <div class="row" style = "float : center;">
-                <div class="col-6" style = "text-align : center;">
-                    <!-- <b-col> -->
-                   <a href="{% url 'signup_customer' %}"><b-img thumbnail fluid src="../static/img/customer.png" style = "width : 300px;" alt="Center image"></b-img></a>
-                    <!-- </b-col> -->
-                </div>
-                <div class="col-6" style = "text-align : center;">
-                    <!-- <b-col> -->
-                    <a href="{% url 'signup_seller' %}"><b-img thumbnail fluid src="../static/img/seller.png" style = "width : 300px;" alt="Center image"></b-img></a>
-                    <!-- </b-col> -->
-                </div>
-                <div class="col-6" style = "text-align : center;">
-                        <!-- <b-col> -->
-                       Webeing에서
-                       <br>
-                       상품을 구매할 고객님
-                        <!-- </b-col> -->
-                    </div>
-                <div class="col-6" style = "text-align : center;">
-                            <!-- <b-col> -->
-                           Webeing에서
-                           <br>
-                           상품을 판매할 점주님
-                            <!-- </b-col> -->
-                    </div>
-            </div>
-        <!-- </b-row> -->
 
-    </b-container>
+<title>signup</title>
+
+<link rel="stylesheet" type = "text/css" href = "static/css/singup.css">
+
+<style type = "text/css">
+    #color1 {color: #00be68}
+    #fontsize15 {
+        font-size: 150%;
+        font-weight: bold;
+    }
+    #fontsize2 {font-size: 200%;}
+    #fontsize3 {
+        font-size: 300%;
+        font-weight: bold;
+    }
+
+</style>
+
+<div class = "container">
+    <div class = "signup">
+        <p id = "fontsize2">회원가입</p>
+    </div>
+
+    <div class = "customer">
+
+        <div class = "incontainer">
+
+            <a href="{% url 'signup_customer' %}">
+
+                <div class = "topcard">
+                    <img src = "{% static '/img/customer.png' %}" style = "width : 300px;" alt="Center image">
+                </div>
+
+                <div class = "bottomcard" id = "fontsize15">
+                    WEBEING 에서
+                    <br>
+                    상품을 <span id = "color1">구매할</span> 고객님
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class = "seller">
+
+        <div class = "incontainer">
+
+            <a href = "{% url 'signup_seller' %}"> 
+
+                <div class = "topcard">
+                    <img src = "{% static '/img/seller.png' %}" style = "width : 300px;" alt="Center image">
+                </div>
+
+                <div class = "bottomcard" id = "fontsize15">
+                    WEBEING 에서
+                    <br>
+                    상품을 <span id = "color1">판매할</span> 점주님
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class = "login">
+        <p>이미 WEBEING 회원이신가요?</p>
+        <p id = "color1">
+            <a href = "{% url 'login' %}">로그인 하러가기</a>
+        </p>
+    </div>
+
 </div>
+
 {% endblock %}
