@@ -1,132 +1,186 @@
 .container {
-    display: inline-grid;
+    display: grid;
+    width: 100%;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 10fr 10fr repeat(4, 7fr) 5fr ;
+    grid-template-rows: 2fr 10fr repeat(2, 5fr) repeat(2, 7fr) 5fr ;
 
-    row-gap: 0rem 20rem 20rem 20rem 20rem 10rem;
+    row-gap: 3rem;
 
     grid-template-areas:
-        "header"
+        "gridheader"
         "main"
         "service1"
         "service2"
         "service3"
         "service4"
-        "footer"
-
+        "gridfooter"
 }
 
-.header {
-    grid-area: header; 
+.gridheader {
+    grid-area:gridheader; 
     position: fixed;
-    top: 10px;
-    width: 100%;
-    z-index : 3;
+    z-index: 5;
+    }
+#logo {
+    z-index: 6;
+    position: fixed;
+    float: left;
+    margin-left: 50px; 
+    top: 10%;
+}
+#snslist {
+    z-index: 6;
+    position: fixed;
+    float: right;
+    top : 10%;
+    right: 10%;
+    margin-right: 20px;
 }
 
-/* Icon */
-.icon {
-    z-index: 2;
-    text-decoration: none;
-    border-bottom: none;
-    position: relative; }
-    .icon:before {
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      display: inline-block;
-      font-style: normal;
-      font-variant: normal;
-      text-rendering: auto;
-      line-height: 1;
-      text-transform: none !important;
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 400; }
-    .icon > .label {
-      display: none; }
-    .icon:before {
-      line-height: inherit; }
-    .icon.solid:before {
-      font-weight: 900; }
-    .icon.brands:before {
-      font-family: 'Font Awesome 5 Brands'; }
 
-/* Icons */
-ul.icons {
-    cursor: default;
-    list-style: none;
-    padding-left: 0; }
-    ul.icons li {
-      display: inline-block;
-      padding: 0 1em 0 0; }
-      ul.icons li:last-child {
-        padding-right: 0; }
-      ul.icons li .icon:before {
-        font-size: 1.25em; }
-      ul.icons li a {
-        color: inherit; }
-
-.main {
+#main {
     grid-area: main; 
-    z-index : 1; 
+    z-index : 1;
+    width : 100%;
 }
+#homebutton {
+    right: 10%;
+    bottom : 10%;
+    float: right;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    z-index: 5;
+
+}
+
+
 .service1 {
-    grid-area: service1; 
-    background-color: #F1FAE9;
+    grid-area: service1;
+    background-color:#F1FAE9; 
 }
 .service2 {
-    grid-area: service2; 
-    background-color: #F1FAE9;
-}
+    grid-area: service2;
+    background-color:#F1FAE9; }
 .service3 {
-    grid-area: service3; 
-    background-color: #F1FAE9;
-}
+    grid-area: service3;
+    background-color:#F1FAE9; }
 .service4 {
-    grid-area: service4; 
-    background-color: #F1FAE9;
-}
-.footer {
-    grid-area: footer; 
+    grid-area: service4;
+    background-color:#F1FAE9;
+ }
+.gridfooter {
+    grid-area: gridfooter; 
     background-color: #CED4DA;
 }
 .checkimg {
-    margin-right: 20px;
     width: 50px;
     height: 50px;
+    margin-right: 20px;
 }
 
 
+#footer-display {
+    position: relative;
+    height: auto;
+    width: 100%;
+    list-style: none;
+}
 
-.insidecontainer1 {
-    display: inline-grid;
+.body-display {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color:#F1FAE9;
+}
 
-    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
-    grid-template-rows: 1fr 2fr 3fr 1fr;
+.incontainer1 {
+    display: grid;
 
-    column-gap: 0rem 5rem 5rem 0rem;
-    row-gap: 0rem 3rem 0rem;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+
+    column-gap: 5rem;
 
     grid-template-areas:
-        ". . . . ."
-        ". cardword cardword cardword ."
-        ". card1 card2 card3 ."
-        ". . . . ."
-
+        "leftcard1 rightcard1"
 }
 
-.insdiecontainer1:nth-child(2) {
-    grid-column: 2 / 5;
+.leftcard1 {
+    list-style: none;
 }
 
-.cardword {grid-area: cardword; }
+.incontainer2 {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+
+    column-gap: 5rem;
+
+    grid-template-areas:
+        "leftcard2 rightcard2 rightcard2"
+        "leftcard2 . rightcard22 "
+}
+
+.incontainer2:nth-child(1) {
+    grid-column: 1/3;
+}
+
+.incontainer2:nth-child(1) {
+    grid-row: 2/3;
+}
+
+
+.leftcard2 {
+    grid-area: leftcard2;
+    vertical-align: middle;
+}
+
+.rightcard2 {
+    grid-area: rightcard2;
+    text-align: right;
+    list-style: none;
+}
+
+.rightcard22 {
+    grid-area: rightcard22;
+    text-align: left;
+}
+
+
+.incontainer3 {
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 3fr 1fr;
+
+    row-gap: 0rem 10rem 0rem;
+
+    grid-template-areas:
+        ". . . . . . ."
+        ". cardword cardword cardword cardword cardword ."
+        ". card1 . card2 . card3 ."
+        ". . . . . . ."
+}
+
+.incontainer1:nth-child(2) {
+    grid-column: 2 / 7;
+}
+
+.cardword {
+    grid-area: cardword; 
+    text-align: center;
+    margin-bottom: 10px;
+}
 .card1 {grid-area: card1; }
 .card2 {grid-area: card2; }
 .card3 {grid-area: card3; }
 
 
-.insidecontainer2 {
-    display: inline-grid;
+.incontainer4 {
+    display: grid;
 
     grid-template-columns: 1fr 3fr 1fr 3fr 1fr 3fr 1fr;
     grid-template-rows: 1fr 7fr 1fr;
@@ -141,3 +195,4 @@ ul.icons {
 .card11 {grid-area: card11; }
 .card12 {grid-area: card12; }
 .card13 {grid-area: card13; }
+
