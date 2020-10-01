@@ -15,7 +15,8 @@ class RegisterForm(forms.Form):
     image = forms.ImageField(
         error_messages={'required': "음식사진을 넣으세요"}
     )
-    price = forms.IntegerField(
+    price = forms.DecimalField(
+        max_digits=10,decimal_places=2,
         error_messages={'required' : "가격을 입력하세요."},
         label = "가격"
     )
@@ -41,3 +42,4 @@ class RegisterForm(forms.Form):
             self.add_error('price', "필수 항목입니다")
             self.add_error('stock', "필수 항목입니다")
             
+       
