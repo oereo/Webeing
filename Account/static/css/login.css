@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-areas:
+        " preheader "
+        " login1 "
+        " email "
+        " password "
+        " auotologin "
+        " login2 "
+        " sociallogin "
+        " gosignup "
+        " gosignupseller "
+        "prefooter"
+}
+
+.login1 {grid-area: login1; }
+.email {grid-area: email; }
+.password {grid-area: password; }
+.autologin {grid-area: autologin; }
+.login2 {grid-area: login2; }
+.sociallogin {grid-area: sociallogin; }
+.gosignup {grid-area: gosignup; }
+.gosignupseller {grid-area: gosignupseller; }
+
