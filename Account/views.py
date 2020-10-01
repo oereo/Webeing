@@ -59,7 +59,7 @@ def signup_seller(request):
             )
             auth.login(request, user)
 
-        return redirect('home')
+        return redirect('sellerPage')
         
     else:
         form = UserCreationForm()

@@ -1,1 +1,8 @@
-승조는 바보다
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="navbar-nav">
+    <a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a>
+  </div>
+
+{% endblock %}
