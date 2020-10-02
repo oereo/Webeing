@@ -13,7 +13,8 @@
 
 .signup {
     grid-area: signup; 
-    text-align: center;    
+    text-align: center; 
+    padding: 3rem;    
 }
 .customer {
     grid-area: customer; 
@@ -35,7 +36,7 @@
     display : inline-grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 2fr;
+    grid-template-rows: 3fr 1fr;
 
     grid-template-areas:
         "topcard"

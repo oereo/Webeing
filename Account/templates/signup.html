@@ -8,7 +8,7 @@
 <link rel="stylesheet" href = "{% static 'css/signup.css' %}" />
 
 <style type = "text/css">
-    #color1 {color: #00be68}
+    #green {color: #00be68}
     #fontsize15 {
         font-size: 150%;
         font-weight: bold;
@@ -40,7 +40,7 @@
                 <div class = "bottomcard" id = "fontsize15">
                     WEBEING 에서
                     <br>
-                    상품을 <span id = "color1">구매할</span> 고객님
+                    상품을 <span id = "green">구매할</span> 고객님
                 </div>
             </a>
 
@@ -61,7 +61,7 @@
                 <div class = "bottomcard" id = "fontsize15">
                     WEBEING 에서
                     <br>
-                    상품을 <span id = "color1">판매할</span> 점주님
+                    상품을 <span id = "green">판매할</span> 점주님
                 </div>
             </a>
 
@@ -70,10 +70,10 @@
     </div>
 
     <div class = "gologin">
-        <p>이미 WEBEING 회원이신가요?</p>
-        <p id = "color1">
+        <span style = "margin-right: 20px;">이미 WEBEING 회원이신가요?</span>
+        <span id = "green">
             <a href = "{% url 'login' %}">로그인 하러가기</a>
-        </p>
+        </span>
     </div>
 
 </div>
