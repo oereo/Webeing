@@ -2,264 +2,325 @@
 <!DOCTYPE HTML>
 <html>
 
-    <head>
-        <title>WEBEING</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="{% static 'css/landingPage.css' %}" />
+<head>
+    <title>WEBEING</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'css/landingPage.css' %}"/>
 
-        <!-- p,li font-->
-        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
-        <style> 
-        p,li {font-family: 'Gothic A1', sans-serif;} </style>
+    <!-- p,li font-->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <style>
+        p, li {
+            font-family: 'Gothic A1', sans-serif;
+        } </style>
 
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
 
-        <style type="text/css">
-            #color1 {color: #00be68}
-            #color2 {color: #F1FAE9;}
-            #color3 {color: #FFFFFF;}
-            #fontsize15 {font-size: 150%;}
-            #fontsize2 {font-size: 200%;}
-            #fontsize3 {font-size: 300%;}
-            #fontsize5 {font-size: 500%;}
-            #fontbold1 {font-weight: bold; }
-            #fontbold2 {font-weight: 800; }
-            #absolute1 { z-index: 6;}
-          </style>
+    <style type="text/css">
+        #color1 {
+            color: #00be68
+        }
 
-    </head>
+        #color2 {
+            color: #F1FAE9;
+        }
 
-    <body>
+        #color3 {
+            color: #FFFFFF;
+        }
 
-        <header class = "gridheader" class = "site-division">
+        #fontsize15 {
+            font-size: 150%;
+        }
 
-          <div id = "logo">
-            <img src="{% static '/img/webeing.png'%}" alt="webeing" style = "width:100px; height: 100px;">
-          </div>
-          
-          <!-- 
-          <div>
-              <img src="{% static 'img/webeing.png' %}" style = "width:100px; height:100px; z-index: 6; " >
-          </div>
-          -->
-          
-          <div id = "snslist">
-              
-              <a title = "facebook" href = "https://www.facebook.com/We-being-100435421763637" target="_blanck">
-              <img src = "{% static '/img/facebook.png' %}" alt = "facebook" style="margin-right: 20px; width:20px; height:40px;">
-              </a>
+        #fontsize2 {
+            font-size: 200%;
+        }
 
-              <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
-              <img src="{% static 'img/instagram.png' %}" alt="instagram" style="margin-right: 20px; width:40px; height:40px;">
-              </a>
+        #fontsize3 {
+            font-size: 300%;
+        }
 
-              <a title = "kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
-              <img src="{% static 'img/kakaotalk.png' %}" alt="kakao" style="margin-right: 20px; width:40px; height: 40px;">
-              </a>
-              
-          </div>
+        #fontsize5 {
+            font-size: 500%;
+        }
 
-        </header>
-        
-         <div id = "main" style = "width: 100%; ">
+        #fontbold1 {
+            font-weight: bold;
+        }
 
-           <div style = "margin-left: 10%; margin-top: 20%;  font-weight: bold; position: absolute; z-index: 2;"> 
-             <ul id = "fontsize5">
-               <p><span id ="color1">초록 식문화</span><span id = "color3">의 출발</span><p>
-               <p><span id = "color3">음식에 </span><span id ="color1">환경</span><span id = "color3">의 가치를 더하다</span></p>
-             </ul>
-           </div>
+        #fontbold2 {
+            font-weight: 800;
+        }
 
-           <div id = "homebutton">
-                <a href = "/main">
-                <img src = "{% static '/img/homebutton.png' %}" style = "width: 150px; height: 150px; ">
-                </a>
+        #absolute1 {
+            z-index: 6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header class="gridheader" class="site-division">
+
+    <div id="logo">
+        <img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:100px; height: 100px;">
+    </div>
+
+    <!--
+    <div>
+        <img src="{% static 'img/webeing.png' %}" style = "width:100px; height:100px; z-index: 6; " >
+    </div>
+    -->
+
+    <div id="snslist">
+
+        <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
+            <img src="{% static '/img/facebook.png' %}" alt="facebook"
+                 style="margin-right: 20px; width:20px; height:40px;">
+        </a>
+
+        <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
+            <img src="{% static 'img/instagram.png' %}" alt="instagram"
+                 style="margin-right: 20px; width:40px; height:40px;">
+        </a>
+
+        <a title="kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
+            <img src="{% static 'img/kakaotalk.png' %}" alt="kakao"
+                 style="margin-right: 20px; width:40px; height: 40px;">
+        </a>
+
+    </div>
+
+</header>
+
+<div id="main" style="width: 100%; ">
+
+    <div style="margin-left: 10%; margin-top: 20%;  font-weight: bold; position: absolute; z-index: 2;">
+        <ul id="fontsize5">
+            <p><span id="color1">초록 식문화</span><span id="color3">의 출발</span>
+            <p>
+            <p><span id="color3">음식에 </span><span id="color1">환경</span><span id="color3">의 가치를 더하다</span></p>
+        </ul>
+    </div>
+
+    <div id="homebutton">
+        <a href="/main">
+            <img src="{% static '/img/homebutton.png' %}" style="width: 150px; height: 150px; ">
+        </a>
+    </div>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"
+         style="position: relative; ">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static '/img/bg1.png' %}" class="d-block w-100" alt="bg1">
             </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/bg2.png' %}" class="d-block w-100" alt="bg2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/bg3.png' %}" class="d-block w-100" alt="bg3">
+            </div>
+        </div>
 
-           <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="position: relative; ">
-             
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                 <img src="{% static '/img/bg1.png' %}" class="d-block w-100" alt="bg1">
-               </div>
-               <div class="carousel-item">
-                 <img src="{% static 'img/bg2.png' %}" class="d-block w-100" alt="bg2">
-               </div>
-               <div class="carousel-item">
-                 <img src="{% static 'img/bg3.png' %}" class="d-block w-100" alt="bg3">
-               </div>
-             </div>
-     
-           </div>
+    </div>
 
-         </div>  
+</div>
 
-  
-         <div class = "service1" class = "body-display">
 
-          <div class = "incontainer1" style = "margin: 3rem; ">
+<div class="service1" class="body-display">
 
-            <div class = "leftcard1">
+    <div class="incontainer1" style="margin: 3rem; ">
 
-              <ul id = "fontbold1" style = "list-style: none">
-                <ul id = "fontsize2" style = "list-style: none">
-                  <li id = "fontsize15">재고 상품 처리</li>
-                  <li>유통기한이 지난 재고 상품을 처리 할 때 마다 생기는 고민</li>              
-                  <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">버려지는 수많은 음식들</li>
-                  <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">매번 낭비되는 비용들</li>
-                  <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">음식물 쓰레기로 인한 환경 오염문제</li>
+        <div class="leftcard1">
+
+            <ul id="fontbold1" style="list-style: none">
+                <ul id="fontsize2" style="list-style: none">
+                    <li id="fontsize15">재고 상품 처리</li>
+                    <li>유통기한이 지난 재고 상품을 처리 할 때 마다 생기는 고민</li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                             style="margin-right:20px; width:50px; height: 50px;">버려지는 수많은 음식들
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                             style="margin-right:20px; width:50px; height: 50px;">매번 낭비되는 비용들
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                             style="margin-right:20px; width:50px; height: 50px;">음식물 쓰레기로 인한 환경 오염문제
+                    </li>
                 </ul>
 
-              </ul>
+            </ul>
 
-            </div>
+        </div>
 
-            <div class = "rightcard1">
-              <img src = "{% static '/img/service1.png' %}" alt="service" style="vertical-align: middle; width: 300px; height: 300px;">
-            </div>
+        <div class="rightcard1">
+            <img src="{% static '/img/service1.png' %}" alt="service"
+                 style="vertical-align: middle; width: 300px; height: 300px;">
+        </div>
 
-          </div>
+    </div>
 
-         </div>
+</div>
 
-         <div class = "service2" class = "body-display">
+<div class="service2" class="body-display">
 
-          <div class = "incontainer2" style = "margin: 3rem; ">
+    <div class="incontainer2" style="margin: 3rem; ">
 
-            <div class = "leftcard2">
-              <img src="{% static '/img/service2.png' %}" alt="service" style="vertical-align: middle; width: 300px; height: 300px;">
-            </div>
+        <div class="leftcard2">
+            <img src="{% static '/img/service2.png' %}" alt="service"
+                 style="vertical-align: middle; width: 300px; height: 300px;">
+        </div>
 
-            <div class = "rightcard2">
+        <div class="rightcard2">
 
-              <ul id = "fontbold1">
+            <ul id="fontbold1">
 
-                  <p id="fontsize3">합리적인 소비</p>
+                <p id="fontsize3">합리적인 소비</p>
 
-                  <ul id = "fontsize2" style = "list-style: none;">
+                <ul id="fontsize2" style="list-style: none;">
 
                     <li>유통기한이 지난 재고 상품을 처리할 때 마다 생기는 고민</li>
 
-                      <div class = "rightcard22">
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소</li>
-                      </div>
-                  </ul>
+                    <div class="rightcard22">
+                        <li><img src="{% static '/img/check.png' %}" alt="check"
+                                 style="margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비
+                        </li>
+                        <li><img src="{% static '/img/check.png' %}" alt="check"
+                                 style="margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비
+                        </li>
+                        <li><img src="{% static '/img/check.png' %}" alt="check"
+                                 style="margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소
+                        </li>
+                    </div>
+                </ul>
 
-              </ul>
+            </ul>
 
-            </div>
+        </div>
 
-          </div>
+    </div>
 
-         </div>
-
-
-         <div class = "service3">
-           
-           <div class = "incontainer3">
-
-             <div class = "cardword" style = "margin-bottom: 2rem; ">
-               <ul style = "list-style: none; ">
-                 <li id = "fontbold1" id = "fontsize3" >1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
-                 <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
-                 <li>국내에서는 하루에 약 1만 4천톤의 음식물 쓰레기가 나오는데,</li>
-                 <li>가정과 소형 음식점에서 발생하는 비율이 70%에 이른다고 합니다.</li>
-               </ul>
-             </div>
-
-             <div class = "card1">
-               <ul>
-                 <img src="{% static '/img/service3-1.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
-                 <p id = "fontbold1">온실가스</p>
-                 <p>하루 235만대의 차량주행시 배출되는 온실가스의 양과 동일합니다.</p>
-               </ul>
-             </div>
-
-             <div class = "card2">
-               <ul>
-                 <img src="{% static '/img/service3-2.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
-                 <p id = "fontbold1">쓰레기 산</p>
-                 <p>연간 배출되는 음식물쓰레기의 양은 63빌딩 19채와 같습니다.</p>
-               </ul>
-             </div>
-
-             <div class = "card3">
-               <ul>
-                 <img src="{% static '/img/service3-3.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
-                 <p id = "fontbold1">절감 효과</p>
-                 <p>음식물처리비용절감시 커피 5.5억잔, 서울 아파트 2만4천채를 구매할 수 있습니다.</p>
-               </ul>
-             </div>
-
-           </div>
-
-         </div>
+</div>
 
 
-         <div class = "service4" class = "body-display" >
+<div class="service3">
 
-           <div class = "incontainer4">
+    <div class="incontainer3">
 
-             <div class="card11">
-               <ul>
-                 <p id="fontsize3">01</p>
-                 <img src="{% static '/img/service3-1.png' %}" style="width:150px; height:150px; margin-bottom: 50px;">
-                 <p id = "fontbold1">음식 판매</p>
-                 <p>정상적인 재고 음식들을 할인해서 소비자에게 연결해줌으로서 저렴한 가격에 구입을 할 수 있으며, 더 나아가 버려질 수 있던 음식들의 낭비를 감소시킴으로서 환경 오염 등 여러 사회적 문제를 해결할 수 있을 것입니다.</p>
-               </ul>
-             </div>
+        <div class="cardword" style="margin-bottom: 2rem; ">
+            <ul style="list-style: none; ">
+                <li id="fontbold1" id="fontsize3">1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
+                <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
+                <li>국내에서는 하루에 약 1만 4천톤의 음식물 쓰레기가 나오는데,</li>
+                <li>가정과 소형 음식점에서 발생하는 비율이 70%에 이른다고 합니다.</li>
+            </ul>
+        </div>
 
-             <div class = "card12">
-               <ul>
-                 <p id="fontsize3">02</p>
-                 <img src="{% static '/img/service3-2.png' %}" style=" width:150px; height:150px; margin-bottom: 50px;"> 
-                 <p id = "fontbold1">위빙 굿즈</p>
-                 <p>환경 보호를 위한 위빙의 목표를 위하여 일회용품을 줄이기 위한 굿즈를 판매할 계획입니다. 에코백, 텀블러를 시작으로 머그컵과 같은 상품까지 구입 할 수 있습니다</p>
-               </ul>
-             </div>
+        <div class="card1">
+            <ul>
+                <img src="{% static '/img/service3-1.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
+                <p id="fontbold1">온실가스</p>
+                <p>하루 235만대의 차량주행시 배출되는 온실가스의 양과 동일합니다.</p>
+            </ul>
+        </div>
 
-             <div class = "card13">
-               <ul>
-                 <p id="fontsize3">03</p>
-                 <img src="{% static '/img/service3-3.png' %}" style="width:150px; height:150px; margin-bottom: 50px; ">
-                 <p id = "fontbold1">환경 계좌</p>
-                 <p>위빙을 통하여 구매한 금액 중 일부를 환경에 기여한 금액으로 산정하여 환경 계좌에 적립될 예정입니다. 적립된 금액은 위빙 굿즈를 구매하거나 음식 구매시 할인, 또는 환경을 위한 모금 활동에 사용 할 수 있습니다.</p>
-               </ul>
-             </div>
+        <div class="card2">
+            <ul>
+                <img src="{% static '/img/service3-2.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
+                <p id="fontbold1">쓰레기 산</p>
+                <p>연간 배출되는 음식물쓰레기의 양은 63빌딩 19채와 같습니다.</p>
+            </ul>
+        </div>
 
-           </div>
+        <div class="card3">
+            <ul>
+                <img src="{% static '/img/service3-3.png' %}" style="width:100px; height:100px; margin-bottom: 50px;">
+                <p id="fontbold1">절감 효과</p>
+                <p>음식물처리비용절감시 커피 5.5억잔, 서울 아파트 2만4천채를 구매할 수 있습니다.</p>
+            </ul>
+        </div>
 
-         </div>
+    </div>
 
-    </body>
+</div>
 
 
-    <!-- Footer -->
-    <footer class="gridfooter" id = "footer-dispaly">
-      <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-      <style> 
-      p1 {font-family: 'Nanum Gothic Coding', monospace;} </style>
-        <ul>
-            <p1>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 이메일: slowwvibes@gmail.com</p1>
-            <br>
-            <p1>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</p1>
-            <br>
-            <p1><a href = "#">이용약관</a></p1>
-            <p1><a href = "#">개인정보처리방침</a></p1>
-            <br>
-            <p1>copyright by Webeing.</p1>
+<div class="service4" class="body-display">
 
-        </ul>
-        
+    <div class="incontainer4">
 
-    </footer>
+        <div class="card11">
+            <ul>
+                <p id="fontsize3">01</p>
+                <img src="{% static '/img/service3-1.png' %}" style="width:150px; height:150px; margin-bottom: 50px;">
+                <p id="fontbold1">음식 판매</p>
+                <p>정상적인 재고 음식들을 할인해서 소비자에게 연결해줌으로서 저렴한 가격에 구입을 할 수 있으며, 더 나아가 버려질 수 있던 음식들의 낭비를 감소시킴으로서 환경 오염 등 여러 사회적
+                    문제를 해결할 수 있을 것입니다.</p>
+            </ul>
+        </div>
+
+        <div class="card12">
+            <ul>
+                <p id="fontsize3">02</p>
+                <img src="{% static '/img/service3-2.png' %}" style=" width:150px; height:150px; margin-bottom: 50px;">
+                <p id="fontbold1">위빙 굿즈</p>
+                <p>환경 보호를 위한 위빙의 목표를 위하여 일회용품을 줄이기 위한 굿즈를 판매할 계획입니다. 에코백, 텀블러를 시작으로 머그컵과 같은 상품까지 구입 할 수 있습니다</p>
+            </ul>
+        </div>
+
+        <div class="card13">
+            <ul>
+                <p id="fontsize3">03</p>
+                <img src="{% static '/img/service3-3.png' %}" style="width:150px; height:150px; margin-bottom: 50px; ">
+                <p id="fontbold1">환경 계좌</p>
+                <p>위빙을 통하여 구매한 금액 중 일부를 환경에 기여한 금액으로 산정하여 환경 계좌에 적립될 예정입니다. 적립된 금액은 위빙 굿즈를 구매하거나 음식 구매시 할인, 또는 환경을 위한 모금
+                    활동에 사용 할 수 있습니다.</p>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+
+<!-- Footer -->
+<footer class="gridfooter" id="footer-dispaly">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <style>
+        p1 {
+            font-family: 'Nanum Gothic Coding', monospace;
+        } </style>
+    <ul>
+        <p1>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 이메일: slowwvibes@gmail.com</p1>
+        <br>
+        <p1>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</p1>
+        <br>
+        <p1><a href="#">이용약관</a></p1>
+        <p1><a href="#">개인정보처리방침</a></p1>
+        <br>
+        <p1>copyright by Webeing.</p1>
+
+    </ul>
+
+
+</footer>
 
 </html>
