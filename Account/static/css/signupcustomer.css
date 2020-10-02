@@ -2,10 +2,9 @@
     display: inline-grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
-        "preheader"
         "signup1 "
         "socialsignup "
         "email "
@@ -21,7 +20,6 @@
         "agree5"
         "agreeall"
         "signup2"
-        "prefooter"
 }
 
 .signup1 {
@@ -43,6 +41,7 @@
 .agreeall {
     grid-area: agreeall; 
     float: right;
+    text-align:right;
 }
 .signup2 {
     grid-area: signup2; 
