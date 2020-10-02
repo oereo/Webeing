@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     # for usermodel
     #'phonenumber_field',
 
+    'jquery',
+
 ]
 
 MIDDLEWARE = [
@@ -133,9 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
@@ -148,6 +148,6 @@ AUTH_USER_MODEL = 'Account.User'
 CART_ID = 'cart_in_session'
 
 
-# IAMPORT
-IAMPORT_KEY = '9109082069216004'
-IAMPORT_SECRET = 'sl59SRbOZeN0544HZmQEsS8Ntj6thkoKFuTyl5nlkampfq7fNYTfR13kl9ODtcn9GhI2n5nHgK7waeLX'
+# IAMPORT [CHANGYU's KEYVALUE]
+IAMPORT_KEY = '6081901159778020'
+IAMPORT_SECRET = 'amiQ6OfLR6UQ912HWOtOTIPStXaBlbTwycnE0CqSIkISmLziz27tKWldUwOgHIMfU9UVMkNvFwn1iWkS'

@@ -11,4 +11,5 @@ urlpatterns = [
     path('checkout/', OrderCheckoutAjaxView.as_view(),name='order_checkout'),
     path('validation/', OrderImpAjaxView.as_view(),name='order_validation'),
     path('complete/', order_complete,name='order_complete'),
+    path('payment/', order_payment, name ='order_payment'),
 ]

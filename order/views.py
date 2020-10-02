@@ -130,3 +130,7 @@ class OrderImpAjaxView(View):
             return JsonResponse(data)
         else:
             return JsonResponse({}, status=401)
+
+
+def order_payment(request):
+    return render(request, 'order/payment.html')
