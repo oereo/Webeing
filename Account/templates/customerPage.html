@@ -22,13 +22,6 @@
         line-height: 1.5;
     }
 
-    .main {
-        min-width: 320px;
-        max-width: 800px;
-        padding: 50px;
-        margin: 0 auto;
-        background: #ffffff;
-    }
 
     section {
         display: none;
@@ -198,7 +191,30 @@
             </section>
 
             <section id="content2">
-                <p>tab menu2의 내용</p>
+                {% for order_items in order_items_list %}
+                {% for order_item in order_items %}
+
+                <div class="card text-white bg-success mb-3" style="max-width: 50rem;">
+                    <div class="card-header">{{order_item.created}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title"> {{order_item.product}}
+                        </h5>
+                        <p class="card-text">{{order_item.quantity}}</p>
+                    </div>
+                </div>
+
+                <br/>
+                {% endfor %}
+                <br/>
+                <br/>
+                {% endfor %}
+
+
+                {% for order in orderitems.items.all %}
+                {{ order.created }}
+                {% endfor %}
+
+
             </section>
 
             <section id="content3">
