@@ -1,11 +1,10 @@
 .container {
-    
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.2fr 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    row-gap : 3rem;
+    row-gap : 0.1px; 
 
     grid-template-areas:
         " preheader "
@@ -26,7 +25,9 @@
 }
 .email {grid-area: email; }
 .password {grid-area: password; }
-.autologin {grid-area: autologin; }
+.autologin {
+    grid-area: autologin; 
+}
 .login2 {
     grid-area: login2; 
     text-align: center;
