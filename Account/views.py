@@ -37,7 +37,7 @@ def signup_customer(request):
             )
             auth.login(request, user)
 
-        return redirect('home')
+        return redirect('/main/')
         
     else:
         form = UserCreationForm()
@@ -60,7 +60,7 @@ def signup_seller(request):
             )
             auth.login(request, user)
 
-        return redirect('home')
+        return redirect('/main/')
         
     else:
         form = UserCreationForm()
