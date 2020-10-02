@@ -17,57 +17,60 @@
 <link rel = "stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
 {% csrf_token %}
 
+<div class = "container">
 
-<div class = "login1" id = "fontsize2">
-    로그인
-</div>
-
-<div class = "email">
-
-    <p><span id = "fontbold">E-mail</span></p>
-
-    <div class="input-group mb-3" style = "width: 100%; " >
-        <input type="text" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon2 " >
+    <div class = "login1" id = "fontsize2">
+        로그인
     </div>
 
-</div>
+    <div class = "email">
 
-<div class = "password">
-    
-    <p><span id = "fontbold">password</span></p>
+        <p><span id = "fontbold">E-mail</span></p>
 
-    <div class="input-group mb-3" style = "width: 100%; ">
-        <input type="text" class="form-control" placeholder="비밀번호 입력" aria-label="비밀번호 입력" aria-describedby="basic-addon2">
+        <div class="input-group mb-3" style = "width: 100%; " >
+            <input type="text" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon2 " >
+        </div>
+
     </div>
 
-</div>
+    <div class = "password">
+        
+        <p><span id = "fontbold">password</span></p>
 
+        <div class="input-group mb-3" style = "width: 100%; ">
+            <input type="text" class="form-control" placeholder="비밀번호 입력" aria-label="비밀번호 입력" aria-describedby="basic-addon2">
+        </div>
 
-<div class = "autologin">
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">자동 로그인</label>
-
-        <span id = "fontbold" style = "float: right;"><a href = "#">아이디 찾기</a> | <a href = "#">비밀번호 찾기</a> </span>
     </div>
 
-</div>
 
-<div class = "login2">
-    <button type="button" class="btn btn-success btn-lg btn-block" style = "width: 100%; ">로그인</button>
-</div>
+    <div class = "autologin">
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">자동 로그인</label>
 
-<div class = "sociallogin">
-    <button type="button" class="btn btn-light btn-sm" style = "float:left; width: 50%;">네이버로 로그인</button>
-    <button type="button" class="btn btn-light btn-sm" style = "float:right; width: 50%; ">카카오로 로그인</button>
-</div>
+            <span id = "fontbold" style = "float: right;"><a href = "#">아이디 찾기</a> | <a href = "#">비밀번호 찾기</a> </span>
+        </div>
 
-<div class = "gosignup">
-    <p>아직 webeing 회원이 아니신가요? <a href = "/signupcustomer"><span id = "green" style = "margin-left: 30px; ">회원가입하기</span></a></p>
-</div>
+    </div>
 
-<div class = "gosignupseller">
-    <p>webeing에서 물품을 판매하실 건가요? <a href = "/signupseller"><span id = "green" style = "margin-left: 30px; ">사장님 회원가입하기</span></a></p>
-</div>  
+    <div class = "login2">
+        <button type="button" class="btn btn-success btn-lg btn-block" style = "width: 100%; ">로그인</button>
+    </div>
+
+    <div class = "sociallogin">
+        <button type="button" class="btn btn-light btn-sm" style = "float:left; width: 49%;">네이버로 로그인</button>
+        <button type="button" class="btn btn-light btn-sm" style = "float:right; width: 49%; ">카카오로 로그인</button>
+    </div>
+
+    <div class = "gosignup">
+        <p>아직 webeing 회원이 아니신가요? <a href = "/signupcustomer"><span id = "green" style = "margin-left: 30px; ">회원가입하기</span></a></p>
+    </div>
+
+    <div class = "gosignupseller">
+        <p>webeing에서 물품을 판매하실 건가요? <a href = "/signupseller"><span id = "green" style = "margin-left: 30px; ">사장님 회원가입하기</span></a></p>
+    </div>  
+
+</div>
 
 {% endblock %}

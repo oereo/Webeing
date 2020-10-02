@@ -5,14 +5,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    row-gap : 5px;
-
     grid-template-areas:
         " preheader "
         " login1 "
         " email "
         " password "
-        " auotologin "
+        " autologin "
         " login2 "
         " sociallogin "
         " gosignup "
