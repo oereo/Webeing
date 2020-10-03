@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<form action="{% url 'signup' %}" method="POST">
+<form action="{% url 'signup_customer' %}" method="POST">
   {% csrf_token %}
   <!-- {{form.as_p}} -->
   <h3 class="mb-3"><strong>회원가입</strong></h3>
@@ -90,6 +90,7 @@
     <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
   </b-form>
 </div> -->
+<<<<<<< HEAD
 
 <title>signupcustomer</title>
 
@@ -162,3 +163,6 @@
 </div>
 
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> develop
