@@ -4,6 +4,7 @@ from .models import Restaurant, Category, Product, Register
 def landingPage(request):
     return render(request, 'shop/landingPage.html')
 
+
 def restaurant_in_category(request, category_slug=None):
     current_category = None
     categories = Category.objects.all()
@@ -39,6 +40,7 @@ def product_detail(request, id, product_slug=None):
     add_to_cart = AddProductForm(initial={'quantity':1})
     return render(request, 'shop/detail.html', {'product': product, 'add_to_cart':add_to_cart})
 
+<<<<<<< HEAD
 from .forms import RegisterForm
 from django.views.generic.edit import FormView
 
@@ -58,4 +60,6 @@ class ProductRegister(FormView):
         product.save()
         return super().form_valid(form)
 
+=======
+>>>>>>> 2bad7f8a14aaf9731b16dedc88398c1dceeab3d2
 

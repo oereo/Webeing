@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<form action="{% url 'signup' %}" method="POST">
+<form action="{% url 'signup_customer' %}" method="POST">
   {% csrf_token %}
   <!-- {{form.as_p}} -->
   <h3 class="mb-3"><strong>회원가입</strong></h3>
@@ -90,4 +90,76 @@
     <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
   </b-form>
 </div> -->
+
+<title>signupcustomer</title>
+
+<link rel="stylesheet" href = "{% static 'css/signupcustomer.css' %}" />
+
+<style type = "text/css">
+  #fontsize15 {font-size: 150%;}
+  #fontsize2 {font-size: 200%;}
+  #fontbold {font-weight: bold;}
+</style>
+
+<div class = "signup1">
+  <
+</div>
+
+<div class = "socialsignup">
+
+</div>
+
+<div class = "email">
+
+</div>
+
+<div class = "password">
+
+</div>
+
+<div class = "confirm">
+
+</div>
+
+<div class = "nickname">
+  
+</div>
+
+<div class = "phonetype1">
+  
+</div>
+
+<div class = "phonetype2">
+  
+</div>
+
+<div class = "agree1">
+  
+</div>
+
+<div class = "agree2">
+  
+</div>
+
+<div class = "agree3">
+  
+</div>
+
+<div class = "agree4">
+  
+</div>
+
+<div class = "agree5">
+  
+</div>
+
+<div class = "agreeall">
+  
+</div>
+
+<div class = "signup2">
+  
+</div>
+
 {% endblock %}
+
