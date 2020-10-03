@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Register
 
 class RegisterForm(forms.Form):
     name = forms.CharField(
@@ -12,9 +12,9 @@ class RegisterForm(forms.Form):
         label = "음식 설명"
     )
     
-    image = forms.ImageField(
-        error_messages={'required': "음식사진을 넣으세요"}
-    )
+    #image = forms.ImageField(
+    #   error_messages={'required': "음식사진을 넣으세요"}
+    #)
     price = forms.DecimalField(
         max_digits=10,decimal_places=2,
         error_messages={'required' : "가격을 입력하세요."},
@@ -29,15 +29,15 @@ class RegisterForm(forms.Form):
     def clean(self):
         cleaned_data = super().clean()
         name = cleaned_data.get('name')
-        image = cleaned_data.get('image')
+        #image = cleaned_data.get('image')
         description = cleaned_data.get('description')
         price = cleaned_data.get('price')
         stock = cleaned_data.get('stock')
         
 
-        if not (name and image and description and price and stock):
+        if not (name and description and price and stock):
             self.add_error('name', "필수 항목입니다")
-            self.add_error('image', "필수 항목입니다")
+            #self.add_error('image', "필수 항목입니다")
             self.add_error('description', "필수 항목입니다")
             self.add_error('price', "필수 항목입니다")
             self.add_error('stock', "필수 항목입니다")

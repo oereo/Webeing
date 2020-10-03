@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Restaurant, Category, Product
+from .models import Restaurant, Category, Product, Register
 
 def landingPage(request):
     return render(request, 'shop/landingPage.html')
@@ -45,13 +45,13 @@ from django.views.generic.edit import FormView
 class ProductRegister(FormView):
     template_name = 'product_register.html'
     form_class = RegisterForm
-    success_url = 'sellerPage.html'
+    success_url = '/sellerPage'
 
     def form_valid(self, form):
-        product = Product(
+        register = Register(
             name = form.data.get('name'),
             price = form.data.get('price'),
-            image = form.data.get('image'),
+            #image = form.data.get('image'),
             stock = form.data.get('stock'),
             description = form.data.get('description')
         )
