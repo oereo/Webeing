@@ -38,7 +38,7 @@
 }
 
 
-#main {
+.main {
     grid-area: main; 
     z-index : 1;
     width : 100%;
@@ -59,28 +59,34 @@
     grid-area: service1;
     background-color:#F1FAE9; 
 }
+
 .service2 {
     grid-area: service2;
-    background-color:#F1FAE9; }
+    background-color:#F1FAE9;
+}
+
 .service3 {
     grid-area: service3;
-    background-color:#F1FAE9; }
+    background-color:#F1FAE9;
+}
+
 .service4 {
     grid-area: service4;
     background-color:#F1FAE9;
- }
+}
+
 .gridfooter {
     grid-area: gridfooter; 
     background-color: #CED4DA;
     text-align: left;
     padding: 2rem 0rem 1rem 3rem;
 }
+
 .checkimg {
     width: 50px;
     height: 50px;
     margin-right: 20px;
 }
-
 
 #footer-display {
     position: relative;
@@ -109,6 +115,7 @@
 .leftcard1 {
     list-style: none;
 }
+
 
 .incontainer2 {
     display: grid;
