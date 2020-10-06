@@ -1,14 +1,13 @@
 {% load static %}
 
-
 <!DOCTYPE HTML>
 <html>
 
     <head>
         <title>WEBEING</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="{% static 'css/landingPage.css' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type = "text/css" href="{% static 'css/landingPage.css' %}" />
 
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -34,6 +33,8 @@
     </head>
 
     <body>
+
+      <div class = "box-container">
 
         <header class = "gridheader" class = "site-division">
 
@@ -65,7 +66,7 @@
 
         </header>
         
-         <div id = "main" style = "width: 100%; ">
+        <div class = "main">
 
            <div style = "margin-left: 10%; margin-top: 20%;  font-weight: bold; position: absolute; z-index: 2;"> 
              <ul id = "fontsize5">
@@ -74,11 +75,11 @@
              </ul>
            </div>
 
-           <div id = "homebutton">
+          <div id = "homebutton">
                 <a href = "/main">
                 <img src = "{% static '/img/homebutton.png' %}" style = "width: 150px; height: 150px; ">
                 </a>
-            </div>
+          </div>
 
            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="position: relative; ">
              
@@ -99,9 +100,9 @@
          </div>  
 
   
-         <div class = "service1" class = "body-display">
+         <div class = "service1" class = "body-display" style = "padding-top: 10px;">
 
-          <div class = "incontainer1" style = "margin: 3rem; ">
+          <div class = "incontainer1">
 
             <div class = "leftcard1">
 
@@ -144,13 +145,19 @@
 
                     <li>유통기한이 지난 재고 상품을 처리할 때 마다 생기는 고민</li>
 
-                      <div class = "rightcard22">
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소</li>
-                      </div>
+
                   </ul>
 
+              </ul>
+
+            </div>
+
+            <div class = "rightcard22">
+
+              <ul id = "fontbold">
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비</li>
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비</li>
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소</li>
               </ul>
 
             </div>
@@ -236,6 +243,8 @@
            </div>
 
          </div>
+
+      </div>
 
 
     </body> 

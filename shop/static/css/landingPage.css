@@ -1,11 +1,10 @@
-.container {
+.box-container {
     display: grid;
-    width: 100%;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 10fr repeat(2, 5fr) repeat(2, 7fr) 5fr ;
+    grid-template-rows: 2fr 5fr repeat(2, 5fr) repeat(2, 7fr) 5fr ;
 
-    row-gap: 7rem;
+    row-gap: 5rem;
 
     grid-template-areas:
         "gridheader"
@@ -39,7 +38,7 @@
 }
 
 
-#main {
+.main {
     grid-area: main; 
     z-index : 1;
     width : 100%;
@@ -58,7 +57,7 @@
 
 .service1 {
     grid-area: service1;
-    background-color:#F1FAE9; 
+    background-color:#F1FAE9;
 }
 .service2 {
     grid-area: service2;
@@ -85,14 +84,12 @@
 #footer-display {
     position: relative;
     height: auto;
-    width: 100%;
     list-style: none;
 }
 
 .body-display {
     position: relative;
-    height: 100%;
-    width: 100%;
+    padding: 10px 0px 10px 0px;
     background-color:#F1FAE9;
 }
 
