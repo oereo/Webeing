@@ -27,7 +27,10 @@
             #color2 {color: #F1FAE9;}
             #color3 {color: #FFFFFF;}
             #fontsize15 {font-size: 150%;}
-            #fontsize2 {font-size: 200%;}
+            #subcontent {
+              font-size: 200%;
+              font-weight: bold;
+            }
             #fontsize3 {font-size: 300%;}
             #fontsize5 {font-size: 500%;}
             #fontbold1 {font-weight: bold; }
@@ -39,7 +42,9 @@
 
     <body>
 
-        <header class = "gridheader" class = "site-division">
+      <div class = "outcontainer">
+
+        <header class = "gridheader">
 
           <div id = "logo">
             <img src="{% static '/img/webeing.png'%}" alt="webeing" style = "width:100px; height: 100px;">
@@ -103,21 +108,19 @@
          </div>  
 
   
-         <div class = "service1" class = "body-display">
+         <div class = "service1">
 
-          <div class = "incontainer1" style = "margin: 3rem; ">
+          <div class = "incontainer1" style = "margin: 5rem; ">
 
             <div class = "leftcard1">
 
-              <ul id = "fontbold1" style = "list-style: none">
-                <ul id = "fontsize2" style = "list-style: none">
+              <ul id = "subcontent" style = "list-style: none">
                   <li id = "fontsize15">재고 상품 처리</li>
-                  <li>유통기한이 지난 재고 상품을 처리 할 때 마다 생기는 고민</li>              
+                  <li>유통기한이 지난 재고 상품을 처리 할 때 마다 생기는 고민</li>
+                  <br>              
                   <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">버려지는 수많은 음식들</li>
                   <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">매번 낭비되는 비용들</li>
                   <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">음식물 쓰레기로 인한 환경 오염문제</li>
-                </ul>
-
               </ul>
 
             </div>
@@ -130,9 +133,9 @@
 
          </div>
 
-         <div class = "service2" class = "body-display">
+         <div class = "service2">
 
-          <div class = "incontainer2" style = "margin: 3rem; ">
+          <div class = "incontainer2" style = "margin: 5rem; ">
 
             <div class = "leftcard2">
               <img src="{% static '/img/service2.png' %}" alt="service" style="vertical-align: middle; width: 300px; height: 300px;">
@@ -140,23 +143,22 @@
 
             <div class = "rightcard2">
 
-              <ul id = "fontbold1">
+              <ul id = "subcontent" style = "list-style: none;">
 
-                  <p id="fontsize3">합리적인 소비</p>
-
-                  <ul id = "fontsize2" style = "list-style: none;">
-
-                    <li>유통기한이 지난 재고 상품을 처리할 때 마다 생기는 고민</li>
-
-                      <div class = "rightcard22">
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비</li>
-                        <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소</li>
-                      </div>
-                  </ul>
+                <li id="fontsize15">합리적인 소비</li>
+                <li>유통기한이 지난 재고 상품을 처리할 때 마다 생기는 고민</li>
 
               </ul>
 
+            </div>
+
+
+            <div class = "rightcard22">
+              <ul id = "subcontent" style = "list-style: none;">
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비</li>
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비</li>
+                <li><img src="{% static '/img/check.png' %}" alt="check" style= "margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소</li>
+              </ul>
             </div>
 
           </div>
@@ -168,12 +170,16 @@
            
            <div class = "incontainer3">
 
-             <div class = "cardword" style = "margin-bottom: 2rem; ">
+             <div class = "cardword">
                <ul style = "list-style: none; ">
-                 <li id = "fontbold1" id = "fontsize3" >1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
-                 <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
-                 <li>국내에서는 하루에 약 1만 4천톤의 음식물 쓰레기가 나오는데,</li>
-                 <li>가정과 소형 음식점에서 발생하는 비율이 70%에 이른다고 합니다.</li>
+                 <li id = "subcontent" >1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
+                 <br>
+
+                 <ul style = "list-style: none;">
+                  <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
+                  <li>국내에서는 하루에 약 1만 4천톤의 음식물 쓰레기가 나오는데,</li>
+                  <li>가정과 소형 음식점에서 발생하는 비율이 70%에 이른다고 합니다.</li>
+                </ul>
                </ul>
              </div>
 
@@ -206,7 +212,7 @@
          </div>
 
 
-         <div class = "service4" class = "body-display" >
+         <div class = "service4">
 
            <div class = "incontainer4">
 
@@ -241,22 +247,22 @@
 
          </div>
 
+      </div>
+
 
     </body> 
 
 
     <!-- Footer -->
-    <footer class="gridfooter" id = "footer-dispaly">
+    <footer class="gridfooter">
 
-        <ul>
-            <p>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 이메일: slowwvibes@gmail.com</p>
-            <p>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</p>
-            <p><a href = "#">이용약관</a></p>
-            <p><a href = "#">개인정보처리방침</a></p>
-            <p>copyright by Webeing.</p>
+        <ul id = "footer-display">
+            <li>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 이메일: slowwvibes@gmail.com</li>
+            <li>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</li>
+            <li><a href = "#">이용약관</a> | <a href = "#">개인정보처리방침</a></li>
+            <li>copyright by Webeing.</li>
         </ul>
         
-
     </footer>
 
 </html>
