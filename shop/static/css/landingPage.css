@@ -2,7 +2,7 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1rem 70rem repeat(2, 30rem) repeat(2, 40rem) 10rem ;
+    grid-template-rows: 1rem 72rem repeat(2, 30rem) repeat(2, 40rem) 10rem ;
     /* grid-template-row: 0fr 5fr repeat(2, 3.5fr) repeat(2, 4fr) 0fr; */
 
     row-gap: 5rem;
@@ -42,7 +42,6 @@
 .main {
     grid-area: main; 
     z-index : 1;
-    width : 100%;
 }
 #homebutton {
     right: 10%;
