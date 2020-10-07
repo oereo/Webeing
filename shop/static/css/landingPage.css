@@ -2,7 +2,8 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 10fr repeat(2, 5fr) repeat(2, 7fr) 5fr ;
+    grid-template-rows: 1rem 70rem repeat(2, 30rem) repeat(2, 40rem) 10rem ;
+    /* grid-template-row: 0fr 5fr repeat(2, 3.5fr) repeat(2, 4fr) 0fr; */
 
     row-gap: 5rem;
 
@@ -20,7 +21,7 @@
     grid-area:gridheader; 
     position: fixed;
     z-index: 5;
-    }
+}
 #logo {
     z-index: 6;
     position: fixed;
@@ -51,7 +52,6 @@
     height: 150px;
     position: absolute;
     z-index: 5;
-
 }
 
 
@@ -120,7 +120,7 @@
 .incontainer2 {
     display: grid;
 
-    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-columns: 1fr 3fr 5fr;
     grid-template-rows: 1fr 1fr;
 
     column-gap: 5rem;
@@ -197,7 +197,6 @@
         ". . . . . . ."
 
 }
-
 .card11 {grid-area: card11; }
 .card12 {grid-area: card12; }
 .card13 {grid-area: card13; }
