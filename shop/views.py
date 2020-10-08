@@ -40,7 +40,6 @@ def product_detail(request, id, product_slug=None):
     add_to_cart = AddProductForm(initial={'quantity':1})
     return render(request, 'shop/detail.html', {'product': product, 'add_to_cart':add_to_cart})
 
-<<<<<<< HEAD
 from .forms import RegisterForm
 from django.views.generic.edit import FormView
 
@@ -57,9 +56,7 @@ class ProductRegister(FormView):
             stock = form.data.get('stock'),
             description = form.data.get('description')
         )
-        product.save()
+        register.save()
         return super().form_valid(form)
 
-=======
->>>>>>> 2bad7f8a14aaf9731b16dedc88398c1dceeab3d2
 
