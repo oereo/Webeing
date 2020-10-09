@@ -5,7 +5,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 10fr repeat(2, 5fr) repeat(2, 7fr) 5fr ;
 
-    row-gap: 3rem;
+    row-gap: 7rem;
 
     grid-template-areas:
         "gridheader"
@@ -73,6 +73,7 @@
 .gridfooter {
     grid-area: gridfooter; 
     background-color: #CED4DA;
+    margin: 0px;
 }
 .checkimg {
     width: 50px;

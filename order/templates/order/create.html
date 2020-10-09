@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+<<<<<<< HEAD
 {% block title %} 
 Checkout 
 {% endblock %} 
@@ -10,6 +11,20 @@ Checkout
   order_checkout_url = '{% url "orders:order_checkout" %}';
   order_validation_url = '{% url "orders:order_validation" %}';
   order_complete_url = '{% url "orders:order_complete" %}';
+=======
+{% block title %}
+Checkout
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    csrf_token = '{{ csrf_token }}';
+    order_create_url = '{% url "orders:order_create_ajax" %}';
+    order_checkout_url = '{% url "orders:order_checkout" %}';
+    order_validation_url = '{% url "orders:order_validation" %}';
+    order_complete_url = '{% url "orders:order_complete" %}';
+>>>>>>> 91274a35e7f5f3549a58d6967757cebffc3e45d7
 </script>
 
 <script
@@ -25,6 +40,7 @@ Checkout
 
 {% block content %}
 <div class="row">
+<<<<<<< HEAD
   <div class="col">
     <div class="alert alert-info" role="alert">Your Order</div>
     <ul class="list-group">
@@ -65,4 +81,45 @@ Checkout
 </div>
 
 <!-- <a href='{% url "orders:order_payment" %}' class="btn btn-primary float-right">결제하기</a> -->
+=======
+    <div class="col">
+        <div class="alert alert-info" role="alert">
+            Your Order
+        </div>
+        <ul class="list-group">
+            {% for item in cart %}
+            <li class="list-group-item">
+                {{item.quantity}}X{{item.product.name}}
+                <span id="amount3r" value="100">{{item.total_price}}</span>
+                <div id="amount11">2123</div>
+            </li>
+            {% endfor %}
+            {% if cart.coupon %}
+            <li class="list-group-item">
+
+                "{{ cart.coupon.code }}" ({{ cart.coupon.amount }}% off)
+
+                <span>- ${{ cart.get_total_discount|floatformat:"2" }}</span>
+            </li>
+            {% endif %}
+        </ul>
+        <div class="alert alert-success" id="amount1" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
+
+        <!-- form에 class 추가 -->
+        <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
+            {{form.as_p}}
+            {% csrf_token %}
+            <!-- hidden field 추가-->
+            <input type="hidden" name="pre_order_id" value="0">
+            <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
+            <button type="submit">aaa</button>
+            <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>
+
+        </form>
+
+    </div>
+</div>
+
+
+>>>>>>> 91274a35e7f5f3549a58d6967757cebffc3e45d7
 {% endblock %}

@@ -32,8 +32,9 @@
     <!-- <div id = "template" v-bind:style = "grid"> -->
     <div id="nav" v-bind:style="grid">
         <b-navbar toggleable="lg" type="light" variant="light">
-<!--            <b-img src = "../static/img/logo.png"></b-img>-->
-            <a href = "/main"><button class="btn btn-lg btn-success">Webeing</button></a>
+            <a href="/main"><img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:100px; height: 100px;"></a>
+            <!--<a href = "/main"><button class="btn btn-lg btn-success">Webeing</button></a> -->
+
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav>
@@ -73,7 +74,7 @@
                         <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
                     {% else %}
-                    <b-nav-item href="{% url 'signup' %}">SINGUP</b-nav-item>
+                    <b-nav-item href="{% url 'signup' %}">SIGNUP</b-nav-item>
                     <!-- <b-nav-item href="{% url 'signup_customer' %}">회원가입_유저</b-nav-item>
                     <b-nav-item href="{% url 'signup_seller' %}">회원가입_점주</b-nav-item> -->
                     <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
@@ -180,5 +181,15 @@
     </script>
    
 </body>
+
+<footer style = "background-color: #CED4DA">
+    <ul style = "list-style: none; padding: 50px; line-height: 2rem; ">
+        <li>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 개인정보담당자: slowwvibes@gmail.com</li>
+        <li>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</li>
+        <li>문의전화 : 010-9228-0236 | 제휴 및 문의메일 : we-being@naver.com</li>
+        <li><a href = "#">이용약관</a> | <a href = "#">개인정보처리방침</a></li>
+        <li>copyright by Webeing.</li>
+    </ul>
+</footer>
 
 </html>
