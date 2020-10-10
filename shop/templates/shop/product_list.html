@@ -1,24 +1,140 @@
 {% extends 'base.html' %}
 {% block title %}Restaurant Page{% endblock %}
 {% block content %}
-<div class="row">
+{% load static %}
 
-  <div class="col">
-   
-    <div class="row">
-      {% for product in products %}
 
-      <div class="col-4">
-        <div class="card">
-          <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image">
-          <div class="card-body">
-            <h5 class="card-title">{{product.name}}</h5>
-            <p class="card-text">{{product.description}} <br><span
-                class="badge badge-secondary">${{product.price}}</span></p>
-            <a href="{{product.get_absolute_url}}" class="btn btn-primary">View Detail</a>
-          </div>
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}"/>
+
+<style>
+    #storefont {
+        font-size: 180%;
+        font-weight: bold;
+    }
+</style>
+
+<div class="box-container">
+
+    <div class="store" style="border:1px solid lightgray; padding:10px;">
+
+      <div class="store-in">
+
+        <div class = "storepic">
+          <div class="card-image"><img style = "max-width: 100%" src="{{current_restaurant.image.url}}"> </div>
         </div>
+
+        <div class="storeinfo">
+            <p id="storefont">{{current_restaurant.name}}</p>
+            <p>거리 | </p>
+            <p>지도 | 위치보기</p>
+            <p>별별별별별 4.7</p>
+        </div>
+
       </div>
 
-      {% endfor %}
-      {% endblock %}
+    </div>
+
+    <div class="todaymenu">
+
+        <div class="menu">
+
+            <div class="menutitle">
+                <p><span id="storefont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
+            </div>
+
+            <div class="menus" style="border:1px solid lightgray; padding:10px;">
+
+                {% for product in products %}
+
+                <div class="menu-in">
+
+                    <a href="{{product.get_absolute_url}}">
+
+                        <div class="menupic">
+
+                            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image">
+
+                        </div>
+
+                        <div class="menuinfo">
+
+                            <div class="col-4">
+
+                                <div class="card">
+
+                                  <div class="card-body">
+                                      <p class="card-title" id="storefont">{{product.name}}</p>
+                                      <span class="badge badge-secondary">${{product.price}}</span>
+                                  </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="storelocation">
+
+        <p><span id="storefont">매장 위치</span></p>
+
+
+    </div>
+
+    <div class="storeinfo">
+
+        <p><span id="storefont">매장 정보</span></p>
+
+        <table style = "border:1px solid lightgray; padding:10px;">
+
+          <tr>
+            <td>영업시간</td>
+            <td>10:00 ~ 23:00</td>
+          </tr>
+
+          <tr>
+            <td>전화번호</td>
+            <td>010-1234-5678</td>
+          </tr>
+
+          <tr>
+            <td>주소</td>
+            <td>서울시 동작구 상도 1동 266-1층 102호</td>
+          </tr>
+
+        </table>
+
+
+    </div>
+
+    <div class="storeowner">
+
+    </div>
+
+    <div class="foodinfo">
+
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="row">
+
+
+            {% endblock %}
