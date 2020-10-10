@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Category Page{% endblock %}
 {% block content %}
+{% load static %}
 
 <style>
     #fontbold {font-weight: bold;}
@@ -74,15 +75,12 @@
 
                 <a href="{{restaurant.get_absolute_url}}">
 
-                    <div class="card-image"><img style = "max-width: 100%" src="{{restaurant.image.url}}"> </div>
+                    <div class="card-image"><img style = "max-width: 100%; height: 180px;" src="{% static 'img/노랑통닭.png' %}"> </div>
 
                     <div class = "card-stats">
                         <p id = "subfont">{{restaurant.name}}</p>
                         <p id = "susubfont">{{restaurant.description}} | 22,000원 -> 20,000원</p>
-                        <div class = "stat" id = "susubfont">
-                            <span>별별별별별 4.7 | 5123 views</span>
-                        </div>
-
+                        <p id = "susubfont">별별별별별 4.7 | 5123 views</p>
                     </div>
 
                 </a>

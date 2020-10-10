@@ -1,0 +1,29 @@
+.box-container {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2.5fr 2.5fr 1fr 1fr 1fr;
+
+    row-gap: 5rem;
+
+    grid-template-areas:
+        "store"
+        "todaymenu"
+        "storelocation"
+        "storeinfo"
+        "storeowner"
+        "foodinfo"
+}
+
+.menu {
+    display:grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "menutitle"
+        "menu1"
+        'menu2'
+        "menu3"
+}
