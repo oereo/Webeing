@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Restaurant, Category, Product, Register
+from cart.cart import Cart
+from coupon.forms import AddCouponForm
 
 
 def landingPage(request):
@@ -16,21 +18,39 @@ def restaurant_in_category(request, category_slug=None):
         current_category = get_object_or_404(Category, slug=category_slug)
         restaurants = restaurants.filter(category=current_category)
 
-    return render(request, 'shop/list.html',
-                  {'current_category': current_category, 'categories': categories, 'restaurants': restaurants})
+    return render(
+        request, 'shop/list.html',
+        {'current_category': current_category,
+         'categories': categories,
+         'restaurants': restaurants
+         }
+    )
 
 
 def product_in_restaurant(request, restaurant_slug=None):
     current_restaurant = None
     restaurants = Restaurant.objects.all()
+    categories = Category.objects.all()
     products = Product.objects.filter(available_display=True)
+    cart = Cart(request)
+    add_coupon = AddCouponForm()
+    for product in cart:
+        product['quantity_form'] = AddProductForm(initial={'quantity': product['quantity'], 'is_update': True})
 
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
         products = products.filter(restaurant=current_restaurant)
 
-    return render(request, 'shop/product_list.html',
-                  {'current_restaurant': current_restaurant, 'restaurants': restaurants, 'products': products})
+    return render(
+        request, 'shop/product_list.html',
+        {'current_restaurant': current_restaurant,
+         'categories': categories,
+         'restaurants': restaurants,
+         'products': products,
+         'cart': cart,
+         'add_coupon': add_coupon
+         }
+    )
 
 
 from cart.forms import AddProductForm
