@@ -9,8 +9,9 @@ Order Complete
     <div class="col">
         <div class="alert alert-success" role="alert">Thank you!<br/>
             Your order has been successfully completed.<br/>
-        Your order number is <strong>{{order.id}}</strong></div>
-
+        <!-- Your order number is <strong>{{order.id}}</strong></div> -->
     </div>
+
+    <a href='{% url "shop:product_all" %}' class="btn btn-primary float-right">홈으로 가기</a>
 </div>
 {% endblock %}
