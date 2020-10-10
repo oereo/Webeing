@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+
 from .models import Restaurant, Category, Product, Register
+
 
 def landingPage(request):
     return render(request, 'shop/landingPage.html')
@@ -10,7 +12,6 @@ def restaurant_in_category(request, category_slug=None):
     categories = Category.objects.all()
     restaurants = Restaurant.objects.filter(available_display=True)
 
-
     if category_slug:
         current_category = get_object_or_404(Category, slug=category_slug)
         restaurants = restaurants.filter(category=current_category)
@@ -18,8 +19,6 @@ def restaurant_in_category(request, category_slug=None):
     return render(request, 'shop/list.html',
                   {'current_category': current_category, 'categories': categories, 'restaurants': restaurants})
 
-
-from cart.forms import AddProductForm
 
 def product_in_restaurant(request, restaurant_slug=None):
     current_restaurant = None
@@ -35,14 +34,17 @@ def product_in_restaurant(request, restaurant_slug=None):
 
 
 from cart.forms import AddProductForm
+
+
 def product_detail(request, id, product_slug=None):
     product = get_object_or_404(Product, id=id, slug=product_slug)
-    add_to_cart = AddProductForm(initial={'quantity':1})
-    return render(request, 'shop/detail.html', {'product': product, 'add_to_cart':add_to_cart})
+    add_to_cart = AddProductForm(initial={'quantity': 1})
+    return render(request, 'shop/detail.html', {'product': product, 'add_to_cart': add_to_cart})
 
-<<<<<<< HEAD
+
 from .forms import RegisterForm
 from django.views.generic.edit import FormView
+
 
 class ProductRegister(FormView):
     template_name = 'product_register.html'
@@ -51,15 +53,12 @@ class ProductRegister(FormView):
 
     def form_valid(self, form):
         register = Register(
-            name = form.data.get('name'),
-            price = form.data.get('price'),
-            #image = form.data.get('image'),
-            stock = form.data.get('stock'),
-            description = form.data.get('description')
+            name=form.data.get('name'),
+            price=form.data.get('price'),
+            # image = form.data.get('image'),
+            stock=form.data.get('stock'),
+            description=form.data.get('description')
         )
-        product.save()
+        temp = register.save()
+
         return super().form_valid(form)
-
-=======
->>>>>>> 2bad7f8a14aaf9731b16dedc88398c1dceeab3d2
-
