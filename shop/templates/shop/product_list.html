@@ -12,21 +12,23 @@
 
 <div class="box-container">
 
-    <div class="store" style="border:1px solid lightgray; padding:10px;">
+    <div class="store" style="border:2px solid lightgray; padding:10px;">
 
-        <div class="store-in">
-
-            <div class="storepic">
-                <div class="card-image"><img style="max-width: 100%" src="{{restaurant.image.url}}"></div>
+        <div class="row">
+            <div class="col">
+                <div class="product_list_card">
+                    <img style = "width : 160px; height : 160px" src="{{current_restaurant.image.url}}">
+                </div>
             </div>
+            <div class="col-10">
 
-            <div class="storeinfo">
-                <p id="storefont">{{current_restaurant.name}}</p>
-                <p>거리 | </p>
-                <p>지도 | 위치보기</p>
-                <p>별별별별별 4.7</p>
+                <div class="storeinfo">
+                    <p id="storefont">{{current_restaurant.name}}</p>
+                    <p>거리 | </p>
+                    <p>지도 | 위치보기</p>
+                    <p>별별별별별 4.7</p>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -39,39 +41,17 @@
                 <p><span id="storefont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
             </div>
 
-            <div class="menus" style="border:1px solid lightgray; padding:10px;">
+            <div class="menus" style="border:2px solid lightgray; padding:10px;">
 
                 {% for product in products %}
 
                 <div class="menu-in">
 
-                    <a href="{{product.get_absolute_url}}">
+                    <div class="card-image"><img style="max-width: 100%" src="{{product.image.url}}"></div>
 
-                        <div class="menupic">
+                    <p class="card-title" id="storefont">{{product.name}}</p>
+                    <span class="badge badge-secondary">{{product.price}}</span>
 
-                            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image">
-
-                        </div>
-
-                        <div class="menuinfo">
-
-                            <div class="col-4">
-
-                                <div class="card">
-
-
-                                    <div class="card-body">
-                                        <p class="card-title" id="storefont">{{product.name}}</p>
-                                        <span class="badge badge-secondary">${{product.price}}</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </a>
 
                 </div>
 
@@ -87,18 +67,18 @@
     <div class="storelocation">
 
         <p><span id="storefont">매장 위치</span></p>
-        
+
         <!-- for map -->
         <div id="map" style="width:100%;height:400px;"></div>
 
         <script>
-        var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10
-        };
+            var mapOptions = {
+                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                zoom: 10
+            };
 
-var map = new naver.maps.Map('map', mapOptions);
-</script>
+            var map = new naver.maps.Map('map', mapOptions);
+        </script>
 
     </div>
 
