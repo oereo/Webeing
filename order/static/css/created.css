@@ -21,11 +21,13 @@
 .gohome {
     grid-area: gohome;
     text-align: center;
+    width: 100%;
 }
 
 .cancelorder {
     grid-area: cancelorder;
     text-align: center;
+    width: 100%;
 }
 
 .item:nth-child(2) {
