@@ -1,3 +1,4 @@
+
 .box-container {
     display: grid;
 
@@ -6,12 +7,14 @@
 
     row-gap : 0.1px; 
 
+
+
     grid-template-areas:
         " preheader "
         " login1 "
         " email "
         " password "
-        " auotologin "
+        " autologin "
         " login2 "
         " sociallogin "
         " gosignup "
@@ -25,9 +28,11 @@
 }
 .email {grid-area: email; }
 .password {grid-area: password; }
+
 .autologin {
     grid-area: autologin; 
 }
+
 .login2 {
     grid-area: login2; 
     text-align: center;
