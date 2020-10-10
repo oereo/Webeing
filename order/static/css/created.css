@@ -1,0 +1,39 @@
+.box-cotainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
+
+    grid-template-areas:
+        "ordercomplete receipt"
+        "gohome gohome"
+        "cancelorder cancelorder"
+}
+
+.ordercomplete {
+    grid-area: ordercomplete;
+    text-align: center;
+}
+
+.receipt {
+    grid-area: receipt;
+
+}
+
+.gohome {
+    grid-area: gohome;
+    text-align: center;
+    width: 100%;
+}
+
+.cancelorder {
+    grid-area: cancelorder;
+    text-align: center;
+    width: 100%;
+}
+
+.item:nth-child(2) {
+    grid-row: 1 / 3;
+}
+
+.item:nth-child(3) {
+    grid-row: 1 / 3;
+}

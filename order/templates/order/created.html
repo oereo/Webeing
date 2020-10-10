@@ -5,6 +5,7 @@ Order Complete
 {% endblock %}
 
 {% block content %}
+
 <div class="row">
     <div class="col">
         <div class="alert alert-success" role="alert">Thank you!<br/>
@@ -12,5 +13,45 @@ Order Complete
         Your order number is <strong>{{order.id}}</strong></div>
 
     </div>
+</div>
+
+<title>OrderComplete</title>
+
+<style>
+    #fontsize15 {font-size: 150%; }
+    #green { color: #00be68; }
+</style>
+
+<div class = "box-container">
+
+    <div class = "ordercomplete">
+
+        <ul id = "fontsize15" style = "list-style: none; ">
+            <li>주문이 완료되었습니다.</li>
+            <li>오늘 {} 님의 주문으로</li>
+            <li>{}원이 절약되었습니다.</li>
+            <li>지금까지 {} 님은</li>
+            <li>{}원을 환경에 투자하셨습니다.</li>
+            <li>저희 위빙을 통하여 절약된 금액은</li>
+            <li id = "color">총 {}원 입니다.</li>
+        </ul>
+    </div>
+
+    <div class = "receipt">
+
+    </div>
+
+    <div class = "gohome">
+        <a href = "{% url '/main' %}">
+            <button id = "color" type="button" class="btn btn-lg btn-block">홈으로 가기</button>
+        </a>
+    </div>
+
+    <div class = "cancelorder">
+        <a href = "{% url '#' %}">
+            <button type="button" class="btn btn-outline-secondary"><span id = "color">결제 취소하기</span></button>
+        </a>
+    </div>
+
 </div>
 {% endblock %}

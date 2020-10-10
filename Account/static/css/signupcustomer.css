@@ -1,50 +1,178 @@
-.container {
-    display: inline-grid;
+.box-container {
+    display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    row-gap: 10px;
+    grid-template-rows: 1fr 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
-        "preheader"
-        " signup1 "
-        " socialsignup "
-        " email "
-        " password "
-        "confirm"
+        "signup1 "
+        "socialsignup "
+        "email "
+        "password"
+        "passwordconfirm"
         "nickname"
-        "phonetype1"
-        "phonetype2"
-        "agree1"
-        "agree2"
-        "agree3"
-        "agree4"
-        "agree5"
-        "agreeall"
+        "phonetype"
+        "agree"
         "signup2"
-        "prefooter"
+
 }
 
 .signup1 {
-    grid-area: signup1; 
+    grid-area: signup1;
     text-align: center;
 }
-.socialsignup {grid-area: socialsignup; }
-.email {grid-area: email; }
-.password {grid-area: password; }
-.confirm {grid-area: confirm; }
-.nickname {grid-area: nickname; }
-.phonetype1 {grid-area: phonetype1; }
-.phonetype2 {grid-area: phonetype2; }
-.agree1 {grid-area: agree1; }
-.agree2 {grid-area: agree2; }
-.agree3 {grid-area: agree3; }
-.agree4 {grid-area: agree4; }
-.agree5 {grid-area: agree5; }
-.agreeall {
-    grid-area: agreeall; 
-    float: right;
+
+.socialsignup {
+    grid-area: socialsignup;
 }
-.signup2 {grid-area: signup2; }
+
+.email {
+    grid-area: email;
+}
+
+.password {
+    grid-area: password;
+}
+
+.passwordconfirm {
+    grid-area: passwordconfirm;
+}
+
+.nickname {
+    grid-area: nickname;
+}
+
+.phonetype {
+    grid-area: phonetype;
+}
+
+.agree {
+    grid-area: agree;
+}
+
+#inagree {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.box-phone {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr;
+
+    grid-template-areas:
+        "phone_word"
+        "phonetype1"
+        "phonetype2"
+}
+
+.phonetype1 {
+    grid-area: phonetype1;
+}
+
+.phonetype2 {
+    grid-area: phonetype2;
+}
+
+.box-agree {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "agree_word"
+        "agree1"
+        "agree2"
+        "agree3"
+        "agreeall"
+}
+
+
+.agree1 {
+    grid-area: agree1;
+}
+
+.agree2 {
+    grid-area: agree2;
+}
+
+.agree3 {
+    grid-area: agree3;
+}
+
+.agreeall {
+    grid-area: agreeall;
+    float: right;
+    text-align: right;
+}
+
+.checkBox, .checkBox > ul {
+    position: relative;
+}
+
+.checkBox > ul > li {
+    float: left;
+}
+
+.checkBox > ul > li:first-child {
+    width: 85%;
+    padding: 15px;
+    font-weight: 600;
+    color: #888;
+}
+
+.checkBox > ul > li:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    margin-top: -12px;
+}
+
+.checkBox textarea {
+    width: 96%;
+    height: 90px;
+    margin: 0 2%;
+    background-color: #f7f7f7;
+    color: #888;
+    border: none;
+}
+
+.footBtwrap {
+    margin-top: 15px;
+}
+
+.footBtwrap > li {
+    float: left;
+    width: 50%;
+    height: 60px;
+}
+
+.footBtwrap > li > button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.fpmgBt1 {
+    background-color: #fff;
+    color: #888
+}
+
+.fpmgBt2 {
+    background-color: lightsalmon;
+    color: #fff
+}
+
+.signup2 {
+    grid-area: signup2;
+    text-align: center;
+}
+
 

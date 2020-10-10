@@ -1,0 +1,48 @@
+.box-container {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+
+
+    grid-template-areas:
+        " signup1 "
+        " email "
+        " password "
+        "passwordconfirm"
+        "companynumber"
+        "address"
+        "phonetype1"
+        "phonetype2"
+        "agree1"
+        "agree2"
+        "agree3"
+        "agree4"
+        "agree5"
+        "agreeall"
+        "signup2"
+}
+
+.signup1 {
+    grid-area: signup1; 
+    text-align: center;
+}
+.email {grid-area: email; }
+.password {grid-area: password; }
+.passwordconfirm {grid-area: confirm; }
+.companynumber {grid-area: companynumber; }
+.address {grid-area: address; }
+.phonetype1 {grid-area: phonetype1; }
+.phonetype2 {grid-area: phonetype2; }
+.agree1 {grid-area: agree1; }
+.agree2 {grid-area: agree2; }
+.agree3 {grid-area: agree3; }
+.agree4 {grid-area: agree4; }
+.agree5 {grid-area: agree5; }
+.agreeall {
+    grid-area: agreeall; 
+    float:right;
+    text-align:right;
+}
+.signup2 {grid-area: signup2; }
+
