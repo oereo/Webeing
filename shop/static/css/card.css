@@ -1,18 +1,17 @@
 .card {
     display: grid;
     grid-template-columns: 280px;
-    grid-template-rows: 180px 180px 80px;
-    grid-template-areas: "image" "text" "stats";
+    grid-template-rows: 180px 100px;
+    grid-template-areas: "image" "stats";
 
     border-radius: 18px;
     background: white;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     font-family: roboto;
-    text-align: center;
 }
 
 .card-image {
     grid-area: image;
+    width: 180px;
 }
 
 .card-text {
@@ -54,27 +53,26 @@
 .card-stats {
     grid-area: stats;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 30px 30px;
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     background: #81C147;
+    padding: 10px 10px 10px 10px;
 }
 
 .card-stats .stat {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 
     color: white;
     padding: 10px;
+    line-height: 5px;
 }
 
 .card:hover {
     transform: scale(1.15);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
 
 .card {

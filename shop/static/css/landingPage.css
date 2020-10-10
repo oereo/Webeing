@@ -5,7 +5,7 @@
     /* grid-template-rows: 1rem 72rem repeat(2, 30rem) repeat(2, 40rem) 10rem ; */
     grid-template-rows: 0fr 5fr repeat(2, 3.2fr) repeat(2, 3.6fr) 0fr;
 
-    row-gap: 0rem repeat(6 ,5rem);
+    row-gap: 5rem;
 
     grid-template-areas:
         "gridheader"

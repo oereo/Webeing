@@ -2,6 +2,16 @@
 {% block title %}Category Page{% endblock %}
 {% block content %}
 
+<style>
+    #fontbold {font-weight: bold;}
+    #subfont {
+        font-weight: bold;
+        font-size: 150%;
+    }
+    #susubfont {
+        font-size: 80%;
+    }
+</style>
 
 <div class="row">
     <div class="col-2">
@@ -34,6 +44,8 @@
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
+
+<!-- 
             <div class="card">
                 <div class="card-image"><img style = "max-width: 100%" src="{{restaurant.image.url}}"> </div>
                 <div class="card-text">
@@ -56,6 +68,25 @@
                         <div class="type">comments</div>
                     </div>
                 </div>
+            </div> -->
+
+            <div class = "card">
+
+                <a href="{{restaurant.get_absolute_url}}">
+
+                    <div class="card-image"><img style = "max-width: 100%" src="{{restaurant.image.url}}"> </div>
+
+                    <div class = "card-stats">
+                        <p id = "subfont">{{restaurant.name}}</p>
+                        <p id = "susubfont">{{restaurant.description}} | 22,000원 -> 20,000원</p>
+                        <div class = "stat" id = "susubfont">
+                            <span>별별별별별 4.7 | 5123 views</span>
+                        </div>
+
+                    </div>
+
+                </a>
+
             </div>
 
             {% endfor %}
