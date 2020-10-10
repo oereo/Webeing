@@ -7,8 +7,6 @@
 
     row-gap : 0.1px; 
 
-
-
     grid-template-areas:
         " preheader "
         " login1 "
