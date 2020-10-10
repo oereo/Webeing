@@ -35,9 +35,10 @@ def order_create(request):
 
 # ajax로 결제 후에 보여줄 결제 완료 화면
 def order_complete(request):
-    order_id = request.GET.get('order_id')
-    order = Order.objects.get(id=order_id)
-    return render(request, 'order/created.html', {'order': order})
+    # order_id = request.GET.get('order_id')
+    # order = Order.objects.get(id=order_id)
+    # return render(request, 'order/created.html', {'order': order})
+    return render(request, 'order/created.html')
 
 
 # 결제를 위한 임포트

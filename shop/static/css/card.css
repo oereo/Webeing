@@ -1,12 +1,19 @@
+a {
+    text-decoration: none
+}
+
 .card {
     display: grid;
     grid-template-columns: 280px;
-    grid-template-rows: 180px 100px;
-    grid-template-areas: "image" "stats";
+    grid-template-rows: 150px 160px 60px;
+    grid-template-areas: "image" "text" "stats";
 
     border-radius: 18px;
     background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     font-family: roboto;
+    text-align: center;
+
 }
 
 .card-image {
@@ -30,7 +37,7 @@
 
 .card-text {
     grid-area: text;
-    margin: 25px;
+    margin-top: 50px;
 }
 
 .card-text .date {
@@ -52,26 +59,29 @@
 .card-stats {
     grid-area: stats;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 30px 30px 30px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     padding: 10px 10px 10px 10px;
     border-radius: 1px;
+
 }
 
 .card-stats .stat {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 
     color: white;
     padding: 10px;
-    line-height: 10px;
 }
 
 .card:hover {
     transform: scale(1.15);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
 
 .card {
@@ -80,3 +90,15 @@
     cursor: pointer;
     margin: 30px;
 }
+
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+
