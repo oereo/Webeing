@@ -7,13 +7,17 @@
 <link rel="stylesheet" href="{% static 'css/product_list.css' %}"/>
 
 <style>
-    #storefont {
+    #restaurantfont {
         font-size: 180%;
         font-weight: bold;
     }
+    #green {
+      font-weight: bold;
+      color: #00be68
+    }
 </style>
 
-<div class="box-container">
+<div class = "box-container">
 
     <div class="store" style="border:1px solid lightgray; padding:10px;">
 
@@ -24,8 +28,8 @@
         </div>
 
         <div class="storeinfo">
-            <p id="storefont">{{current_restaurant.name}}</p>
-            <p>거리 | </p>
+            <p id="restaurantfont">{{current_restaurant.name}}</p>
+            <p>거리 | 500m 이내</p>
             <p>지도 | 위치보기</p>
             <p>별별별별별 4.7</p>
         </div>
@@ -34,53 +38,35 @@
 
     </div>
 
-    <div class="todaymenu">
+    <div class="menus">
 
-        <div class="menu">
+      <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
 
-            <div class="menutitle">
-                <p><span id="storefont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
-            </div>
+        <div style="border:1px solid lightgray; padding:10px;">
 
-            <div class="menus" style="border:1px solid lightgray; padding:10px;">
+          <!-- Up to 3 menus -->
+          {% for product in products %}
 
-                {% for product in products %}
+            <div class = "menu-in">
 
-                <div class="menu-in">
+              <a href="{{product.get_absolute_url}}">
 
-                    <a href="{{product.get_absolute_url}}">
-
-                        <div class="menupic">
-
-                            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image">
-
-                        </div>
-
-                        <div class="menuinfo">
-
-                            <div class="col-4">
-
-                                <div class="card">
-
-                                  <div class="card-body">
-                                      <p class="card-title" id="storefont">{{product.name}}</p>
-                                      <span class="badge badge-secondary">${{product.price}}</span>
-                                  </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </a>
-
+                <div class = "menupic">
+                  <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image" style = "height: 100px; ">
                 </div>
 
-                {% endfor %}
+                <div class = "menuinfo">
+                  <ul style = "list-style: none;">
+                    <li id = "restaurantfont">{{product.name}}</li>
+                    <li id = "green">{{product.price}}</li>
+                  </ul>
+                </div>
+
+              </a>
 
             </div>
 
+          {% endfor %}
 
         </div>
 
@@ -88,16 +74,34 @@
 
     <div class="storelocation">
 
-        <p><span id="storefont">매장 위치</span></p>
+        <p><span id="restaurantfont">매장 위치</span></p>
+        
+        <!-- for map -->
+        <div id="map" style="width:100%;height:500px;"></div>
 
+        <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 10
+        };
+
+var map = new naver.maps.Map('map', mapOptions);
+</script>
 
     </div>
 
     <div class="storeinfo">
 
-        <p><span id="storefont">매장 정보</span></p>
+        <p><span id="restaurantfont">매장 정보</span></p>
 
-        <table style = "border:1px solid lightgray; padding:10px;">
+        <div style = "width: 100%; border:1px solid lightgray; padding:30px;">
+
+        <table>
+
+          <colgroup>
+            <col width = "30%" />
+            <col width = "*" />
+          </colgroup>
 
           <tr>
             <td>영업시간</td>
@@ -116,25 +120,51 @@
 
         </table>
 
+      </div>
 
     </div>
 
     <div class="storeowner">
 
+      <p><span id="restaurantfont">사업자 정보</span></p>
+
+      <div style = "width: 100%; border:1px solid lightgray; padding:30px;">
+
+        <table>
+
+          <colgroup>
+            <col width = "30%" />
+            <col width = "*" />
+          </colgroup>
+
+          <tr>
+            <td>상호명</td>
+            <td>배달삼겹직구삼상도직영점</td>
+          </tr>
+
+          <tr>
+            <td>사업자등록번호</td>
+            <td>292-85-00703</td>
+          </tr>
+
+        </table>
+
+      </div>
+
     </div>
 
     <div class="foodinfo">
+
+      <p><span id="restaurantfont">원산지 정보</span></p>
+
+      <div class style="border:1px solid lightgray; padding:10px;">
+        <p>돈삼겹(독일산), 돈목살(스페인산), 돈목전지(스페인/미국산), 양념갈비(스페인산), 보쌈(오스트리아산),
+           김치(중국산), 마늘(국내산), 쌀(국내산), 고추가루(중국산)</p>
+      </div>
 
     </div>
 
 </div>
 
 
-<div class="row">
-
-    <div class="col">
-
-        <div class="row">
-
-
-            {% endblock %}
+{% endblock %}

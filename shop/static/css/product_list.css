@@ -2,13 +2,13 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr 3fr 1fr 1fr 1fr;
+    grid-template-rows: 230px 800px 600px 230px 200px 200px;
 
-    row-gap: 5rem;
+    row-gap: 50px;
 
     grid-template-areas:
         "store"
-        "todaymenu"
+        "menus"
         "storelocation"
         "storeinfo"
         "storeowner"
@@ -28,19 +28,10 @@
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
 
+    column-gap: 30px;
+
     grid-template-areas:
         "storepic storeinfo"
-}
-
-.menu {
-    display:grid;
-
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr;
-
-    grid-template-areas:
-        "menutitle"
-        "menus"
 }
 
 .menu-in {
@@ -49,14 +40,12 @@
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
 
+    column-gap: 30px; 
 
     grid-template-areas:
         "menupic menuinfo"
 }
 
-.menupic {
-    grid-area: menupic;
-}
 .menuinfo {
     grid-area: menuinfo;
     vertical-align: center;
@@ -67,7 +56,6 @@
 
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 1fr 1fr;
-
 
     grid-template-areas:
         "storetime storetime2"

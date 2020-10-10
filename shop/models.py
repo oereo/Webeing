@@ -55,7 +55,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 
-    price = models.DecimalField(max_digits=10,decimal_places=2)
+    price = models.IntegerField() ## [찬규] 가격 정보 정수값으로 수정했습니다.
     stock = models.PositiveIntegerField()
 
     available_display = models.BooleanField('Display', default=True)
