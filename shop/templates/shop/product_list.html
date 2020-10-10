@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Restaurant Page{% endblock %}
 {% block content %}
+{% load static %}
 
 <style>
   #storefont {
@@ -16,7 +17,7 @@
     <div class = "store-in">
 
       <div class = "storepic">
-        <div class="card-image"><img style = "max-width: 100%" src="{{restaurant.image.url}}"> </div>
+        <div class="card-image"><img style = "max-width: 100%" src="{{current_restaurant.image.url}}"> </div>
       </div>
 
       <div class = "storeinfo">
