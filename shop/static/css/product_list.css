@@ -15,15 +15,62 @@
         "foodinfo"
 }
 
+.store {
+    grid-area: store;
+    border: 1px solid black;
+    padding: 10px;
+
+}
+
+.store-in {
+    display: grid;
+
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+
+
+    grid-template-areas:
+        "storepic storeinfo"
+}
+
 .menu {
     display:grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
 
     grid-template-areas:
         "menutitle"
-        "menu1"
-        'menu2'
-        "menu3"
+        "menus"
+}
+
+.menu-in {
+    display: grid;
+
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+
+
+    grid-template-areas:
+        "menupic menuinfo"
+}
+
+.menupic {
+    grid-area: menupic;
+}
+.menuinfo {
+    grid-area: menuinfo;
+    vertical-align: center;
+}
+
+.storeinfo-in {
+    display: grid;
+
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+
+    grid-template-areas:
+        "storetime storetime2"
+
 }
