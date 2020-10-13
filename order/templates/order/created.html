@@ -13,7 +13,7 @@ Order Complete
         <!-- Your order number is <strong>{{order.id}}</strong></div> -->
     </div>
 
-    <a href='{% url "shop:product_all" %}' class="btn btn-primary float-right">홈으로 가기</a>
+    <!-- <a href='{% url "shop:product_all" %}' class="btn btn-primary float-right">홈으로 가기</a> -->
 </div>
 
 <title>OrderComplete</title>
@@ -43,16 +43,11 @@ Order Complete
     </div>
 
     <div class = "gohome">
-        <a href = "{% url '/main' %}">
+        <a href = "{% url 'shop:product_all' %}">
             <button id = "color" type="button" class="btn btn-lg btn-block">홈으로 가기</button>
         </a>
     </div>
 
-    <div class = "cancelorder">
-        <a href = "{% url '#' %}">
-            <button type="button" class="btn btn-outline-secondary"><span id = "color">결제 취소하기</span></button>
-        </a>
-    </div>
 
 </div>
 {% endblock %}

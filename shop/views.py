@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
+from cart.cart import Cart
+from coupon.forms import AddCouponForm
 from .models import Restaurant, Category, Product, Register
 
 
@@ -16,21 +18,39 @@ def restaurant_in_category(request, category_slug=None):
         current_category = get_object_or_404(Category, slug=category_slug)
         restaurants = restaurants.filter(category=current_category)
 
-    return render(request, 'shop/list.html',
-                  {'current_category': current_category, 'categories': categories, 'restaurants': restaurants})
+    return render(
+        request, 'shop/list.html',
+        {'current_category': current_category,
+         'categories': categories,
+         'restaurants': restaurants
+         }
+    )
 
 
 def product_in_restaurant(request, restaurant_slug=None):
     current_restaurant = None
     restaurants = Restaurant.objects.all()
+    categories = Category.objects.all()
     products = Product.objects.filter(available_display=True)
+    cart = Cart(request)
+    add_coupon = AddCouponForm()
+    for product in cart:
+        product['quantity_form'] = AddProductForm(initial={'quantity': product['quantity'], 'is_update': True})
 
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
         products = products.filter(restaurant=current_restaurant)
 
-    return render(request, 'shop/product_list.html',
-                  {'current_restaurant': current_restaurant, 'restaurants': restaurants, 'products': products})
+    return render(
+        request, 'shop/product_list.html',
+        {'current_restaurant': current_restaurant,
+         'categories': categories,
+         'restaurants': restaurants,
+         'products': products,
+         'cart': cart,
+         'add_coupon': add_coupon
+         }
+    )
 
 
 from cart.forms import AddProductForm
@@ -62,3 +82,22 @@ class ProductRegister(FormView):
         temp = register.save()
 
         return super().form_valid(form)
+
+
+def add(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+
+    form = AddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product, quantity=cd['quantity'], is_update=cd['is_update'])
+
+    return render(request, 'shop/product_list.html')
+
+
+def remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove(product)
+    return render(request, 'shop/product_list.html')
