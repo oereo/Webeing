@@ -1,11 +1,8 @@
 .box-container {
     display: grid;
-
     grid-template-columns: 1fr;
-    grid-template-rows: 230px 800px 600px 230px 200px 200px;
-
+    grid-template-rows: 230px 600px 600px 230px 200px 200px;
     row-gap: 50px;
-
     grid-template-areas:
         "store"
         "menus"
@@ -17,33 +14,34 @@
 
 .store {
     grid-area: store;
-    border: 1px solid black;
-    padding: 10px;
-
 }
 
 .store-in {
     display: grid;
-
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
-
     column-gap: 30px;
-
     grid-template-areas:
         "storepic storeinfo"
 }
 
+.menus {
+    grid-area: menus;
+}
+
 .menu-in {
     display: grid;
-
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
-
-    column-gap: 30px; 
-
+    column-gap: 30px;
     grid-template-areas:
         "menupic menuinfo"
+}
+
+.menupic {
+    grid-area: menupic;
+    width: 70%;
+    float: left;
 }
 
 .menuinfo {
@@ -53,11 +51,14 @@
 
 .storeinfo-in {
     display: grid;
-
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 1fr 1fr;
-
     grid-template-areas:
         "storetime storetime2"
+}
 
+#box-layout {
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 20px;
 }

@@ -16,135 +16,127 @@
         font-weight: bold;
         color: #00be68
     }
+
+    th, td {
+        padding: 10px;
+    }
 </style>
-<div class="row">
-    <div class="col-2">
-        <div class="list-group">
-            <a href="/main" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
-            {% for c in categories %}
-            <a href="{{c.get_absolute_url}}"
-               class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">{{c.name}}</a>
-            {% endfor %}
+
+<div class="box-container">
+
+    <div class="store" id="box-layout">
+
+        <div class="store-in">
+
+            <div class="storepic">
+                <div class="card-image"><img style="max-width: 100%" src="{{current_restaurant.image.url}}"></div>
+            </div>
+
+            <div class="storeinfo">
+                <p id="restaurantfont">{{current_restaurant.name}}</p>
+                <p>거리 | 500m 이내</p>
+                <p>지도 | 위치보기</p>
+                <p>별별별별별 4.7</p>
+            </div>
+
         </div>
+
     </div>
     <div class=col-7>
         <div class="box-container">
 
-            <div class="store" style="border:2px solid lightgray; padding:20px;">
 
-                <div class="row">
+            <div class="menus">
 
-                    <div class="col">
-                        <div class="product_list_card">
-                            <img style="width : 160px; height : 160px" src="{{current_restaurant.image.url}}">
-                        </div>
+                <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
+
+                <!-- Up to 3 menus -->
+                {% for product in products %}
+
+                <div class="menu-in" id="box-layout">
+
+                    <div class="menupic">
+                        <a href="{{product.get_absolute_url}}">
+                            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                                 style="height: 100px; ">
+                        </a>
                     </div>
-                    <div class="col-8">
 
-                        <div class="storeinfo">
-                            <p id="storefont">{{current_restaurant.name}}</p>
-                            <p>거리 | </p>
-                            <p>지도 | 위치보기</p>
-                            <p>별별별별별 4.7</p>
-                        </div>
+                    <div class="menuinfo">
+                        <ul style="list-style: none;">
+                            <li id="restaurantfont">{{product.name}}</li>
+                            <li id="green">{{product.price}}</li>
+                        </ul>
                     </div>
+
                 </div>
+
+                {% endfor %}
 
             </div>
 
-            <div class="todaymenu">
+            <div class="storelocation">
 
-                <div class="menu">
+                <p><span id="restaurantfont">매장 위치</span></p>
 
-                    <div class="menutitle">
-                        <p><span id="storefont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
-                    </div>
+                <!-- for map -->
+                <div id="map" style="width:100%;height:500px;"></div>
 
+                <script>
+                    var mapOptions = {
+                        center: new naver.maps.LatLng(37.3595704, 127.105399),
+                        zoom: 10
+                    };
 
-                    {% for product in products %}
-                    <form action="{% url 'cart:product_add' product.id %}" method="post">
-                        {{add_to_cart}}
-                        {% csrf_token %}
-                        <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
-                    </form>
-                    <a href="{{product.get_absolute_url}}">
+                    var map = new naver.maps.Map('map', mapOptions);
+                </script>
 
-                        <div class="menus" style="border:2px solid lightgray; padding:10px;">
-                            <div class="menu-in">
-                                <div class="col">
+            </div>
 
-                                    <img style="width : 100px; height : 100px" src="{{product.image.url}}">
-                                </div>
-                                <div class="col-9">
-                                    <p class="card-title" id="storefont">{{product.name}}</p>
-                                    <span class="badge badge-secondary">{{product.price}}</span>
-                                </div>
+            <div class="storeinfo">
 
-                            </div>
-                        </div>
-                    </a>
-                    {% endfor %}
+                <p><span id="restaurantfont">매장 정보</span></p>
 
-                </div>
+                <div id="box-layout">
 
-                <div class="storelocation">
+                    <table>
 
+                        <colgroup>
+                            <col width="30%"/>
+                            <col width="*"/>
+                        </colgroup>
 
-                    <p><span id="restaurantfont">매장 위치</span></p>
+                        <tr>
+                            <td>영업시간</td>
+                            <td>10:00 ~ 23:00</td>
+                        </tr>
 
-                    <!-- for map -->
-                    <div id="map" style="width:100%;height:500px;"></div>
+                        <tr>
+                            <td>전화번호</td>
+                            <td>010-1234-5678</td>
+                        </tr>
 
-                    <script>
-                        var mapOptions = {
-                            center: new naver.maps.LatLng(37.3595704, 127.105399),
-                            zoom: 10
-                        };
+                        <tr>
+                            <td>주소</td>
+                            <td>서울시 동작구 상도 1동 266-1층 102호</td>
+                        </tr>
 
-                        var map = new naver.maps.Map('map', mapOptions);
-                    </script>
+                    </table>
 
                 </div>
 
-                <div class="storeinfo">
 
-                    <p><span id="restaurantfont">매장 정보</span></p>
+                <tr>
+                    <td>전화번호</td>
+                    <td>010-1234-5678</td>
+                </tr>
 
-                    <div style="width: 100%; border:1px solid lightgray; padding:30px;">
-
-                        <table>
-
-                            <colgroup>
-                                <col width="30%"/>
-                                <col width="*"/>
-                            </colgroup>
-
-                            <tr>
-                                <td>영업시간</td>
-                                <td>10:00 ~ 23:00</td>
-                            </tr>
-
-                            <tr>
-                                <td>전화번호</td>
-                                <td>010-1234-5678</td>
-                            </tr>
-
-                            <tr>
-                                <td>주소</td>
-                                <td>서울시 동작구 상도 1동 266-1층 102호</td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-
-                </div>
 
                 <div class="storeowner">
 
                     <p><span id="restaurantfont">사업자 정보</span></p>
 
-                    <div style="width: 100%; border:1px solid lightgray; padding:30px;">
+                    <div id="box-layout">
 
                         <table>
 
@@ -167,9 +159,16 @@
 
                     </div>
 
-                </div>
 
-                <div class="foodinfo">
+                    <tr>
+                        <td>상호명</td>
+                        <td>배달삼겹직구삼상도직영점</td>
+                    </tr>
+
+                    <tr>
+                        <td>사업자등록번호</td>
+                        <td>292-85-00703</td>
+                    </tr>
 
                     <p><span id="restaurantfont">원산지 정보</span></p>
 
@@ -180,81 +179,10 @@
 
                 </div>
 
+
             </div>
         </div>
     </div>
-    <div class=col-3>
-        <table class="table table-striped">
-            <thead>
-            장바구니
-            </thead>
-            <tbody>
-            {% for item in cart %}
-            {% with product=item.product %}
-            <tr>
-                <th scope="row">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{{ product.image.url }}" class="img-thumbnail">
-                    </a>
-                </th>
-                <td>{{ product.name }}</td>
-                <td>
-                    <form action="{% url 'cart:product_add' product.id %}" method="post" style="width : 100px;">
-                        <div style="width : 40px;">
-                            {{ item.quantity_form.quantity }}
-                            {{ item.quantity_form.is_update }}
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Update">
-                        {% csrf_token %}
-                    </form>
-                </td>
-                <td><a href="{% url 'cart:product_remove' product.id %}">삭제</a></td>
-                <!-- 원화로 변경 -->
-                <td class="num">{{ item.price }}원</td>
-                <td class="num">{{ item.total_price }}원</td>
-            </tr>
-            {% endwith %}
-            {% endfor %}
-            {% if cart.coupon %}
-            <tr class="subtotal">
-                <td>Subtotal</td>
-                <td colspan="4"></td>
-                <!-- 원화로 변경 -->
-                <td>{{ cart.get_product_total }}원</td>
-            </tr>
-            <tr>
-                <td>"{{ cart.coupon.code }}" coupon ({{ cart.coupon.amount }}원)</td>
-                <td colspan="4"></td>
-                <td>- {{ cart.get_discount_total|floatformat:"2" }}원</td>
-            </tr>
-            {% endif %}
-            <tr class="total">
-                <td>Total</td>
-                <td colspan="4"></td>
-                <!-- 원화로 변경 -->
-                <td class="num">{{ cart.get_total_price|floatformat:"2" }}원</td>
-            </tr>
-            </tbody>
-        </table>
-        <p>
-            기존 Point
-        </p>
-        <form action='{% url "coupon:add" %}' method="post">
-            <!-- {{ add_coupon }} -->
-            <input type="submit" value="Add">
-            {% csrf_token %}
-        </form>
-
-        <p class="text-right">
-            <a href='{% url "shop:product_all" %}' class="btn btn-secondary">Continue shopping</a>
-            <a href='{% url "orders:order_create" %}' class="btn btn-primary">Checkout</a>
-        </p>
-    </div>
-</div>
-<div id="cart123">
-    <button v-on:click="counter += 1">Add 1dfs</button>
-    <p>위 버튼을 클릭한 횟수는 {{counter}} 입니다.</p>
 </div>
 
-
-{% endblock %}
+            {% endblock %}
