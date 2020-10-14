@@ -49,6 +49,14 @@
     vertical-align: center;
 }
 
+.storeinfo-in {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "storetime storetime2"
+}
+
 #box-layout {
     width: 100%;
     border: 1px solid lightgray;
