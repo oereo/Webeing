@@ -1,4 +1,4 @@
-.box-cotainer {
+.box-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 5fr 1fr 1fr;
 
@@ -8,14 +8,19 @@
         "cancelorder cancelorder"
 }
 
+
 .ordercomplete {
     grid-area: ordercomplete;
     text-align: center;
+    /* float: left;
+    width: 50%; */
 }
+
 
 .receipt {
     grid-area: receipt;
-
+    /* float: right;
+    width: 50%; */
 }
 
 .gohome {
