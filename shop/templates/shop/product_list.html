@@ -53,10 +53,8 @@
       <div class="menu-in" id="box-layout">
 
           <div class="menupic">
-              <a href="{{product.get_absolute_url}}">
-                  <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
-                        style="height: 100px; ">
-              </a>
+            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                  style="height: 100px; ">
           </div>
 
           <div class="menuinfo">
@@ -67,11 +65,9 @@
           </div>
 
           <div class = "cartbutton">
-            <form action="{% url 'cart:product_add' product.id %}" method="post">
-              {{add_to_cart}}
-              {% csrf_token %}
+            <a href="{{product.get_absolute_url}}">
               <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
-          </form>
+            </a>
           </div>
 
       </div>
