@@ -11,157 +11,159 @@
         font-size: 180%;
         font-weight: bold;
     }
+
     #green {
-      font-weight: bold;
-      color: #00be68
+        font-weight: bold;
+        color: #00be68
     }
+
     th, td {
-      padding: 10px; 
+        padding: 10px;
     }
 </style>
 
-<div class = "box-container">
+<div class="box-container">
 
-    <div class = "store" id = "box-layout">
+  <div class="store" id="box-layout">
 
       <div class="store-in">
 
-        <div class = "storepic">
-          <div class="card-image"><img style = "max-width: 100%" src="{{current_restaurant.image.url}}"> </div>
-        </div>
+          <div class="storepic">
+              <div class="card-image"><img style="max-width: 100%" src="{{current_restaurant.image.url}}"></div>
+          </div>
 
-        <div class="storeinfo">
-            <p id="restaurantfont">{{current_restaurant.name}}</p>
-            <p>거리 | 500m 이내</p>
-            <p>지도 | 위치보기</p>
-            <p>별별별별별 4.7</p>
-        </div>
+          <div class="storeinfo">
+              <p id="restaurantfont">{{current_restaurant.name}}</p>
+              <p>거리 | 500m 이내</p>
+              <p>지도 | 위치보기</p>
+              <p>별별별별별 4.7</p>
+          </div>
 
       </div>
 
-    </div>
+  </div>
 
-    <div class = "menus">
+  <div class="menus">
 
       <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
 
       <!-- Up to 3 menus -->
       {% for product in products %}
 
-      <div class = "menu-in" id = "box-layout">
+      <div class="menu-in" id="box-layout">
 
-          <div class = "menupic">
-            <a href="{{product.get_absolute_url}}">
-              <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image" style = "height: 100px; ">
-            </a>
+          <div class="menupic">
+              <a href="{{product.get_absolute_url}}">
+                  <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                        style="height: 100px; ">
+              </a>
           </div>
 
-          <div class = "menuinfo">
-            <ul style = "list-style: none;">
-              <li id = "restaurantfont">{{product.name}}</li>
-              <li id = "green">{{product.price}}</li>
-            </ul>
+          <div class="menuinfo">
+              <ul style="list-style: none;">
+                  <li id="restaurantfont">{{product.name}}</li>
+                  <li id="green">{{product.price}}</li>
+              </ul>
           </div>
 
-      </div>          
+      </div>
 
       {% endfor %}
 
-    </div>
+  </div>
 
-    <div class="storelocation">
+  <div class="storelocation">
 
       <p><span id="restaurantfont">매장 위치</span></p>
-      
+
       <!-- for map -->
       <div id="map" style="width:100%;height:500px;"></div>
 
       <script>
-      var mapOptions = {
-          center: new naver.maps.LatLng(37.3595704, 127.105399),
-      zoom: 10
-      };
+          var mapOptions = {
+              center: new naver.maps.LatLng(37.3595704, 127.105399),
+              zoom: 10
+          };
 
-      var map = new naver.maps.Map('map', mapOptions);
+          var map = new naver.maps.Map('map', mapOptions);
       </script>
 
-    </div>
+  </div>
 
-    <div class="storeinfo">
+  <div class="storeinfo">
 
-        <p><span id="restaurantfont">매장 정보</span></p>
+      <p><span id="restaurantfont">매장 정보</span></p>
 
-        <div id = "box-layout">
+      <div id="box-layout">
 
         <table>
 
           <colgroup>
-            <col width = "30%" />
-            <col width = "*" />
+              <col width="35%"/>
+              <col width="*"/>
           </colgroup>
 
           <tr>
-            <td>영업시간</td>
-            <td>10:00 ~ 23:00</td>
+              <td>영업시간</td>
+              <td>10:00 ~ 23:00</td>
           </tr>
 
           <tr>
-            <td>전화번호</td>
-            <td>010-1234-5678</td>
+              <td>전화번호</td>
+              <td>010-1234-5678</td>
           </tr>
 
           <tr>
-            <td>주소</td>
-            <td>서울시 동작구 상도 1동 266-1층 102호</td>
+              <td>주소</td>
+              <td>서울시 동작구 상도 1동 266-1층 102호</td>
           </tr>
 
         </table>
 
       </div>
 
-    </div>
+  </div>
 
-    <div class="storeowner">
+  <div class="storeowner">
 
       <p><span id="restaurantfont">사업자 정보</span></p>
 
-      <div id = "box-layout">
+      <div id="box-layout">
 
         <table>
 
           <colgroup>
-            <col width = "30%" />
-            <col width = "*" />
+              <col width="45%"/>
+              <col width="*"/>
           </colgroup>
 
           <tr>
-            <td>상호명</td>
-            <td>배달삼겹직구삼상도직영점</td>
+              <td>상호명</td>
+              <td>배달삼겹직구삼상도직영점</td>
           </tr>
 
           <tr>
-            <td>사업자등록번호</td>
-            <td>292-85-00703</td>
+              <td>사업자등록번호</td>
+              <td>292-85-00703</td>
           </tr>
 
         </table>
 
       </div>
 
-    </div>
+  </div>
 
-    <div class="foodinfo">
+  <div class = "foodinfo">
 
       <p><span id="restaurantfont">원산지 정보</span></p>
 
-      <div class style="border:1px solid lightgray; padding:10px;">
-        <p>돈삼겹(독일산), 돈목살(스페인산), 돈목전지(스페인/미국산), 양념갈비(스페인산), 보쌈(오스트리아산),
-           김치(중국산), 마늘(국내산), 쌀(국내산), 고추가루(중국산)</p>
+      <div id = "box-layout">
+          <p>돈삼겹(독일산), 돈목살(스페인산), 돈목전지(스페인/미국산), 양념갈비(스페인산), 보쌈(오스트리아산),
+              김치(중국산), 마늘(국내산), 쌀(국내산), 고추가루(중국산)</p>
       </div>
 
-    </div>
-
+  </div>
+    
 </div>
-
 
 {% endblock %}
