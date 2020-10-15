@@ -1,0 +1,49 @@
+.box-container {
+    display: grid;
+
+    row-gap: 10px; 
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 150px 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "cart"
+        "cartsituation"
+        "cartlist"
+        "totalcartlist"
+        "checkout"
+}
+
+.cart {
+    grid-area: cart;
+    text-align: center;
+}
+
+.cartsituation {
+    grid-area: cartsituation;
+}
+
+.cartlist {
+    grid-area: cartlist;
+    float: center;
+}
+
+.totalcartlist {
+    grid-area: totalcartlist;
+    float: center;
+}
+
+.checkout {
+    grid-area: checkout;
+    float: center;
+}
+
+#table-layout {
+    height: 400px;
+    width: 100%;
+    padding: 40px;
+    border: 2px solid lightgray;
+    border-right: none;
+    border-left: none;    
+    border-collapse: collapse;
+}

@@ -1,8 +1,10 @@
 .box-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 230px 600px 600px 230px 200px 200px;
-    row-gap: 50px;
+    display: grid ;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 230px 600px 600px 230px 200px 200px ;
+    
+    row-gap: 50px ;
+    
     grid-template-areas:
         "store"
         "menus"
@@ -42,10 +44,16 @@
     grid-area: menupic;
     width: 70%;
     float: left;
+    vertical-align: center;
 }
 
 .menuinfo {
     grid-area: menuinfo;
+    vertical-align: center;
+}
+
+.cartbutton {
+    grid-area: cartbutton;
     vertical-align: center;
 }
 
@@ -61,4 +69,5 @@
     width: 100%;
     border: 1px solid lightgray;
     padding: 20px;
+    border-collapse: collapse;
 }
