@@ -34,6 +34,8 @@ def product_in_restaurant(request, restaurant_slug=None):
     products = Product.objects.filter(available_display=True)
     cart = Cart(request)
     add_coupon = AddCouponForm()
+    add_to_cart = AddProductForm(initial={'quantity': 1})
+
     for product in cart:
         product['quantity_form'] = AddProductForm(initial={'quantity': product['quantity'], 'is_update': True})
 
@@ -48,7 +50,8 @@ def product_in_restaurant(request, restaurant_slug=None):
          'restaurants': restaurants,
          'products': products,
          'cart': cart,
-         'add_coupon': add_coupon
+         'add_coupon': add_coupon,
+         'add_to_cart': add_to_cart
          }
     )
 
@@ -87,13 +90,14 @@ class ProductRegister(FormView):
 def add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
+    add_to_cart = AddProductForm(initial={'quantity': 1})
 
     form = AddProductForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(product=product, quantity=cd['quantity'], is_update=cd['is_update'])
 
-    return render(request, 'shop/product_list.html')
+    return render(request, 'shop/product_list.html', {'add_to_cart': add_to_cart})
 
 
 def remove(request, product_id):

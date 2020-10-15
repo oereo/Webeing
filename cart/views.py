@@ -1,16 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 
 from shop.models import Product
 from coupon.forms import AddCouponForm
 from .forms import AddProductForm
 from .cart import Cart
+from shop.models import Restaurant
 
 
 @require_POST
 def add(request, product_id):
     cart = Cart(request)
+    restaurant = Restaurant()
     product = get_object_or_404(Product, id=product_id)
+    add_to_cart = AddProductForm(initial={'quantity': 1})
 
     form = AddProductForm(request.POST)
     if form.is_valid():
