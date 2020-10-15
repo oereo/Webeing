@@ -14,6 +14,8 @@ Order Complete
 </div> -->
 
 <title>OrderComplete</title>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="http://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <style>
     #fontsize15 {font-size: 150%; }
@@ -24,9 +26,12 @@ Order Complete
     }
 
     .column {
-        box-shadow: 10px 10px 2px lightgrey;
+        border-top:  5px solid #00be68;
+        border-left: 1px solid lightgrey;
+        border-right: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
         text-align: center;
-        flex: 45%;
+        flex: 50%;
     }
 
     /* btn-primary 색상 변경을 위한 코드 start */
@@ -77,10 +82,9 @@ Order Complete
     <div class = "column">
     <!-- <div class = "ordercomplete"> -->
         <ul id = "fontsize15" style = "list-style: none; ">
-            <hr style="border: solid 3px #00be68;">
             <li>주문이 완료되었습니다.</li>
             <li>오늘 {{ user.nickname }} 님의 주문으로</li>
-            <li>{{ cart.get_total_price }}원이 절약되었습니다.</li>
+            <li>{{ order_item.price }}원이 절약되었습니다.</li>
             <li>지금까지 {} 님은</li>
             <li>{}원을 환경에 투자하셨습니다.</li>
             <li>저희 위빙을 통하여 절약된 금액은</li>
