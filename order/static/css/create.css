@@ -2,8 +2,21 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "finallist"
+        "finalorder"
+        "finalordersituation"
+        "finalorderlist"
+        "checkout"
+}
+
+.finalorder {
+    grid-area: finalorder;
+    text-align: center;
+
+}
+
+.finalordersituation {
+    grid-area: finalordersituation;
 
 }

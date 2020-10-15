@@ -71,17 +71,7 @@ Checkout
                 </ul>
                 <div class="alert alert-success" id="amount1" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
         
-                <!-- form에 class 추가 -->
-                <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
-                    {{form.as_p}}
-                    {% csrf_token %}
-                    <!-- hidden field 추가-->
-                    <input type="hidden" name="pre_order_id" value="0">
-                    <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
-                    <button type="submit" class="btn btn-primary float-right">결제하기</button>
-                    <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
-        
-                </form>
+
         
             </div>
         </div>
@@ -89,6 +79,18 @@ Checkout
 
     <div class = "checkout">
 
+        <!-- form에 class 추가 -->
+        <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
+            {{form.as_p}}
+            {% csrf_token %}
+            <!-- hidden field 추가-->
+            <input type="hidden" name="pre_order_id" value="0">
+            <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
+            <button type="submit" class="btn btn-primary float-right">결제하기</button>
+            <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
+
+        </form>
+        
     </div>
 
 </div>
