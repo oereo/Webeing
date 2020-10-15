@@ -50,6 +50,38 @@
         <!-- Up to 3 menus -->
         {% for product in products %}
 
+<<<<<<< HEAD
+      <div>
+
+        <!-- Up to 3 menus -->
+        {% for product in products %}
+
+        <div class="menu-in" id="box-layout">
+
+            <div class="menupic">
+              <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                    style="height: 100px; ">
+            </div>
+
+            <div class="menuinfo">
+                <ul style="list-style: none;">
+                    <li id="restaurantfont">{{product.name}}</li>
+                    <li id="green">{{product.price}}</li>
+                </ul>
+            </div>
+
+            <div class = "cartbutton">
+              <a href="{{product.get_absolute_url}}">
+                <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
+              </a>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+      </div>
+=======
         <div class="menu-in" id="box-layout">
 
             <div class="menupic">
@@ -80,6 +112,7 @@
         {% endfor %}
 
     </div>
+>>>>>>> develop
 
     <div class="storelocation">
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 from cart.cart import Cart
 from .forms import *
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie, csrf_protect
 
 
 # def shop_success(request):
@@ -34,10 +35,15 @@ def order_create(request):
 
 
 # ajax로 결제 후에 보여줄 결제 완료 화면
+@ensure_csrf_cookie
+@csrf_protect
 def order_complete(request):
-    # order_id = request.GET.get('order_id')
-    # order = Order.objects.get(id=order_id)
-    # return render(request, 'order/created.html', {'order': order})
+    user = request.user
+    user.env_money = 1000
+    if 'test1' in request.POST:
+        user.env_money = 'test1'
+        user.save()
+
     return render(request, 'order/created.html')
 
 
