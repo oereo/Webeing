@@ -10,5 +10,9 @@ urlpatterns = [
     path('<slug:category_slug>/', restaurant_in_category, name='restaurant_in_category'),
     path('main/<slug:restaurant_slug>/', product_in_restaurant, name='product_in_restaurant'),
     path('<int:id>/<product_slug>/', product_detail, name='product_detail'),
+    path('sellerPage/register/', ProductRegister.as_view(), name='product_register'),
+
+    path('add/<int:product_id>', add, name='product_add'),
+    path('remove/<product_id>', remove, name='product_remove'),
 
 ]

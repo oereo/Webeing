@@ -1,17 +1,17 @@
-.container {
+.box-container {
     display: grid;
 
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1.2fr 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    row-gap : 0.1px; 
+    row-gap: 0.1px;
 
     grid-template-areas:
         " preheader "
         " login1 "
         " email "
         " password "
-        " auotologin "
+        " autologin "
         " login2 "
         " sociallogin "
         " gosignup "
@@ -20,28 +20,39 @@
 }
 
 .login1 {
-    grid-area: login1; 
-    text-align : center;
+    grid-area: login1;
+    text-align: center;
 }
-.email {grid-area: email; }
-.password {grid-area: password; }
+
+.email {
+    grid-area: email;
+}
+
+.password {
+    grid-area: password;
+}
+
 .autologin {
-    grid-area: autologin; 
+    grid-area: autologin;
 }
+
 .login2 {
-    grid-area: login2; 
+    grid-area: login2;
     text-align: center;
 }
+
 .sociallogin {
-    grid-area: sociallogin; 
+    grid-area: sociallogin;
     text-align: center;
 }
+
 .gosignup {
-    grid-area: gosignup; 
+    grid-area: gosignup;
     text-align: center;
 }
+
 .gosignupseller {
-    grid-area: gosignupseller; 
+    grid-area: gosignupseller;
     text-align: center;
 }
 

@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -8,10 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Webeing</title>
 
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 
-    <!-- <link type="text/css" rel="stylesheet" href="{% static 'css/template.css' %}"> -->
     <!-- Load Vue followed by BootstrapVue, and BootstrapVueIcons -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -20,167 +19,188 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
+    <!-- This is for Iamport Library-->
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+    <!--  card-design css  -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/card.css' %}">
+
+    <!-- naver 지도 api -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=42e319a57t"></script>
+
+    {% block head %}
+    {% endblock %}
 </head>
 
 <body v-bind:style="margin : 100px">
-    <!-- <div id = "template" v-bind:style = "grid"> -->
-    <div id="nav" v-bind:style="grid">
-        <b-navbar toggleable="lg" type="light" variant="light">
-            <b-img src = "{% static '/img/logo.png' %}"></b-img>
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+<!-- <div id = "template" v-bind:style = "grid"> -->
+<div id="nav" v-bind:style="grid">
+    <b-navbar toggleable="lg" type="light" variant="light">
+        <a href="/main"><img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:100px; height: 100px;"></a>
 
-            <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-                <b-navbar-nav class="mx-auto">
-                    <b-nav-form>
-                        <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-                        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-                    </b-nav-form>
-                </b-navbar-nav>
+        <b-collapse id="nav-collapse" is-nav>
 
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-                    
-                    {% if user.is_authenticated %}
-                    <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
-                        {% if cart|length > 0 %}
-                            ${{ cart.get_total_price }} with {{cart|length}} items
-                        {% else %}
-                            : Empty
-                        {% endif %}
-                    </a>
-                    <b-nav-item-dropdown right>
-                        <!-- Using 'button-content' slot -->
-                        <template v-slot:button-content>
-                           
-                            {{ user.email }}
-                            
-                        </template>
-                        
-                        {% if user.is_seller == True %}
-                        <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
-                        {% else %}
-                        <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
-                        {% endif %}
+            <b-navbar-nav class="mx-auto">
+                <b-nav-form>
+                    <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+                    <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                </b-nav-form>
+            </b-navbar-nav>
 
-                        <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
-                    </b-nav-item-dropdown>
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+
+                {% if user.is_authenticated %}
+                <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
+                    {% if cart|length > 0 %}
+                    ${{ cart.get_total_price }} with {{cart|length}} items
                     {% else %}
-                    <b-nav-item href="{% url 'signup' %}">SIGNUP</b-nav-item>
-                    <!-- <b-nav-item href="{% url 'signup_customer' %}">회원가입_유저</b-nav-item>
-                    <b-nav-item href="{% url 'signup_seller' %}">회원가입_점주</b-nav-item> -->
-                    <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
-                </b-navbar-nav>
+                    : Empty
+                    {% endif %}
+                </a>
+                <b-nav-item-dropdown right>
+                    <!-- Using 'button-content' slot -->
+                    <template v-slot:button-content>
 
-                {% endif %}
-            </b-collapse>
-        </b-navbar>
-    </div>
-    <div style="margin : 0 100px 0 100px">
-        <hr>
-        
-        {% block content %}
-        {% endblock %}
-        </div>
-    </div>
-    <script>
-        new Vue({
-            el: "#template",
-            data: {
-                grid: {
-                    margin: '0 100px 0 100px',
-                }
+                        {{ user.email }}
+
+                    </template>
+
+                    {% if user.is_seller == True %}
+                    <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
+                    {% else %}
+                    <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
+                    {% endif %}
+
+                    <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
+                </b-nav-item-dropdown>
+                {% else %}
+                <b-nav-item href="{% url 'signup' %}">SIGNUP</b-nav-item>
+
+                <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
+            </b-navbar-nav>
+
+            {% endif %}
+        </b-collapse>
+    </b-navbar>
+</div>
+<div style="margin : 0 100px 0 100px">
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+</div>
+</div>
+<script>
+    new Vue({
+        el: "#template",
+        data: {
+            grid: {
+                margin: '0 100px 0 100px',
             }
-        })
-        new Vue({
-            el: '#nav',
-            data: {
-                grid: {
-                    margin: '0 100px 0 100px',
-                }
-            },
+        }
+    })
+    new Vue({
+        el: '#nav',
+        data: {
+            grid: {
+                margin: '0 100px 0 100px',
+            }
+        },
 
-        })
-        new Vue({
-            el: '#Home_card',
-            data: {
-                name: 'df'
-            },
+    })
+    new Vue({
+        el: '#Home_card',
+        data: {
+            name: 'df'
+        },
 
-        })
-        new Vue({
-            el: '#Home_card1',
-            data: {
-                name: 'df'
-            },
+    })
+    new Vue({
+        el: '#Home_card1',
+        data: {
+            name: 'df'
+        },
 
-        })
-        new Vue({
-            el: '#Home_card2',
-            data: {
-                name: 'df'
-            },
+    })
+    new Vue({
+        el: '#Home_card2',
+        data: {
+            name: 'df'
+        },
 
-        })
-        new Vue({
-            el: '#Home_card3',
-            data: {
-                name: 'df'
-            },
+    })
+    new Vue({
+        el: '#Home_card3',
+        data: {
+            name: 'df'
+        },
 
-        })
-        new Vue({
-            el: '#sidebar',
-            data: {
-                name: ''
-            },
+    })
+    new Vue({
+        el: '#sidebar',
+        data: {
+            name: ''
+        },
 
-        })
-        new Vue({
-            el: '#signup_2image',
-            data: {
-                name: ''
-            },
+    })
+    new Vue({
+        el: '#signup_2image',
+        data: {
+            name: ''
+        },
 
-        })
-        
-        new Vue({
-            //export default {
-            el: '#signup',
-            data: {
-                grid: {
-                    margin: '0 100px 0 100px',
-                },
-            },
-            data() {
-                return {
+    })
 
-                    userId: '',
-                    userPassword: ''
-                }
+    new Vue({
+        //export default {
+        el: '#signup',
+        data: {
+            grid: {
+                margin: '0 100px 0 100px',
             },
-            computed: {
-                validation_id() {
-                    return this.userId.length > 4 && this.userId.length < 30
-                },
-                validation_password() {
-                    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/.test(this.userPassword)
-                }
+        },
+        data() {
+            return {
 
+                userId: '',
+                userPassword: ''
+            }
+        },
+        computed: {
+            validation_id() {
+                return this.userId.length > 4 && this.userId.length < 30
             },
-        })
+            validation_password() {
+                return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/.test(this.userPassword)
+            }
 
-    </script>
-   
+        },
+    })
+
+    new Vue({
+        el: "#cart123",
+        data: {
+            counter: 12
+        }
+    });
+
+
+</script>
+
 </body>
 
-
-<footer style = "background-color: #CED4DA">
-    <ul style = "list-style: none; padding: 50px; line-height: 2rem; ">
+<footer style="background-color: #CED4DA; width: 100%; ">
+    <ul style="list-style: none; padding: 50px; line-height: 3rem; ">
         <li>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 개인정보담당자: slowwvibes@gmail.com</li>
         <li>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</li>
         <li>문의전화 : 010-9228-0236 | 제휴 및 문의메일 : we-being@naver.com</li>
-        <li><a href = "#">이용약관</a> | <a href = "#">개인정보처리방침</a></li>
+        <li>개발자 : 한승조, 인세훈, 이찬규, 김재욱, 최진영</li>
+        <li><a href="#">이용약관</a> | <a href="#">개인정보처리방침</a></li>
         <li>copyright by Webeing.</li>
     </ul>
 </footer>
