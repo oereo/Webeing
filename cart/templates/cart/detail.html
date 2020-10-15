@@ -30,25 +30,19 @@ Shopping cart
         font-size: 150%;
         font-weight: 300%;
     }
-<<<<<<< HEAD
+
     #font15 {
         font-size: 150%;
     }
-                
-=======
 
->>>>>>> develop
 </style>
 
 <div class="box-container">
 
-<<<<<<< HEAD
-    <div class = "cartword">
-        <p id = "titlefont">장바구니</p>
-=======
+
     <div class="cart">
         <p id="titlefont">장바구니</p>
->>>>>>> develop
+
     </div>
 
     <div class="cartsituation">
@@ -105,7 +99,7 @@ Shopping cart
             {% endwith %}
             {% endfor %}
             {% if cart.coupon %}
-<<<<<<< HEAD
+
                 <tr class="subtotal">
                     <td>Subtotal</td>
                     <td colspan="4"></td>
@@ -117,29 +111,15 @@ Shopping cart
                     <td colspan="4"></td>
                     <td >- {{ cart.get_discount_total}}원</td>
                 </tr>
-=======
-            <tr class="subtotal">
-                <td>Subtotal</td>
-                <td colspan="4"></td>
-                <!-- 원화로 변경 -->
-                <td>{{ cart.get_product_total }}원</td>
-            </tr>
-            <tr>
-                <td>"{{ cart.coupon.code }}" coupon ({{ cart.coupon.amount }}원)</td>
-                <td colspan="4"></td>
-                <td>- {{ cart.get_discount_total|floatformat:"2" }}원</td>
-            </tr>
->>>>>>> develop
+
             {% endif %}
             <tr class="total">
                 <td>Total</td>
                 <td colspan="4"></td>
                 <!-- 원화로 변경 -->
-<<<<<<< HEAD
+
                 <td class="num">{{ cart.get_total_price}}원</td> 
-=======
-                <td class="num">{{ cart.get_total_price|floatformat:"2" }}원</td>
->>>>>>> develop
+
             </tr>
             </tbody>
 
@@ -154,8 +134,7 @@ Shopping cart
             <input type="submit" value="Add">
             {% csrf_token %}
         </form>
-<<<<<<< HEAD
-=======
+
 
     </div>
 
@@ -178,7 +157,6 @@ Shopping cart
             </tr>
 
         </table>
->>>>>>> develop
 
     </div>
 
