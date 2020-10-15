@@ -39,7 +39,7 @@ def product_in_restaurant(request, restaurant_slug=None):
 
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
-        products = products.filter(restaurant=current_restaurant)
+        products = products.filter(restaurant=current_restaurant).order_by('-id')[:3]
 
     return render(
         request, 'shop/product_list.html',

@@ -4,18 +4,17 @@
     row-gap: 10px; 
 
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 150px 1fr 1fr 1fr;
+    grid-template-rows: 100px 150px 1fr 1fr;
 
     grid-template-areas:
-        "cart"
+        "cartword"
         "cartsituation"
         "cartlist"
-        "totalcartlist"
         "checkout"
 }
 
-.cart {
-    grid-area: cart;
+.cartword {
+    grid-area: cartword;
     text-align: center;
 }
 
@@ -25,11 +24,6 @@
 
 .cartlist {
     grid-area: cartlist;
-    float: center;
-}
-
-.totalcartlist {
-    grid-area: totalcartlist;
     float: center;
 }
 

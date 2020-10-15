@@ -47,32 +47,36 @@
 
       <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
 
-      <!-- Up to 3 menus -->
-      {% for product in products %}
+      <div>
 
-      <div class="menu-in" id="box-layout">
+        <!-- Up to 3 menus -->
+        {% for product in products %}
 
-          <div class="menupic">
-            <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
-                  style="height: 100px; ">
-          </div>
+        <div class="menu-in" id="box-layout">
 
-          <div class="menuinfo">
-              <ul style="list-style: none;">
-                  <li id="restaurantfont">{{product.name}}</li>
-                  <li id="green">{{product.price}}</li>
-              </ul>
-          </div>
+            <div class="menupic">
+              <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                    style="height: 100px; ">
+            </div>
 
-          <div class = "cartbutton">
-            <a href="{{product.get_absolute_url}}">
-              <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
-            </a>
-          </div>
+            <div class="menuinfo">
+                <ul style="list-style: none;">
+                    <li id="restaurantfont">{{product.name}}</li>
+                    <li id="green">{{product.price}}</li>
+                </ul>
+            </div>
+
+            <div class = "cartbutton">
+              <a href="{{product.get_absolute_url}}">
+                <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
+              </a>
+            </div>
+
+        </div>
+
+        {% endfor %}
 
       </div>
-
-      {% endfor %}
 
   </div>
 

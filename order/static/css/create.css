@@ -1,17 +1,20 @@
 .box-container {
     display: grid;
 
+    row-gap: 20px; 
+
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 150px 1fr 1fr 1fr;
     grid-template-areas:
-        "finalorder"
+        "orderword"
         "finalordersituation"
         "finalorderlist"
+        "finalorder"
         "checkout"
 }
 
-.finalorder {
-    grid-area: finalorder;
+.orderword {
+    grid-area: orderword;
     text-align: center;
 
 }
@@ -19,4 +22,38 @@
 .finalordersituation {
     grid-area: finalordersituation;
 
+}
+
+.finalorderlist {
+    grid-area: finalorderlist;
+}
+
+.finalorder {
+    grid-area: finalorder;
+}
+
+.chekcout {
+    grid-area: checkout;
+    display: block;
+    margin: auto;
+}
+
+#table1-layout {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 2px solid lightgray;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+
+#table2-layout {
+    height: 400px;
+    width: 100%;
+    padding: 40px;
+    border: 4px solid lightgray;
+    border-right: none;
+    border-left: none;    
+    border-collapse: collapse;
 }
