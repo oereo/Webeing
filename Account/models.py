@@ -77,6 +77,7 @@ class User(AbstractBaseUser):
     business_number = models.CharField(max_length=30, null=True, unique=True)
     seller_address = models.CharField(max_length=30, null=True, unique=True)
     seller_name = models.CharField(max_length=30, null=True, unique=True)
+    env_money = models.IntegerField(null=True)
 
     # phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)
