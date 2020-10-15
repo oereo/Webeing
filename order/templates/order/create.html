@@ -43,6 +43,9 @@ Checkout
     #line {
         border-bottom: 1px lightgray;
     }
+    #font15 {
+        font-size: 130%;
+    }
 </style>
 
 <div class = "box-container">
@@ -97,11 +100,11 @@ Checkout
                             <img src="{{ product.image.url }}" class="img-thumbnail">
                         </a>
                     </th>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>point</td>
+                    <td id = "font15">{{ item.product.name }}</td>
+                    <td id = "font15">{{ item.quantity }}</td>
+                    <td id = "font15">point</td>
                     <!-- 원화로 변경 -->
-                    <td class="num"><span id="amount3r" value="100">{{item.total_price}}원</span></td>
+                    <td class="num" id = "font15"><span id="amount3r" value="100">{{item.total_price}}원</span></td>
                 </tr>
 
             {% endwith %}

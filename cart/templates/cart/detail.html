@@ -27,6 +27,9 @@ Shopping cart
         font-size: 150%;
         font-weight: 300%;
     }
+    #font15 {
+        font-size: 150%;
+    }
                 
 </style>
 
@@ -117,6 +120,7 @@ Shopping cart
         <p>
             기존 Point
         </p>
+
         <form action='{% url "coupon:add" %}' method="post">
             <!-- {{ add_coupon }} -->
             <input type="submit" value="Add">
