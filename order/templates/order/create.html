@@ -23,45 +23,74 @@ Checkout
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <div class="alert alert-info" role="alert">
-            Your Order
+
+<link rel = "stylesheet" href = "{% static 'css/create.css' %}">
+
+<style>
+    #titlefont {
+        font-size: 200%;
+        font-weight: bold;
+    }
+</style>
+
+<div class = "box-container">
+
+    <div class = "finalorder">
+        <p id = "titlefont">주문현황</p>
+    </div>
+
+    <div class = "finalordersituation">
+        <p class = "text-center">
+            <img src = "{% static '/img/cart002.png' %}" alt = "cart002" style = "height: 80px; ">
+        </p>
+    </div>
+
+    <div class = "finalorderlist">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info" role="alert">
+                    Your Order
+                </div>
+                <ul class="list-group">
+                    {% for item in cart %}
+                    <!-- 현재 주문 현황 보여 주는 곳 -->
+                    <li class="list-group-item">
+                        {{item.quantity}}X{{item.product.name}}
+                        <span id="amount3r" value="100">{{item.total_price}}</span>
+                        <div id="amount11">2123</div>
+                    </li>
+                    {% endfor %}
+                    {% if cart.coupon %}
+                    <li class="list-group-item">
+        
+                        "{{ cart.coupon.code }}" ({{ cart.coupon.amount }}% off)
+        
+                        <span>- ${{ cart.get_total_discount|floatformat:"2" }}</span>
+                    </li>
+                    {% endif %}
+                </ul>
+                <div class="alert alert-success" id="amount1" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
+        
+                <!-- form에 class 추가 -->
+                <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <!-- hidden field 추가-->
+                    <input type="hidden" name="pre_order_id" value="0">
+                    <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
+                    <button type="submit" class="btn btn-primary float-right">결제하기</button>
+                    <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
+        
+                </form>
+        
+            </div>
         </div>
-        <ul class="list-group">
-            {% for item in cart %}
-            <!-- 현재 주문 현황 보여 주는 곳 -->
-            <li class="list-group-item">
-                {{item.quantity}}X{{item.product.name}}
-                <span id="amount3r" value="100">{{item.total_price}}</span>
-                <div id="amount11">2123</div>
-            </li>
-            {% endfor %}
-            {% if cart.coupon %}
-            <li class="list-group-item">
+    </div>
 
-                "{{ cart.coupon.code }}" ({{ cart.coupon.amount }}% off)
-
-                <span>- ${{ cart.get_total_discount|floatformat:"2" }}</span>
-            </li>
-            {% endif %}
-        </ul>
-        <div class="alert alert-success" id="amount1" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
-
-        <!-- form에 class 추가 -->
-        <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
-            {{form.as_p}}
-            {% csrf_token %}
-            <!-- hidden field 추가-->
-            <input type="hidden" name="pre_order_id" value="0">
-            <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
-            <button type="submit" class="btn btn-primary float-right">결제하기</button>
-            <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
-
-        </form>
+    <div class = "checkout">
 
     </div>
-</div>
 
+</div>
 
 {% endblock %}
