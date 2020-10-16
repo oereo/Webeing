@@ -3,9 +3,17 @@
 {% block content %}
 
 
+<title>Login</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+
 <style type="text/css">
-    #color1 {
+    #green {
         color: #00be68
+    }
+
+    #fontsize2 {
+        font-size: 200%;
     }
 
     #fontbold {
@@ -17,9 +25,6 @@
     }
 
 </style>
-
-
-<title>Login</title>
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
 <form action="{% url 'login' %}" method="POST">
@@ -53,7 +58,6 @@
 
         </div>
 
-
         <div class="autologin">
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -82,7 +86,6 @@
     <p>webeing에서 물품을 판매하실 건가요? <a href="/signupseller"><span id="green"
                                                              style="margin-left: 30px; ">사장님 회원가입하기</span></a></p>
 </div>
-
 </div>
 
 {% endblock %}
