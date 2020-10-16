@@ -39,11 +39,18 @@ def order_create(request):
 @csrf_protect
 def order_complete(request):
     user = request.user
-    user.env_money = 1000
-    if 'test1' in request.POST:
-        user.env_money = 'test1'
-        user.save()
+    orders = Order.objects.filter(user=user)
+    final = 0
 
+    for order in orders:
+        temp = OrderItem.objects.filter(order=order)
+        for orderitem in temp:
+            user_item = orderitem.order
+            final += orderitem.price
+
+    user_success = User.objects.get(user=user_item)
+    user_success.env_money = final
+    user_success.save()
     return render(request, 'order/created.html')
 
 
