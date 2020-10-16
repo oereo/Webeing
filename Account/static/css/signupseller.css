@@ -2,47 +2,69 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5fr 1fr;
 
 
     grid-template-areas:
-        " signup1 "
+        " signupword "
         " email "
         " password "
         "passwordconfirm"
-        "companynumber"
+        "resturant"
+        "resturantnumber"
         "address"
-        "phonetype1"
-        "phonetype2"
-        "agree1"
-        "agree2"
-        "agree3"
-        "agree4"
-        "agree5"
-        "agreeall"
-        "signup2"
+        "phonetype"
+        "agree"
+        "signupbutton"
 }
 
-.signup1 {
-    grid-area: signup1; 
+.signupword {
+    grid-area: signupword; 
     text-align: center;
 }
+
 .email {grid-area: email; }
 .password {grid-area: password; }
 .passwordconfirm {grid-area: confirm; }
-.companynumber {grid-area: companynumber; }
+.resturantnumber {grid-area: resturantnumber; }
 .address {grid-area: address; }
-.phonetype1 {grid-area: phonetype1; }
-.phonetype2 {grid-area: phonetype2; }
-.agree1 {grid-area: agree1; }
-.agree2 {grid-area: agree2; }
-.agree3 {grid-area: agree3; }
-.agree4 {grid-area: agree4; }
-.agree5 {grid-area: agree5; }
-.agreeall {
-    grid-area: agreeall; 
-    float:right;
-    text-align:right;
-}
-.signup2 {grid-area: signup2; }
+.phonetype {grid-area: phonetype; }
 
+.agree {
+    grid-area: agree;
+}
+
+.signupbutton {grid-area: signupbutton; }
+
+.box-agree {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "agree_word"
+        "agree1"
+        "agree2"
+        "agree3"
+        "agreeall"
+}
+
+
+.agree1 {
+    grid-area: agree1;
+}
+
+.agree2 {
+    grid-area: agree2;
+}
+
+.agree3 {
+    grid-area: agree3;
+}
+
+.agreeall {
+    grid-area: agreeall;
+    float: right;
+    text-align: right;
+}

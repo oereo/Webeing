@@ -1,9 +1,13 @@
 .box-container {
     display: grid;
+
+    row-gap: 10px; 
+
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1.1fr 1.1fr 1.1fr 1.1fr 1.1fr 1fr 1.1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 500px 100px ;
+
     grid-template-areas:
-        "signup1 "
+        "signupword "
         "socialsignup "
         "email "
         "password"
@@ -11,11 +15,12 @@
         "nickname"
         "phonetype"
         "agree"
-        "signup2"
+        "signupbutton"
+
 }
 
-.signup1 {
-    grid-area: signup1;
+.signupword {
+    grid-area: signupword;
     text-align: center;
 }
 
@@ -56,8 +61,10 @@
 
 .box-phone {
     display: grid;
+
     grid-template-columns: 1fr;
     grid-template-rows: 0.3fr 1fr 1fr;
+
     grid-template-areas:
         "phone_word"
         "phonetype1"
@@ -76,7 +83,7 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
         "agree_word"
@@ -85,6 +92,7 @@
         "agree3"
         "agreeall"
 }
+
 
 .agree1 {
     grid-area: agree1;
@@ -164,8 +172,7 @@
     color: #fff
 }
 
-.signup2 {
-    grid-area: signup2;
+.signupbutton {
+    grid-area: signupbutton;
     text-align: center;
 }
-
