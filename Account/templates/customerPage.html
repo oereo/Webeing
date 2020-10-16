@@ -97,7 +97,7 @@
             </ul>
 
         </div><!--/col-3-->
-        
+
         <div class="col-sm-9">
             <input id="tab1" type="radio" name="tabs" checked> <!--디폴트 메뉴-->
             <label for="tab1">프로필</label>
@@ -122,7 +122,7 @@
                                    placeholder="first name" title="enter your first name if any.">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
 
                         <div class="col-xs-6">
@@ -191,6 +191,7 @@
                         </div>
                     </div>
                 </form>
+
             </section>
 
             <section id="content2">
@@ -221,7 +222,11 @@
             </section>
 
             <section id="content3">
-                <p>tab menu3의 내용</p>
+                <div id="env_money">
+                    {{user_env_point_amount}}
+                </div>
+                <p id="counter1"></p>
+
             </section>
 
             <section id="content4">
@@ -235,5 +240,40 @@
 </div><!--/col-9-->
 </div><!--/row-->
 
+<script>
+    function numberCounter(target_frame, target_number) {
+        this.count = 0;
+        this.diff = 0;
+        this.target_count = parseInt(target_number);
+        this.target_frame = document.getElementById(target_frame);
+        this.timer = null;
+        this.counter();
+    };
+
+    numberCounter.prototype.counter = function () {
+        var self = this;
+        this.diff = this.target_count - this.count;
+
+        if (this.diff > 0) {
+            self.count += Math.ceil(this.diff / 5);
+        }
+
+        this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        if (this.count < this.target_count) {
+            this.timer = setTimeout(function () {
+                self.counter();
+            }, 200);
+        } else {
+            clearTimeout(this.timer);
+        }
+    };
+    // const choices_name = JSON.parse(user.size());
+    var env_money = document.getElementById("env_money").innerHTML;
+
+    new numberCounter("counter1", env_money);
+    new numberCounter("counter2", 21565748);
+
+</script>
 
 {% endblock %}
