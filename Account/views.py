@@ -60,7 +60,6 @@ def signup_seller(request):
             )
             auth.login(request, user)
 
-
         return redirect('/main/')
 
     else:
@@ -79,16 +78,19 @@ def logout(request):
 def customer_page(request):
     user = request.user
     orders = Order.objects.filter(user=user)
+    user_env_point = User.objects.get(email=user.email)
+    user_env_point_amount = user_env_point.env_money
     order_items_list = []
 
     for order in orders:
         order_items_list.append(OrderItem.objects.filter(order=order))
-    # orderitems = OrderItem.objects.filter(order=order[0])
-    # orderitems = get_object_or_404(Order, pk=order_id)
-    # orderitems = Order.objects.values('user', 'OrderItem__created')
-    # orderitems = Order.objects.filter(user=user).select_related('user')
-    return render(request, 'customerPage.html', {'order_items_list': order_items_list, 'orders': orders})
-    # return render(request, 'customerPage.html')
+
+    return render(request, 'customerPage.html', {
+        'order_items_list': order_items_list,
+        'orders': orders,
+        'user_env_point_amount': user_env_point_amount
+    })
+
 
 def seller_page(request):
     return render(request, 'sellerPage.html')

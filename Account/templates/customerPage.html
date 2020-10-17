@@ -2,7 +2,7 @@
 {% load static %}
 {% block head%}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel = "stylesheet" href = "{% static 'css/customerpage.css'%}">
+<link rel="stylesheet" href="{% static 'css/customerpage.css'%}">
 <style>
     body {
         color: #555;
@@ -64,10 +64,12 @@
     #tab4:checked ~ #content4 {
         display: block;
     }
+
     #fontsub {
         font-size: 150%;
         color: #545454;
     }
+
     #fontbold {
         font-weight: bold;
     }
@@ -96,8 +98,9 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>환경계좌</strong></span> 125 <strong>
-                    points</strong></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>환경계좌</strong></span>
+                    {{user_env_point_amount}}<strong>
+                        points</strong></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>픽업 전</strong></span> 13 <strong>
                     건</strong></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37<strong>
@@ -105,7 +108,7 @@
             </ul>
 
         </div><!--/col-3-->
-        
+
         <div class="col-sm-9">
             <input id="tab1" type="radio" name="tabs" checked> <!--디폴트 메뉴-->
             <label for="tab1">프로필</label>
@@ -132,7 +135,7 @@
                                    placeholder="first name" title="enter your first name if any.">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
 
                         <div class="col-xs-6">
@@ -193,18 +196,18 @@
 
                 </form>
 
-                <div class = "box-in-profile">
+                <div class="box-in-profile">
 
-                            <div class = "leftname">
-                                <label for="first_name"><h4>First name</h4></label>
-                            </div>
+                    <div class="leftname">
+                        <label for="first_name"><h4>First name</h4></label>
+                    </div>
 
-                            <div class = "rightname">
-                                <input type="text" class="form-control" name="first_name" id="first_name"
-                                    placeholder="first name" title="enter your first name if any.">
-                            </div>
+                    <div class="rightname">
+                        <input type="text" class="form-control" name="first_name" id="first_name"
+                               placeholder="first name" title="enter your first name if any.">
+                    </div>
 
-                    <div class = "button">
+                    <div class="button">
 
                         <div class="form-group">
                             <div class="col-xs-12">
@@ -220,6 +223,7 @@
                     </div>
 
                 </div>
+
 
             </section>
 
@@ -248,42 +252,44 @@
                 {{ order.created }}
                 {% endfor %}
 
-                <div class = "box-in-buylist">
-                    
+                <div class="box-in-buylist">
+
                 </div>
 
             </section>
 
             <!-- 환경계좌 페이지 -->
             <section id="content3">
-                
-                <div class = "box-in-enviaccount">
+                <<<<<<< HEAD
 
-                    <div class = "question1">
-                        <p id = "fontsub">Q. 환경계좌란 무엇인가요?</p>
-                        <p class = "indent1">위빙 서비스를 사용하면서 고객님께서 환경 오염의 감소, 음식물 쓰레기 처리 비용의 감소 등에 기여하신 부분을 포인트처럼 적립하여 저장하는 계좌 입니다.</p>
+                <div class="box-in-enviaccount">
+
+                    <div class="question1">
+                        <p id="fontsub">Q. 환경계좌란 무엇인가요?</p>
+                        <p class="indent1">위빙 서비스를 사용하면서 고객님께서 환경 오염의 감소, 음식물 쓰레기 처리 비용의 감소 등에 기여하신 부분을 포인트처럼 적립하여 저장하는
+                            계좌 입니다.</p>
                     </div>
 
-                    <div class = "question2">
-                        <p id = "fontsub">Q. 환경 계좌는 어떻게 사용 하나요?</p>
-                        <p class = "indent1">적립된 금액은 모두 위빙 서비스 내에서 사용 할 수 있습니다.</p>
+                    <div class="question2">
+                        <p id="fontsub">Q. 환경 계좌는 어떻게 사용 하나요?</p>
+                        <p class="indent1">적립된 금액은 모두 위빙 서비스 내에서 사용 할 수 있습니다.</p>
                     </div>
 
-                    <div class = "word1">
-                        <p class = "indent1" id = "fontbold;">1. 위빙에서 식품 구매시 포인트로 사용</p>
+                    <div class="word1">
+                        <p class="indent1" id="fontbold;">1. 위빙에서 식품 구매시 포인트로 사용</p>
 
-                        <ul class = "indent2" style = "list-style:none;">
-                            <li>위빙에서 식품을 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다. </li>
+                        <ul class="indent2" style="list-style:none;">
+                            <li>위빙에서 식품을 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다.</li>
                             <li>
                                 <button type="button" class="btn btn-success">식품 구매하러 가기</button>
                             </li>
                         </ul>
                     </div>
 
-                    <div class = "word2">
-                        <p class = "indent1" id = "fontbold;">2. 위빙에서 판매하는 굿즈 구매시 사용</p>
+                    <div class="word2">
+                        <p class="indent1" id="fontbold;">2. 위빙에서 판매하는 굿즈 구매시 사용</p>
 
-                        <ul class = "indent2" style = "list-style:none;">
+                        <ul class="indent2" style="list-style:none;">
                             <li>위빙에서는 회사의 가치를 이행하기 위하여 플라스틱 용기, 비닐 포장 등을 사용하지 않고 있습니다.</li>
                             <li>또한 많은 사람들이 일상생활 속에서 환경을 생각하면서 소비 하기를 바라는 마음에서 텀블러와 에코백 등 재사용 할 수 있는 물품들을 판매하고 있습니다.</li>
                             <li>위빙 굿즈를 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다.</li>
@@ -293,10 +299,10 @@
                         </ul>
                     </div>
 
-                    <div class = "word3">
-                        <p class = "indent1" id = "fontbold;">3. 위빙에서 진행하는 환경을 위한 모금 활동에 기부</p>
+                    <div class="word3">
+                        <p class="indent1" id="fontbold;">3. 위빙에서 진행하는 환경을 위한 모금 활동에 기부</p>
 
-                        <ul class = "indent2" style = "list-style:none;">
+                        <ul class="indent2" style="list-style:none;">
                             <li>위빙에서는 미래 세대에게 아름다운 지구를 남겨주기 위하여 많은 활동들을 하고 있습니다.</li>
                             <li>그 일환으로 위빙에서는 정기적으로 환경 단체에 기부를 하고 있습니다.</li>
                             <li>위빙을 사용하면서 환경 계좌에 적립된 금액을 기부하는 데 사용 할 수 있습니다.</li>
@@ -307,6 +313,7 @@
                     </div>
 
                 </div>
+
 
             </section>
 
@@ -321,5 +328,40 @@
 </div><!--/col-9-->
 </div><!--/row-->
 
+<script>
+    function numberCounter(target_frame, target_number) {
+        this.count = 0;
+        this.diff = 0;
+        this.target_count = parseInt(target_number);
+        this.target_frame = document.getElementById(target_frame);
+        this.timer = null;
+        this.counter();
+    };
+
+    numberCounter.prototype.counter = function () {
+        var self = this;
+        this.diff = this.target_count - this.count;
+
+        if (this.diff > 0) {
+            self.count += Math.ceil(this.diff / 5);
+        }
+
+        this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        if (this.count < this.target_count) {
+            this.timer = setTimeout(function () {
+                self.counter();
+            }, 200);
+        } else {
+            clearTimeout(this.timer);
+        }
+    };
+    // const choices_name = JSON.parse(user.size());
+    var env_money = document.getElementById("env_money").innerHTML;
+
+    new numberCounter("counter1", env_money);
+    new numberCounter("counter2", 21565748);
+
+</script>
 
 {% endblock %}
