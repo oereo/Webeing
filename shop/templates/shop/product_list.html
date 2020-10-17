@@ -17,6 +17,11 @@
         color: #00be68
     }
 
+    #red {
+        font-weight: bold;
+        color: red;
+    }
+
     th, td {
         padding: 10px;
     }
@@ -63,7 +68,13 @@
             <div class="menuinfo">
                 <ul style="list-style: none;">
                     <li id="restaurantfont">{{product.name}}</li>
-                    <li id="green">{{product.price}}</li>
+                    <li id="red">원래가격 : {{product.origin_price}}</li>
+                    <li id="green">할인된 가격 : {{product.price}}</li>
+                    <li id="green">할인 폭 : {{product.discount}} %</li>
+                    <div onload="boxlayout()">
+                        <li id="result"></li>
+                    </div>
+
                 </ul>
             </div>
 
@@ -79,7 +90,6 @@
             </div>
 
         </div>
-
         {% endfor %}
 
     </div>
@@ -177,5 +187,16 @@
     </div>
 
 </div>
+
+<script>
+    function boxlayout() {
+        var origin_price = document.getElementById("red").innerHTML;
+        var price = document.getElementById("green").innerHTML
+        result = parseInt(origin_price) / parseInt(price)
+        document.getElementById("result").innerHTML = result
+    }
+
+
+</script>
 
 {% endblock %}

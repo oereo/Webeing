@@ -42,6 +42,9 @@ def product_in_restaurant(request, restaurant_slug=None):
     if restaurant_slug:
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
         products = products.filter(restaurant=current_restaurant).order_by('-id')[:3]
+        for product_price in products:
+            product_price.discount = (product_price.price / product_price.origin_price) * 100
+            product_price.save()
 
     return render(
         request, 'shop/product_list.html',
