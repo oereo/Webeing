@@ -83,10 +83,11 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    row-gap: 20px; 
 
     grid-template-areas:
-        "agree_word"
         "agree1"
         "agree2"
         "agree3"
@@ -96,11 +97,18 @@
 
 .agree1 {
     grid-area: agree1;
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgray;
+    padding: 15px 30px 15px 30px; 
 }
 
 .agree2 {
     grid-area: agree2;
-}
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgray;
+    padding: 15px 30px 15px 30px; }
 
 .agree3 {
     grid-area: agree3;
@@ -110,6 +118,10 @@
     grid-area: agreeall;
     float: right;
     text-align: right;
+}
+
+#agreebox {
+
 }
 
 .checkBox, .checkBox > ul {

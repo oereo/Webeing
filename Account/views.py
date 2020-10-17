@@ -100,9 +100,15 @@ def signup(request):
     return render(request, 'signup.html')
 
 
-def tos(request):
-    return render(request, 'TOS.html')
+def tos_seller_use(request):
+    return render(request, 'tos_seller_use.html')
+
+def tos_seller_private(request):
+    return render(request, 'tos_seller_private.html')
 
 
-def tos_user(request):
-    return render(request, 'TOS_user.html')
+def tos_user_use(request):
+    return render(request, 'tos_user_use.html')
+
+def tos_user_private(request):
+    return render(request, 'tos_user_private.html')
