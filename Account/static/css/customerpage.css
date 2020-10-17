@@ -1,0 +1,54 @@
+.box-in-profile {
+    display: flex;
+    flex-direction: row;
+/* 
+    grid-template-columns: 1fr 6fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+
+    /* grid-template-areas:
+        "leftname rightname"
+        "leftemail rightemail"
+        "leftpassword rightpassword"
+        "leftverify rightverify"
+        "leftphone rightphone"
+        "button button"         */
+}
+
+.box-in-profile:nth-child(6) {
+    grid-row:1/3;
+}
+
+.box-in-buylist {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas:
+        "main"
+}
+
+.box-in-enviaccount {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 1fr 1.5fr 1.5fr 1.5fr 100px;
+
+    row-gap: 10px; 
+
+    grid-template-areas:
+        "space"
+        "question1"
+        "question2"
+        "word1"
+        "word2"
+        "word3"
+        "space2"
+}
+
+.indent1 {
+    text-indent: 1rem;
+}
+.indent2 {
+    text-indent: 0.5rem;
+}

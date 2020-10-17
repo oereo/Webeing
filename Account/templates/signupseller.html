@@ -111,15 +111,7 @@
 
     </div>
 
-    <!-- 생일, 닉네임 모델 빼야함 -->
-
-    <div class="mb-3">
-      <label for="dateofbirth">생일 <span class="text-muted">(필수)</span></label>
-      <input type="dateofbirth" class="form-control" id="dateofbirth" placeholder="1996-04-06"required name="dateofbirth">
-      <div class="invalid-feedback">
-        <!-- Please enter a valid email address for shipping updates. -->
-      </div>
-    </div>
+    <!-- 닉네임 모델 빼야함 -->
 
     <div class="mb-3">
       <label for="nickname">Nickname <span class="text-muted">(필수)</span></label>
@@ -135,23 +127,29 @@
 
       <div class = "box-agree">
 
-        <div class = "agree_word">
+        <div class = "agree1" >
 
-        </div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            이용약관동의
+          </label>
 
-        <div class = "agree1">
+          <span style = "float: right;">
+            <a href = "{% url 'tos_seller_use' %}">내용보기<span id = "green"> ></span></a>
+          </span>
 
         </div>
 
         <div class = "agree2">
 
-        </div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            이용약관동의
+          </label>
 
-        <div class = "agree3">
-
-        </div>
-
-        <div class = "agreeall">
+          <span style = "float: right;">
+            <a href = "{% url 'tos_seller_private' %}">내용보기<span id = "green"> ></span></a>
+          </span>
 
         </div>
 

@@ -7,13 +7,12 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone_number, nickname, date_of_birth, password=None):
+    def create_user(self, email, phone_number, nickname, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
-            date_of_birth=date_of_birth,
             nickname=nickname,
             phone_number=phone_number,
             # phoneNumber = phoneNumber,
@@ -23,14 +22,12 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_seller(self, email, business_number, seller_address, seller_name, phone_number, nickname, date_of_birth,
-                      password=None):
+    def create_seller(self, email, business_number, seller_address, seller_name, phone_number, nickname, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
-            date_of_birth=date_of_birth,
             nickname=nickname,
             phone_number=phone_number,
             seller_address=seller_address,
@@ -44,11 +41,10 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, phone_number, nickname, date_of_birth, password):
+    def create_superuser(self, email, phone_number, nickname, password):
         user = self.create_user(
             email,
             password=password,
-            date_of_birth=date_of_birth,
             nickname=nickname,
             phone_number=phone_number,
             # phoneNumber = phoneNumber,
@@ -73,7 +69,6 @@ class User(AbstractBaseUser):
         unique=True
     )
     phone_number = models.CharField(max_length=14, null=False, unique=True)
-    date_of_birth = models.DateField()
     business_number = models.CharField(max_length=30, null=True, unique=True)
     seller_address = models.CharField(max_length=30, null=True, unique=True)
     seller_name = models.CharField(max_length=30, null=True, unique=True)
@@ -87,7 +82,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth', 'nickname', 'phone_number']
+    REQUIRED_FIELDS = ['nickname', 'phone_number']
 
     def __str__(self):
         return self.email
