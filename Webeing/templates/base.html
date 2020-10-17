@@ -23,7 +23,12 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-
+    <style>
+        p,
+        li {
+            font-family: 'Gothic A1', sans-serif;
+        }
+    </style>
     {% block head %}
     {% endblock %}
 </head>
@@ -183,12 +188,95 @@
 </body>
 
 <footer style = "background-color: #CED4DA">
-    <ul style = "list-style: none; padding: 50px; line-height: 2rem; ">
-        <li>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 개인정보담당자: slowwvibes@gmail.com</li>
-        <li>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</li>
-        <li>문의전화 : 010-9228-0236 | 제휴 및 문의메일 : we-being@naver.com</li>
-        <li><a href = "#">이용약관</a> | <a href = "#">개인정보처리방침</a></li>
-        <li>copyright by Webeing.</li>
+    <style>
+        p1 {
+            font-family: 'Nanum Gothic Coding', monospace;
+        }
+    </style>
+    <ul style="line-height: 40px;">
+        <div class="row">
+            <div class="col">
+                <div class="row" style="font-weight: bold; font-size: 25px;">
+                    <p1>Information </p1>
+                </div>
+                <div class="row">
+                    <p1>상호: 위빙(Webeing) </p1>
+                </div>
+                <div class="row">
+                    <p1>대표: 이상륜 </p1>
+                </div>
+                <div class="row">
+                    <p1>개인정보관리책임자: 한승조 </p1>
+                </div>
+                <div class="row">
+                    <p1>개인정보담당자: slowwvibes@gmail.com </p1>
+                </div>
+                <div class="row">
+                    <p1>사업자등록번호: 839-55-00602 </p1>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="row" style="font-weight: bold; font-size: 25px;">
+                    <p1>Address </p1>
+                </div>
+                <div class="row">
+                    <p1>
+                        경기도 성남시 수정구 
+                        창곡동 564 푸르지오5단지
+                        상가 5B-102호
+                    </p1>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="row" style="font-weight: bold; font-size: 25px;">
+                    <p1>Developers</p1>
+                </div>
+                <div class="row">
+                    <p1>한승조 인세훈</p1>
+                </div>
+                <div class="row">
+                    <p1>이찬규 김재욱</p1>
+                </div>
+                <div class="row">
+                    <p1>최진영</p1>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="row" style="font-weight: bold; font-size: 25px;">
+                    <p1>Helpful Links </p1>
+                </div>
+                <div class="row">
+                    <p1><a href="#">이용약관</a></p1>
+                </div>
+                <div class="row">
+                    <p1><a href="#">개인정보처리방침</a></p1>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="row" style="font-weight: bold; font-size: 25px;">
+                    <p1>Contact Us </p1>
+                </div>
+                <div class="row">
+                    <p1><img src="{% static 'img/contact.png' %}" alt="contact" style="width: 20px;">
+                        <span>010-9228-0236</span></p1>
+                </div>
+                <div class="row">
+                    <p1><img src="{% static 'img/email.png' %}" alt="contact" style="width: 20px;">
+                        <span>we-being@naver.com</span></p1>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div style="text-align: center;">
+            <p1>copyright by Webeing.</p1>
+        </div>
+
     </ul>
 </footer>
 

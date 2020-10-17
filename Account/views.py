@@ -62,16 +62,11 @@ def signup_seller(request):
             )
             auth.login(request, user)
 
-<<<<<<< HEAD
-        return redirect('sellerPage')
-        
-=======
 
         return redirect('/main/')
 
 
 
->>>>>>> 2bad7f8a14aaf9731b16dedc88398c1dceeab3d2
     else:
         form = UserCreationForm()
     return render(request, 'signupseller.html', {'form': form})
