@@ -113,17 +113,30 @@
 
           <p>이용약관동의</p>
 
-          <div class = "mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                이용약관동의
-              </label>
-            </div>
+          <div class = "agree1" >
 
-            <a href = "{'/tos_user'}">
-              <span>내용보기</span>
-            </a>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              이용약관동의
+            </label>
+
+            <span style = "float: right;">
+              <a href = "{% url 'tos_user_use' %}">내용보기<span id = "green"> ></span></a>
+            </span>
+
+          </div>
+
+          <div class = "agree2">
+
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              이용약관동의
+            </label>
+
+            <span style = "float: right;">
+              <a href = "{% url 'tos_user_private' %}">내용보기<span id = "green"> ></span></a>
+            </span>
+
           </div>
 
         </div>
