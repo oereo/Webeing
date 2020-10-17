@@ -29,12 +29,17 @@
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+<<<<<<< HEAD
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
+=======
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+>>>>>>> develop
     <style type="text/css">
         #color1 {
-            color: #00be68
+            color: #00be68;
         }
 
         #color2 {
@@ -49,8 +54,9 @@
             font-size: 150%;
         }
 
-        #fontsize2 {
+        #subcontent {
             font-size: 200%;
+            font-weight: bold;
         }
 
         #fontsize3 {
@@ -61,21 +67,15 @@
             font-size: 500%;
         }
 
-        #fontbold1 {
+        #fontbold {
             font-weight: bold;
         }
 
-        #fontbold2 {
-            font-weight: 800;
-        }
-
-        #absolute1 {
-            z-index: 6;
-        }
     </style>
 
 </head>
 
+<<<<<<< HEAD
 <div style="margin-bottom : 11px;">
 
     <body>
@@ -92,6 +92,24 @@
         </div>
         -->
 
+=======
+<body>
+
+    <div class = "outcontainer">
+
+        <header class="gridheader">
+
+            <div id="logo">
+                <img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:100px; height: 100px;">
+            </div>
+
+            <!--
+            <div>
+                <img src="{% static 'img/webeing.png' %}" style = "width:100px; height:100px; z-index: 6; " >
+            </div>
+            -->
+
+>>>>>>> develop
             <div id="snslist">
 
                 <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
@@ -113,9 +131,15 @@
 
         </header>
 
+<<<<<<< HEAD
         <div id="main" style="width: 100%; ">
 
             <div style="margin-left: 10%; margin-top: 20%;  font-weight: bold; position: absolute; z-index: 2;">
+=======
+        <div class = "main" >
+
+            <div id = "fontbold" style="margin-left: 10%; margin-top: 20%; position: absolute; z-index: 2;">
+>>>>>>> develop
                 <ul id="fontsize5">
                     <p><span id="color1">초록 식문화</span><span id="color3">의 출발</span>
                     <p>
@@ -150,6 +174,7 @@
         </div>
 
 
+<<<<<<< HEAD
         <div class="service1" class="body-display">
 
             <div class="incontainer1" style="margin: 3rem; ">
@@ -175,6 +200,33 @@
 
                 </div>
 
+=======
+        <div class="service1">
+
+            <div class="incontainer1" style="margin: 5rem; ">
+
+                <div class="leftcard1">
+
+                  <ul id="subcontent" style="list-style: none">
+
+                    <li id="fontsize15">재고 상품 처리</li>
+                    <li>유통기한이 지난 재고 상품을 처리 할 때 마다 생기는 고민</li>
+                    <br>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">버려지는 수많은 음식들
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">매번 낭비되는 비용들
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">음식물 쓰레기로 인한 환경 오염문제
+                    </li>
+
+                  </ul> 
+
+                </div>
+
+>>>>>>> develop
                 <div class="rightcard1">
                     <img src="{% static '/img/service1.png' %}" alt="service"
                         style="vertical-align: middle; width: 300px; height: 300px;">
@@ -186,7 +238,11 @@
 
         <div class="service2" class="body-display">
 
+<<<<<<< HEAD
             <div class="incontainer2" style="margin: 3rem; ">
+=======
+            <div class="incontainer2" style="margin: 5rem; ">
+>>>>>>> develop
 
                 <div class="leftcard2">
                     <img src="{% static '/img/service2.png' %}" alt="service"
@@ -195,6 +251,7 @@
 
                 <div class="rightcard2">
 
+<<<<<<< HEAD
                     <ul id="fontbold1">
 
                         <p id="fontsize3">합리적인 소비</p>
@@ -218,6 +275,34 @@
 
                     </ul>
 
+=======
+                  <ul id="subcontent" style="list-style: none;">
+
+                    <li id="fontsize15">합리적인 소비</li>
+
+                    <li>유통기한이 지난 재고 상품을 처리할 때 마다 생기는 고민</li>
+
+                  </ul>
+
+                </div>
+
+                <div class = "rightcard22">
+
+                  <ul id = "subcontent" style = "list-style: none;">
+
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">원하는 상품의 합리적인 가격의 소비
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">환경을 생각하는 착한 소비
+                    </li>
+                    <li><img src="{% static '/img/check.png' %}" alt="check"
+                            style="margin-right:20px; width:50px; height: 50px;">경제적, 시간적인 가계 부담 감소
+                    </li>
+
+                  </ul>
+                
+>>>>>>> develop
                 </div>
 
             </div>
@@ -230,6 +315,7 @@
             <div class="incontainer3">
 
                 <div class="cardword" style="margin-bottom: 2rem; ">
+<<<<<<< HEAD
                     <ul style="list-style: none; ">
                         <li id="fontbold1" id="fontsize3">1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
                         <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
@@ -256,11 +342,49 @@
                     </ul>
                 </div>
 
+=======
+
+                    <ul style="list-style: none; ">
+                        <li id = "subcontent">1년간 국내 음식물 쓰레기 발생량을 줄이면,</li>
+
+                        <ul style = "list-style: none;">
+                          <li>환경부에 따르면 음식물 쓰레기 중 57%는 유통, 조리 과정에서 나오고, 먹고 남긴 음식물은 32% 정도입니다.</li>
+                          <li>국내에서는 하루에 약 1만 4천톤의 음식물 쓰레기가 나오는데,</li>
+                          <li>가정과 소형 음식점에서 발생하는 비율이 70%에 이른다고 합니다.</li>
+                        </ul>
+            
+                    </ul>
+
+                </div>
+
+                <div class="card1">
+                    <ul>
+                        <img src="{% static '/img/service3-1.png' %}"
+                            style="width:100px; height:100px; margin-bottom: 50px;">
+                        <p id="fontbold">온실가스</p>
+                        <p>하루 235만대의 차량주행시 배출되는 온실가스의 양과 동일합니다.</p>
+                    </ul>
+                </div>
+
+                <div class="card2">
+                    <ul>
+                        <img src="{% static '/img/service3-2.png' %}"
+                            style="width:100px; height:100px; margin-bottom: 50px;">
+                        <p id="fontbold">쓰레기 산</p>
+                        <p>연간 배출되는 음식물쓰레기의 양은 63빌딩 19채와 같습니다.</p>
+                    </ul>
+                </div>
+
+>>>>>>> develop
                 <div class="card3">
                     <ul>
                         <img src="{% static '/img/service3-3.png' %}"
                             style="width:100px; height:100px; margin-bottom: 50px;">
+<<<<<<< HEAD
                         <p id="fontbold1">절감 효과</p>
+=======
+                        <p id="fontbold">절감 효과</p>
+>>>>>>> develop
                         <p>음식물처리비용절감시 커피 5.5억잔, 서울 아파트 2만4천채를 구매할 수 있습니다.</p>
                     </ul>
                 </div>
@@ -270,18 +394,29 @@
         </div>
 
 
+<<<<<<< HEAD
         <div class="service4" class="body-display">
+=======
+        <div class="service4">
+>>>>>>> develop
 
             <div class="incontainer4">
 
                 <div class="card11">
                     <ul>
                         <p id="fontsize3">01</p>
+<<<<<<< HEAD
                         <img src="{% static '/img/service3-1.png' %}"
                             style="width:150px; height:150px; margin-bottom: 50px;">
                         <p id="fontbold1">음식 판매</p>
                         <p>정상적인 재고 음식들을 할인해서 소비자에게 연결해줌으로서 저렴한 가격에 구입을 할 수 있으며, 더 나아가 버려질 수 있던 음식들의 낭비를 감소시킴으로서 환경 오염 등
                             여러
+=======
+                        <img src="{% static '/img/service4-1.png' %}"
+                            style="width:200px; height:200px; margin-bottom: 50px;">
+                        <p id="fontbold">음식 판매</p>
+                        <p>정상적인 재고 음식들을 할인해서 소비자에게 연결해줌으로서 저렴한 가격에 구입을 할 수 있으며, 더 나아가 버려질 수 있던 음식들의 낭비를 감소시킴으로서 환경 오염 등 여러
+>>>>>>> develop
                             사회적
                             문제를 해결할 수 있을 것입니다.</p>
                     </ul>
@@ -290,9 +425,15 @@
                 <div class="card12">
                     <ul>
                         <p id="fontsize3">02</p>
+<<<<<<< HEAD
                         <img src="{% static '/img/service3-2.png' %}"
                             style=" width:150px; height:150px; margin-bottom: 50px;">
                         <p id="fontbold1">위빙 굿즈</p>
+=======
+                        <img src="{% static '/img/service4-2.png' %}"
+                            style="height:200px; margin-bottom: 50px;">
+                        <p id="fontbold">위빙 굿즈</p>
+>>>>>>> develop
                         <p>환경 보호를 위한 위빙의 목표를 위하여 일회용품을 줄이기 위한 굿즈를 판매할 계획입니다. 에코백, 텀블러를 시작으로 머그컵과 같은 상품까지 구입 할 수 있습니다</p>
                     </ul>
                 </div>
@@ -300,11 +441,18 @@
                 <div class="card13">
                     <ul>
                         <p id="fontsize3">03</p>
+<<<<<<< HEAD
                         <img src="{% static '/img/service3-3.png' %}"
                             style="width:150px; height:150px; margin-bottom: 50px; ">
                         <p id="fontbold1">환경 계좌</p>
                         <p>위빙을 통하여 구매한 금액 중 일부를 환경에 기여한 금액으로 산정하여 환경 계좌에 적립될 예정입니다. 적립된 금액은 위빙 굿즈를 구매하거나 음식 구매시 할인, 또는
                             환경을
+=======
+                        <img src="{% static '/img/service4-3.png' %}"
+                            style="width:200px; height:200px; margin-bottom: 50px; ">
+                        <p id="fontbold">환경 계좌</p>
+                        <p>위빙을 통하여 구매한 금액 중 일부를 환경에 기여한 금액으로 산정하여 환경 계좌에 적립될 예정입니다. 적립된 금액은 위빙 굿즈를 구매하거나 음식 구매시 할인, 또는 환경을
+>>>>>>> develop
                             위한 모금
                             활동에 사용 할 수 있습니다.</p>
                     </ul>
@@ -314,6 +462,7 @@
 
         </div>
 
+<<<<<<< HEAD
     </body>
 </div>
 
@@ -408,13 +557,43 @@
         <div style="text-align: center;">
             <p1>copyright by Webeing.</p1>
         </div>
+=======
+      <!-- Footer -->
+      <footer class="gridfooter" id="footer-dispaly">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+        <style>
+            p1 {
+                font-family: 'Nanum Gothic Coding', monospace;
+            } </style>
+        <ul>
+            <p1>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 이메일: slowwvibes@gmail.com</p1>
+            <br>
+            <p1>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</p1>
+            <br>
+            <li>개발자 : 한승조, 인세훈, 이찬규, 김재욱, 최진영</li>
+            <br>
+            <p1><a href="#">이용약관</a> | <a href="#">개인정보처리방침</a></p1>
+            <br>
+            <p1>copyright by Webeing.</p1>
 
-    </ul>
+        </ul>
 
 
+      </footer>
+
+    </div>
+    
+</body>
+>>>>>>> develop
+
+
+
+<<<<<<< HEAD
 </footer>
 </div>
 </div>
 </div>
 
+=======
+>>>>>>> develop
 </html>

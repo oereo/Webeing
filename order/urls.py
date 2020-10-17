@@ -9,6 +9,6 @@ urlpatterns = [
     path('create_ajax/', OrderCreateAjaxView.as_view(), name='order_create_ajax'),
     path('checkout/', OrderCheckoutAjaxView.as_view(), name='order_checkout'),
     path('validation/', OrderImpAjaxView.as_view(), name='order_validation'),
-    path('complete/', order_complete, name='order_complete'),
+    path('payment/complete/', order_complete, name='order_complete'),
     path('payment/', order_payment, name='order_payment'),
 ]

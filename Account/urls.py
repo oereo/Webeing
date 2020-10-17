@@ -10,6 +10,9 @@ urlpatterns = [
     path('signupseller/', views.signup_seller, name="signup_seller"),
     path('customerPage/', views.customer_page, name="customerPage"),
     path('sellerPage/', views.seller_page, name="sellerPage"),
-    path('tos/', views.tos, name="tos"),
-    path('tos_user/', views.tos_user, name="tos_user"),
+    path('tos_seller_use/', views.tos_seller_use, name="tos_seller_use"),
+    path('tos_seller_private/', views.tos_seller_private, name="tos_seller_private"),
+    path('tos_user_use/', views.tos_user_use, name="tos_user_use"),
+    path('tos_user_private/', views.tos_user_private, name="tos_user_private"),
+
 ]

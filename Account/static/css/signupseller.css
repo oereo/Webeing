@@ -1,0 +1,78 @@
+.box-container {
+    display: grid;
+    height: auto;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5fr 1fr;
+
+
+    grid-template-areas:
+        " signupword "
+        " email "
+        " password "
+        "passwordconfirm"
+        "resturant"
+        "resturantnumber"
+        "address"
+        "phonetype"
+        "agree"
+        "signupbutton"
+}
+
+.signupword {
+    grid-area: signupword; 
+    text-align: center;
+}
+
+.email {grid-area: email; }
+.password {grid-area: password; }
+.passwordconfirm {grid-area: confirm; }
+.resturantnumber {grid-area: resturantnumber; }
+.address {grid-area: address; }
+.phonetype {grid-area: phonetype; }
+
+.agree {
+    grid-area: agree;
+}
+
+.signupbutton {grid-area: signupbutton; }
+
+.box-agree {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    row-gap: 20px; 
+
+    grid-template-areas:
+        "agree1"
+        "agree2"
+        "agree3"
+        "agreeall"
+}
+
+.agree1 {
+    grid-area: agree1;
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgray;
+    padding: 15px 30px 15px 30px; 
+}
+
+.agree2 {
+    grid-area: agree2;
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgray;
+    padding: 15px 30px 15px 30px; }
+
+.agree3 {
+    grid-area: agree3;
+}
+
+.agreeall {
+    grid-area: agreeall;
+    float: right;
+    text-align: right;
+}

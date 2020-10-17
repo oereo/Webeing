@@ -6,72 +6,136 @@ Shopping cart
 {% endblock %}
 
 {% block content %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Remove</th>
-                <th scope="col">Unit price</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for item in cart %}
-            {% with product=item.product %}
-            <tr>
-                <th scope="row">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{{ product.image.url }}" class="img-thumbnail">
-                    </a>
-                </th>
-                <td>{{ product.name }}</td>
-                <td>
-                    <form action="{% url 'cart:product_add' product.id %}" method="post">
-                        {{ item.quantity_form.quantity }}
-                        {{ item.quantity_form.is_update }}
-                        <input type="submit" class="btn btn-primary" value="Update">
-                        {% csrf_token %}
-                    </form>
-                </td>
-                <td><a href="{% url 'cart:product_remove' product.id %}">Remove</a></td>
-                <td class="num">${{ item.price }}</td>
-                <td class="num">${{ item.total_price }}</td>
-            </tr>
-            {% endwith %}
-        {% endfor %}
-        {% if cart.coupon %}
-            <tr class="subtotal">
-                <td>Subtotal</td>
-                <td colspan="4"></td>
-                <td >${{ cart.get_product_total }}</td>
-            </tr>
-            <tr>
-                    <td>"{{ cart.coupon.code }}" coupon (${{ cart.coupon.amount }})</td>
-                <td colspan="4"></td>
-                <td >- ${{ cart.get_discount_total|floatformat:"2" }}</td>
-            </tr>
-        {% endif %}
-        <tr class="total">
-            <td>Total</td>
-            <td colspan="4"></td>
-            <td class="num">${{ cart.get_total_price|floatformat:"2" }}</td>
-        </tr>
-        </tbody>
-    </table>
-    <p>
-        기존 Point
-    </p>
-    <form action='{% url "coupon:add" %}' method="post">
-        <!-- {{ add_coupon }} -->
-        <input type="submit" value="Add">
-        {% csrf_token %}
-    </form>
 
+<link rel = "stylesheet" href = "{% static 'css/detail.css' %}">
 
-    <p class="text-right">
-        <a href='{% url "shop:product_all" %}' class="btn btn-secondary">Continue shopping</a>
-        <a href='{% url "orders:order_create" %}' class="btn btn-primary">Checkout</a>
-    </p>
+<style>
+    #titlefont {
+        font-size: 200%;
+        font-weight: bold;
+    }
+    #subfont {
+        font-size: 150%;
+        font-weight: bold;
+    }
+    #totalpricefont {
+        font-size: 200%;
+        font-weight: bold;
+        color: #00be68;
+    }
+    #totalwordfont {
+        font-size: 150%;
+        font-weight: 300%;
+    }
+    #font15 {
+        font-size: 150%;
+    }
+                
+</style>
+
+<div class = "box-container">
+
+    <div class = "cartword">
+        <p id = "titlefont">장바구니</p>
+    </div>
+
+    <div class = "cartsituation">
+        <p class = "text-center">
+            <img src = "{% static '/img/cart001.png' %}" alt = "cart01" style = "height: 80px; ">
+        </p>
+    </div>
+
+    <div class = "cartlist">
+
+        <table class="table table-striped">
+
+            <colgroup>
+                <col width = "15%">
+                <col width = "13%">
+                <col width = "30%">
+                <col width = "15%">
+                <col width = "15%">
+                <col width = "*">
+            </colgroup>
+
+            <thead>
+                <tr>
+                    <th scope="col">이미지</th>
+                    <th scope="col">상품</th>
+                    <th scope="col">수량</th>
+                    <th scope="col">삭제</th>
+                    <th scope="col">상품 가격</th>
+                    <th scope="col">가격</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for item in cart %}
+                {% with product=item.product %}
+                <tr>
+                    <th scope="row">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{ product.image.url }}" class="img-thumbnail">
+                        </a>
+                    </th>
+                    <td>{{ product.name }}</td>
+                    <td>
+                        <form action="{% url 'cart:product_add' product.id %}" method="post">
+                            {{ item.quantity_form.quantity }}
+                            {{ item.quantity_form.is_update }}
+                            <input type="submit" class="btn btn-primary" value="Update">
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td><a href="{% url 'cart:product_remove' product.id %}">Remove</a></td>
+                    <!-- 원화로 변경 -->
+                    <td class="num">{{ item.price }}원</td>
+                    <td class="num">{{ item.total_price }}원</td>
+                </tr>
+                {% endwith %}
+            {% endfor %}
+            {% if cart.coupon %}
+                <tr class="subtotal">
+                    <td>Subtotal</td>
+                    <td colspan="4"></td>
+                    <!-- 원화로 변경 -->
+                    <td >{{ cart.get_product_total }}원</td>
+                </tr>
+                <tr>
+                        <td>"{{ cart.coupon.code }}" coupon ({{ cart.coupon.amount }}원)</td>
+                    <td colspan="4"></td>
+                    <td >- {{ cart.get_discount_total}}원</td>
+                </tr>
+            {% endif %}
+            <tr class="total">
+                <td>Total</td>
+                <td colspan="4"></td>
+                <!-- 원화로 변경 -->
+                <td class="num">{{ cart.get_total_price}}원</td> 
+            </tr>
+            </tbody>
+
+        </table>
+
+        <p>
+            기존 Point
+        </p>
+
+        <form action='{% url "coupon:add" %}' method="post">
+            <!-- {{ add_coupon }} -->
+            <input type="submit" value="Add">
+            {% csrf_token %}
+        </form>
+
+    </div>
+
+    <div class = "checkout">
+        <p class="text-center">
+            <a href='{% url "shop:product_all" %}' class="btn btn-secondary btn-lg">쇼핑하러 가기</a>
+            <a href='{% url "orders:order_create" %}' class="btn btn-primary btn-lg">상품 구매</a>
+        </p>
+    </div>
+
+</div>
+
 {% endblock %}

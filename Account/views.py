@@ -35,7 +35,6 @@ def signup_customer(request):
                 password=request.POST['password'],
                 email=request.POST['username'],
                 nickname=request.POST['nickname'],
-                date_of_birth=request.POST['dateofbirth'],
             )
             auth.login(request, user)
 
@@ -55,17 +54,13 @@ def signup_seller(request):
                 password=request.POST['password'],
                 email=request.POST['username'],
                 nickname=request.POST['nickname'],
-                date_of_birth=request.POST['dateofbirth'],
                 seller_address=request.POST['seller_address'],
                 business_number=request.POST['business_number'],
                 seller_name=request.POST['seller_name'],
             )
             auth.login(request, user)
 
-
         return redirect('/main/')
-
-
 
     else:
         form = UserCreationForm()
@@ -83,16 +78,19 @@ def logout(request):
 def customer_page(request):
     user = request.user
     orders = Order.objects.filter(user=user)
+    user_env_point = User.objects.get(email=user.email)
+    user_env_point_amount = user_env_point.env_money
     order_items_list = []
 
     for order in orders:
         order_items_list.append(OrderItem.objects.filter(order=order))
-    # orderitems = OrderItem.objects.filter(order=order[0])
-    # orderitems = get_object_or_404(Order, pk=order_id)
-    # orderitems = Order.objects.values('user', 'OrderItem__created')
-    # orderitems = Order.objects.filter(user=user).select_related('user')
-    return render(request, 'customerPage.html', {'order_items_list': order_items_list, 'orders': orders})
-    # return render(request, 'customerPage.html')
+
+    return render(request, 'customerPage.html', {
+        'order_items_list': order_items_list,
+        'orders': orders,
+        'user_env_point_amount': user_env_point_amount
+    })
+
 
 def seller_page(request):
     return render(request, 'sellerPage.html')
@@ -102,9 +100,17 @@ def signup(request):
     return render(request, 'signup.html')
 
 
-def tos(request):
-    return render(request, 'TOS.html')
+def tos_seller_use(request):
+    return render(request, 'tos_seller_use.html')
 
 
-def tos_user(request):
-    return render(request, 'TOS_user.html')
+def tos_seller_private(request):
+    return render(request, 'tos_seller_private.html')
+
+
+def tos_user_use(request):
+    return render(request, 'tos_user_use.html')
+
+
+def tos_user_private(request):
+    return render(request, 'tos_user_private.html')

@@ -28,6 +28,7 @@ class Restaurant(models.Model):
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
+    location = models.TextField
 
     available_display = models.BooleanField('Display', default=True)
     available_order = models.BooleanField('Order', default=True)
@@ -55,7 +56,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 
-    price = models.DecimalField(max_digits=10,decimal_places=2)
+    price = models.IntegerField() ## [찬규] 가격 정보 정수값으로 수정했습니다.
     stock = models.PositiveIntegerField()
 
     available_display = models.BooleanField('Display', default=True)

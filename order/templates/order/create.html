@@ -23,29 +23,140 @@ Checkout
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <div class="alert alert-info" role="alert">
-            Your Order
-        </div>
-        <ul class="list-group">
+
+<link rel = "stylesheet" href = "{% static 'css/create.css' %}">
+
+<style>
+    #titlefont {
+        font-size: 200%;
+        font-weight: bold;
+    }
+    #totalpricefont {
+        font-size: 200%;
+        font-weight: bold;
+        color: #00be68;
+    }
+    #totalwordfont {
+        font-size: 150%;
+        font-weight: 300%;
+    }
+    #line {
+        border-bottom: 1px lightgray;
+    }
+    #font15 {
+        font-size: 130%;
+    }
+</style>
+
+<div class = "box-container">
+
+    <div class = "orderword">
+        <p id = "titlefont">주문현황</p>
+    </div>
+
+    <div class = "finalordersituation">
+        <p class = "text-center">
+            <img src = "{% static '/img/cart002.png' %}" alt = "cart002" style = "height: 80px; ">
+        </p>
+    </div>
+
+    <div class = "finalorderlist">
+
+        <table id = "table1-layout">
+
+            <!-- <style>
+                th, td {
+                    border-bottom: 1px solid #444444;
+                    padding: 10px;
+                }   
+            </style> -->
+
+            <colgroup>
+                <col width = "20%">
+                <col width = "20%">
+                <col width = "15%">
+                <col width = "20%">
+                <col width = "*">
+            </colgroup>
+
+            <thead>
+                <tr>
+                    <th scope="col" >이미지</th>
+                    <th scope="col">상품</th>
+                    <th scope="col">수량</th>
+                    <th scope="col">WBpoint</th>
+                    <th scope="col">가격</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
             {% for item in cart %}
-            <li class="list-group-item">
-                {{item.quantity}}X{{item.product.name}}
-                <span id="amount3r" value="100">{{item.total_price}}</span>
-                <div id="amount11">2123</div>
-            </li>
+            {% with product=item.product %}
+
+                <tr>
+                    <th scope="row">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{ product.image.url }}" class="img-thumbnail">
+                        </a>
+                    </th>
+                    <td id = "font15">{{ item.product.name }}</td>
+                    <td id = "font15">{{ item.quantity }}</td>
+                    <td id = "font15">point</td>
+                    <!-- 원화로 변경 -->
+                    <td class="num" id = "font15"><span id="amount3r" value="100">{{item.total_price}}원</span></td>
+                </tr>
+
+            {% endwith %}
             {% endfor %}
+            
             {% if cart.coupon %}
             <li class="list-group-item">
-
+    
                 "{{ cart.coupon.code }}" ({{ cart.coupon.amount }}% off)
-
-                <span>- ${{ cart.get_total_discount|floatformat:"2" }}</span>
+    
+                <span>- ${{ cart.get_total_discount}}</span>
             </li>
             {% endif %}
-        </ul>
-        <div class="alert alert-success" id="amount1" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class = "finalorder">
+
+        <table id = "table2-layout">
+
+            <colgroup>
+                <col width = "50%">
+                <col width = "*">
+            </colgroup>
+
+            <tr>
+                <td rowspan = "4" id = "titlefont">총 주문금액</td>
+                <td><span>주문상품 수</span><span style = "float: right;">{}</span></td>
+            </tr>
+            <tr>
+                <td><span>주문 금액</span><span style = "float: right;">{}</span></td>
+            </tr>
+            <tr>
+                <td><span>WEBEING POINT</span><span style = "float: right;">{}</span></td>
+            </tr>
+            <tr>
+                <td><span id = "totalwordfont">최종결제금액</span><span id = "totalpricefont" style = "float: right;">{{cart.get_total_price}}원</span></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class = "checkout">
+
+        <p>
+            이용약관, 개인정보 수집 및 이용, 개인정보 제3자 제공, 전자금융거래 이용약관, 만 14세 이상 이용자 내용 확인하였으며 결제에 동의합니다.
+        </p>
 
         <!-- form에 class 추가 -->
         <form action='{% url "orders:order_payment" %}' method="POST" class="order-form">
@@ -53,14 +164,13 @@ Checkout
             {% csrf_token %}
             <!-- hidden field 추가-->
             <input type="hidden" name="pre_order_id" value="0">
-            <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price|floatformat:'2' }}">
-            <button type="submit">aaa</button>
-            <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>
-
+            <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price}}">
+            <button type="submit" class="btn btn-primary btn-lg float-right" style = "width: 150px; ">결제하기</button>
+            <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
         </form>
 
     </div>
-</div>
 
+</div>
 
 {% endblock %}
