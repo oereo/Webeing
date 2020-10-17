@@ -1,5 +1,6 @@
 .box-container {
     display: grid;
+    height: auto;
 
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5fr 1fr;

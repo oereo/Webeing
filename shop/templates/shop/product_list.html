@@ -20,6 +20,9 @@
     th, td {
         padding: 10px;
     }
+    th, td {
+      padding: 10px; 
+    }
 </style>
 
 <div class="box-container">
@@ -43,13 +46,12 @@
 
     </div>
 
-    <div class="menus">
+    <div class="menus" style="height: auto;">
 
         <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
 
         <!-- Up to 3 menus -->
         {% for product in products %}
-
 
         <div class="menu-in" id="box-layout">
 
