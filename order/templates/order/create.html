@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 
 {% block title %}
 Checkout
@@ -101,8 +102,8 @@ Checkout
                         </a>
                     </th>
                     <td id = "font15">{{ item.product.name }}</td>
-                    <td id = "font15">{{ item.quantity }}</td>
-                    <td id = "font15">point</td>
+                    <td id = "font15">{{ item.quantity }} 개</td>
+                    <td id = "font15">{{item.quantity|mul:item.price|div:10}} point</td>
                     <!-- 원화로 변경 -->
                     <td class="num" id = "font15"><span id="amount3r" value="100">{{item.total_price}}원</span></td>
                 </tr>
@@ -136,13 +137,13 @@ Checkout
 
             <tr>
                 <td rowspan = "4" id = "titlefont">총 주문금액</td>
-                <td><span>주문상품 수</span><span style = "float: right;">{}</span></td>
+                <td><span>주문상품 수</span><span style = "float: right;">{{final}}</span></td>
             </tr>
             <tr>
                 <td><span>주문 금액</span><span style = "float: right;">{}</span></td>
             </tr>
             <tr>
-                <td><span>WEBEING POINT</span><span style = "float: right;">{}</span></td>
+                <td><span>WEBEING POINT</span><span style = "float: right;">{{env_point}}</span></td>
             </tr>
             <tr>
                 <td><span id = "totalwordfont">최종결제금액</span><span id = "totalpricefont" style = "float: right;">{{cart.get_total_price}}원</span></td>

@@ -1,7 +1,7 @@
 .box-container {
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 230px 600px 600px 230px 200px 200px ;
+    grid-template-rows: 230px 400px 600px 230px 200px 200px ;
     
     row-gap: 50px;
     
