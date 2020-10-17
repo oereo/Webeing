@@ -2,264 +2,230 @@
 {% load static %}
 {% block content %}
 
-<
-<form action="{% url 'signup_customer' %}" method="POST">
-  {% csrf_token %}
+<link rel = "stylesheet" href = "{% static 'css/signupcustomer.css' %}">
 
-<title>signup_customer</title>
-
-<link rel="stylesheet" type = "text/css" href = "{% static 'css/signupcustomer.css' %}">
-
-<style type = "text/css">
-  #fontsubtitle {
-    font-size: 100%;
+<style>
+  #titlefont {
+    font-size: 200%;
     font-weight: bold;
   }
-  #fontsize2 {font-size: 200%;}
-  #fontbold {font-weight: bold;}
-  #green {color: #00be68}
+  #subfont {
+    font-size: 150%;
+  }
+  #green {
+    color: #00be68;
+  }
 </style>
 
-<div class = "container">
+<div class = "box-container">
 
-  <div class = "signup1">
-    <span id = "fontsize2" id = "fontbold">회원가입</span>
-  </div>
+  <form action="{% url 'signup_customer' %}" method="POST">
+    {% csrf_token %}
+    <!-- {{form.as_p}} -->
 
-
-  <div class = "socialsignup">
-
-    <button type="button" class="btn btn-outline-secondary btn-sm" style = "float:left; width: 48%; ">네이버로 회원가입</button>
-    <button type="button" class="btn btn-outline-secondary btn-sm" style = "float:right; width: 48%; ">카카오로 회원가입</button>
-
-  </div>
-
-
-  <div class = "email">
-    <span id = "fontsubtitle">E-mail</span>
-
-    <div class="input-group mb-3" style = "width: 100%; " >
-        <input type="text" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon2 " >
+    <div class = "signupword">
+      <p id = "titlefont">고객 회원가입</p>
     </div>
-  </div>
 
+    <div class = "socialsignup">
 
-  <div class = "password">
-    <span id = "fontsubtitle">비밀번호</span>
-
-    <div class="input-group mb-3" style = "width: 100%; " >
-        <input type="text" class="form-control" placeholder="*******" aria-label="*******" aria-describedby="basic-addon2 " >
     </div>
-  </div>
 
+    <div class = "email">
 
-  <div class = "passwordconfirm">
-    <span id = "fontsubtitle">비밀번호 확인</span>
+      <div class="mb-3">
 
-    <div class="input-group mb-3" style = "width: 100%; " >
-        <input type="text" class="form-control" placeholder="*******" aria-label="*******" aria-describedby="basic-addon2 " >
-    </div>
-  </div>
+        <label for="username">E-mail</label>
 
+        <div class="input-group">
+          <input type="text" class="form-control" id="username" placeholder="example@example.com" required name="username">
+          
+            <div class="invalid-feedback" style="width: 100%;">
+            Your E-mail is required.
+          </div>
 
-  <div class = "nickname">
-    <span id = "fontsubtitle">닉네임</span>
+        </div>
 
-    <div class="input-group mb-3" style = "width: 100%; " >
-        <input type="text" class="form-control" placeholder="닉네임을 입력해주세요" aria-label="닉네임을 입력해주세요" aria-describedby="basic-addon2 " >
-    </div>
-  </div>
-
-
-  <div class = "phonetype1">
-    <span id = "fontsubtitle">휴대폰 번호 입력</span>
-
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="010-1234-5678" aria-label="010-1234-5678" aria-describedby="button-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" style = "width: 70px;"><span id = "green">인증</span></button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class = "phonetype2">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="인증번호 입력" aria-label="인증번호 입력" aria-describedby="button-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" style = "width: 70px;"><span id = "green">확인</span></button>
-      </div>
-    </div>
-  </div>
-
-  <div class = "agree1">
-    <form>
-      <span id = "fontsubtitle">이용약관동의</span>
-      <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1">
-
-        <!-- 왼쪽 내용보기 -->
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" style = "width: 30px; height: 30px;">
-        <label class="form-check-label" for="exampleCheck1">이용약관 동의(필수)</label>
-
-        <span>
-          <a href = "#">
-          내용보기 <span id = "green" id = "fontbold">></span>
-          </a>
-        </span>
       </div>
 
-    </form>
-  </div>
-
-
-  <div class = "agree2">
-
-  </div>
-
-
-  <div class = "agree3">
-    
-  </div>
-
-
-  <div class = "agree4">
-    
-  </div>
-
-
-  <div class = "agree5">
-    
-  </div>
-
-
-  <div class = "agreeall">
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">전체동의하기</label>
     </div>
-  </div>
 
+    <div class = "password">
 
-  <div class = "signup2">
-    <button type="button" class="btn btn-success btn-lg btn-block" style = "width: 100%; ">회원가입</button>
+      <div class="mb-3">
+        <label for="address">비밀번호</label>
+        <input type="password" class="form-control" id="address" placeholder="password" required name="password">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
 
-  </div>
+    </div>
 
+    <div class = "passwordconfirm">
+
+      <div class="mb-3">
+        <label for="address">비밀번호 확인</label>
+        <input type="password" class="form-control" id="address" placeholder="password" required name="password_confirm">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+
+    </div>
+
+    <div class = "nickname">
+
+      <div class="mb-3">
+        <label for="nickname">닉네임<span class="text-muted">(필수)</span></label>
+        <input type="nickname" class="form-control" id="nickname" placeholder="개구리" required name="nickname">
+        <div class="invalid-feedback">
+          <!-- Please enter a valid email address for shipping updates. -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class = "phonetype">
+
+      <div class="mb-3">
+        <label for="phonenumber">전화번호 <span class="text-muted">(필수)</span></label>
+        <input type="phonenumber" class="form-control" id="phonenumber" placeholder="010-2222-2222" required
+          name="phonenumber">
+        <div class="invalid-feedback">
+          <!-- Please enter a valid email address for shipping updates. -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label for="dateofbirth">생일 <span class="text-muted">(필수)</span></label>
+      <input type="dateofbirth" class="form-control" id="dateofbirth" placeholder="1996-04-06" required
+        name="dateofbirth">
+      <div class="invalid-feedback">
+        <!-- Please enter a valid email address for shipping updates. -->
+      </div>
+      
+    </div>
+
+    <div class = "agree" id = "">
+
+      <style>
+        ul>li{list-style: none}
+        a{text-decoration: none;}
+        .clearfix::after{content: "";display: block;clear: both;}
+        #joinForm{width: 460px;margin: 0 auto;}
+        ul.join_box{border: 1px solid #ddd;background-color: #fff;}
+      </style>
+
+      <form action="" id="joinForm">
+
+        <div class = "box-agree">
+
+          <p>이용약관동의</p>
+
+          <ul class="join_box">
+
+            <div class = "agree_word">
+
+              <li class="checkBox check01">
+                  <ul class="clearfix">
+                      <li>이용약관, 개인정보 수집 및 이용,
+                          위치정보 이용약관(선택), 프로모션 안내
+                          메일 수신(선택)에 모두 동의합니다.</li>
+                      <li class="checkAllBtn">
+                          <input type="checkbox" name="chkAll" id="chk" class="chkAll">
+                      </li>
+                  </ul>
+              </li>
+
+            </div>
+
+            <div class = "agree1">
+
+              <li class="checkBox check02">
+                  <ul class="clearfix">
+                      <li>이용약관 동의(필수)</li>
+                      <li class="checkBtn">
+                          <input type="checkbox" name="chk"> 
+                      </li>
+                  </ul>
+                  <textarea name="" id="">여러분을 환영합니다.
+                  네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+                  </textarea>
+              </li>
+
+            </div>
+
+            <div class = "agree2">
+
+              <li class="checkBox check03">
+                  <ul class="clearfix">
+                      <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
+                      <li class="checkBtn">
+                          <input type="checkbox" name="chk">
+                      </li>
+                  </ul>
+
+                  <textarea name="" id="">여러분을 환영합니다.
+                  네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+                  </textarea>
+              </li>
+
+            </div>
+
+            <div class = "agree3">
+              <li class="checkBox check03">
+                  <ul class="clearfix">
+                      <li class="checkBtn">
+                          <input type="checkbox" name="chk">
+                          <p>위치정보 이용약관 동의(선택)</p>
+                      </li>
+                  </ul>
+
+                  <textarea name="" id="">여러분을 환영합니다.
+                  네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+                  </textarea>
+              </li>
+
+            </div>
+
+            <!-- 
+              <li class="checkBox check04">
+                  <ul class="clearfix">
+                      <li>이벤트 등 프로모션 알림 메일 수신(선택</li>
+                      <li class="checkBtn">
+                          <input type="checkbox" name="chk">
+                      </li>
+                  </ul>
+              </li>
+            -->
+
+          </ul>
+
+        </div>
+
+        <div class = "signupbutton">
+
+          <hr width = 100% color="blue" float = "left" size=30/>
+    
+          <!-- <li><button class="fpmgBt1">비동의</button></li> -->
+          <p class = "text-center">
+            <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
+          </p>
+              <!-- <li><button class="fpmgBt2">동의</button></li> -->
+        
+        </div>
+          
+      </form>
+
+    </div>
+
+  </form>
 
 </div>
-
-  <div class = "agree" id = "">
-
-    <style>
-      ul>li{list-style: none}
-      a{text-decoration: none;}
-      .clearfix::after{content: "";display: block;clear: both;}
-      #joinForm{width: 460px;margin: 0 auto;}
-      ul.join_box{border: 1px solid #ddd;background-color: #fff;}
-    </style>
-
-    <form action="" id="joinForm">
-
-      <div class = "box-agree">
-
-        <ul class="join_box">
-
-          <div class = "agree_word">
-
-            <li class="checkBox check01">
-                <ul class="clearfix">
-                    <li>이용약관, 개인정보 수집 및 이용,
-                        위치정보 이용약관(선택), 프로모션 안내
-                        메일 수신(선택)에 모두 동의합니다.</li>
-                    <li class="checkAllBtn">
-                        <input type="checkbox" name="chkAll" id="chk" class="chkAll">
-                    </li>
-                </ul>
-            </li>
-
-          </div>
-
-          <div class = "agree1">
-            <li class="checkBox check02">
-                <ul class="clearfix">
-                    <li>이용약관 동의(필수)</li>
-                    <li class="checkBtn">
-                        <input type="checkbox" name="chk"> 
-                    </li>
-                </ul>
-                <textarea name="" id="">여러분을 환영합니다.
-                네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
-                </textarea>
-            </li>
-
-          </div>
-
-          <div class = "agree2">
-
-            <li class="checkBox check03">
-                <ul class="clearfix">
-                    <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
-                    <li class="checkBtn">
-                        <input type="checkbox" name="chk">
-                    </li>
-                </ul>
-
-                <textarea name="" id="">여러분을 환영합니다.
-                네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
-                 </textarea>
-            </li>
-
-          </div>
-
-          <div class = "agree3">
-            <li class="checkBox check03">
-                <ul class="clearfix">
-                    <li class="checkBtn">
-                        <input type="checkbox" name="chk">
-                        <p>위치정보 이용약관 동의(선택)</p>
-                    </li>
-                </ul>
-
-                <textarea name="" id="">여러분을 환영합니다.
-                네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
-                </textarea>
-            </li>
-
-          </div>
-
-          <!-- 
-            <li class="checkBox check04">
-                <ul class="clearfix">
-                    <li>이벤트 등 프로모션 알림 메일 수신(선택</li>
-                    <li class="checkBtn">
-                        <input type="checkbox" name="chk">
-                    </li>
-                </ul>
-
-            </li>
-
-          -->
-
-        </ul>
-
-      </div>
-
-      <div class = "signup2">
-
-        <ul class="footBtwrap clearfix">
-            <li><button class="fpmgBt1">비동의</button></li>
-            <!-- <li><button class="btn btn-primary btn-large" type="submit">가입하기</button></li> -->
-            <li><button class="fpmgBt2">동의</button></li>
-        </ul>
-
-      </div>
-        
-    </form>
-
-  </div>
-
-</form>
 
 <!-- <div id="signup">
   <b-form @submit.stop.prevent>
@@ -290,75 +256,4 @@
   </b-form>
 </div> -->
 
-<title>signupcustomer</title>
-
-<link rel="stylesheet" href = "{% static 'css/signupcustomer.css' %}" />
-
-<style type = "text/css">
-  #fontsize15 {font-size: 150%;}
-  #fontsize2 {font-size: 200%;}
-  #fontbold {font-weight: bold;}
-</style>
-
-<div class = "signup1">
-  <
-</div>
-
-<div class = "socialsignup">
-
-</div>
-
-<div class = "email">
-
-</div>
-
-<div class = "password">
-
-</div>
-
-<div class = "confirm">
-
-</div>
-
-<div class = "nickname">
-  
-</div>
-
-<div class = "phonetype1">
-  
-</div>
-
-<div class = "phonetype2">
-  
-</div>
-
-<div class = "agree1">
-  
-</div>
-
-<div class = "agree2">
-  
-</div>
-
-<div class = "agree3">
-  
-</div>
-
-<div class = "agree4">
-  
-</div>
-
-<div class = "agree5">
-  
-</div>
-
-<div class = "agreeall">
-  
-</div>
-
-<div class = "signup2">
-  
-</div>
-
 {% endblock %}
-
