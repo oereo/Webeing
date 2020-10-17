@@ -12,6 +12,9 @@
   #subfont {
     font-size: 150%;
   }
+  #green {
+    color: #00be68;
+  }
 </style>
 
 <div class = "box-container">
@@ -36,9 +39,6 @@
 
         <div class="input-group">
           <input type="text" class="form-control" id="username" placeholder="example@example.com" required name="username">
-          
-          <button id="checkid"
-            style="display:inline; border-radius: 5px;background-color : lightgray;color:black">중복확인</button><br>
           
             <div class="invalid-feedback" style="width: 100%;">
             Your E-mail is required.
@@ -123,6 +123,8 @@
       <form action="" id="joinForm">
 
         <div class = "box-agree">
+
+          <p>이용약관동의</p>
 
           <ul class="join_box">
 
@@ -209,19 +211,17 @@
 
           <hr width = 100% color="blue" float = "left" size=30/>
     
-          <ul class="footBtwrap clearfix">
-              <!-- <li><button class="fpmgBt1">비동의</button></li> -->
-              <li><button class="btn btn-primary btn-large" type="submit">가입하기</button></li>
+          <!-- <li><button class="fpmgBt1">비동의</button></li> -->
+          <p class = "text-center">
+            <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
+          </p>
               <!-- <li><button class="fpmgBt2">동의</button></li> -->
-          </ul>
         
         </div>
           
       </form>
 
     </div>
-
-
 
   </form>
 

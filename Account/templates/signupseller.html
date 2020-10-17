@@ -27,14 +27,12 @@
     <div class = "email">
 
       <div class="mb-3">
-        <label for="username">UserID</label>
+        <label for="username">E-mail</label>
+
         <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">ID</span>
-          </div>
-          <input type="text" class="form-control" id="username" placeholder="you@example.com" required name="username"> <button id = "checkid"  style="display:inline; border-radius: 5px;background-color : orange;color:white">중복확인</button><br>
+          <input type="text" class="form-control" id="username" placeholder="example@example.com" required name="username">
           <div class="invalid-feedback" style="width: 100%;">
-            Your userID is required.
+            Your userEmail is required.
           </div>
         </div>
       </div>
@@ -133,6 +131,8 @@
 
     <div class = "agree">
 
+      <p>이용약관동의</p>
+
       <div class = "box-agree">
 
         <div class = "agree_word">
@@ -152,7 +152,7 @@
         </div>
 
         <div class = "agreeall">
-          
+
         </div>
 
       </div>
@@ -160,7 +160,14 @@
     </div>
 
     <div class = "signupbutton">
-      <button class="btn btn-primary btn-large" type="submit">가입하기</button>
+
+      <hr width = 100% color="blue" float = "left" size=30/>
+    
+      <!-- <li><button class="fpmgBt1">비동의</button></li> -->
+      <p class = "text-center">
+        <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
+      </p>
+
     </div>
 
   </form>
