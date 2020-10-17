@@ -1,9 +1,9 @@
 .box-container {
-    display: grid ;
+    display: grid;
     grid-template-columns: 1fr ;
     grid-template-rows: 230px 600px 600px 230px 200px 200px ;
     
-    row-gap: 50px ;
+    row-gap: 50px;
     
     grid-template-areas:
         "store"

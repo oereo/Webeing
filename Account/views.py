@@ -35,7 +35,6 @@ def signup_customer(request):
                 password=request.POST['password'],
                 email=request.POST['username'],
                 nickname=request.POST['nickname'],
-                date_of_birth=request.POST['dateofbirth'],
             )
             auth.login(request, user)
 
@@ -55,7 +54,6 @@ def signup_seller(request):
                 password=request.POST['password'],
                 email=request.POST['username'],
                 nickname=request.POST['nickname'],
-                date_of_birth=request.POST['dateofbirth'],
                 seller_address=request.POST['seller_address'],
                 business_number=request.POST['business_number'],
                 seller_name=request.POST['seller_name'],
