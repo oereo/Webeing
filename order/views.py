@@ -5,20 +5,20 @@ from .forms import *
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie, csrf_protect
 
 
-# def shop_success(request):
-#     cart = Cart()
-#     buyinglist = buyingList()
-#     user = request.user
-#     buyinglist.name
-
 def order_create(request):
+    user = request.user
+    orders = Order.objects.filter(user=user)
+    final = 0
+    env_point = 0
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
+
         if form.is_valid():
             order = form.save()
             order.user = request.user
             order.save()
+
             if cart.coupon:
                 order.coupon = cart.coupon
                 order.discount = cart.coupon.amount
@@ -31,7 +31,16 @@ def order_create(request):
             return render(request, 'order/created.html', {'order': order})
     else:
         form = OrderCreateForm()
-    return render(request, 'order/create.html', {'cart': cart, 'form': form})
+        for item in cart:
+            final += item['quantity']
+            env_point += (item['price'] * item['quantity']) / 10
+    return render(request,
+                  'order/create.html', {
+                      'cart': cart,
+                      'form': form,
+                      'final': final,
+                      'env_point': env_point
+                  })
 
 
 # ajax로 결제 후에 보여줄 결제 완료 화면
