@@ -83,7 +83,7 @@ Shopping cart
                         <form action="{% url 'cart:product_add' product.id %}" method="post">
                             {{ item.quantity_form.quantity }}
                             {{ item.quantity_form.is_update }}
-                            <input type="submit" class="btn btn-primary" value="Update">
+                            <input type="submit" class="btn btn-success" value="Update">
                             {% csrf_token %}
                         </form>
                     </td>
@@ -108,7 +108,7 @@ Shopping cart
                 </tr>
             {% endif %}
             <tr class="total">
-                <td>Total</td>
+                <td>합계금액</td>
                 <td colspan="4"></td>
                 <!-- 원화로 변경 -->
                 <td class="num">{{ cart.get_total_price}}원</td> 
@@ -117,22 +117,22 @@ Shopping cart
 
         </table>
 
-        <p>
+        <!-- <p>
             기존 Point
         </p>
 
         <form action='{% url "coupon:add" %}' method="post">
-            <!-- {{ add_coupon }} -->
+            <!-- {{ add_coupon }} 
             <input type="submit" value="Add">
             {% csrf_token %}
-        </form>
+        </form> -->
 
     </div>
 
     <div class = "checkout">
         <p class="text-center">
             <a href='{% url "shop:product_all" %}' class="btn btn-secondary btn-lg">쇼핑하러 가기</a>
-            <a href='{% url "orders:order_create" %}' class="btn btn-primary btn-lg">상품 구매</a>
+            <a href='{% url "orders:order_create" %}' class="btn btn-success btn-lg">상품 구매</a>
         </p>
     </div>
 

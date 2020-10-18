@@ -74,7 +74,7 @@
         font-weight: bold;
     }
     #green {
-        color: green;
+        color: #00be68;
     }
 </style>
 {% endblock %}
@@ -124,7 +124,8 @@
                 <div class="box-in-profile">
 
                     <div class="myinfo">
-                        <h4>개인 정보</h4>
+                        <h3>개인 정보</h3>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class="leftemail">
@@ -152,8 +153,8 @@
                     </div>
 
                     <div class="mybuy">
-                        <hr width = 100% color="green" float = "left" size=30/>
-                        <h4>주문 내역</h4>
+                        <h3>주문 내역</h3>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class = "buylist">
@@ -189,8 +190,63 @@
 
             <!-- 환경계좌 페이지 -->
             <section id="content2">
-                
+
+                <div class = "box-in-myaccount">
+
+                    <div class="myaccount">
+                        <h3>"<span id="green">{{user.nickname}}</span>" 님의 환경계좌금액</h3>
+                        <div class="envibox">
+                            <h2>"{{user.env_money}}" POINT</h2>
+                        </div>
+                    </div>
+
+                    <div class="joinevent">
+                        <h3>지구를 위한 모금행사에 참여하기</h3>
+                        
+                        <div class="joineventbox" style="border: 1px solid lightgray; padding: 30px; margin-top: 10px;">
+                            
+                            <div class="enviaccountword"><h4>환경계좌 금액</h4></div>
+
+                            <div class="enviaccountmoney">
+                                <h4>{{user.env_money}}</h4>
+                            </div>
+                            <div class="envidonationword"><h4>모금하실 금액</h4></div>
+                            <div class="envidonationmoney">
+                                <h4>{{money}}</h4>
+                            </div>
+                            <div class="totalword"><h4>모금참여 후 잔액</h4></div>
+                            <div class="totalmoney">
+                                <h4>{{moeny}}</h4>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="webeingaccount">
+                        <h3>위빙 모금함</h3>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
+                    </div>
+
+                    <div class="lastdonation">
+                        <h4>이전 모금 기록</h4>
+
+                        <div class="lastdonationbox">
+
+                            <div class="group-donation">A단체</div>
+
+                            <div class="money-donation">1,000,000원</div>
+
+                            <div class="date-donation">2020년 10월 18일</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
                 <div class = "box-in-enviaccount">
+                    <hr style="border: 1px solid lightgray; width:100%; float:left;">
 
                     <div class = "question1">
                         <p id = "fontsub">Q. 환경계좌란 무엇인가요?</p>
@@ -237,58 +293,6 @@
                                 <button type="button" class="btn btn-success">위빙과 함께 기부하러 가기</button>
                             </li>
                         </ul>
-                    </div>
-
-                </div>
-
-                <div class = "box-in-enviaccount">
-
-                    <div class="myaccount">
-                        <p>"<span id="green">{{user.nickname}}</span>" 님의 환경계좌금액</p>
-                        <div class="myaccountbox">
-                            <p>{{user.env_money}}</p>
-                        </div>
-                    </div>
-
-                    <div class="joinevent">
-                        <p>지구를 위한 모금행사에 참여하기</p>
-                        
-                        <div class="joineventbox" style="border: 1px solid lightgray; padding: 30px;">
-                            
-                            <div class="enviaccountword"><p>환경계좌 금액</p></div>
-
-                            <div class="enviaccountmoney">
-                                {{user.env_money}}
-                            </div>
-                            <div class="envidonationword"><p>모금하실 금액</p></div>
-                            <div class="envidonationmoney">
-                                {{money}}
-                            </div>
-                            <div class="totalword"><p>모금참여 후 잔액</p></div>
-                            <div class="totalmoney">{{moeny}}</div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="webeingaccount">
-                        <p>위빙 모금함</p>
-
-                    </div>
-
-                    <div class="lastdonation">
-                        <p>이전 모금 기록</p>
-
-                        <div class="lastdonationbox">
-
-                            <div class="group-donation">A단체</div>
-
-                            <div class="money-donation">1,000,000원</div>
-
-                            <div class="date-donation">2020년 10월 18일</div>
-
-                        </div>
-
                     </div>
 
                 </div>

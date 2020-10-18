@@ -14,7 +14,7 @@
   }
 </style>
 
-<div class = "box-container">
+<!-- <div class = "box-container"> -->
 
   <form action="{% url 'signup_seller' %}" method="POST">
     {% csrf_token %}
@@ -121,13 +121,13 @@
       </div>
 
 
-    <div class = "agree">
+    <div class = "agree" style="margin-top:10px;">
 
       <p>이용약관동의</p>
 
-      <div class = "box-agree">
+      <div>
 
-        <div class = "agree1" >
+        <div class = "agree1" style="margin-bottom: 20px;">
 
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
           <label class="form-check-label" for="defaultCheck1">
@@ -157,9 +157,10 @@
 
     </div>
 
-    <div class = "signupbutton">
+    <div style="margin: 40px;">
 
       <hr width = 100% color="blue" float = "left" size=30/>
+      <br>
     
       <!-- <li><button class="fpmgBt1">비동의</button></li> -->
       <p class = "text-center">
@@ -170,6 +171,6 @@
 
   </form>
 
-</div>
+<!-- </div> -->
 
 {% endblock %}
