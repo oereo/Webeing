@@ -16,7 +16,7 @@
 
 <!-- <div class = "box-container"> -->
 
-  <form action="{% url 'signup_seller' %}" method="POST">
+  <form name = Join action="{% url 'signup_seller' %}" method="POST" onSubmit="return CheckForm(this)">
     {% csrf_token %}
     <!-- {{form.as_p}} -->
 
@@ -121,55 +121,81 @@
       </div>
 
 
-    <div class = "agree" style="margin-top:10px;">
+    <div>
 
-      <p>이용약관동의</p>
+      <p style="margin-top:20px;">이용약관동의</p>
+        
+      <form action="" id="joinForm">
 
-      <div>
+        <div>
 
-        <div class = "agree1" style="margin-bottom: 20px;">
+          <div class = "agree1" style="margin-bottom:15px;">
 
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            이용약관동의
-          </label>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck3" style="margin-left: 10px;">
+              이용약관동의
+            </label>
 
-          <span style = "float: right;">
-            <a href = "{% url 'tos_seller_use' %}">내용보기<span id = "green"> ></span></a>
-          </span>
+            <span style = "float: right;">
+              <a href = "{% url 'tos_seller_use' %}">내용보기<span id = "green"> ></span></a>
+            </span>
+
+          </div>
+
+          <div class = "agree2">
+
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <label class="form-check-label" for="defaultCheck4" style="margin-left: 10px;">
+              이용약관동의
+            </label>
+
+            <span style = "float: right;">
+              <a href = "{% url 'tos_seller_private' %}">내용보기<span id = "green"> ></span></a>
+            </span>
+
+          </div>
 
         </div>
 
-        <div class = "agree2">
+        <div style="margin: 40px;">
 
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            이용약관동의
-          </label>
-
-          <span style = "float: right;">
-            <a href = "{% url 'tos_seller_private' %}">내용보기<span id = "green"> ></span></a>
-          </span>
+          <hr width = 100% color="blue" float = "left" size=30/>
+          <br>
+        
+          <!-- <li><button class="fpmgBt1">비동의</button></li> -->
+          <p class = "text-center">
+            <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
+          </p>
 
         </div>
 
-      </div>
-
-    </div>
-
-    <div style="margin: 40px;">
-
-      <hr width = 100% color="blue" float = "left" size=30/>
-      <br>
-    
-      <!-- <li><button class="fpmgBt1">비동의</button></li> -->
-      <p class = "text-center">
-        <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
-      </p>
+      </form>
 
     </div>
 
   </form>
+
+  <script>
+
+    function CheckForm(Join){
+      var msg = "약관에 동의해주십시오"
+
+      var chk1 = document.Join.defaultCheck3.checked;
+      var chk2 = document.Join.defaultCheck4.checked;
+
+      if(chk1 == ""){
+        alert("약관에 동의해주세요");
+        return false;
+      }
+      if(chk2 == ""){
+        alert("약관에 동의해주세요");
+        return false;
+      }
+
+    }
+
+  </script>
+
 
 <!-- </div> -->
 
