@@ -22,7 +22,8 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_seller(self, email, business_number, seller_address, seller_name, phone_number, nickname, password=None):
+    def create_seller(self, email, business_number, seller_address, seller_name, phone_number, nickname,
+                      password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -72,7 +73,6 @@ class User(AbstractBaseUser):
     business_number = models.CharField(max_length=30, null=True, unique=True)
     seller_address = models.CharField(max_length=30, null=True, unique=True)
     seller_name = models.CharField(max_length=30, null=True, unique=True)
-    env_money = models.IntegerField(null=True)
 
     # phoneNumber = PhoneNumberField(_("phoneNumber"),null=False, blank = False, unique = True)
     is_active = models.BooleanField(default=True)

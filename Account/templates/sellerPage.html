@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="navbar-nav">
+<!-- <div class="navbar-nav">
     <a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a>
-  </div>
+  </div> -->
 
-  <div class="row">
+  <!-- <div class="row">
 
     <div class="col">
      
@@ -26,5 +26,287 @@
         </div>
   
         {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div> -->
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "{% static 'css/sellerpage.css'%}">
+
+<style>
+    body {
+        color: #555;
+        background: #eeeeee;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        padding: 50px 0;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    p {
+        margin: 0 0 20px;
+        line-height: 1.5;
+    }
+
+
+    section {
+        display: none;
+        padding: 20px 0 0;
+        border-top: 1px solid #ddd;
+    }
+
+    /*라디오버튼 숨김*/
+    input {
+        display: none;
+    }
+
+    label {
+        display: inline-block;
+        margin: 0 0 -1px;
+        padding: 15px 25px;
+        font-weight: 600;
+        text-align: center;
+        color: #bbb;
+        border: 1px solid transparent;
+    }
+
+    label:hover {
+        color: #00be68;
+        cursor: pointer;
+    }
+
+    /*input 클릭시, label 스타일*/
+    input:checked + label {
+        color: #00be68;
+        border: 1px solid #ddd;
+        border-top: 2px solid #00be68;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3,
+    #tab4:checked ~ #content4 {
+        display: block;
+    }
+    #fontsub {
+        font-size: 120%;
+        color: #545454;
+    }
+    #fontbold {
+        font-weight: bold;
+    }
+    #green {
+        color: green;
+    }
+</style>
+
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10"><h1>My Page</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3"><!--left col-->
+
+
+            <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                      alt="avatar">
+                <h6>{{user.nickname}}</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div>
+            </hr><br>
+
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>환경계좌</strong></span> 125 <strong>
+                    points</strong></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>픽업 전</strong></span> 13 <strong>
+                    건</strong></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37<strong>
+                    건</strong></li>
+            </ul>
+
+        </div><!--/col-3-->
+        
+        <div class="col-sm-9">
+            <input id="tab1" type="radio" name="tabs" checked> <!--디폴트 메뉴-->
+            <label for="tab1">프로필</label>
+
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2">Webeing 환경계좌</label>
+
+            <!-- 프로필 페이지 -->
+            <section id="content1">
+
+                <div class="box-in-profile">
+
+                    <div class="myinfo">
+                        <h4>개인 정보</h4>
+                    </div>
+
+                    <div class="leftemail">
+                        <p id = "fontsub">이메일</p>
+                    </div>
+
+                    <div class="rightemail">
+                        <p>{{user.email}}</p>
+                    </div>
+
+                    <div class="leftphone">
+                        <p id = "fontsub">휴대폰 번호</p>
+                    </div>
+
+                    <div class="rightphone">
+                        <p id="fontsub">{{user.phone_number}}</p>
+                    </div>
+
+                    <div class = "leftnickname">
+                        <p id = "fontsub">닉네임</p>
+                    </div>
+
+                    <div class = "rightnickname">
+                        <p>{{user.nickname}}</p>
+                    </div>
+
+                    <div class="leftresturant">
+                      <p id = "fontsub">매장명</p>
+                    </div>
+
+                    <div class="rightresturant">
+
+                    </div>
+
+                    <div class="leftaddress">
+                      <p id = "fontsub">매장 주소</p>
+                    </div>
+
+                    <div class="rightaddress">
+                      <p>{{user.seller_address}}</p>
+                    </div>
+
+                    <div class="leftresturantnumber">
+                      <p id = "fontsub">사업자등록번호</p>
+                    </div>
+
+                    <div class="rightresturantnumber">
+                      <p>{{user.business_number}}</p>
+                    </div>
+
+                    <div class="myitem">
+                        <hr>
+                        <h4>등록 상품 내역<span><a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a></span>
+                        </h4>
+                    </div>
+
+                    <div class = "itemlist">
+
+                      <div class="row">
+
+                        <div class="col">
+                         
+                          <div class="row">
+                            {% for register in registers %}
+                      
+                            <div class="col-4">
+                              <div class="card">
+                                
+                                
+                                <div class="card-body">
+                                  <h5 class="card-title">{{register.name}}</h5>
+                                  <p class="card-text">{{register.description}} <br><span
+                                      class="badge badge-secondary">${{register.price}}</span></p>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                      
+                            {% endfor %}
+                    
+                          </div>
+                    
+                        </div>
+                        
+                      </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- 환경계좌 페이지 -->
+            <section id="content2">
+                
+                <div class = "box-in-enviaccount">
+
+                    <div class = "question1">
+                        <p id = "fontsub">Q. 환경계좌란 무엇인가요?</p>
+                        <p class = "indent1">위빙 서비스를 사용하면서 고객님께서 환경 오염의 감소, 음식물 쓰레기 처리 비용의 감소 등에 기여하신 부분을 포인트처럼 적립하여 저장하는 계좌 입니다.</p>
+                    </div>
+
+                    <div class = "question2">
+                        <p id = "fontsub">Q. 환경 계좌는 어떻게 사용 하나요?</p>
+                        <p class = "indent1">적립된 금액은 모두 위빙 서비스 내에서 사용 할 수 있습니다.</p>
+                    </div>
+
+                    <div class = "word1">
+                        <p class = "indent1" id = "fontbold;">1. 위빙에서 식품 구매시 포인트로 사용</p>
+
+                        <ul class = "indent2" style = "list-style:none;">
+                            <li>위빙에서 식품을 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다. </li>
+                            <li>
+                                <button type="button" class="btn btn-success">식품 구매하러 가기</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class = "word2">
+                        <p class = "indent1" id = "fontbold;">2. 위빙에서 판매하는 굿즈 구매시 사용</p>
+
+                        <ul class = "indent2" style = "list-style:none;">
+                            <li>위빙에서는 회사의 가치를 이행하기 위하여 플라스틱 용기, 비닐 포장 등을 사용하지 않고 있습니다.</li>
+                            <li>또한 많은 사람들이 일상생활 속에서 환경을 생각하면서 소비 하기를 바라는 마음에서 텀블러와 에코백 등 재사용 할 수 있는 물품들을 판매하고 있습니다.</li>
+                            <li>위빙 굿즈를 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다.</li>
+                            <li>
+                                <button type="button" class="btn btn-success">굿즈 구매하러 가기</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class = "word3">
+                        <p class = "indent1" id = "fontbold;">3. 위빙에서 진행하는 환경을 위한 모금 활동에 기부</p>
+
+                        <ul class = "indent2" style = "list-style:none;">
+                            <li>위빙에서는 미래 세대에게 아름다운 지구를 남겨주기 위하여 많은 활동들을 하고 있습니다.</li>
+                            <li>그 일환으로 위빙에서는 정기적으로 환경 단체에 기부를 하고 있습니다.</li>
+                            <li>위빙을 사용하면서 환경 계좌에 적립된 금액을 기부하는 데 사용 할 수 있습니다.</li>
+                            <li>
+                                <button type="button" class="btn btn-success">위빙과 함께 기부하러 가기</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div><!--/tab-content-->
+
+</div><!--/col-9-->
+</div><!--/row-->
 {% endblock %}
 

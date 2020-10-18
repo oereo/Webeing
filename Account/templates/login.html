@@ -3,17 +3,9 @@
 {% block content %}
 
 
-<title>Login</title>
-
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
-
 <style type="text/css">
-    #green {
+    #color1 {
         color: #00be68
-    }
-
-    #fontsize2 {
-        font-size: 200%;
     }
 
     #fontbold {
@@ -25,6 +17,9 @@
     }
 
 </style>
+
+
+<title>Login</title>
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
 <form action="{% url 'login' %}" method="POST">
@@ -41,7 +36,7 @@
             <p><span id="fontbold">E-mail</span></p>
 
             <div class="input-group mb-3" style="width: 100%; ">
-                <input type="text" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com"
+                <input type="text" class="form-control" placeholder="example@example.com" aria-label="example@gmail.com"
                        aria-describedby="basic-addon2 " name="email">
             </div>
 
@@ -52,11 +47,12 @@
             <p><span id="fontbold">password</span></p>
 
             <div class="input-group mb-3" style="width: 100%; ">
-                <input type="password" class="form-control" placeholder="비밀번호 입력" aria-label="비밀번호 입력"
+                <input type="password" class="form-control" placeholder="password" aria-label="비밀번호 입력"
                        aria-describedby="basic-addon2" name="password">
             </div>
 
         </div>
+
 
         <div class="autologin">
             <div class="form-group form-check">
@@ -86,6 +82,7 @@
     <p>webeing에서 물품을 판매하실 건가요? <a href="/signupseller"><span id="green"
                                                              style="margin-left: 30px; ">사장님 회원가입하기</span></a></p>
 </div>
+
 </div>
 
 {% endblock %}
