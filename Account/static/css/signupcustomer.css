@@ -52,6 +52,11 @@
     grid-area: agree;
 }
 
+.signupbutton {
+    grid-area: signupbutton;
+    margin: 20px;
+}
+
 #inagree {
     background-color: #f7f7f7;
     margin: 0;

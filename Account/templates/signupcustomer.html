@@ -17,7 +17,7 @@
   }
 </style>
 
-<div class = "box-container">
+<!-- <div class = "box-container"> -->
 
   <form name = Join action="{% url 'signup_customer' %}" method="POST" onSubmit="return CheckForm(this)">
     {% csrf_token %}
@@ -27,11 +27,11 @@
       <p id = "titlefont">고객 회원가입</p>
     </div>
 
-    <div class = "socialsignup">
+    <!-- <div class = "socialsignup">
 
-    </div>
+    </div> -->
 
-    <div class = "email">
+    <div>
 
       <div class="mb-3">
         <label for="username">E-mail</label>
@@ -46,7 +46,7 @@
 
     </div>
 
-    <div class = "password">
+    <div>
 
       <div class="mb-3">
         <label for="address">비밀번호</label>
@@ -58,7 +58,7 @@
 
     </div>
 
-    <div class = "passwordconfirm">
+    <div>
 
       <div class="mb-3">
         <label for="address">비밀번호 확인</label>
@@ -72,7 +72,7 @@
 
     </div>
 
-    <div class = "nickname">
+    <div>
 
       <div class="mb-3">
         <label for="nickname">닉네임<span class="text-muted">(필수)</span></label>
@@ -84,7 +84,7 @@
 
     </div>
 
-    <div class = "phonetype">
+    <div>
 
       <div class="mb-3">
         <label for="phonenumber">전화번호 <span class="text-muted">(필수)</span></label>
@@ -97,7 +97,7 @@
 
     </div>
 
-    <div class = "agree" style="margin-top:10px;">
+    <div>
 
       <p>이용약관동의</p>
 
@@ -133,7 +133,7 @@
 
         </div>
 
-        <div class = "signupbutton">
+        <div style="margin: 40px;">
 
           <hr width = 100% color="blue" float = "left" size=30/>
           <br>
@@ -152,7 +152,7 @@
 
   </form>
 
-</div>
+<!-- </div> -->
 
 
 <script>
