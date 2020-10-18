@@ -35,7 +35,7 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel = "stylesheet" href = "{% static 'css/customerpage.css'%}">
+<link rel = "stylesheet" href = "{% static 'css/sellerpage.css'%}">
 
 <style>
     body {
@@ -205,9 +205,9 @@
                     </div>
 
                     <div class="myitem">
-                        <hr width = 100% color="green" float = "left" size=30/>
-                        <h4>등록 상품 내역</h4>
-                        <a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a>
+                        <hr>
+                        <h4>등록 상품 내역<span><a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a></span>
+                        </h4>
                     </div>
 
                     <div class = "itemlist">
