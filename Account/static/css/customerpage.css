@@ -1,9 +1,9 @@
 .box-in-profile {
     display: grid;
-    margin: 30px ;
+    margin: 20px;
 
     grid-template-columns: 1fr 6fr ;
-    grid-template-rows: 30px 50px 50px 50px 30px 1fr; 
+    grid-template-rows: 100px 50px 50px 50px 100px 1fr; 
 
     grid-template-areas:
         "myinfo myinfo"
@@ -50,6 +50,65 @@
         "word2"
         "word3"
         "space2"
+}
+
+.box-in-myaccount {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 320px 100px 1fr;
+
+    row-gap: 10px;
+
+    grid-template-areas:
+        "myaccount"
+        "joinevent"
+        "webeingaccount"
+        "lastdonation"
+}
+
+.envibox {
+    width: 100%;
+    height: auto;
+    background-color: lightgray;
+    color:  #00be68;
+    padding: 30px;
+    margin-top: 10px;
+}
+
+.joineventbox {
+    display: grid;
+
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    row-gap: 30px;
+
+    grid-template-areas:
+        "enviaccountword enviaccountmoney"
+        "envidonationword envidonationmoney"
+        "totalword totalmoney"
+}
+
+#joinbox {
+    border: 1px solid lightgray;
+    padding: 30px;
+}
+
+.lastdonationbox {
+    display: grid;
+    width: 100%;
+    height: auto;
+    background-color: lightgray;
+    padding: 30px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+
+    row-gap: 30px;
+
+    grid-template-areas:
+        "group-donation money-donation date-donation"
 }
 
 .indent1 {

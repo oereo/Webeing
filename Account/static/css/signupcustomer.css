@@ -83,15 +83,13 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
-    row-gap: 20px; 
+    row-gap: 10px;
 
     grid-template-areas:
         "agree1"
         "agree2"
-        "agree3"
-        "agreeall"
 }
 
 
@@ -108,80 +106,7 @@
     width: 100%;
     height: 50px;
     border: 1px solid lightgray;
-    padding: 15px 30px 15px 30px; }
-
-.agree3 {
-    grid-area: agree3;
-}
-
-.agreeall {
-    grid-area: agreeall;
-    float: right;
-    text-align: right;
-}
-
-#agreebox {
-
-}
-
-.checkBox, .checkBox > ul {
-    position: relative;
-}
-
-.checkBox > ul > li {
-    float: left;
-}
-
-.checkBox > ul > li:first-child {
-    width: 85%;
-    padding: 15px;
-    font-weight: 600;
-    color: #888;
-}
-
-.checkBox > ul > li:nth-child(2) {
-    position: absolute;
-    top: 50%;
-    right: 30px;
-    margin-top: -12px;
-}
-
-.checkBox textarea {
-    width: 96%;
-    height: 90px;
-    margin: 0 2%;
-    background-color: #f7f7f7;
-    color: #888;
-    border: none;
-}
-
-.footBtwrap {
-    margin-top: 15px;
-}
-
-.footBtwrap > li {
-    float: left;
-    width: 50%;
-    height: 60px;
-}
-
-.footBtwrap > li > button {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-    text-align: center;
-    line-height: 60px;
-}
-
-.fpmgBt1 {
-    background-color: #fff;
-    color: #888
-}
-
-.fpmgBt2 {
-    background-color: lightsalmon;
-    color: #fff
+    padding: 15px 30px 15px 30px; 
 }
 
 .signupbutton {
