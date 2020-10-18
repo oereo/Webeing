@@ -19,7 +19,7 @@
 
 <div class = "box-container">
 
-  <form action="{% url 'signup_customer' %}" method="POST">
+  <form name = Join action="{% url 'signup_customer' %}" method="POST" onSubmit="return CheckForm(this)">
     {% csrf_token %}
     <!-- {{form.as_p}} -->
 
@@ -128,7 +128,7 @@
 
           <div class = "agree2">
 
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
             <label class="form-check-label" for="defaultCheck1">
               이용약관동의
             </label>
@@ -147,7 +147,7 @@
     
           <!-- <li><button class="fpmgBt1">비동의</button></li> -->
           <p class = "text-center">
-            <button class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</button>
+            <input class="btn btn-success btn-large" type="submit" style = "width: 400px; ">가입하기</input>
           </p>
               <!-- <li><button class="fpmgBt2">동의</button></li> -->
         
@@ -161,33 +161,27 @@
 
 </div>
 
-<!-- <div id="signup">
-  <b-form @submit.stop.prevent>
-    <label for="feedback-user">User ID</label>
-    <b-input v-model="userId" :state="validation_id" id="feedback-user"></b-input>
-    <b-form-invalid-feedback :state="validation_id">
-      Your user ID must be 5-12 characters long.
-    </b-form-invalid-feedback>
-    <b-form-valid-feedback :state="validation_id">
-      Looks Good.
-    </b-form-valid-feedback>
-  </b-form>
-  <b-form @submit.stop.prevent>
-    <label for="feedback-password">Password</label>
-    <b-input v-model="userPassword" :state="validation_password" id="feedback-password"></b-input>
-    <b-form-invalid-feedback :state="validation_password">
-      비밀번호를 혼합해서 설정해주세요!
-    </b-form-invalid-feedback>
-    <b-form-valid-feedback :state="validation_password">
-      맞는 비밀번호입니다.
-    </b-form-valid-feedback>
-  </b-form>
-  <b-form @submit.stop.prevent>
-    <label for="Nickname">Nickname</label>
-    <b-input v-model="userNickname" id="feedback-password"></b-input>
-    <label for="Phonenumber">Phone-number</label>
-    <b-input v-model="userPhonenumber" id="feedback-password"></b-input>
-  </b-form>
-</div> -->
+
+<script>
+
+    function CheckForm(Join){
+      var msg = "약관에 동의해주십시오"
+
+      var chk1 = document.Join.defaultCheck1.checked;
+      var chk2 = document.Join.defaultCheck2.checked;
+
+      if(chk1 == ""){
+        alert("약관에 동의해주세요");
+        return false;
+      }
+      if(chk2 == ""){
+        alert("약관에 동의해주세요");
+        return false;
+      }
+
+    }
+
+  </script>
+
 
 {% endblock %}
