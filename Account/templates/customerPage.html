@@ -2,6 +2,10 @@
 {% load static %}
 {% block head%}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style>
     body {
         color: #555;
@@ -62,6 +66,14 @@
     #tab3:checked ~ #content3,
     #tab4:checked ~ #content4 {
         display: block;
+    }
+
+    #star_grade a{
+        text-decoration: none;
+        color: gray;
+    }
+    #star_grade a.on{
+        color:#F2C40F;
     }
 </style>
 {% endblock %}
@@ -203,6 +215,8 @@
                         <h5 class="card-title"> {{order_item.product}} X {{order_item.quantity}}
                         </h5>
                         <p class="card-text">{{order_item.price}}</p>
+
+                        <button type="button" data-toggle="modal" data-target="#star_rating"> 평점 주기 </button>
                     </div>
                 </div>
 
@@ -235,5 +249,45 @@
 </div><!--/col-9-->
 </div><!--/row-->
 
+
+<div class="modal fade" id="star_rating" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">리뷰하기</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="warning_msg">별점을 선택해 주세요.</div>
+                <p id="star_grade">
+                    <a href="#" id ="star1" style="font-size: 30pt">★</a>
+                    <a href="#" id ="star2" style="font-size: 30pt">★</a>
+                    <a href="#" id ="star3" style="font-size: 30pt">★</a>
+                    <a href="#" id ="star4" style="font-size: 30pt">★</a>
+                    <a href="#" id ="star5" style="font-size: 30pt">★</a>
+                </p>
+                <div class="show-result">Select Star</div>
+            </div>
+
+            <script>
+                $('#star_grade a').click(function(){
+                    $(this).parent().children("a").removeClass("on");
+                    $(this).addClass("on").prevAll("a").addClass("on");
+                    var numStars = $(this).prevAll("a").length+1;                    
+                    $('.show-result').text(numStars);
+                });
+                $('#star_grade a').submit(function(){
+                    var numStars = $(e.target).parentsUntil("div").length+1;
+                    $('.show-result').text(numStars + (numStars == 1 ? " star" : " stars!"));
+                });
+            </script>
+
+            <div class="modal-footer">
+                <input type="submit" value="제출하기" data-dismiss="modal">
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
