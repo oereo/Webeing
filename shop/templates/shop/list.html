@@ -16,22 +16,27 @@
     #susubfont {
         font-size: 80%;
     }
+    
+    .alert-custom{
+        background-color:#6089D5;
+        color:#fff;
+    }
 </style>
 
 <div class="row">
     <div class="col-2">
         <div class="list-group">
-            <a href="/main" class="list-group-item {% if not current_category %}active{% endif %}" style="color:#00be68;">All</a>
+            <a href="/main" class="list-group-item {% if not current_category %}active{% endif %}; active-color:#069752" style="color:black;">전체보기</a>
             {% for c in categories %}
             <a href="{{c.get_absolute_url}}"
-               class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}" style="color:#00be68;">{{c.name}}</a>
+               class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}" style="color:black;">{{c.name}}</a>
             {% endfor %}
         </div>
     </div>
 
 
     <div class="col">
-        <div class="alert alert-info" role="alert" style="background-color:lightgray;">
+        <div class="alert alert-custom" role="alert" style="background-color:lightgrey; border-color:white;" >
             {% if current_category %}{{current_category.name}}{% else %}모든 상품{% endif %}
         </div>
         <div class="row">
@@ -57,10 +62,6 @@
                                     <span class="starR">별5</span>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="stat">
-                            <div class="value">5123 views</div>
                         </div>
                     </div>
 

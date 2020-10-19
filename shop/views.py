@@ -6,7 +6,7 @@ from .models import Restaurant, Category, Product, Register
 
 
 def landingPage(request):
-    return render(request, 'shop/landingPage.html')
+    return render(request, 'shop/index.html')
 
 
 def restaurant_in_category(request, category_slug=None):

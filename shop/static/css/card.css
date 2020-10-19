@@ -10,7 +10,6 @@ a {
 
     border-radius: 18px;
     background: white;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     font-family: roboto;
     text-align: center;
 
@@ -81,7 +80,6 @@ a {
 
 .card:hover {
     transform: scale(1.15);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
 
 .card {

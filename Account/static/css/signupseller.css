@@ -35,8 +35,6 @@
     grid-area: agree;
 }
 
-.signupbutton {grid-area: signupbutton; }
-
 .box-agree {
     display: grid;
 
@@ -46,8 +44,8 @@
     row-gap: 10px; 
 
     grid-template-areas:
+        "agree1"
         "agree2"
-        "agree3"
 }
 
 .agree1 {
@@ -64,4 +62,9 @@
     height: 50px;
     border: 1px solid lightgray;
     padding: 15px 30px 15px 30px; 
+}
+
+.signupbutton {
+    grid-area: signupbutton;
+    text-align: center;
 }

@@ -162,13 +162,17 @@
                         {% for order_items in order_items_list %}
                         {% for order_item in order_items %}
 
-                        <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
-                            <div class="card-header">{{order_item.created}}</div>
-                            <div class="card-body">
-                                <h5 class="card-title"> {{order_item.product}} X {{order_item.quantity}}
-                                </h5>
-                                <p class="card-text">{{order_item.price}}</p>
+                        <div class="col-4">
+
+                            <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
+                                <div class="card-header">{{order_item.created}}</div>
+                                <div class="card-body">
+                                    <h5 class="card-title"> {{order_item.product}} X {{order_item.quantity}}
+                                    </h5>
+                                    <p class="card-text">{{order_item.price}}</p>
+                                </div>
                             </div>
+
                         </div>
 
                         <br/>

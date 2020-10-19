@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="{% static 'css/product_list.css' %}"/>
 
+
 <style>
     #restaurantfont {
         font-size: 180%;
@@ -69,7 +70,7 @@
                 <ul style="list-style: none;">
                     <li id="restaurantfont">{{product.name}}</li>
                     <li><span id="green">정가 : {{product.origin_price}}</span> → <span id="red">할인가격 : {{product.price}}</span></li>
-                    <li id="green" style="margin-top:10px;">할인율  {{product.discount}} %</li>
+                    <li id="green" style="margin-top:10px;">할인율  {{product.discount|floatformat:"0"}} %</li>
                     <div onload="boxlayout()">
                         <li id="result"></li>
                     </div>
@@ -123,17 +124,17 @@
 
                 <tr>
                     <td>영업시간</td>
-                    <td>10:00 ~ 23:00</td>
+                    <td>10:00 ~ 23:00{{current_restaurant.open_time}}</td>
                 </tr>
 
                 <tr>
                     <td>전화번호</td>
-                    <td>010-1234-5678</td>
+                    <td>{{current_restaurant.call_number}}</td>
                 </tr>
 
                 <tr>
                     <td>주소</td>
-                    <td>서울시 동작구 상도 1동 266-1층 102호</td>
+                    <td>{{current_restaurant.location}}</td>
                 </tr>
 
             </table>
@@ -157,12 +158,12 @@
 
                 <tr>
                     <td>상호명</td>
-                    <td>배달삼겹직구삼상도직영점</td>
+                    <td>{{current_restaurant.name}}</td>
                 </tr>
 
                 <tr>
                     <td>사업자등록번호</td>
-                    <td>292-85-00703</td>
+                    <td>{{current_restaurant.business_number}}</td>
                 </tr>
 
             </table>
@@ -176,8 +177,7 @@
         <p><span id="restaurantfont">원산지 정보</span></p>
 
         <div id="box-layout">
-            <p>돈삼겹(독일산), 돈목살(스페인산), 돈목전지(스페인/미국산), 양념갈비(스페인산), 보쌈(오스트리아산),
-                김치(중국산), 마늘(국내산), 쌀(국내산), 고추가루(중국산)</p>
+            <p>{{current_restaurant.food_origin}}</p>
         </div>
 
     </div>

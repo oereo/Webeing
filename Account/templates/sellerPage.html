@@ -154,6 +154,7 @@
 
                     <div class="myinfo">
                         <h4>개인 정보</h4>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class="leftemail">
@@ -185,7 +186,7 @@
                     </div>
 
                     <div class="rightresturant">
-
+                        <p id="fontsub">{{user.}}</p>
                     </div>
 
                     <div class="leftaddress">
@@ -205,9 +206,9 @@
                     </div>
 
                     <div class="myitem">
-                        <hr>
                         <h4>등록 상품 내역<span><a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a></span>
                         </h4>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class = "itemlist">
@@ -221,7 +222,6 @@
                       
                             <div class="col-4">
                               <div class="card">
-                                
                                 
                                 <div class="card-body">
                                   <h5 class="card-title">{{register.name}}</h5>
