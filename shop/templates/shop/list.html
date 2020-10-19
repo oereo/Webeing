@@ -16,17 +16,18 @@
     #susubfont {
         font-size: 80%;
     }
-    
+
     .alert-custom{
-        background-color:#6089D5;
-        color:#fff;
+        /* background-color:#6089D5; */
+        color:#000;
     }
+
 </style>
 
 <div class="row">
     <div class="col-2">
         <div class="list-group">
-            <a href="/main" class="list-group-item {% if not current_category %}active{% endif %}; active-color:#069752" style="color:black;">전체보기</a>
+            <a href="/main" class="list-group-item {% if not current_category %}active{% endif %}" style="color:black;">전체보기</a>
             {% for c in categories %}
             <a href="{{c.get_absolute_url}}"
                class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}" style="color:black;">{{c.name}}</a>
@@ -36,8 +37,8 @@
 
 
     <div class="col">
-        <div class="alert alert-custom" role="alert" style="background-color:lightgrey; border-color:white;" >
-            {% if current_category %}{{current_category.name}}{% else %}모든 상품{% endif %}
+        <div class="alert alert-custom" role="alert">
+            <h4 class="alert-heading">{% if current_category %}{{current_category.name}}{% else %}모든 상품{% endif %}</h4>
         </div>
         <div class="row">
             {% for restaurant in restaurants %}
