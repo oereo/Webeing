@@ -29,7 +29,11 @@ class Restaurant(models.Model):
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
-    location = models.TextField
+    location = models.TextField(max_length=100, null=True)
+    business_number = models.CharField(max_length=30, null=True, unique=False)
+    food_origin = models.TextField(max_length=100, null=True)
+    open_time = models.CharField(max_length=13, null=True, unique=False)
+    call_number = models.CharField(max_length=13, null=True, unique=True)
 
     available_display = models.BooleanField('Display', default=True)
     available_order = models.BooleanField('Order', default=True)
