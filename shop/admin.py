@@ -12,7 +12,7 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'slug', 'business_number', 'food_origin', 'open_time', 'call_number']
     prepopulated_fields = {'slug': ('name',)}
 
 
