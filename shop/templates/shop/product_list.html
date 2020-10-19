@@ -45,7 +45,7 @@
                 <p id="restaurantfont">{{current_restaurant.name}}</p>
                 <p>거리 | 500m 이내</p>
                 <p>지도 | 위치보기</p>
-                <p>별별별별별 4.7</p>
+                <!-- <p>별별별별별 4.7</p> -->
             </div>
 
         </div>
@@ -99,46 +99,7 @@
         <!-- for map -->
         <div id="map" style="width:100%;height:500px;"></div>
 
-        <script>
-
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                mapOption = {
-                    center: new kakao.maps.LatLng(127.140083, 37.4676097), // 지도의 중심좌표
-                    level: 3 // 지도의 확대 레벨
-                };
-
-            // 지도를 생성합니다
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-
-            // 주소-좌표 변환 객체를 생성합니다
-            var geocoder = new kakao.maps.services.Geocoder();
-
-            // 주소로 좌표를 검색합니다
-            geocoder.addressSearch('경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호', function (result, status) {
-
-                // 정상적으로 검색이 완료됐으면
-                if (status === kakao.maps.services.Status.OK) {
-
-                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                    // 결과값으로 받은 위치를 마커로 표시합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
-                    });
-
-                    // 인포윈도우로 장소에 대한 설명을 표시합니다
-                    var infowindow = new kakao.maps.InfoWindow({
-                        content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-                    });
-                    infowindow.open(map, marker);
-
-                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                    map.setCenter(coords);
-                }
-            });
-
-        </script>
+        
 
     </div>
 
@@ -157,17 +118,17 @@
 
                 <tr>
                     <td>영업시간</td>
-                    <td>10:00 ~ 23:00</td>
+                    <td>{{current_restaurant.open_time}}</td>
                 </tr>
 
                 <tr>
                     <td>전화번호</td>
-                    <td>010-1234-5678</td>
+                    <td>{{current_restaurant.call_number}}</td>
                 </tr>
 
                 <tr>
                     <td>주소</td>
-                    <td>서울시 동작구 상도 1동 266-1층 102호</td>
+                    <td><div id="address">{{current_restaurant.location}}</div></td>
                 </tr>
 
             </table>
@@ -191,12 +152,12 @@
 
                 <tr>
                     <td>상호명</td>
-                    <td>배달삼겹직구삼상도직영점</td>
+                    <td>{{current_restaurant.name}}</td>
                 </tr>
 
                 <tr>
                     <td>사업자등록번호</td>
-                    <td>292-85-00703</td>
+                    <td>{{current_restaurant.business_number}}</td>
                 </tr>
 
             </table>
@@ -210,8 +171,7 @@
         <p><span id="restaurantfont">원산지 정보</span></p>
 
         <div id="box-layout">
-            <p>돈삼겹(독일산), 돈목살(스페인산), 돈목전지(스페인/미국산), 양념갈비(스페인산), 보쌈(오스트리아산),
-                김치(중국산), 마늘(국내산), 쌀(국내산), 고추가루(중국산)</p>
+            <p>{{current_restaurant.food_origin}}</p>
         </div>
 
     </div>
@@ -226,6 +186,48 @@
         document.getElementById("result").innerHTML = result
     }
 
+
+</script>
+
+<script>
+    var address = document.getElementById("address").innerHTML; 
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(127.140083, 37.4676097), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 주소-좌표 변환 객체를 생성합니다
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch(address, function (result, status) {
+
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
+
+            // 인포윈도우로 장소에 대한 설명을 표시합니다
+            var infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+            });
+            infowindow.open(map, marker);
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+        }
+    });
 
 </script>
 
