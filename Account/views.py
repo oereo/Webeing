@@ -82,13 +82,19 @@ def customer_page(request):
     user_env_point_amount = user_env_point.env_money
     order_items_list = []
 
+    all_env_point = User.objects.all()
+
+    # 총 환경금액 합산 filtering logic
+    total = sum(filter(None, (env_point.env_money for env_point in all_env_point)))
+
     for order in orders:
         order_items_list.append(OrderItem.objects.filter(order=order))
 
     return render(request, 'customerPage.html', {
         'order_items_list': order_items_list,
         'orders': orders,
-        'user_env_point_amount': user_env_point_amount
+        'user_env_point_amount': user_env_point_amount,
+        'total': total
     })
 
 
