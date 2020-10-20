@@ -120,3 +120,38 @@
 .indent2 {
     text-indent: 0.5rem;
 }
+
+/* .box-orderlist {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+
+    grid-template-areas:
+        "orderpic orderinfo orderquantity orderpay orderdate"
+}
+
+.orderpic {
+    grid-area: orderpic;
+    width: 70%;
+    float: left;
+    vertical-align: center;
+    margin: 10px;
+}
+
+.orderinfo {
+    grid-area: orderinfo;
+    vertical-align: center;
+}
+
+.cartbutton {
+    grid-area: cartbutton;
+    vertical-align: center;
+}
+
+#box-layout {
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+    border-collapse: collapse;
+} */

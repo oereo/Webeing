@@ -2,7 +2,7 @@
 {% load static %}
 {% block head%}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <link rel = "stylesheet" href = "{% static 'css/customerpage.css'%}">
 
 <style>
@@ -152,28 +152,61 @@
                         <p>{{user.nickname}}</p>
                     </div>
 
-                    <div class="mybuy">
+                    <div class="mybuy" style="margin-top: 2rem;">
                         <h3>주문 내역</h3>
                         <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class = "buylist">
 
+                        <table style="width:100%; margin-bottom: 3rem;">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="*">
+                            </colgroup>
+                            
+                            <tr>
+                                <td>상품사진</td>
+                                <td>상품명</td>
+                                <td>수량</td>
+                                <td>금액</td>
+                                <td>구매일자</td>
+                            </tr>
+                        </table>
+
                         {% for order_items in order_items_list %}
                         {% for order_item in order_items %}
 
-                        <div class="col-4">
-
-                            <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
-                                <div class="card-header">{{order_item.created}}</div>
-                                <div class="card-body">
-                                    <h5 class="card-title"> {{order_item.product}} X {{order_item.quantity}}
-                                    </h5>
-                                    <p class="card-text">{{order_item.price}}</p>
-                                </div>
-                            </div>
-
-                        </div>
+                            <table style="width:100%;">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="*">
+                                </colgroup>
+                                
+                                <tr>
+                                    <td>
+                                        <img style="width: 70px; height: 70px;" src="{{order_item.product.image.url}}">
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.product}}</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.quantity}} 개</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.price|floatformat:"0"}} 원</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.created}}</h5>
+                                    </td>
+                                </tr>
+                            </table>
 
                         <br/>
                         {% endfor %}
