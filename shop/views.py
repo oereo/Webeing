@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
+from django.utils import timezone
 
 from cart.cart import Cart
 from coupon.forms import AddCouponForm
-from .models import Restaurant, Category, Product, Register
+from .models import Restaurant, Category, Product, Register, Comment
 
 
 def landingPage(request):
@@ -46,6 +48,26 @@ def product_in_restaurant(request, restaurant_slug=None):
             product_price.discount = (product_price.price / product_price.origin_price) * 100
             product_price.save()
 
+    if request.method == 'POST':
+        user = request.user
+        post = Comment()
+        post.restaurant = current_restaurant
+        post.user_id = user.id
+        post.owner = user.email
+        post.body = request.POST['body']
+        post.pub_date = timezone.datetime.now()
+        post.save()
+
+    user = request.user
+    err = 1
+    posts = Comment.objects.filter(restaurant=current_restaurant).order_by('-id')
+    post_paginator = Paginator(posts, 3)
+    page = request.GET.get('page')
+    page_posts = post_paginator.get_page(page)
+
+    if user.is_authenticated == True:
+        err = 0
+
     return render(
         request, 'shop/product_list.html',
         {'current_restaurant': current_restaurant,
@@ -54,7 +76,9 @@ def product_in_restaurant(request, restaurant_slug=None):
          'products': products,
          'cart': cart,
          'add_coupon': add_coupon,
-         'add_to_cart': add_to_cart
+         'add_to_cart': add_to_cart,
+         'page_posts': page_posts,
+         'err': err
          }
     )
 
@@ -108,3 +132,17 @@ def remove(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
     return render(request, 'shop/product_list.html')
+
+
+def deletecomment(request, comment_id):
+    post = Comment.objects.filter(id=comment_id)
+    for po in post:
+        restau = po.restaurant
+    me = Restaurant.objects.get(name=restau)
+    rest = me.comments.all()
+    # rest = Comment.objects.select_related('comments').all()
+    # rest = post.order_set.all()
+    for restaurant in rest:
+        slug = restaurant.restaurant.slug
+    post.delete()
+    return redirect('/main/' + str(slug))
