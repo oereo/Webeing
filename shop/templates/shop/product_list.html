@@ -98,23 +98,20 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>번호</th>
+            <th>날짜</th>
             <th>댓글</th>
             <th>작성자</th>
-            <th>날짜</th>
-            <th>조회수</th>
+            <th>댓글삭제</th>
         </tr>
         </thead>
         <tbody>
         {% for post in page_posts %}
         <tr>
-            <td id="blog_id" style="width : 50px;">{{post.id}}</td>
+            <td id="blog_date">{{post.pub_date}}</td>
             <td id="blog_title" style="width : 500px;">{{post.body}}</td>
             <td id="blog_owner">{{post.owner}}</td>
-            <td id="blog_date">{{post.pub_date}}</td>
-            <td id="blog_view">{{post.views}}</td>
             <td>
-                <button onclick="location.href='{% url 'shop:deletecomment' post.id %}'">삭제하기</button>
+                <button class = "btn btn-success"onclick="location.href='{% url 'shop:deletecomment' post.id %}'">삭제하기</button>
             </td>
         </tr>
         {% endfor %}
@@ -138,9 +135,16 @@
         {% csrf_token %}
 
         <h4>댓글 달기</h4>
-        <textarea id="newpost_body" cols=120 rows=3 name="body" style="width : 100%"></textarea>
+        <div class = "row">
+            <div class = "col-sm-11">
+                <textarea id="newpost_body" cols=120 rows=2 name="body" style="width : 100%"></textarea>
+            </div>
+            <div class = "col-sm-1">
+                <input style=" text-align: right;" class="btn btn-dark" type="submit" value="제출">
+            </div>
+        </div>
 
-        <input style=" text-align: right;" class="btn btn-dark" type="submit" value="제출">
+
     </form>
 </div>
 
