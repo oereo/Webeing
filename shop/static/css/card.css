@@ -5,12 +5,11 @@ a {
 .card {
     display: grid;
     grid-template-columns: 280px;
-    grid-template-rows: 150px 160px 60px;
+    grid-template-rows: 190px 120px 50px;
     grid-template-areas: "image" "text" "stats";
 
     border-radius: 18px;
     background: white;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     font-family: roboto;
     text-align: center;
 
@@ -37,7 +36,7 @@ a {
 
 .card-text {
     grid-area: text;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .card-text .date {
@@ -81,7 +80,6 @@ a {
 
 .card:hover {
     transform: scale(1.15);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
 
 .card {

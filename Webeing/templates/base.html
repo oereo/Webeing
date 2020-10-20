@@ -10,6 +10,7 @@
 
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/footer.css' %}">
 
     <!-- Load Vue followed by BootstrapVue, and BootstrapVueIcons -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
@@ -35,6 +36,10 @@
     {% block head %}
     {% endblock %}
     <style>
+        #footerfont {
+            font-size: 120%;
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -43,7 +48,7 @@
     
 <div id="nav" style="margin: 0px 100px 0 100px;">
     <b-navbar toggleable="lg" type="light" variant="white">
-        <a href="/main"><img src="{% static '/img/webeing_logo.png'%}" alt="webeing" style="width:80px; height: 80px;"></a>
+        <a href="/main"><img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:80px; height: 80px;"></a>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -202,33 +207,95 @@
 </body>
 
 <footer style="background-color: #CED4DA; width: 100%; ">
-    <ul style="list-style: none; padding: 50px; line-height: 3rem; ">
-        <li>상호: 위빙(Webeing) | 대표: 이상륜 | 개인정보관리책임자: 한승조 | 개인정보담당자: slowwvibes@gmail.com</li>
-        <li>주소: 경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호 | 사업자등록번호: 839-55-00602</li>
-        <li>문의전화 : 010-9228-0236 | 제휴 및 문의메일 : we-being@naver.com</li>
-        <li>개발자 : 한승조, 인세훈, 이찬규, 김재욱, 최진영</li>
-        <li><a href="#">이용약관</a> | <a href="#">개인정보처리방침</a></li>
-        <li>copyright by Webeing.</li>
-    </ul>
 
-    <div class = "container">
-        <div class = "row">
-            <div class = "col" style = "font-weight: bold; font-size : 20px;">
-                dddd
-            </div>
-            <div class = "col">
-                aaaa
-            </div>
+    <div class="footer-container" style="padding:50px;">
+
+        <div class="startup">
+
+            <p id="footerfont">COMPANY</p>
+
+            <ul style="list-style: none; line-height: 1.8rem; ">
+                <li>상호:위빙(Webeing)</li>
+                <li>대표:이상륜</li>
+                <li>개인정보관리책임자:한승조</li>
+                <li>개인정보담당자:slowwvibes@gmail.com</li>
+                <li>사업자등록번호:839-55-00602</li>
+            </ul>
+
         </div>
-        <div class = "row">
-            <div class = "col">
-                dddd
-            </div>
-            <div class = "col">
-                aaa
-            </div>
+
+        <div class="information">
+
+            <p id="footerfont">INFORMATION</p>
+
+            <ul style="list-style: none; line-height: 1.8rem; ">
+                <li>주소:경기도 성남시 수정구 위례광장로 37 SG프라자2 상가 1층 102호</li>
+            </ul>
+
         </div>
+
+        <div class="developers">
+
+            <p id="footerfont">DEVELOPERS</p>
+
+            <ul style="list-style: none; line-height: 1.8rem; ">
+                <li>개발자</li>
+                <li>한승조</li>
+                <li>인세훈</li>
+                <li>이찬규</li>
+                <li>김재욱</li>
+                <li>최진영</li>
+            </ul>
+            
+        </div>
+
+        <div class="helpful">
+
+            <p id="footerfont">HELPFUL</p>
+
+            <ul style="list-style: none; line-height: 1.8rem; ">
+                <li><a href="{% url 'tos_user_use' %}">이용약관</a></li>
+                <li><a href="{% url 'tos_user_private' %}">개인정보처리방침</a></li>
+            </ul>
+
+        </div>
+
+        <div class="contactus">
+
+            <p id="footerfont">CONTACT-US</p>
+
+            <ul style="list-style: none; line-height: 1.8rem; ">
+                <li>문의전화 : 010-9228-0236</li>
+                <li>제휴 및 문의메일 : we-being@naver.com</li>
+                <li>
+
+                    <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
+                        <img src="{% static '/img/facebook.png' %}" alt="facebook"
+                            style="margin-right: 20px; width:10px; height:20px;">
+                    </a>
+    
+                    <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
+                        <img src="{% static 'img/instagram.png' %}" alt="instagram"
+                            style="margin-right: 20px; width:20px; height:20px;">
+                    </a>
+    
+                    <a title="kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
+                        <img src="{% static 'img/kakaotalk.png' %}" alt="kakao"
+                            style="margin-right: 20px; width:20px; height: 20px;">
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="below">
+            <hr style="border: 1px solid black; width:90%; ">
+            <p class="text-center">2020 @ copyright by WEBEING | All Right Reservered</p>
+        </div>
+
     </div>
+
+
 </footer>
 
 </html>

@@ -31,9 +31,9 @@
     }
 </style>
 
-<div class="box-container">
+<!-- <div class="box-container"> -->
 
-    <div class="store" id="box-layout">
+    <div class="store" id="box-layout" style="margin: 50px 0px 50px 0px;">
 
         <div class="store-in">
 
@@ -52,7 +52,7 @@
 
     </div>
 
-    <div style="height: auto;">
+    <div style="margin-bottom:50px;">
 
         <p><span id="restaurantfont">오늘의 상품</span><span style="float: right;">오늘 판매하는 상품만 등록합니다.</span></p>
 
@@ -62,8 +62,10 @@
         <div class="menu-in" id="box-layout">
 
             <div class="menupic">
-                <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
-                     style="height: 100px; ">
+                <p class="text-center">
+                    <img class="card-img-top" src="{{product.image.url}}" alt="restaurant Image"
+                            style="height: 100%; ">
+                </p>
             </div>
 
             <div class="menuinfo">
@@ -71,7 +73,7 @@
                     <li id="restaurantfont">{{product.name}}</li>
                     <li><span id="green">정가 : {{product.origin_price}}</span> → <span
                             id="red">할인가격 : {{product.price}}</span></li>
-                    <li id="green" style="margin-top:10px;">할인율 {{product.discount}} %</li>
+                    <li id="green" style="margin-top:10px;">할인율 {{product.discount|floatformat:"0"}} %</li>
                     <div onload="boxlayout()">
                         <li id="result"></li>
                     </div>
@@ -92,7 +94,7 @@
 
     </div>
 
-    <div class="storelocation" id="margin">
+    <div class="storelocation" id="margin" style="margin-bottom:50px;">
 
         <p><span id="restaurantfont">매장 위치</span></p>
 
@@ -103,7 +105,7 @@
 
     </div>
 
-    <div class="storeinfo">
+    <div class="storeinfo" style="margin-bottom:50px;">
 
         <p><span id="restaurantfont">매장 정보</span></p>
 
@@ -137,7 +139,7 @@
 
     </div>
 
-    <div class="storeowner">
+    <div class="storeowner" style="margin-bottom:50px;">
 
         <p><span id="restaurantfont">사업자 정보</span></p>
 
@@ -166,7 +168,7 @@
 
     </div>
 
-    <div class="foodinfo">
+    <div class="foodinfo" style="margin-bottom:50px;">
 
         <p><span id="restaurantfont">원산지 정보</span></p>
 
@@ -176,7 +178,9 @@
 
     </div>
 
-</div>
+    
+
+<!-- </div> -->
 
 <script>
     function boxlayout() {
