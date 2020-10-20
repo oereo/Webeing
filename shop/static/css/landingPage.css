@@ -199,3 +199,39 @@
 .card11 {grid-area: card11; }
 .card12 {grid-area: card12; }
 .card13 {grid-area: card13; }
+
+.footer-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 500px 100px;
+
+    row-gap: 20px;
+
+    grid-template-areas:
+        "startup information developers helpful contactus"
+        "below below below below below"
+}
+
+.startup {grid-area: startup;}
+.information {grid-area: information;}
+.developers {grid-area: developers;}
+.helpful {grid-area: helpful;}
+.contactus {grid-area: contactus;}
+.below {
+    grid-area: below;
+}
+
+.footer-container:nth-child(2) {
+    grid-column: 1/6;
+}
+
+.footer-below {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas:
+        "footerlogo footersns footercopyright footerapp"
+}

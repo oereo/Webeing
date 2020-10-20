@@ -33,7 +33,7 @@
 
 .menu-in {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 2fr 5fr 1fr;
     grid-template-rows: 1fr;
     column-gap: 30px;
     grid-template-areas:
@@ -45,6 +45,7 @@
     width: 70%;
     float: left;
     vertical-align: center;
+    margin: 10px;
 }
 
 .menuinfo {

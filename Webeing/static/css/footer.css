@@ -1,0 +1,36 @@
+.footer-container {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 500px 100px;
+
+    row-gap: 20px;
+
+    grid-template-areas:
+        "startup information developers helpful contactus"
+        "below below below below below"
+}
+
+.startup {grid-area: startup;}
+.information {grid-area: information;}
+.developers {grid-area: developers;}
+.helpful {grid-area: helpful;}
+.contactus {grid-area: contactus;}
+.below {
+    grid-area: below;
+}
+
+.footer-container:nth-child(6) {
+    grid-column: 1/6;
+    grid-row:2/3;
+}
+
+.footer-below {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas:
+        "footerlogo footersns footercopyright footerapp"
+}
