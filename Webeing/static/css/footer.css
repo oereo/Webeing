@@ -1,7 +1,9 @@
 .footer-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 500px 100px;
+
     row-gap: 20px;
 
     grid-template-areas:
@@ -18,8 +20,9 @@
     grid-area: below;
 }
 
-.footer-container:nth-child(2) {
+.footer-container:nth-child(6) {
     grid-column: 1/6;
+    grid-row:2/3;
 }
 
 .footer-below {
