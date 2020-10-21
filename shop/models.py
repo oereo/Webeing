@@ -117,3 +117,20 @@ class Register(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    user_id = models.IntegerField()
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name='comments')
+    owner = models.CharField(max_length=20, default="???")
+    title = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date_published')
+    body = models.TextField()
+    views = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+    def increaseViews(self):
+        self.views +=1
+        self.save()

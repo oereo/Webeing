@@ -152,28 +152,61 @@
                         <p>{{user.nickname}}</p>
                     </div>
 
-                    <div class="mybuy">
+                    <div class="mybuy" style="margin-top: 2rem;">
                         <h3>주문 내역</h3>
                         <hr style="border: 1px solid lightgray; width:100%; float:left;">
                     </div>
 
                     <div class = "buylist">
 
+                        <table style="width:100%; margin-bottom: 3rem;">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="*">
+                            </colgroup>
+                            
+                            <tr>
+                                <td>상품사진</td>
+                                <td>상품명</td>
+                                <td>수량</td>
+                                <td>금액</td>
+                                <td>구매일자</td>
+                            </tr>
+                        </table>
+
                         {% for order_items in order_items_list %}
                         {% for order_item in order_items %}
 
-                        <div class="col-4">
-
-                            <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
-                                <div class="card-header">{{order_item.created}}</div>
-                                <div class="card-body">
-                                    <h5 class="card-title"> {{order_item.product}} X {{order_item.quantity}}
-                                    </h5>
-                                    <p class="card-text">{{order_item.price}}</p>
-                                </div>
-                            </div>
-
-                        </div>
+                            <table style="width:100%;">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="*">
+                                </colgroup>
+                                
+                                <tr>
+                                    <td>
+                                        <img style="width: 70px; height: 70px;" src="{{order_item.product.image.url}}">
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.product}}</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.quantity}} 개</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.price|floatformat:"0"}} 원</h5>
+                                    </td>
+                                    <td>
+                                        <h5>{{order_item.created}}</h5>
+                                    </td>
+                                </tr>
+                            </table>
 
                         <br/>
                         {% endfor %}
@@ -199,8 +232,8 @@
 
                     <div class="myaccount">
                         <h3>"<span id="green">{{user.nickname}}</span>" 님의 환경계좌금액</h3>
-                        <div class="envibox">
-                            <h2>"{{user.env_money}}" POINT</h2>
+                        <div id="envibox">
+                            <h2>"{{user.env_money}}" point만큼 환경에 기여하셨습니다.</h2>
                         </div>
                     </div>
 
@@ -216,11 +249,11 @@
                             </div>
                             <div class="envidonationword"><h4>모금하실 금액</h4></div>
                             <div class="envidonationmoney">
-                                <h4>{{money}}</h4>
+                                <h4>{{user.env_money}}</h4>
                             </div>
                             <div class="totalword"><h4>모금참여 후 잔액</h4></div>
                             <div class="totalmoney">
-                                <h4>{{moeny}}</h4>
+                                <h4>None</h4>
                             </div>
 
                         </div>
@@ -230,12 +263,15 @@
                     <div class="webeingaccount">
                         <h3>위빙 모금함</h3>
                         <hr style="border: 1px solid lightgray; width:100%; float:left;">
+
+                        <div id="webeingbox"s>
+                            <h2>위빙을 통해 {{total}}원 만큼 절약되었습니다.</h2>
+                        </div>
+
                     </div>
 
                     <div class="lastdonation">
                         <h4>이전 모금 기록</h4>
-                        {{total}}
-
                         <div class="lastdonationbox">
 
                             <div class="group-donation">A단체</div>
@@ -251,7 +287,11 @@
                 </div>
 
                 <div class = "box-in-enviaccount">
-                    <hr style="border: 1px solid lightgray; width:100%; float:left;">
+
+                    <div class="space">
+                        <h3>위빙이 환경과 함께 제공하는 서비스</h3>
+                        <hr style="border: 1px solid lightgray; width:100%; float:left;">
+                    </div>
 
                     <div class = "question1">
                         <p id = "fontsub">Q. 환경계좌란 무엇인가요?</p>
