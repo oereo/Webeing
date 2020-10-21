@@ -35,3 +35,10 @@ class BuyinglistAdmin(admin.ModelAdmin):
 
 
 admin.site.register(buyingList, BuyinglistAdmin)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['owner', 'title', 'pub_date', 'body', 'views']
+
+
+admin.site.register(Comment, CommentAdmin)

@@ -33,9 +33,9 @@
 
 .menu-in {
     display: grid;
-    grid-template-columns: 2fr 5fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 1fr;
-    column-gap: 30px;
+    column-gap: 10px;
     grid-template-areas:
         "menupic menuinfo cartbutton"
 }
@@ -45,7 +45,7 @@
     width: 70%;
     float: left;
     vertical-align: center;
-    margin: 10px;
+    margin: 5px;
 }
 
 .menuinfo {
@@ -56,14 +56,6 @@
 .cartbutton {
     grid-area: cartbutton;
     vertical-align: center;
-}
-
-.storeinfo-in {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-        "storetime storetime2"
 }
 
 #box-layout {

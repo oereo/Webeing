@@ -126,7 +126,7 @@
 			tx: 0,
 			ty: -100,
 			fill: {
-				color: '#00be68',
+				color: '#A56B46',
 				duration: 500,
 				easing: 'linear'
 			},
@@ -198,7 +198,7 @@
 			tx: 0,
 			ty: -50,
 			fill: {
-				color: '#1e71bf',
+				color: '#00be68',
 				duration: 500,
 				easing: 'linear'
 			},
@@ -222,7 +222,7 @@
 			tx: 0,
 			ty: 150,
 			fill: {
-				color: '#44b7a3',
+				color: '#6040a0',
 				duration: 500,
 				easing: 'linear'
 			},
@@ -246,7 +246,7 @@
 			tx: 0,
 			ty: 100,
 			fill: {
-				color: '#4b66b3',
+				color: '#2A6049',
 				duration: 500,
 				easing: 'linear'
 			},
