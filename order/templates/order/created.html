@@ -6,16 +6,6 @@ Order Complete
 
 {% block content %}
 
-<div class="row">
-    <div class="col">
-        <div class="alert alert-success" role="alert">Thank you!<br/>
-            Your order has been successfully completed.<br/>
-        <!-- Your order number is <strong>{{order.id}}</strong></div> -->
-    </div>
-
-    <!-- <a href='{% url "shop:product_all" %}' class="btn btn-primary float-right">홈으로 가기</a> -->
-</div>
-
 <title>OrderComplete</title>
 
 <style>
@@ -29,22 +19,36 @@ Order Complete
 
         <ul id = "fontsize15" style = "list-style: none; ">
             <li>주문이 완료되었습니다.</li>
-            <li>오늘 {} 님의 주문으로</li>
-            <li>{}원이 절약되었습니다.</li>
-            <li>지금까지 {} 님은</li>
-            <li>{}원을 환경에 투자하셨습니다.</li>
+            <li>오늘 <span id="green">{{user.nickname}}</span> 님의 주문으로</li>
+            <li><span id="green">{{item.quantity|mul:item.price|div:10}}</span>원이 절약되었습니다.</li>
+            <li>지금까지 환경을 위해</li>
+            <li><span id="green">{{user.env_money}}</span>원을 투자하셨습니다.</li>
             <li>저희 위빙을 통하여 절약된 금액은</li>
-            <li id = "color">총 {}원 입니다.</li>
+            <li id = "color">총 {{total}}원 입니다.</li>
         </ul>
+
     </div>
 
     <div class = "receipt">
-
+        <hr style="border: 1px solid lightgray; width:100%; float:left;">
+        주문영수증
+        <div>
+            결제금액{{order_item.product}}
+        </div>
+        <div>결제수단</div>
+        <div>거레일시</div>
+        <div>공급가액/부가세</div>
+        <div>사업자번호</div>
+        <div>대표자명</div>
+        <div>주소</div>
+        <div>환경포인트</div>
     </div>
 
     <div class = "gohome">
         <a href = "{% url 'shop:product_all' %}">
-            <button id = "color" type="button" class="btn btn-lg btn-block">홈으로 가기</button>
+            <p class="text-center">
+                <button type="button" class="btn btn-success" style="width:300px;">홈으로 가기</button>
+            </p>
         </a>
     </div>
 

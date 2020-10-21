@@ -1,23 +1,22 @@
-.box-cotainer {
+.box-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
 
     grid-template-areas:
         "ordercomplete receipt"
         "gohome gohome"
-        "cancelorder cancelorder"
 }
 
 .ordercomplete {
     grid-area: ordercomplete;
     text-align: center;
+    margin: 30px 30px 30px 30px;
     border: 1px solid black;
 }
 
 .receipt {
     grid-area: receipt;
     border: 1px solid black;
-
 }
 
 .gohome {
@@ -32,7 +31,7 @@
     width: 100%;
 }
 
-.item:nth-child(2) {
+.box-container:nth-child(2) {
     grid-row: 1 / 3;
 }
 
