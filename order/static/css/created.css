@@ -11,10 +11,12 @@
 .ordercomplete {
     grid-area: ordercomplete;
     text-align: center;
+    border: 1px solid black;
 }
 
 .receipt {
     grid-area: receipt;
+    border: 1px solid black;
 
 }
 
