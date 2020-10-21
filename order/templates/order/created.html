@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Order Complete
@@ -6,48 +7,105 @@ Order Complete
 
 {% block content %}
 
-<div class="row">
-    <div class="col">
-        <div class="alert alert-success" role="alert">Thank you!<br/>
-            Your order has been successfully completed.<br/>
-        <!-- Your order number is <strong>{{order.id}}</strong></div> -->
-    </div>
-
-    <!-- <a href='{% url "shop:product_all" %}' class="btn btn-primary float-right">홈으로 가기</a> -->
-</div>
+<link rel="stylesheet" href="{% static 'css/created.css' %}">
 
 <title>OrderComplete</title>
 
 <style>
     #fontsize15 {font-size: 150%; }
     #green { color: #00be68; }
+    #finalfont{
+        font-size:150%;
+    color: #00be68;}
 </style>
 
-<div class = "box-container">
+<div class="box-container">
 
-    <div class = "ordercomplete">
+    <div class = "ordercomplete" style="background-color:#F2F2F2;">
 
         <ul id = "fontsize15" style = "list-style: none; ">
-            <li>주문이 완료되었습니다.</li>
-            <li>오늘 {} 님의 주문으로</li>
-            <li>{}원이 절약되었습니다.</li>
-            <li>지금까지 {} 님은</li>
-            <li>{}원을 환경에 투자하셨습니다.</li>
-            <li>저희 위빙을 통하여 절약된 금액은</li>
-            <li id = "color">총 {}원 입니다.</li>
+            <li>주문이 완료되었습니다.</li><br>
+            <li>오늘 <span id="green">{{user.nickname}}</span> 님의 주문으로</li>
+            <li><span id="green"></span>원이 절약되었습니다.</li><br>
+            <li>지금까지 환경을 위해</li>
+            <li><span id="green">{{user.env_money}}</span>원을 투자하셨습니다.</li><br>
+            <li>저희 위빙을 통하여 절약된 금액은</li><br>
+            <li id="finalfont">총 {{total}}원 입니다.</li>
         </ul>
-    </div>
-
-    <div class = "receipt">
 
     </div>
 
-    <div class = "gohome">
-        <a href = "{% url 'shop:product_all' %}">
-            <button id = "color" type="button" class="btn btn-lg btn-block">홈으로 가기</button>
-        </a>
+    <!-- <div class = "receipt">
+
+        <table>
+
+            <colgroup>
+                <col width="50%">
+                <col width="*">
+            </colgroup>
+
+            <thead>
+                <td colspan="2">주문영수증</td>
+            </thead>
+
+            <tr>
+                <td rowspan="{{final}}">결세상품</td>
+
+                {% for item in cart %}
+                {% with product=item.product %}
+
+                <td>{{ item.product.name }}</td>
+
+                {% endwith %}
+                {% endfor %}
+            </tr>
+
+            <tr>
+                <td>결제금액</td>
+                <td>{{item.total_price}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>결제수단</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>거레일시</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>공급가액/부가세</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>사업자번호</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>대표자명</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>환경포인트</td>
+                <td></td>
+            </tr>
+
+        </table>
+
     </div>
 
+</div> -->
 
+<div id = "gohome" style="margin-top: 3rem;">
+    <a href = "{% url 'shop:product_all' %}">
+        <p class="text-center">
+            <button type="button" class="btn btn-success" style="width:300px;">홈으로 가기</button>
+        </p>
+    </a>
 </div>
 {% endblock %}
