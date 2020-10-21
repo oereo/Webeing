@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% with product=item.product %}
+
 <head>
     <meta charset="utf-8"/>
-    <div id = "test">{{cart.get_total_price|floatformat:"0"}}</div>
+    <div id = "test" style ="color : white">{{cart.get_total_price|floatformat:"0"}}</div>
+    <div id = "order_name" style ="color : white">{{ product.name }} 외 {{ item.quantity }} 개</div>
+    <div id = "buyer_name" style ="color : white">{{ user.nickname }} </div>
+    <div id = "buyer_email" style ="color : white">{{ user.email }} </div>
+    <div id = "buyer_phone_number" style ="color : white">{{ user.phone_number }} </div>    
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="http://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -19,6 +25,10 @@
                 amount: $form.find('[name=amount11]').val(),
             };
             var test1 = document.getElementById("test").innerHTML;
+            var test2 = document.getElementById("order_name").innerHTML;
+            var test3 = document.getElementById("buyer_name").innerHTML;
+            var test4 = document.getElementById("buyer_email").innerHTML;
+            var test5 = document.getElementById("buyer_phone_number").innerHTML;
 
             console.log(test1)
             // 결제요청
@@ -27,15 +37,15 @@
                 pg: 'html5_inicis', // pg 사 선택
                 pay_method: 'card',
                 merchant_uid: 'merchant_' + new Date().getTime(),
-                name: '주문명:결제테스트', //product name으로 바꿔주기
+                name: test2, //product name으로 바꿔주기
                 amount: test1,
 
                 /////////////////////////////// 원화로 변경
-                buyer_email: 'iamport@siot.do',
-                buyer_name: '구매자이름',
-                buyer_tel: '010-1234-5678',
-                buyer_addr: '서울특별시 강남구 삼성동',
-                buyer_postcode: '123-456',
+                buyer_email: test4,
+                buyer_name: test3,
+                buyer_tel: test5,
+                // buyer_addr: '서울특별시 강남구 삼성동',
+                // buyer_postcode: '123-456',
                 // m_redirect_url: 'https://www.yourdomain.com/payments/complete'
             }, function (rsp) {
                 if (rsp.success) {
@@ -54,7 +64,7 @@
                     location.href = 'complete/';
                 }else{
                     alert("결제에 실패하였습니다. 사용자가 결제를 취소하였습니다.");
-                    location.href = "http://daum.net";
+                    location.href = "/main/";
                 }
             });
             $.ajax({
@@ -71,4 +81,5 @@
 <body>
 </body>
 
+{% endwith %}
 {% endblock %}
