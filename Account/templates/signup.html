@@ -13,7 +13,10 @@
         font-size: 150%;
         font-weight: bold;
     }
-    #fontsize2 {font-size: 200%;}
+    #fontsize2 {
+        font-size: 200%;
+        font-weight: bold;
+    }
     #fontsize3 {
         font-size: 300%;
         font-weight: bold;
@@ -38,10 +41,10 @@
                     <img src = "{% static '/img/customer.png' %}" style = "width : 300px;" alt="Center image">
                 </div>
 
-                <div class = "bottomcard" id = "fontsize15">
+                <div class = "bottomcard" id = "fontsize15" style="color:black">
                     WEBEING 에서
                     <br>
-                    상품을 <span id = "green">구매할</span> 고객님
+                    상품을 <span style="color:#2a6049">구매할</span> 고객님
 
                 </div>
             </a>
@@ -60,10 +63,10 @@
                     <img src = "{% static '/img/seller.png' %}" style = "width : 300px;" alt="Center image">
                 </div>
 
-                <div class = "bottomcard" id = "fontsize15">
+                <div class = "bottomcard" id = "fontsize15" style="color:black">
                     WEBEING 에서
                     <br>
-                    상품을 <span id = "green">판매할</span> 점주님
+                    상품을 <span style="color:#2a6049">판매할</span> 점주님
                 </div>
             </a>
 
@@ -74,7 +77,7 @@
     <div class = "gologin">
         <span style = "margin-right: 20px;">이미 WEBEING 회원이신가요?</span>
         <span id = "green">
-            <a href = "{% url 'login' %}">로그인 하러가기</a>
+            <a href = "{% url 'login' %}" style="color:#2a6049; font-weight:bold">로그인 하러가기</a>
         </span>
     </div>
 

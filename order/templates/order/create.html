@@ -36,7 +36,7 @@ Checkout
     #totalpricefont {
         font-size: 200%;
         font-weight: bold;
-        color: #00be68;
+        color: #2a6049;
     }
 
     #totalwordfont {
@@ -51,6 +51,24 @@ Checkout
     #font15 {
         font-size: 130%;
     }
+
+    .btn-success {
+        background-color: #2A6049;
+        border-color: #2A6049;
+        color: white;
+    }
+
+    .btn-success:focus {
+        border-color: #2A6049;
+        border-color: #2A6049;
+        color: white;    
+    }
+    .btn-success:hover {
+        border-color: #2A6049;
+        background-color: #2A6049;
+        color: white; 
+    }
+
 </style>
 
 <div class="box-container">
@@ -140,13 +158,10 @@ Checkout
 
             <tr>
                 <td rowspan="4" id="titlefont">총 주문금액</td>
-                <td><span>주문상품 수</span><span style="float: right;">{{final}}</span></td>
+                <td><span>주문상품 수</span><span style="float: right;">{{final}}개</span></td>
             </tr>
             <tr>
-                <td><span>주문 금액</span><span style="float: right;">{}</span></td>
-            </tr>
-            <tr>
-                <td><span>WEBEING POINT</span><span style="float: right;">{{env_point}}</span></td>
+                <td><span>WB 포인트 적립 금액</span><span style="float: right;">{{env_point}}점</span></td>
             </tr>
             <tr>
                 <td><span id="totalwordfont">최종결제금액</span><span id="totalpricefont" style="float: right;">{{cart.get_total_price}}원</span>

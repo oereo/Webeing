@@ -43,14 +43,50 @@
             font-weight: bold;
         }
 
-    </style>
+        .btn-outline-success {
+            background-color: #FBF9F1;
+            border-color: #2A6049;
+            color: #2A6049;
+        }
+        /* .btn-outline-success:hover, */
+        .btn-outline-success:focus {
+            border-color: #2A6049;
+            background-color: #FBF9F1;
+            color: #2A6049; 
+        }
+        /* .btn-primary:active,
+        .btn-primary:visited,
+        .btn-primary:active:focus, */
 
+        .btn-outline-success:hover {
+            border-color: #2A6049;
+            background-color: #FBF9F1;
+            color: #2A6049; 
+        }
+
+        .btn-success {
+        background-color: #2A6049;
+        border-color: #2A6049;
+        color: white;
+    }
+
+    .btn-success:focus {
+        border-color: #2A6049;
+        border-color: #2A6049;
+        color: white;    
+    }
+    .btn-success:hover {
+        border-color: #2A6049;
+        background-color: #2A6049;
+        color: white; 
+    }
+    </style>
 </head>
 
-<body>
+<body style="background-color:#FBF9F1;">
     
 <div id="nav" style="margin: 0px 100px 0 100px;">
-    <b-navbar toggleable="lg" type="light" variant="white">
+    <b-navbar toggleable="lg" type="light" variant="#FBF9F1">
         <a href="/main"><img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:80px; height: 80px;"></a>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -68,11 +104,12 @@
             <b-navbar-nav class="ml-auto">
 
                 {% if user.is_authenticated %}
-                <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
+                <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">장바구니(
                     {% if cart|length > 0 %}
-                    ${{ cart.get_total_price }} with {{cart|length}} items
+                    <!-- {{ cart.get_total_price }} with {{cart|length}} items -->
+                    {{cart|length}} )
                     {% else %}
-                    : Empty
+                    0 )
                     {% endif %}
                 </a>
                 <b-nav-item-dropdown right>
@@ -84,15 +121,15 @@
                     </template>
 
                     {% if user.is_seller == True %}
-                    <b-dropdown-item href="{% url 'sellerPage' %}">Profile</b-dropdown-item>
+                    <b-dropdown-item href="{% url 'sellerPage' %}">마이위빙</b-dropdown-item>
                     {% else %}
-                    <b-dropdown-item href="{% url 'customerPage' %}">Profile</b-dropdown-item>
+                    <b-dropdown-item href="{% url 'customerPage' %}">마이위빙</b-dropdown-item>
                     {% endif %}
 
-                    <b-dropdown-item href="{% url 'logout' %}">Sign Out</b-dropdown-item>
+                    <b-dropdown-item href="{% url 'logout' %}">로그아웃</b-dropdown-item>
                 </b-nav-item-dropdown>
                 {% else %}
-                <b-nav-item href="{% url 'signup' %}">SIGNUP</b-nav-item>
+                <b-nav-item href="{% url 'signup' %}">회원가입</b-nav-item>
 
                 <b-nav-item href="{% url 'login' %}">로그인</b-nav-item>
             </b-navbar-nav>
@@ -209,7 +246,7 @@
 
 </body>
 
-<footer style="background-color: #CED4DA; width: 100%; padding:40px;">
+<footer style="background-color: #2a6049; width: 100%; padding: 30px 200px 10px 200px">
 
     <table>
 
@@ -221,44 +258,50 @@
             <col width="*">
         </colgroup>
 
-        <thead style="line-height: 3rem; ">
+        <thead style="line-height: 3rem; color:white;">
             <td id="footerfont">COMPANY</td>
             <td id="footerfont">INFORMATION</td>
             <td id="footerfont">DEVELOPERS</td>
             <td id="footerfont">HELPFUL</td>
             <td id="footerfont">CONTACT-US</td>
+
         </thead>
 
         <tbody>
-
             <tr>
-                <td style="line-height: 1.8rem; ">
+                <td style="line-height: 1rem; color:#2a6049 ">
+                    <p> likelion_8th   </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="line-height: 1.2rem; color:white ">
                     <p>상호:위빙(Webeing)</p>
                     <p>대표:이상륜</p>
                     <p>개인정보관리책임자 : 한승조</p>
                     <p>개인정보담당자 : slowwvibes@gmail.com</p>
                     <p>사업자등록번호 : 839-55-00602</p>
                 </td>
-                <td style="line-height: 1.8rem;">
+                <td style="line-height: 1.2rem; color:white ">
                     <p>주소:경기도 성남시
                         <br>수정구 위례광장로 37
                         <br>SG프라자2 상가 1층 102호
                     </p>
                 </td>
-                <td style="line-height: 1.8rem;">
+                <td style="line-height: 1.2rem; color:white ">
                     <p>한승조</p>
                     <p>인세훈</p>
                     <p>이찬규</p>
                     <p>김재욱</p>
                     <p>최진영</p>
                 </td>
-                <td style="line-height: 1.8rem;">
-                    <p><a href="{% url 'tos_user_use' %}">이용약관</a></p>
-                    <p><a href="{% url 'tos_user_private' %}">개인정보처리방침</a></p>
+                <td style="line-height: 1.2rem; color:white ">
+                    <p><a href="{% url 'tos_user_use' %}" style="color:white">이용약관</a></p>
+                    <p><a href="{% url 'tos_user_private' %}" style="color:white">개인정보처리방침</a></p>
                 </td>
-                <td style="line-height: 1.8rem;">
-                    <p>문의전화 : 010-9228-0236</p>
-                    <p>제휴 및 문의메일 : we-being@naver.com</p>
+                <td style="line-height: 1.2rem;">
+                    <p style="color:white">문의전화 : 010-9228-0236</p>
+                    <p style="color:white">제휴 및 문의메일 : we-being@naver.com</p>
+                    <br>
                     <p>
     
                         <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
@@ -284,8 +327,9 @@
 
     </table>
 
-    <hr style="border: 1px solid black; width:100%; ">
-    <p class="text-center">2020 @ copyright by WEBEING | All Right Reservered</p>
+    <!-- <hr style="border: 0.5px solid white; width:100%; "> -->
+    <br>
+    <p class="text-left" style="color: white">2020 @ copyright by WEBEING | All Right Reservered</p>
  
 
     <!-- <div class="footer-container" style="padding:50px;">

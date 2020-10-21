@@ -12,6 +12,11 @@
         font-weight: bold;
     }
 
+    #restaurant_location {
+        font-size: 180%;
+        font-weight: bold;
+    }
+
     #green {
         font-weight: bold;
         color: #00be68
@@ -33,7 +38,7 @@
 
 <!-- <div class="box-container"> -->
 
-    <div class="store" id="box-layout" style="margin: 50px 0px 50px 0px;">
+    <div class="store" id="box-layout" style="margin: 50px 0px 50px 0px; background-color: white">
 
         <div class="store-in">
 
@@ -44,7 +49,7 @@
             <div class="storeinfo">
                 <p id="restaurantfont">{{current_restaurant.name}}</p>
                 <p>거리 | 500m 이내</p>
-                <p>지도 | 위치보기</p>
+                <p>지도 | <a href="#restaurant_location" style="color:black" >위치보기</a></p>
                 <!-- <p>별별별별별 4.7</p> -->
             </div>
 
@@ -59,7 +64,7 @@
         <!-- Up to 3 menus -->
         {% for product in products %}
 
-        <div class="menu-in" id="box-layout">
+        <div class="menu-in" id="box-layout" style="background-color: white">
 
             <div class="menupic">
                 <p class="text-center">
@@ -71,8 +76,8 @@
             <div class="menuinfo">
                 <ul style="list-style: none;">
                     <li id="restaurantfont">{{product.name}}</li>
-                    <li><span id="green">정가 : {{product.origin_price}}</span> → <span
-                            id="red">할인가격 : {{product.price}}</span></li>
+                    <li><span id="green">정가 : {{product.origin_price}}원 </span> → <span
+                            id="red">할인가격 : {{product.price}}원 </span></li>
                     <li id="green" style="margin-top:10px;">할인율 {{product.discount|floatformat:"0"}} %</li>
                     <div onload="boxlayout()">
                         <li id="result"></li>
@@ -96,7 +101,7 @@
 
     <div class="storelocation" id="margin" style="margin-bottom:50px;">
 
-        <p><span id="restaurantfont">매장 위치</span></p>
+        <p><span id="restaurant_location">매장 위치</span></p>
 
         <!-- for map -->
         <div id="map" style="width:100%;height:500px;"></div>
@@ -105,11 +110,11 @@
 
     </div>
 
-    <div class="storeinfo" style="margin-bottom:50px;">
+    <div class="storeinfo" style="margin-bottom:50px; " >
 
         <p><span id="restaurantfont">매장 정보</span></p>
 
-        <div id="box-layout">
+        <div id="box-layout" style="background-color: white">
 
             <table>
 
@@ -143,7 +148,7 @@
 
         <p><span id="restaurantfont">사업자 정보</span></p>
 
-        <div id="box-layout">
+        <div id="box-layout" style="background-color: white">
 
             <table>
 
@@ -172,7 +177,7 @@
 
         <p><span id="restaurantfont">원산지 정보</span></p>
 
-        <div id="box-layout">
+        <div id="box-layout" style="background-color: white">
             <p>{{current_restaurant.food_origin}}</p>
         </div>
 
