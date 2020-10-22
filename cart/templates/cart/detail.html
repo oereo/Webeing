@@ -93,8 +93,8 @@ Shopping cart
                             <img src="{{ product.image.url }}" class="img-thumbnail">
                         </a>
                     </th>
-                    <td>{{ product.name }}</td>
-                    <td>
+                    <td style="vertical-align: middle;">{{ product.name }}</td>
+                    <td style="vertical-align: middle;">
                         <form action="{% url 'cart:product_add' product.id %}" method="post">
                             {{ item.quantity_form.quantity }}
                             {{ item.quantity_form.is_update }}
@@ -102,10 +102,10 @@ Shopping cart
                             {% csrf_token %}
                         </form>
                     </td>
-                    <td><a href="{% url 'cart:product_remove' product.id %}" style="color:black">삭제하기</a></td>
+                    <td style="vertical-align: middle;"><a href="{% url 'cart:product_remove' product.id %}" style="color:black">삭제하기</a></td>
                     <!-- 원화로 변경 -->
-                    <td class="num">{{ item.price }}원</td>
-                    <td class="num">{{ item.total_price }}원</td>
+                    <td class="num" style="vertical-align: middle;">{{ item.price }}원</td>
+                    <td class="num" style="vertical-align: middle;">{{ item.total_price }}원</td>
                 </tr>
                 {% endwith %}
             {% endfor %}
