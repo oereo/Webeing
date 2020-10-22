@@ -72,18 +72,9 @@
     width: 100%;
     height: auto;
     background-color: lightgray;
-    color:  #00be68;
+    color: white;
     padding: 30px;
-    margin-top: 10px;
-}
-
-#webingbox {
-    width: 100%;
-    height: auto;
-    background-color: lightgray;
-    color:  #00be68;
-    padding: 30px;
-    margin: 10px 0px 10px 0px;   
+    margin-top: 3rem;
 }
 
 .joineventbox {

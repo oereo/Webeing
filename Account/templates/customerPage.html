@@ -13,30 +13,24 @@
         padding: 0;
         box-sizing: border-box;
     }
-
     h1 {
         padding: 50px 0;
         font-weight: 400;
         text-align: center;
     }
-
     p {
         margin: 0 0 20px;
         line-height: 1.5;
     }
-
-
     section {
         display: none;
         padding: 20px 0 0;
         border-top: 1px solid #ddd;
     }
-
     /*라디오버튼 숨김*/
     input {
         display: none;
     }
-
     label {
         display: inline-block;
         margin: 0 0 -1px;
@@ -46,12 +40,10 @@
         color: #bbb;
         border: 1px solid transparent;
     }
-
     label:hover {
         color: #00be68;
         cursor: pointer;
     }
-
     /*input 클릭시, label 스타일*/
     input:checked + label {
         color: #00be68;
@@ -100,7 +92,7 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted"> 내 활동  <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item"><span class="pull-left"><strong>환경계좌</strong></span><span class="pull-right">{{user.env_money}}</span><strong>
+                <li class="list-group-item"><span class="pull-left"><strong>환경계좌 :</strong></span><span class="pull-right">{{user.env_money}}</span><strong>
                     points</strong></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>픽업 전</strong></span> NONE <strong>
                     건</strong></li>
@@ -232,7 +224,7 @@
                     <div class="myaccount">
                         <h3>"<span id="green">{{user.nickname}}</span>" 님의 환경계좌금액</h3>
                         <div id="envibox">
-                            <h2>"{{user.env_money}}" point만큼 환경에 기여하셨습니다.</h2>
+                            <h2><span id="green">"{{user.env_money}}"원</span>만큼 환경에 기여하셨습니다.</h2>
                         </div>
                     </div>
 
@@ -263,8 +255,8 @@
                         <h3>위빙 모금함</h3>
                         <hr style="border: 1px solid lightgray; width:100%; float:left;">
 
-                        <div id="webeingbox"s>
-                            <h2>위빙을 통해 {{total}}원 만큼 절약되었습니다.</h2>
+                        <div id="envibox">
+                            <h2>위빙을 통해 <span id="green">"{{total}}"원</span> 만큼 절약되었습니다.</h2>
                         </div>
 
                     </div>

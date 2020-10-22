@@ -7,9 +7,11 @@ from coupon.forms import AddCouponForm
 from .models import Restaurant, Category, Product, Register, Comment
 
 
-def landingPage(request):
-    return render(request, 'shop/index.html')
+def landingpage(request):
+    return render(request, 'shop/landingpage.html')
 
+def serviceintroduce(request):
+    return render(request, 'shop/serviceintroduce.html')
 
 def restaurant_in_category(request, category_slug=None):
     current_category = None
