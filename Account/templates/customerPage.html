@@ -73,7 +73,8 @@
 
 {% block content %}
 
-<div class="container bootstrap snippet">
+<div>
+
     <div class="row">
         <div class="col-sm-3">
 
@@ -86,13 +87,12 @@
             </hr><br>
 
 
-            <ul class="list-group">
-                <li class="list-group-item text-muted"> 내 활동 <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item"><span><strong>환경계좌 : </strong></span><span class="text-right">{{user.env_money}}</span><strong>
-                    points</strong></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>픽업 전</strong></span> NONE <strong>
-                    건</strong></li>
-                <!-- <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> {{order_item.quantity}}<strong>
+            <ul class="list-group" class="text-center" style="width:300px;">
+                <li class="list-group-item text-muted"><strong>나의 활동</strong><i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item"><span>환경계좌 : </span><span id="green"><strong>{{user.env_money}}</strong></span>
+                    <strong>점</strong></li>
+                <li class="list-group-item"><span class="pull-left">픽업 전 : </span> <strong>None 건</strong></li>
+                <!-- <li class="list-group-item"><span class="pull-left"><strong>Posts</strong></span> {{order_item.quantity}}<strong>
                     건</strong></li> -->
             </ul>
 
@@ -257,8 +257,9 @@
 
                     </div>
 
-                    <div class="lastdonation">
+                    <div class="lastdonation" style="margin-top:3rem;">
                         <h4>이전 모금 기록</h4>
+
                         <div class="lastdonationbox">
 
                             <div class="group-donation">A단체</div>
