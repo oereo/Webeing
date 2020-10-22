@@ -63,15 +63,12 @@
             background-color: #FBF9F1;
             color: #2A6049; 
         }
-
         .btn-success {
         background-color: #2A6049;
         border-color: #2A6049;
         color: white;
         }
-
         .btn-success:focus {
-            border-color: #2A6049;
             border-color: #2A6049;
             color: white;    
         }
@@ -79,6 +76,9 @@
             border-color: #2A6049;
             background-color: #2A6049;
             color: white; 
+        }
+        .dropdown-menu li > a:focus {
+            background-color: #2A6049;
         }
     </style>
 
@@ -93,13 +93,6 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-
-            <!-- <b-navbar-nav class="mx-auto">
-                <b-nav-form>
-                    <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-                    <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-                </b-nav-form>
-            </b-navbar-nav> -->
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
@@ -276,14 +269,14 @@
             </tr>
             <tr>
                 <td style="line-height: 1.8rem; color: white;">    
-                    <p>상호:위빙(Webeing)</p>
-                    <p>대표:이상륜</p>
+                    <p>상호 : 위빙(Webeing)</p>
+                    <p>대표 : 이상륜</p>
                     <p>개인정보관리책임자 : 한승조</p>
                     <p>개인정보담당자 : slowwvibes@gmail.com</p>
                     <p>사업자등록번호 : 839-55-00602</p>
                 </td>
                 <td style="line-height: 1.2rem; color:white ">
-                    <p>주소:경기도 성남시
+                    <p>주소 : 경기도 성남시
                         <br>수정구 위례광장로 37
                         <br>SG프라자2 상가 1층 102호
                     </p>
@@ -298,6 +291,7 @@
                 <td style="line-height: 1.2rem; color:white ">
                     <p><a href="{% url 'tos_user_use' %}" style="color:white">이용약관</a></p>
                     <p><a href="{% url 'tos_user_private' %}" style="color:white">개인정보처리방침</a></p>
+                    <p><a href="#" style="color:white">서비스 자세히알기</a></p>
                 </td>
                 <td style="line-height: 1.2rem;">
                     <p style="color:white">문의전화 : 010-9228-0236</p>
