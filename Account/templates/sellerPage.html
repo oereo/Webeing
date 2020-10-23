@@ -70,7 +70,6 @@
     }
 </style>
 
-<hr>
 <div>
     <div class="row">
         <div class="col-sm-10"><h1>My Page</h1></div>
@@ -85,16 +84,16 @@
                 <h6>{{user.nickname}}</h6>
                 <input type="file" class="text-center center-block file-upload">
             </div>
-            </hr><br>
+            <br>
 
 
             <ul class="list-group">
-                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>환경계좌</strong></span> 125 <strong>
-                    points</strong></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>픽업 전</strong></span> 13 <strong>
+                <li class="list-group-item text-muted"><strong>내 활동</strong><i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item"><span class="pull-left"><strong>환경계좌 : </strong></span> 125 <strong>
+                    점</strong></li>
+                <li class="list-group-item"><span class="pull-left"><strong>픽업 전 : </strong></span> 13 <strong>
                     건</strong></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37<strong>
+                <li class="list-group-item"><span class="pull-left"><strong>등록 메뉴 : </strong></span> 37<strong>
                     건</strong></li>
             </ul>
 
@@ -166,7 +165,10 @@
 
                     <div class="myitem">
                         <hr>
-                        <h4>등록 상품 내역<span><a class="nav-item nav-link" href="{% url 'shop:product_register' %}">음식 등록하기</a></span>
+                        <h4>등록 상품 내역 
+                            <span style="float:right">
+                                <a class="nav-item nav-link" href="{% url 'shop:product_register' %}" style="font-size:1.5rem; color:#2A6049">음식 등록하기 ></a>
+                            </span>
                         </h4>
                     </div>
 
