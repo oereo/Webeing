@@ -50,7 +50,7 @@
 
 .menuinfo {
     grid-area: menuinfo;
-    vertical-align: center;
+    vertical-align: middle;
 }
 
 .cartbutton {

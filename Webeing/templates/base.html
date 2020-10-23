@@ -97,6 +97,10 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
 
+                <a href="{% url 'shop:envigoods' %}" style="padding-right: 2rem;">
+                    <img src="{% static '/img/envigoods.png' %}" alt="envigoods" style="width:45px; height:45px;">
+                </a>
+
                 {% if user.is_authenticated %}
                 <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">장바구니(
                     {% if cart|length > 0 %}
@@ -244,6 +248,12 @@
 
     <table>
 
+        <style>
+            tbody {
+            vertical-align: top;
+        }
+        </style>
+
         <colgroup>
             <col width="25%">
             <col width="20%">
@@ -276,9 +286,9 @@
                     <p>사업자등록번호 : 839-55-00602</p>
                 </td>
                 <td style="line-height: 1.2rem; color:white ">
-                    <p>주소 : 경기도 성남시
-                        <br>수정구 위례광장로 37
-                        <br>SG프라자2 상가 1층 102호
+                    <p>주소 : 경기도 성남시</p>
+                    <p>수정구 위례광장로 37</p>
+                    <p>SG프라자2 상가 1층 102호</p>
                     </p>
                 </td>
                 <td style="line-height: 1.2rem; color:white ">

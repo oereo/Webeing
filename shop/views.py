@@ -13,6 +13,9 @@ def landingpage(request):
 def serviceintroduce(request):
     return render(request, 'shop/serviceintroduce.html')
 
+def envigoods(request):
+    return render(request, 'shop/envigoods.html')
+
 def restaurant_in_category(request, category_slug=None):
     current_category = None
     categories = Category.objects.all()
@@ -47,7 +50,7 @@ def product_in_restaurant(request, restaurant_slug=None):
         current_restaurant = get_object_or_404(Restaurant, slug=restaurant_slug)
         products = products.filter(restaurant=current_restaurant).order_by('-id')[:3]
         for product_price in products:
-            product_price.discount = (product_price.price / product_price.origin_price) * 100
+            product_price.discount = 100 - (product_price.price / product_price.origin_price) * 100
             product_price.save()
 
     if request.method == 'POST':

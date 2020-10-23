@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %}EnviGoods Page {% endblock %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/envigoods.css' %}"/>
+
+
+
+<style>
+    #pagecolor {color: #2A6049;}
+    #titlefont {
+        color: white;
+        font-weight: bold;
+    }
+</style>
+
+<div class="box-container">
+
+    <div class="envi_word" style="position: relative; text-align: center;">
+        <div class="envi_text" id="titlefont" style="position: absolute; z-index:2;">
+            <br><br>
+            <p style="font-size: 3rem;">위빙 굿즈샵</p>
+            <p style="font-size: 1.3rem;">환경을 생각하는 친환경 제품판매를 하는 위빙 굿즈 샵</p>
+        </div>
+        <div style="position: relative;z-index: 1;">
+            <img src="{% static 'img/leaves.jpg' %}" alt="enviword" style="width:100%; height:250px; filter: brightness(40%);">
+        </div>
+    </div>
+
+    <div class="goods_card1" class="text-align: center;">
+
+        <div class="card" style="width: 19rem;" data-toggle="modal">
+            <img src="{% static '/img/tumblr.jpg' %}" class="card-img-top" alt="tumblr" style="width:19rem; height:200px;">
+            <div class="card-body">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 텀블러</h5>
+              <p class="card-text">환경을 생각한 텀블러 | <span id="pagecolor">10,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="goods_card2">
+
+        <div class="card" style="width: 19rem;" data-toggle="modal">
+            <img src="{% static '/img/ecobag.png' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 에코백</h5>
+              <p class="card-text">환경을 생각한 에코백 | <span id="pagecolor">5,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="goods_card3">
+
+        <div class="card" style="width: 19rem;" data-toggle="modal">
+            <img src="{% static '/img/paperbag.jpg' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경소재 종이가방</h5>
+              <p class="card-text">환경을 생각한 종이가방 | <span id="pagecolor">4,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+<!-- Modal  -->
+<div class="modal fade" id="star_rating" role="dialog">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">위빙 굿즈샵</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="warning_msg">현재 굿즈를 준비중입니다.</div>
+
+            </div>
+
+            <script>
+                $('#star_grade a').click(function(){
+                    $(this).parent().children("a").removeClass("on");
+                    $(this).addClass("on").prevAll("a").addClass("on");
+                    var numStars = $(this).prevAll("a").length+1;                    
+                    $('.show-result').text(numStars);
+                });
+            </script>
+
+            <div class="modal-footer">
+                <input type="submit" value="제출하기" data-dismiss="modal">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
