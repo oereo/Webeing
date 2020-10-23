@@ -116,16 +116,16 @@
     </table>
     <div class="paginator" style="text-align: center">
         {% if page_posts.has_previous %}
-        <a href="?page=1">First</a>
-        <a href="?page={{page_posts.previous_page_number}}">Previous</a>
+        <a href="?page=1" style="color: black;">첫페이지</a>
+        <a href="?page={{page_posts.previous_page_number}}" style="color: black;"><이전</a>
         {% endif %}
         <span>{{page_posts.number}}</span>
         <span>of<span>
                     <span>{{page_posts.paginator.num_pages}}</span>
 
                 {% if page_posts.has_next %}
-                    <a href="?page={{page_posts.next_page_number}}">Next</a>
-                    <a href="?page={{page_posts.paginator.num_pages}}">Last</a>
+                    <a href="?page={{page_posts.next_page_number}}" style="color: black;">다음></a>
+                    <a href="?page={{page_posts.paginator.num_pages}}" style="color: black;">마지막페이지</a>
                 {% endif %}
     </div>
     <form method="POST">
