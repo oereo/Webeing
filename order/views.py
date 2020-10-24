@@ -47,9 +47,17 @@ def order_create(request):
 @ensure_csrf_cookie
 @csrf_protect
 def order_complete(request):
+    cart = Cart(request)
     user = request.user
     orders = Order.objects.filter(user=user)
+    order = Order.objects.filter(user=user).first()
     final = 0
+
+    for item in cart:
+        OrderItem.objects.create(order=order, product=item['product'], price=item['price'],
+                                 quantity=item['quantity'])
+
+    cart.clear()
 
     for order in orders:
         temp = OrderItem.objects.filter(order=order)
@@ -172,12 +180,13 @@ def order_payment(request):
                 order.coupon = cart.coupon
                 order.discount = cart.coupon.amount
                 order.save()
-            for item in cart:
-                OrderItem.objects.create(order=order, product=item['product'], price=item['price'],
-                                         quantity=item['quantity'])
-
-            cart.clear()
+            # for item in cart:
+            #     OrderItem.objects.create(order=order, product=item['product'], price=item['price'],
+            #                              quantity=item['quantity'])
+            #
+            # cart.clear()
             return render(request, 'order/payment.html', {'order': order, 'cart': cart})
+
     else:
         form = OrderCreateForm()
     return render(request, 'order/create.html', {'cart': cart, 'form': form})
