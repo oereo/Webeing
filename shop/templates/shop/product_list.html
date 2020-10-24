@@ -11,31 +11,52 @@
         font-size: 180%;
         font-weight: bold;
     }
+
     #restaurant_location {
         font-size: 180%;
         font-weight: bold;
-    }    
+    }
+
     #green {
         font-size: 1.5rem;
         font-weight: bold;
         color: #2A6049;
     }
+
     #red {
         font-size: 1.5rem;
         font-weight: bold;
         color: red;
     }
+
     #bold {
         font-weight: bold;
     }
+
     th, td {
         padding: 10px;
+    }
+
+    #my_modal {
+        display: none;
+        width: 400px;
+        padding: 20px 60px;
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    #my_modal .modal_close_btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
     }
 </style>
 
 <!-- <div class="box-container"> -->
 
-    <div class="store" id="box-layout" style="margin: 50px 0px 50px 0px; background-color: white">
+<div class="store" id="box-layout" style="margin: 50px 0px 50px 0px; background-color: white">
 
     <div class="store-in">
 
@@ -46,8 +67,7 @@
         <div class="storeinfo">
             <p id="restaurantfont">{{current_restaurant.name}}</p>
             <p>전화번호 | {{current_restaurant.call_number}}</p>
-            <p>지도 | <a href="#restaurant_location" style="color:black" >위치보기</a></p>
-            <!-- <p>별별별별별 4.7</p> -->
+            <p>지도 | <a href="#restaurant_location" style="color:black">위치보기</a></p>
         </div>
 
     </div>
@@ -73,9 +93,10 @@
         <div class="menuinfo">
             <ul style="list-style: none;">
                 <br>
-                <li id="restaurantfont">{{product.name}}</li><br>
-                <li><span id="green">{{product.origin_price}}원 </span> → <span id="red">{{product.price}}원<span id="green" > ( {{product.discount|floatformat:"0"}} % )</span></span></li>
-                <!-- <li style="margin-top:10px;"><span id="bold">할인율 :</span> <span id="green" >{{product.discount|floatformat:"0"}} %</span></li> -->
+                <li id="restaurantfont">{{product.name}}</li>
+                <br>
+                <li><span id="green">{{product.origin_price}}원 </span> → <span id="red">{{product.price}}원<span
+                        id="green"> ( {{product.discount|floatformat:"0"}} % )</span></span></li>
                 <div onload="boxlayout()">
                     <li id="result"></li>
                 </div>
@@ -86,7 +107,14 @@
             <form action="{% url 'cart:product_add' product.id  %}" method="post">
                 {{add_to_cart}}
                 {% csrf_token %}
+                {% if request.user.is_authenticated %}
                 <input type="submit" class="btn btn-success btn-sm" value="카트 추가" style="margin-top:20px;">
+                {% else %}
+                <div onclick="
+                    var a= alert('위빙서비스를 이용하시려면 로그인을 해주세요!');"><input class="btn btn-success btn-sm" value="카트 추가"
+                                                                      style="margin-top:20px;">
+                </div>
+                {% endif %}
             </form>
         </div>
 
@@ -116,7 +144,8 @@
             <td>
 
                 {% if user.email == post.owner %}
-                <button class = "btn btn-success"onclick="location.href='{% url 'shop:deletecomment' post.id %}'">삭제하기</button>
+                <button class="btn btn-success" onclick="location.href='{% url 'shop:deletecomment' post.id %}'">삭제하기
+                </button>
                 {% endif %}
             </td>
         </tr>
@@ -137,21 +166,38 @@
                     <a href="?page={{page_posts.paginator.num_pages}}" style="color: black;">마지막페이지</a>
                 {% endif %}
     </div>
+    {% if request.user.is_authenticated %}
     <form method="POST">
         {% csrf_token %}
 
         <h4>리뷰 달기</h4>
-        <div class = "row">
-            <div class = "col-sm-11">
-                <textarea id="newpost_body" cols=120 rows=2 name="body" style="width:100%; border: 1px solid lightgray;"></textarea>
+        <div class="row">
+            <div class="col-sm-11">
+                <textarea id="newpost_body" cols=120 rows=2 name="body"
+                          style="width:100%; border: 1px solid lightgray;"></textarea>
             </div>
-            <div class = "col-sm-1">
+            <div class="col-sm-1">
+
                 <input style=" text-align: right;" class="btn btn-dark" type="submit" value="제출">
+
             </div>
         </div>
-
-
     </form>
+    {% else %}
+
+    <h4>리뷰 달기</h4>
+    <div class="row">
+        <div class="col-sm-11">
+                <textarea id="newpost_body" cols=120 rows=2 name="body"
+                          style="width:100%; border: 1px solid lightgray;"></textarea>
+        </div>
+        <div class="col-sm-1">
+            <div onclick="
+                    var a= alert('위빙서비스를 이용하시려면 로그인을 해주세요!');"><input style=" text-align: right;" class="btn btn-dark" type="submit"
+                                             value="제출"></div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 <div class="storelocation" id="margin" style="margin-bottom:50px;">
@@ -164,7 +210,7 @@
 
 </div>
 
-<div class="storeinfo" style="margin-bottom:50px; " >
+<div class="storeinfo" style="margin-bottom:50px; ">
 
     <p><span id="restaurantfont">매장 정보</span></p>
 
@@ -239,7 +285,11 @@
 
 </div>
 
-<!-- </div> -->
+<div id="my_modal">
+    <p id="pagecolor" style="font-size: 1.5rem;">< 위빙 서비스안내 ></p>
+    <p>위빙서비스를 이용하시려면 로그인을 해주세요!</p>
+    <a class="modal_close_btn" style="float:right;color: black;">X</a>
+</div>
 
 <script>
     function boxlayout() {
@@ -293,5 +343,65 @@
     });
 
 </script>
+<script>
+    function modal(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
 
+        // 모달 div 뒤에 희끄무레한 레이어
+        var bg = document.createElement('div');
+        bg.setStyle({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            // 레이어 색갈은 여기서 바꾸면 됨
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        });
+        document.body.append(bg);
+
+        // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+        modal.querySelector('.modal_close_btn').addEventListener('click', function () {
+            bg.remove();
+            modal.style.display = 'none';
+        });
+
+        modal.setStyle({
+            position: 'fixed',
+            display: 'block',
+
+            // 시꺼먼 레이어 보다 한칸 위에 보이기
+            zIndex: zIndex + 1,
+
+            // div center 정렬
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        });
+    }
+
+    // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+    Element.prototype.setStyle = function (styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+    };
+
+    document.getElementById('popup_open_btn4').addEventListener('click', function () {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+    document.getElementById('popup_open_btn5').addEventListener('click', function () {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+    document.getElementById('popup_open_btn3').addEventListener('click', function () {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+</script>
 {% endblock %}
