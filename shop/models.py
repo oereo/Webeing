@@ -43,7 +43,7 @@ class Restaurant(models.Model):
     class Meta:
         ordering = ['name']
         verbose_name = 'restaurant'
-        verbose_name_plural = 'restauranxts'
+        verbose_name_plural = 'restaurants'
 
     def __str__(self):
         return self.name
