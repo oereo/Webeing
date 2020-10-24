@@ -32,22 +32,18 @@ Checkout
         font-size: 200%;
         font-weight: bold;
     }
-
     #totalpricefont {
         font-size: 200%;
         font-weight: bold;
         color: #2a6049;
     }
-
     #totalwordfont {
         font-size: 150%;
         font-weight: 300%;
     }
-
     #line {
         border-bottom: 1px lightgray;
     }
-
     #font15 {
         font-size: 130%;
     }
@@ -56,7 +52,6 @@ Checkout
         border-color: #2A6049;
         color: white;
     }
-
     .btn-success:focus {
         border-color: #2A6049;
         border-color: #2A6049;
@@ -84,6 +79,9 @@ Checkout
     <div class="finalorderlist">
 
         <table id="table1-layout">
+            <style>
+                th { height: 4rem;}
+            </style>
 
             <colgroup>
                 <col width="20%">
@@ -149,12 +147,12 @@ Checkout
 
             <tr>
                 <td rowspan="4" id="titlefont">총 주문금액</td>
-                <td><span>주문상품 수</span><span style="float: right;">{{final}}개  </span></td>
+                <td><span>주문상품 수</span><span style="float: right;">{{final}}개</span></td>
             <tr>
-                <td><span>WB 포인트 적립 금액</span><span style="float: right;">{{env_point}}점  </span></td>
+                <td><span>WB 포인트 적립 금액</span><span style="float: right;">{{env_point}}점</span></td>
             </tr>
             <tr>
-                <td><span id="totalwordfont">최종결제금액</span><span id="totalpricefont" style="float: right;">{{cart.get_total_price}}원  </span>
+                <td><span id="totalwordfont">최종결제금액</span><span id="totalpricefont" style="float: right;">{{cart.get_total_price}}원</span>
                 </td>
             </tr>
 
@@ -176,7 +174,6 @@ Checkout
             <input type="hidden" name="pre_order_id" value="0">
             <input type="hidden" name="amount" id="amount" value="{{ cart.get_total_price}}">
             <button type="submit" class="btn btn-success btn-lg float-right" style="width: 150px; ">결제하기</button>
-            <!-- <a href='{% url "orders:order_payment" %}' type = "submit" class="btn btn-primary float-right">결제하기</a>  -->
         </form>
 
     </div>

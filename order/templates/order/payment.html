@@ -55,17 +55,19 @@
                     msg += '결제 금액 : ' + rsp.paid_amount;
                     msg += '카드 승인번호 : ' + rsp.apply_num;
                 } else {
-                    var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg
+                    var msg = '결제에 실패하였습니다.';
                 }
                 // 결제 확인
-                var flag = confirm(msg);
 
-                if(flag == true){
-                    location.href = 'complete/';
-                }else{
+                if(msg == '결제에 실패하였습니다.'){
                     alert("결제에 실패하였습니다. 사용자가 결제를 취소하였습니다.");
                     location.href = "/main/";
                 }
+                else{
+                    alert("결제가 완료되었습니다.");
+                    location.href = 'complete/';
+                }
+
             });
             $.ajax({
                 type: 'POST',
