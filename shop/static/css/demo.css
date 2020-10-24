@@ -414,6 +414,7 @@ a:focus {
 
 #background_img {
     background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8) 30%, rgba(100, 100, 100, 0.6) 100%), url('../../../static/img/background.jpg');
+	z-index:2;
 
     background-size: cover;
     /* background-size : contain; */
@@ -571,8 +572,8 @@ a:focus {
 
 .backimg {
 	background-color: black;
-	z-index: 3;
-	width: 100%;
+	z-index: 5;
+	width: auto;
 	height:1000px;
     opacity: 0.6;
     transition: opacity 1s ease-in-out;
@@ -584,4 +585,4 @@ a:focus {
     transition: opacity .55s ease-in-out;
     -moz-transition: opacity .55s ease-in-out;
     -webkit-transition: opacity .55s ease-in-out;
-}​
+}
