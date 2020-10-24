@@ -225,9 +225,11 @@
                         <p class = "indent1" id = "fontbold;">1. 위빙에서 식품 구매시 포인트로 사용</p>
 
                         <ul class = "indent2" style = "list-style:none;">
-                            <li>위빙에서 식품을 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다. </li>
+                            <li>위빙에서 식품을 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다. </li><br>
                             <li>
-                                <button type="button" class="btn btn-success">식품 구매하러 가기</button>
+                                <a href="/main">
+                                    <button type="button" class="btn btn-success">식품 구매하러 가기</button>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -238,9 +240,11 @@
                         <ul class = "indent2" style = "list-style:none;">
                             <li>위빙에서는 회사의 가치를 이행하기 위하여 플라스틱 용기, 비닐 포장 등을 사용하지 않고 있습니다.</li>
                             <li>또한 많은 사람들이 일상생활 속에서 환경을 생각하면서 소비 하기를 바라는 마음에서 텀블러와 에코백 등 재사용 할 수 있는 물품들을 판매하고 있습니다.</li>
-                            <li>위빙 굿즈를 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다.</li>
+                            <li>위빙 굿즈를 구매할 때 보유한 포인트를 1,000원 단위로 사용할 수 있습니다.</li><br>
                             <li>
-                                <button type="button" class="btn btn-success">굿즈 구매하러 가기</button>
+                                <a href="{% url 'shop:envigoods' %}">
+                                    <button type="button" class="btn btn-success">굿즈 구매하러 가기</button>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -251,7 +255,7 @@
                         <ul class = "indent2" style = "list-style:none;">
                             <li>위빙에서는 미래 세대에게 아름다운 지구를 남겨주기 위하여 많은 활동들을 하고 있습니다.</li>
                             <li>그 일환으로 위빙에서는 정기적으로 환경 단체에 기부를 하고 있습니다.</li>
-                            <li>위빙을 사용하면서 환경 계좌에 적립된 금액을 기부하는 데 사용 할 수 있습니다.</li>
+                            <li>위빙을 사용하면서 환경 계좌에 적립된 금액을 기부하는 데 사용 할 수 있습니다.</li><br>
                             <li>
                                 <button type="button" class="btn btn-success">위빙과 함께 기부하러 가기</button>
                             </li>
