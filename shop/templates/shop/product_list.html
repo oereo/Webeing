@@ -108,7 +108,9 @@
             <td id="blog_title" style="width : 500px;">{{post.body}}</td>
             <td id="blog_owner">{{post.owner}}</td>
             <td>
+                {% if user.email == post.owner %}
                 <button class = "btn btn-success"onclick="location.href='{% url 'shop:deletecomment' post.id %}'">삭제하기</button>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}
