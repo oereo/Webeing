@@ -30,37 +30,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Page Loader */
-.js .loading::before {
-    content: '';
-    position: fixed;
-    z-index: 10000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--background-color);
-}
-
-.js .loading::after {
-    content: '';
-    position: fixed;
-    z-index: 10000;
-    top: calc(50% - 30px);
-    left: calc(50% - 30px);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 10px solid var(--background-color-2);
-    border-left-color: var(--text-color);
-    animation: loaderAnim 0.8s linear infinite forwards;
-}
-
-@keyframes loaderAnim {
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 main {
     position: relative;
@@ -363,8 +332,8 @@ a:focus {
     display: inline-block;
     position: relative;
     font-size: 0.85em;
-    margin: 0 0.25em 0.5em 0;
-    padding: 1em;
+    /* margin: 0 0.25em 0.5em 0;
+    padding: 1em; */
 }
 
 .demo .decoshape {
@@ -395,25 +364,9 @@ a:focus {
     justify-self: end;
 }
 
-/* Top Navigation Style */
-.codrops-links {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 1em 0 0;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.codrops-icon {
-    position: relative;
-    display: inline-block;
-    padding: 0.75em 0.75em 1em;
-}
-
 #background_img {
     background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8) 30%, rgba(100, 100, 100, 0.6) 100%), url('../../../static/img/background.jpg');
+	z-index:2;
 
     background-size: cover;
     /* background-size : contain; */
@@ -454,134 +407,16 @@ a:focus {
     stroke: #22bcc0;
 }
 
-@media screen and (max-width: 50em) {
-    .content--fixed {
-        height: auto;
-        min-height: 0;
-        display: block;
-        z-index: 1000;
-        position: absolute;
-    }
-
-    .codrops-header {
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .deco--title {
-        display: none;
-    }
-
-    .demos {
-        text-align: center;
-    }
+#titleho {
+    color:white;
+    transition: color 1s ease-in-out;
+    -moz-transition: color 1s ease-in-out;
+    -webkit-transition: color 1s ease-in-out;
 }
-
-@media screen and (max-width: 40em) {
-    .content--layout {
-        transform: scale3d(0.8, 0.8, 1);
-    }
-}
-
-@media screen and (max-width: 36em) {
-    .content--layout {
-        transform: scale3d(0.7, 0.7, 1);
-    }
-}
-
-@media screen and (max-width: 32em) {
-    .content--layout {
-        transform: scale3d(0.6, 0.6, 1);
-    }
-
-    .content__author,
-    .content__desc,
-    .content__link {
-        font-size: 1.35em;
-    }
-}
-
-@media screen and (max-width: 28em) {
-    .content--layout {
-        transform: scale3d(0.5, 0.5, 1);
-    }
-}
-
-.hero {
-	// min-height: 100vh;
-	min-height: 30rem;
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-
-	&__content {
-		position: relative;
-		align-self: center;
-		padding: 3rem 0;
-	}
-}
-
-.snow {
-	position: absolute;
-	min-width: 100vw;
-	min-height: 100vh;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-}
-
-.snow .svg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
-#snow-top-layer {
-	will-change: transform;
-	transform: translateY(-768px);
-	animation: fall 22.5s infinite linear;
-}
-
-#snow-bottom-layer {
-	will-change: transform;
-	transform: translateY(-768px);
-	animation: fall 45s infinite linear;
-}
-
-@keyframes fall {
-
-	100% {
-		transform: translateY(0);
-	}
-
-}
-
-.background_fourimg{
-	display: grid;
-
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr;
-
-	grid-template-areas:
-		"back11 back12 back21 back22"
-}
-
-.backimg {
-	background-color: black;
-	z-index: 3;
-	width: 100%;
-	height:1000px;
-    opacity: 0.6;
-    transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
-}
-.backimg:hover {
-    opacity: 0;
-    transition: opacity .55s ease-in-out;
-    -moz-transition: opacity .55s ease-in-out;
-    -webkit-transition: opacity .55s ease-in-out;
+#titleho:hover {
+    color: #2A6049;
+    transition: color .55s ease-in-out;
+    -moz-transition: color .55s ease-in-out;
+    -webkit-transition: color .55s ease-in-out;
 }​
+
