@@ -46,6 +46,7 @@
             <a href="/main"
                class="list-group-item {% if not current_category %}active{% endif %}">전체보기
             </a>
+
             {% for c in categories %}
             <a href="{{c.get_absolute_url}}"
                class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">{{c.name}}
@@ -63,7 +64,7 @@
 
         <div class="alert alert-custom" role="alert"
              style="background-color:#FBF9F1; border-color:none; color:#2A6049; font-weight:bold; font-size:20px">
-            {% if current_category %}{{current_category.name}}{% else %}모든 상품{% endif %}
+            {% if current_category %}{{current_category.name}}{% else %}모든 상품 ({{restaurants|length}}){% endif %}
         </div>
 
         <div class="row">
