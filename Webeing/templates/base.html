@@ -97,6 +97,10 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
 
+                <a href="{% url 'shop:envigoods' %}" style="padding-right: 2rem;">
+                    <img src="{% static '/img/envigoods.png' %}" alt="envigoods" style="width:45px; height:45px;">
+                </a>
+
                 {% if user.is_authenticated %}
                 <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">장바구니(
                     {% if cart|length > 0 %}
@@ -244,6 +248,12 @@
 
     <table>
 
+        <style>
+            tbody {
+            vertical-align: top;
+        }
+        </style>
+
         <colgroup>
             <col width="25%">
             <col width="20%">
@@ -264,7 +274,7 @@
 
             <tr>
                 <td style="line-height: 1rem; color:#2a6049 ">
-                    <p> likelion_8th   </p>
+                    <p> likelion_8th_CAU   </p>
                 </td>
             </tr>
             <tr>
@@ -276,9 +286,9 @@
                     <p>사업자등록번호 : 839-55-00602</p>
                 </td>
                 <td style="line-height: 1.2rem; color:white ">
-                    <p>주소 : 경기도 성남시
-                        <br>수정구 위례광장로 37
-                        <br>SG프라자2 상가 1층 102호
+                    <p>주소 : 경기도 성남시</p>
+                    <p>수정구 위례광장로 37</p>
+                    <p>SG프라자2 상가 1층 102호</p>
                     </p>
                 </td>
                 <td style="line-height: 1.2rem; color:white ">
@@ -301,17 +311,17 @@
     
                         <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
                             <img src="{% static '/img/facebook.png' %}" alt="facebook"
-                                style="margin-right: 20px; width:10px; height:20px;">
+                                style="margin-right: 20px; width:15px; height:30px;">
                         </a>
         
                         <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
                             <img src="{% static 'img/instagram.png' %}" alt="instagram"
-                                style="margin-right: 20px; width:20px; height:20px;">
+                                style="margin-right: 20px; width:30px; height:30px;">
                         </a>
         
                         <a title="kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
                             <img src="{% static 'img/kakaotalk.png' %}" alt="kakao"
-                                style="margin-right: 20px; width:20px; height: 20px;">
+                                style="margin-right: 20px; width:30px; height: 30px;">
                         </a>
     
                     </p>

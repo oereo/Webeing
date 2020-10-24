@@ -6,6 +6,7 @@ app_name = 'shop'
 
 urlpatterns = [
     path('', landingpage, name="home"),
+    path('envigoods/', envigoods, name="envigoods"),
     path('serviceintroduce/', serviceintroduce, name="serviceintroduce"),
     path('main/', restaurant_in_category, name='product_all'),
     path('<slug:category_slug>/', restaurant_in_category, name='restaurant_in_category'),

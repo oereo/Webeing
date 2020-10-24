@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block title %}EnviGoods Page {% endblock %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/envigoods.css' %}"/>
+
+
+<style>
+    #pagecolor {color: #2A6049;}
+    #titlefont {
+        color: white;
+        font-weight: bold;
+    }
+    #my_modal {
+        display: none;
+        width: 300px;
+        padding: 20px 60px;
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 3px;
+    }
+
+    #my_modal .modal_close_btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+</style>
+
+
+<div class="box-container">
+
+    <div class="envi_word" style="position: relative; text-align: center;">
+        <div class="envi_text" id="titlefont" style="position: absolute; z-index:2;">
+            <br><br>
+            <p style="font-size: 3rem;">위빙 굿즈샵</p>
+            <p style="font-size: 1.3rem;">환경을 생각하는 친환경 제품판매를 하는 위빙 굿즈 샵</p>
+        </div>
+        <div style="position: relative;z-index: 1;">
+            <img src="{% static 'img/leaves.jpg' %}" alt="enviword" style="width:100%; height:250px; filter: brightness(40%);">
+        </div>
+    </div>
+
+    <div class="goods_card1">
+
+        <div class="card" id="popup_open_btn" style="width: 19rem;">
+            <img src="{% static '/img/tumblr.jpg' %}" class="card-img-top" alt="tumblr" style="width:19rem; height:200px;">
+            <div class="card-body">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 텀블러</h5>
+              <p class="card-text">환경을 생각한 텀블러 | <span id="pagecolor">10,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="goods_card2">
+
+        <div class="card" id="popup_open_btn" style="text-align:center;width: 19rem;">
+            <img src="{% static '/img/ecobag.png' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 에코백</h5>
+              <p class="card-text">환경을 생각한 에코백 | <span id="pagecolor">5,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="goods_card3">
+
+        <div class="card" id="popup_open_btn" style="text-align:center;width: 19rem;">
+            <img src="{% static '/img/paperbag.jpg' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경소재 종이가방</h5>
+              <p class="card-text">환경을 생각한 종이가방 | <span id="pagecolor">4,000원</span></p>
+              <p class="card-text">별점 | <span id="pagecolor">None 개 판매</span></p>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+
+<div id="my_modal">
+    굿즈 서비스를 준비중입니다.
+    <a class="modal_close_btn">닫기</a>
+</div>
+
+<script>
+    function modal(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
+
+        // 모달 div 뒤에 희끄무레한 레이어
+        var bg = document.createElement('div');
+        bg.setStyle({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            // 레이어 색갈은 여기서 바꾸면 됨
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        });
+        document.body.append(bg);
+
+        // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+        modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+            bg.remove();
+            modal.style.display = 'none';
+        });
+
+        modal.setStyle({
+            position: 'fixed',
+            display: 'block',
+
+            // 시꺼먼 레이어 보다 한칸 위에 보이기
+            zIndex: zIndex + 1,
+
+            // div center 정렬
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        });
+    }
+
+    // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+    Element.prototype.setStyle = function(styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+    };
+
+    document.getElementById('popup_open_btn').addEventListener('click', function() {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+</script>
+
+
+
+{% endblock %}
