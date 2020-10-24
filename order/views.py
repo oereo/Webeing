@@ -52,6 +52,7 @@ def order_complete(request):
     orders = Order.objects.filter(user=user)
     order = Order.objects.filter(user=user).first()
     final = 0
+    orderitems_amount = 0
 
     for item in cart:
         OrderItem.objects.create(order=order, product=item['product'], price=item['price'],
@@ -59,16 +60,21 @@ def order_complete(request):
 
     cart.clear()
 
+    all_env_point = User.objects.all()
+
+    # 총 환경금액 합산 filtering logic
+    total = sum(filter(None, (env_point.env_money for env_point in all_env_point)))
+
     for order in orders:
         temp = OrderItem.objects.filter(order=order)
         for orderitem in temp:
             user_item = orderitem.order
-            final += orderitem.price
+            final += orderitem.price / 10
 
     user_success = User.objects.get(user=user_item)
     user_success.env_money = final
     user_success.save()
-    return render(request, 'order/created.html')
+    return render(request, 'order/created.html', {'orderitems_amount': orderitems_amount, 'total': total})
 
 
 # 결제를 위한 임포트

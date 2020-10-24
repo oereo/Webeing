@@ -8,13 +8,16 @@ from .models import Restaurant, Category, Product, Register, Comment
 
 
 def landingpage(request):
-    return render(request, 'shop/landingpage.html')
+    return render(request, 'shop/landing.html')
+
 
 def serviceintroduce(request):
     return render(request, 'shop/serviceintroduce.html')
 
+
 def envigoods(request):
     return render(request, 'shop/envigoods.html')
+
 
 def restaurant_in_category(request, category_slug=None):
     current_category = None
