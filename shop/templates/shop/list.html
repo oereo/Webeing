@@ -85,10 +85,12 @@
 
             </a>
             {% endfor %}
-            {% if restaurants|length == 0 %}
-            준비중인
-            {% endif %}
 
+            {% if restaurants|length == 0 %}
+            <div style="margin: 2rem;">
+                <p id ="no_restaurant" style="font-size:1.5rem;">등록된 매장과 상품이 없습니다.</p>
+            </div>
+            {% endif %}
         </div>
 
     </div>
