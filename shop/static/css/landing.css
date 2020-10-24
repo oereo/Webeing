@@ -366,14 +366,14 @@ a:focus {
 
 #background_img {
     background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8) 30%, rgba(100, 100, 100, 0.6) 100%), url('../../../static/img/background.jpg');
-	z-index:2;
+    z-index: 2;
 
     background-size: cover;
     /* background-size : contain; */
-	background-size : 100% 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     /*position:fixed;*/
-	background-attachment: fixed;
+    background-attachment: fixed;
 }
 
 
@@ -408,17 +408,20 @@ a:focus {
 }
 
 #titleho {
-    color:white;
+    color: white;
     transition: color 1s ease-in-out;
     -moz-transition: color 1s ease-in-out;
     -webkit-transition: color 1s ease-in-out;
 }
+
 #titleho:hover {
     color: #2A6049;
     transition: color .55s ease-in-out;
     -moz-transition: color .55s ease-in-out;
     -webkit-transition: color .55s ease-in-out;
-}​
+}
+
+​
 
 @media screen and (max-width: 36em) {
     .content--layout {
@@ -445,80 +448,155 @@ a:focus {
 }
 
 .hero {
-	// min-height: 100vh;
-	min-height: 30rem;
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-content: center;
+/ / min-height: 100 vh;
+    min-height: 30rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 
-	&__content {
-		position: relative;
-		align-self: center;
-		padding: 3rem 0;
-	}
+&
+__content {
+    position: relative;
+    align-self: center;
+    padding: 3rem 0;
+}
+
 }
 
 .snow {
-	position: absolute;
-	min-width: 100vw;
-	min-height: 100vh;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .snow .svg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 #snow-top-layer {
-	will-change: transform;
-	transform: translateY(-768px);
-	animation: fall 22.5s infinite linear;
+    will-change: transform;
+    transform: translateY(-768px);
+    animation: fall 22.5s infinite linear;
 }
 
 #snow-bottom-layer {
-	will-change: transform;
-	transform: translateY(-768px);
-	animation: fall 45s infinite linear;
+    will-change: transform;
+    transform: translateY(-768px);
+    animation: fall 45s infinite linear;
 }
 
 @keyframes fall {
 
-	100% {
-		transform: translateY(0);
-	}
+    100% {
+        transform: translateY(0);
+    }
 
 }
 
-.background_fourimg{
-	display: grid;
+.background_fourimg {
+    display: grid;
 
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 
-	grid-template-areas:
+    grid-template-areas:
 		"back11 back12 back21 back22"
 }
 
 .backimg {
-	background-color: black;
-	z-index: 5;
-	width: auto;
-	height:1000px;
+    background-color: black;
+    z-index: 5;
+    width: auto;
+    height: 1000px;
     opacity: 0.6;
     transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -webkit-transition: opacity 1s ease-in-out;
 }
+
 .backimg:hover {
     opacity: 0;
     transition: opacity .55s ease-in-out;
     -moz-transition: opacity .55s ease-in-out;
     -webkit-transition: opacity .55s ease-in-out;
+}
+
+
+.wave {
+    width: 1700px;
+    height: 1100px;
+    /*z-index: 40;*/
+    margin-top:-300px;
+    background-size: cover;
+    /* background-size : contain; */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*position:fixed;*/
+    background-attachment: fixed;
+}
+
+.wave span {
+    z-index: 100;
+    display: none;
+    font-size: 50px;
+    position: absolute;
+    left: 400px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+.svg-wrapper {
+    text-align: center;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+}
+
+.shape {
+    fill: transparent;
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    stroke: #19f6e8;
+}
+
+.text {
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 62px;
+    letter-spacing: 8px;
+    line-height: 32px;
+    position: relative;
+    top: -48px;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: 15px;
+    }
+    100% {
+        stroke-dasharray: 760;
+        stroke-dashoffset: 0;
+        stroke-width: 3px;
+    }
+}
+
+.svg-wrapper:hover .shape {
+    -webkit-animation: 0.5s draw linear forwards;
+    animation: 0.5s draw linear forwards;
 }
