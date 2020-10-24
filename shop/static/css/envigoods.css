@@ -46,3 +46,6 @@
 .goods-card3{
     grid-area:goods-card3;
 }
+#no_restaurant{
+    margin-left: 6rem;
+}
