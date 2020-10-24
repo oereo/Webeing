@@ -1,6 +1,7 @@
 .box-container {
     display: grid;
     row-gap: 20px;
+    justify-content: center;
 
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 250px 1fr;
@@ -8,6 +9,8 @@
     grid-template-areas:
         "envi_word envi_word envi_word"
         "goods_card1 goods_card2 goods_card3"
+
+
 }
 
 .item:nth-child(1) {
@@ -33,3 +36,14 @@
     z-index: 1;
     position: relative;
 }
+
+.goods-card1{
+    grid-area:goods-card1;
+}
+.goods-card2{
+    grid-area:goods-card2;
+}
+.goods-card3{
+    grid-area:goods-card3;
+}
+

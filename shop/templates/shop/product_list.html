@@ -114,8 +114,13 @@
             <td id="blog_title" style="width : 500px;">{{post.body}}</td>
             <td id="blog_owner">{{post.owner}}</td>
             <td>
-                <a href="{% url 'shop:deletecomment' post.id %}" style="color:#2A6049">X</a>
+                {% if post.id != user.email %}
+                <p style="color:#2A6049">X</p>
                 <!-- <button class = "btn btn-success"onclick="location.href='{% url 'shop:deletecomment' post.id %}'">X</button> -->
+                {% else %}
+                <a href="{% url 'shop:deletecomment' post.id %}" style="color:#2A6049">X</a>
+                
+                {% endif %}
             </td>
         </tr>
         {% endfor %}
