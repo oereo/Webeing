@@ -20,7 +20,6 @@
         border: 1px solid #888;
         border-radius: 3px;
     }
-
     #my_modal .modal_close_btn {
         position: absolute;
         top: 10px;
@@ -44,7 +43,7 @@
 
     <div class="goods_card1">
 
-        <div class="card" id="popup_open_btn" style="width: 19rem;">
+        <div class="card" id="popup_open_btn1" style="width: 19rem;">
             <img src="{% static '/img/tumblr.jpg' %}" class="card-img-top" alt="tumblr" style="width:19rem; height:200px;">
             <div class="card-body">
               <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 텀블러</h5>
@@ -57,7 +56,7 @@
 
     <div class="goods_card2">
 
-        <div class="card" id="popup_open_btn" style="text-align:center;width: 19rem;">
+        <div class="card" id="popup_open_btn2" style="text-align:center;width: 19rem;">
             <img src="{% static '/img/ecobag.png' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
             <div class="card-body" style="text-align: center;">
               <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경 에코백</h5>
@@ -70,7 +69,7 @@
 
     <div class="goods_card3">
 
-        <div class="card" id="popup_open_btn" style="text-align:center;width: 19rem;">
+        <div class="card" id="popup_open_btn3" style="text-align:center;width: 19rem;">
             <img src="{% static '/img/paperbag.jpg' %}" class="card-img-top" alt="..." style="width:19rem; height:200px;">
             <div class="card-body" style="text-align: center;">
               <h5 class="card-title" id="pagecolor" style="font-weight: bold;">친환경소재 종이가방</h5>
@@ -87,7 +86,7 @@
 
 <div id="my_modal">
     굿즈 서비스를 준비중입니다.
-    <a class="modal_close_btn">닫기</a>
+    <a class="modal_close_btn" style="float:right;">X</a>
 </div>
 
 <script>
@@ -138,12 +137,20 @@
         return this;
     };
 
-    document.getElementById('popup_open_btn').addEventListener('click', function() {
+    document.getElementById('popup_open_btn1').addEventListener('click', function() {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+    document.getElementById('popup_open_btn2').addEventListener('click', function() {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+    document.getElementById('popup_open_btn3').addEventListener('click', function() {
         // 모달창 띄우기
         modal('my_modal');
     });
 </script>
 
-
-
+    
+    
 {% endblock %}
