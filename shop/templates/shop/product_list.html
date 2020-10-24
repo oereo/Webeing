@@ -45,7 +45,7 @@
 
         <div class="storeinfo">
             <p id="restaurantfont">{{current_restaurant.name}}</p>
-            <p>거리 | 500m 이내</p>
+            <p>전화번호 | {{current_restaurant.call_number}}</p>
             <p>지도 | <a href="#restaurant_location" style="color:black" >위치보기</a></p>
             <!-- <p>별별별별별 4.7</p> -->
         </div>
@@ -114,12 +114,8 @@
             <td id="blog_title" style="width : 500px;">{{post.body}}</td>
             <td id="blog_owner">{{post.owner}}</td>
             <td>
-                {% if post.id != user.email %}
-                <p style="color:#2A6049">X</p>
-                <!-- <button class = "btn btn-success"onclick="location.href='{% url 'shop:deletecomment' post.id %}'">X</button> -->
-                {% else %}
-                <a href="{% url 'shop:deletecomment' post.id %}" style="color:#2A6049">X</a>
-                
+                {% if owner.id == user.email %}
+                    <a href="{% url 'shop:deletecomment' post.id %}" style="color:#2A6049">X</a>
                 {% endif %}
             </td>
         </tr>
