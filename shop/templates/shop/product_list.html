@@ -121,6 +121,12 @@
     </div>
     {% endfor %}
 
+    {% if products|length == 0 %}
+    <div style="margin: 2rem;">
+        <p id ="no_restaurant" style="font-size:1.5rem;">상품을 준비중입니다.</p>
+    </div>
+    {% endif %}
+
 </div>
 
 <div style="margin-bottom:50px;">
