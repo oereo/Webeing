@@ -32,8 +32,12 @@
 
     <!-- naver 지도 api -->
     <!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=42e319a57t"></script> -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=098fc9424b92d3acea88e66ad598a90b&libraries=services,clusterer,drawing"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=098fc9424b92d3acea88e66ad598a90b"></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=098fc9424b92d3acea88e66ad598a90b&libraries=services,clusterer,drawing"></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=098fc9424b92d3acea88e66ad598a90b"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     {% block head %}
     {% endblock %}
@@ -48,12 +52,14 @@
             border-color: #2A6049;
             color: #2A6049;
         }
+
         /* .btn-outline-success:hover, */
         .btn-outline-success:focus {
             border-color: #2A6049;
             background-color: #FBF9F1;
-            color: #2A6049; 
+            color: #2A6049;
         }
+
         /* .btn-primary:active,
         .btn-primary:visited,
         .btn-primary:active:focus, */
@@ -61,22 +67,26 @@
         .btn-outline-success:hover {
             border-color: #2A6049;
             background-color: #FBF9F1;
-            color: #2A6049; 
+            color: #2A6049;
         }
+
         .btn-success {
-        background-color: #2A6049;
-        border-color: #2A6049;
-        color: white;
+            background-color: #2A6049;
+            border-color: #2A6049;
+            color: white;
         }
+
         .btn-success:focus {
             border-color: #2A6049;
-            color: white;    
+            color: white;
         }
+
         .btn-success:hover {
             border-color: #2A6049;
             background-color: #2A6049;
-            color: white; 
+            color: white;
         }
+
         .dropdown-menu li > a:focus {
             background-color: #2A6049;
         }
@@ -85,7 +95,7 @@
 </head>
 
 <body style="background-color:#FBF9F1;">
-    
+
 <div id="nav" style="margin: 0px 200px 40px 200px;">
     <b-navbar toggleable="lg" type="light" variant="#FBF9F1">
         <a href="/main"><img src="{% static '/img/webeing.png'%}" alt="webeing" style="width:80px; height:80px;"></a>
@@ -250,8 +260,8 @@
 
         <style>
             tbody {
-            vertical-align: top;
-        }
+                vertical-align: top;
+            }
         </style>
 
         <colgroup>
@@ -263,70 +273,70 @@
         </colgroup>
 
         <thead style="line-height: 3rem; color:white;">
-            <td id="footerfont">COMPANY</td>
-            <td id="footerfont">INFORMATION</td>
-            <td id="footerfont">DEVELOPERS</td>
-            <td id="footerfont">HELPFUL</td>
-            <td id="footerfont">CONTACT-US</td>
+        <td id="footerfont">COMPANY</td>
+        <td id="footerfont">INFORMATION</td>
+        <td id="footerfont">DEVELOPERS</td>
+        <td id="footerfont">HELPFUL</td>
+        <td id="footerfont">CONTACT-US</td>
         </thead>
 
         <tbody>
 
-            <tr>
-                <td style="line-height: 1rem; color:#2a6049 ">
-                    <p> likelion_8th_CAU   </p>
-                </td>
-            </tr>
-            <tr>
-                <td style="line-height: 1.8rem; color: white;">    
-                    <p>상호 : 위빙(Webeing)</p>
-                    <!-- <p>대표 : 이상륜</p> -->
-                    <p>개인정보관리책임자 : 한승조</p>
-                    <p>개인정보담당자 : slowwvibes@gmail.com</p>
-                    <p>사업자등록번호 : 839-55-00602</p>
-                </td>
-                <td style="line-height: 1.2rem; color:white ">
-                    <p>주소 : 경기도 성남시</p>
-                    <p>수정구 위례광장로 37</p>
-                    <p>SG프라자2 상가 1층 102호</p>
-                    </p>
-                </td>
-                <td style="line-height: 1.2rem; color:white ">
-                    <p>한승조</p>
-                    <p>인세훈</p>
-                    <p>이찬규</p>
-                    <p>김재욱</p>
-                    <p>최진영</p>
-                </td>
-                <td style="line-height: 1.2rem; color:white ">
-                    <p><a href="{% url 'tos_user_use' %}" style="color:white">이용약관</a></p>
-                    <p><a href="{% url 'tos_user_private' %}" style="color:white">개인정보처리방침</a></p>
-                    <p><a href="{% url 'shop:serviceintroduce' %}" style="color:white">서비스 자세히알기</a></p>
-                </td>
-                <td style="line-height: 1.2rem;">
-                    <p style="color:white">문의전화 : 010-9228-0236</p>
-                    <p style="color:white">제휴 및 문의메일 : we-being@naver.com</p>
-                    <br>
-                    <p>
-    
-                        <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
-                            <img src="{% static '/img/facebook.png' %}" alt="facebook"
-                                style="margin-right: 20px; width:15px; height:30px;">
-                        </a>
-        
-                        <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
-                            <img src="{% static 'img/instagram.png' %}" alt="instagram"
-                                style="margin-right: 20px; width:30px; height:30px;">
-                        </a>
-        
-                        <a title="kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
-                            <img src="{% static 'img/kakaotalk.png' %}" alt="kakao"
-                                style="margin-right: 20px; width:30px; height: 30px;">
-                        </a>
-    
-                    </p>
-                </td>
-            </tr>
+        <tr>
+            <td style="line-height: 1rem; color:#2a6049 ">
+                <p> likelion_8th_CAU </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="line-height: 1.8rem; color: white;">
+                <p>상호 : 위빙(Webeing)</p>
+                <!-- <p>대표 : 이상륜</p> -->
+                <p>개인정보관리책임자 : 한승조</p>
+                <p>개인정보담당자 : slowwvibes@gmail.com</p>
+                <p>사업자등록번호 : 839-55-00602</p>
+            </td>
+            <td style="line-height: 1.2rem; color:white ">
+                <p>주소 : 경기도 성남시</p>
+                <p>수정구 위례광장로 37</p>
+                <p>SG프라자2 상가 1층 102호</p>
+                </p>
+            </td>
+            <td style="line-height: 1.2rem; color:white ">
+                <p>한승조</p>
+                <p>인세훈</p>
+                <p>이찬규</p>
+                <p>김재욱</p>
+                <p>최진영</p>
+            </td>
+            <td style="line-height: 1.2rem; color:white ">
+                <p><a href="{% url 'tos_user_use' %}" style="color:white">이용약관</a></p>
+                <p><a href="{% url 'tos_user_private' %}" style="color:white">개인정보처리방침</a></p>
+                <p><a href="{% url 'shop:serviceintroduce' %}" style="color:white">서비스 자세히알기</a></p>
+            </td>
+            <td style="line-height: 1.2rem;">
+                <p style="color:white">문의전화 : 010-9228-0236</p>
+                <p style="color:white">제휴 및 문의메일 : we-being@naver.com</p>
+                <br>
+                <p>
+
+                    <a title="facebook" href="https://www.facebook.com/We-being-100435421763637" target="_blanck">
+                        <img src="{% static '/img/facebook.png' %}" alt="facebook"
+                             style="margin-right: 20px; width:15px; height:30px;">
+                    </a>
+
+                    <a title="instagram" href="https://www.instagram.com/we_being/" target="_blank">
+                        <img src="{% static 'img/instagram.png' %}" alt="instagram"
+                             style="margin-right: 20px; width:30px; height:30px;">
+                    </a>
+
+                    <a title="kakaotalk" href="http://pf.kakao.com/_sSYyxb" target="_blank">
+                        <img src="{% static 'img/kakaotalk.png' %}" alt="kakao"
+                             style="margin-right: 20px; width:30px; height: 30px;">
+                    </a>
+
+                </p>
+            </td>
+        </tr>
 
         </tbody>
 
@@ -334,7 +344,7 @@
 
     <br>
     <p class="text-center" style="color: white">2020 @ copyright by WEBEING | All Right Reservered</p>
- 
+
 
     <!-- <div class="footer-container" style="padding:50px;">
 

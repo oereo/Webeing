@@ -29,17 +29,33 @@ def login_user(request):
 def signup_customer(request):
     if request.method == "POST":
         if request.POST['password'] == request.POST['password_confirm']:
-            user = User.objects.create_user(
-                # request.POST['email'],
-                phone_number=request.POST['phonenumber'],
-                password=request.POST['password'],
-                email=request.POST['username'],
-                nickname=request.POST['nickname'],
-            )
-            auth.login(request, user)
+            phone_number = request.POST['phonenumber']
+            email = request.POST['username']
 
-        return redirect('/main/')
+            if not User.objects.filter(phone_number=phone_number).exists():
+                user = User.objects.create_user(
+                    # request.POST['email'],
+                    phone_number=request.POST['phonenumber'],
+                    password=request.POST['password'],
+                    email=request.POST['username'],
+                    nickname=request.POST['nickname'],
+                )
+                auth.login(request, user)
 
+                return redirect('/main/')
+
+            elif User.objects.filter(email=email).exists():
+                err = 3
+                return render(request, 'signupcustomer.html', {'err': err})
+            else:
+                message = "이미 가입된 계정이 있거나 기입된 내용이 중복됩니다."
+                err = 1
+                return render(request, 'signupcustomer.html', {'message': message, 'err': err})
+
+        else:
+            message = "비밀번호가 일치하지 않습니다."
+            err = 2
+            return render(request, 'signupcustomer.html', {'message': message, 'err': err})
     else:
         form = UserCreationForm()
     return render(request, 'signupcustomer.html', {'form': form})
@@ -63,8 +79,9 @@ def signup_seller(request):
         return redirect('/main/')
 
     else:
+        err = 1
         form = UserCreationForm()
-    return render(request, 'signupseller.html', {'form': form})
+    return render(request, 'signupseller.html', {'form': form, 'err': err})
 
 
 def logout(request):
@@ -109,12 +126,14 @@ def signup(request):
 def tos_seller_use(request):
     return render(request, 'tos_seller_use.html')
 
+
 def tos_seller_private(request):
     return render(request, 'tos_seller_private.html')
 
 
 def tos_user_use(request):
     return render(request, 'tos_user_use.html')
+
 
 def tos_user_private(request):
     return render(request, 'tos_user_private.html')

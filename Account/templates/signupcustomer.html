@@ -138,10 +138,22 @@
     
           <!-- <li><button class="fpmgBt1">비동의</button></li> -->
           <p class = "text-center">
-            <input class="btn btn-success btn-large" type="submit" style = "width: 400px; "></input>
+            <input class="btn btn-success btn-large" type="submit" style = "width: 400px;"></input>
+
+<!--            {% if err == 1 %}-->
+<!--            <input class="btn btn-success btn-large" type="submit" style = "width: 400px;" onclick = "-->
+<!--                    var a= alert('전화번호가 중복됩니다.');"></input>-->
+<!--            {% elif err == 2 %}-->
+<!--            <input class="btn btn-success btn-large" type="submit" style = "width: 400px;" onclick = "-->
+<!--                    var a= alert('비밀번호가 일치하지 않습니다.');"></input>-->
+<!--            {% elif err == 3 %}-->
+<!--            <input class="btn btn-success btn-large" type="submit" style = "width: 400px;" onclick = "-->
+<!--                    var a= alert('이미 가입된 계정이 있습니다.');"></input>-->
+<!--            {% else %}-->
+<!--            {% endif %}-->
+
           </p>
-              <!-- <li><button class="fpmgBt2">동의</button></li> -->
-        
+
         </div>
           
       </form>
@@ -173,6 +185,13 @@
     }
 
   </script>
+<script>
+
+    function mypage_click() {
+      alert('로그인을 해주세요.');
+    }
+  </script>
+
 
 
 {% endblock %}
