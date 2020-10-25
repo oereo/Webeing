@@ -117,3 +117,9 @@ dmypy.json
 .idea
 
 .DS_Store
+
+# settings.py
+Webeing/settings.py
+
+#payment.html
+
